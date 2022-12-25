@@ -1,13 +1,12 @@
 import './App.css';
-import AddCardPage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage'
+import HomePageMain from './ComponentFolders/HomePage/HomePageMain';
 
 
 function App() {
    return (
-    <>
-    <div> Hello World! </div>
-    <AddCardPage/>
-    </>
+   
+    <HomePageMain/>
+   
    )
 }
 
