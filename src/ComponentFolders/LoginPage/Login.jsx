@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import Image from "./Images/Login(sofa).svg"
+import Image from "./Images/LoginSofa.svg"
 
 function Login() {
     const [loginData, setLoginData] = useState({
@@ -15,7 +15,6 @@ function Login() {
             }
         })
     }
-    console.log(loginData)
 
     return (
         <div className='flex justify-center my-10'>
