@@ -1,5 +1,7 @@
 import React from 'react'
-
+import image1 from './Images/FacebookLogo.svg'
+import image2 from './Images/GoogleLogo.svg'
+import image3 from './Images/TwitterLogo.svg'
 import image4 from './Images/SubscribeArrow.svg'
 
 
@@ -21,7 +23,28 @@ function Footer() {
         </div>
       </div>
       </div>
-
+      <div>
+      <div className='grid gap-x-8 grid-cols-4 absolute w-[500px] h-[160px] right-1/4 top-[65px] text-SubTexts font-normal  text-xl leading-5 tracking-[0.075px]'>
+          <ul>
+            <li>Home</li>
+          </ul>
+          <ul>
+            <li>Blogs</li>
+          </ul>
+          <ul>
+            <li>About</li>
+          </ul>
+          <ul>
+            <li>Contact</li>
+          </ul>
+        
+        <div className='flex flex-row md:flex-auto mx-8 space-x-4 '>
+            <img src={image1} alt='Facebook Logo'/>
+            <img src={image2} alt='Google Logo'/>
+            <img src={image3} alt='Twitter Logo'/>
+      </div>
+      </div>
+      </div>
       
       
      
