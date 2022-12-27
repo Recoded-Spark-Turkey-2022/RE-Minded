@@ -3,10 +3,9 @@ module.exports = {
   content: ['./src/**/*.{js,jsx,ts,tsx}'],
   theme: {
     extend: {
-       backgroundImage: {
-        'Background': "url('/src/ComponentsFolders/HomePage/Images/Background.svg')",
-  
-      }
+       yellow: {
+          primary: '#FEE89E',
+        },
     },
   },
   plugins: [],
