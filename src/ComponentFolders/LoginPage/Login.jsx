@@ -20,7 +20,7 @@ function Login() {
   }
 
   return (
-    <div className="flex justify-center my-10">
+    <div className="flex justify-center my-10 md:flex-wrap min-w-[767px]">
       <div>
         <h2 className='text-5xl font-["Poppins"] font-normal mb-28'>LOGIN</h2>
         <form className="grid grid-rows-3 gap-12 shadow-2xl px-10 py-10">
