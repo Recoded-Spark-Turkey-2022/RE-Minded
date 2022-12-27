@@ -1,13 +1,11 @@
 import './App.css';
-import AddCardPage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage'
-
+import NavBar from './ComponentFolders/Navbar/Navbar';
 
 function App() {
    return (
-    <>
-    <div> Hello World! </div>
-    <AddCardPage/>
-    </>
+    
+    <NavBar />
+    
    )
 }
 

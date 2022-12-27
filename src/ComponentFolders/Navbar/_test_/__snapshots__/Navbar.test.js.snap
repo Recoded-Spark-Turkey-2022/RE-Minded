@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[` 1`] = `[Function]`;
+
+exports[`Navbar test snapshot 1`] = `[Function]`;
+
+exports[`renderer 1`] = `[Function]`;
+
+exports[`renders  1`] = `[Function]`;
