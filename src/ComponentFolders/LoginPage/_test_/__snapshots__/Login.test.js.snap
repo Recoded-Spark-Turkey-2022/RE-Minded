@@ -2,7 +2,7 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="flex justify-center my-10"
+  className="flex justify-center my-10 md:flex-wrap min-w-[767px]"
 >
   <div>
     <h2
@@ -46,6 +46,33 @@ exports[`renders correctly 1`] = `
         </button>
       </div>
     </form>
+    <div
+      className="flex justify-around my-6"
+    >
+      <img
+        alt="A line"
+        src="line.svg"
+      />
+      <p>
+        Or
+      </p>
+      <img
+        alt="A line"
+        src="line.svg"
+      />
+    </div>
+    <div
+      className="flex justify-center my-6 gap-x-20"
+    >
+      <img
+        alt="Facebook logo"
+        src="FacebookLogo.svg"
+      />
+      <img
+        alt="Google logo"
+        src="GoogleLogo.svg"
+      />
+    </div>
   </div>
   <img
     alt="Login"
