@@ -1,0 +1,56 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders correctly 1`] = `
+<div
+  className="flex justify-center my-10"
+>
+  <div>
+    <h2
+      className="text-5xl font-[\\"Poppins\\"] font-normal mb-28"
+    >
+      LOGIN
+    </h2>
+    <form
+      className="grid grid-rows-3 gap-12 shadow-2xl px-10 py-10"
+    >
+      <input
+        className="h-20 broder-solid border-2 border-[#D1DBE3] rounded-md"
+        name="userEmail"
+        onChange={[Function]}
+        placeholder="   Your Email"
+        type="text"
+        value=""
+      />
+      <input
+        className="h-20 broder-solid border-2 border-[#D1DBE3] rounded-md"
+        name="userPassword"
+        onChange={[Function]}
+        placeholder="   Your Password"
+        type="text"
+        value=""
+      />
+      <div
+        className="flex justify-around py-3 gap-8"
+      >
+        <button
+          className="bg-[#2DD3E3] font-medium text-2xl px-14 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
+          type="submit"
+        >
+          Login
+        </button>
+        <button
+          className="broder-solid border-2 border-[#2DD3E3] font-medium text-2xl px-14 rounded-md"
+          type="submit"
+        >
+          Signup
+        </button>
+      </div>
+    </form>
+  </div>
+  <img
+    alt="Login"
+    className="m-[150px]"
+    src="LoginSofa.svg"
+  />
+</div>
+`;
