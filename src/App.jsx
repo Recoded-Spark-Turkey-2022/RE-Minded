@@ -1,12 +1,14 @@
 import './App.css';
-import AddCardPage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage'
+import About from './ComponentFolders/AboutPage/About';
+// import AddCardPage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage'
 
 
 function App() {
    return (
     <>
-    <div> Hello World! </div>
-    <AddCardPage/>
+    {/* <div> Hello World! </div> */}
+    {/* <AddCardPage/> */}
+    <About/>
     </>
    )
 }
