@@ -3,11 +3,12 @@ import VoiceCall from './Images/ContentC(VoiceCall).svg';
 import VideoCall from './Images/ContentC(VideoCall).svg';
 import Chat from './Images/ContentC(Chat).svg';
 
-
 function ContentC() {
   return (
     <>
-      <h1> WE CAN COMMUNICATE THROUGH </h1>
+      <h1 className="sm:text-xl md:text-4xl xl:text-title pb-2 mb-2">
+        WE CAN COMMUNICATE THROUGH
+      </h1>
       <div>
         <div>
           <img src={VoiceCall} alt="voice call" />

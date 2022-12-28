@@ -1,7 +1,6 @@
 import React from 'react';
 import Background from './Images/Background.svg';
 import Sofa from './Images/ContentA(sofa).svg';
-import './main.css';
 
 function ContentA() {
   return (
