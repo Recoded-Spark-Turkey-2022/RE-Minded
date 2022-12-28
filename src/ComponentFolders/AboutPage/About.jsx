@@ -7,12 +7,11 @@ function About() {
   return (
     <section>
       <div className='w-screen h-screen grid grid-rows-2'>
-          <div className=' w-full h-full'>
+          <div className='w-full h-full'>
           <ContentA />
           </div>
 
-          {/* page 2 */}
-          <div className='w-full h-full bg-blue'>
+          <div className='w-full h-full'>
           <ContentB/>
           </div>
       </div>

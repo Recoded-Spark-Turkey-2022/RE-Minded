@@ -2,7 +2,7 @@ import React from 'react'
 
 function ContentA() {
   return (
-    <div className='relative h-full'>
+    <div className='relative w-full lg:h-full sm:h-[20vh]'>
         <h2 className="absolute font-poppins leading-[75px] text-medium lg:text-5xl text-black tracking-[-0.01em] left-[13%] top-[13%]">
           HEALING!
         </h2>
