@@ -20,9 +20,9 @@ function Login() {
   }
 
   return (
-    <div className="flex justify-center my-10 md:flex-wrap min-w-[767px]">
+    <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20">
       <div>
-        <h2 className='text-5xl font-["Poppins"] font-normal mb-28'>LOGIN</h2>
+        <h2 className='text-5xl font-["Poppins"] font-normal mb-44 max-[767px]:mt-20 md:mt-20 max-[767px]:mb-10 md:mb-10'>LOGIN</h2>
         <form className="grid grid-rows-3 gap-12 shadow-2xl px-10 py-10">
           <input
             type="text"
@@ -61,12 +61,12 @@ function Login() {
           <img src={lineImage} alt="A line" />
         </div>
         <div className="flex justify-center my-6 gap-x-20">
-          <img src={FacebookLogo} alt="Facebook logo" />
-          <img src={GoogleLogo} alt="Google logo" />
+          <img src={FacebookLogo} alt="Facebook logo" className='cursor-pointer'/>
+          <img src={GoogleLogo} alt="Google logo" className='cursor-pointer'/>
         </div>
       </div>
 
-      <img src={Image} alt="Login" className="m-[150px]" />
+      <img src={Image} alt="Login" className='max-[767px]:mt-20 md:mt-20'/>
     </div>
   );
 }
