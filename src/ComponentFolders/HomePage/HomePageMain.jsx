@@ -1,7 +1,8 @@
 import React from "react";
 import ContentA  from "./ContentA";
 import ContentB from "./ContentB";
-import ContentC from "./ContentC"
+import ContentC from "./ContentC";
+import ContentD from './ContentD';
 
 
 function HomePageMain () {
@@ -10,6 +11,7 @@ function HomePageMain () {
         <ContentA />
         <ContentB />
         <ContentC />
+        <ContentD />
       </>
     );
 }
