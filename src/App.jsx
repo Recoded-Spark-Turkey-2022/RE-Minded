@@ -1,13 +1,13 @@
 import './App.css';
-import AddCardPage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage'
+
+import ThankYou from './ComponentFolders/ThankYouPage/ThankYou';
 
 
 function App() {
    return (
-    <>
-    <div> Hello World! </div>
-    <AddCardPage/>
-    </>
+    
+    <ThankYou/>
+    
    )
 }
 
