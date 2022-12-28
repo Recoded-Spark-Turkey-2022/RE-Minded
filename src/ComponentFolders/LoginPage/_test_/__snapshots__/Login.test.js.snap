@@ -2,11 +2,11 @@
 
 exports[`renders correctly 1`] = `
 <div
-  className="flex justify-center my-10 md:flex-wrap min-w-[767px]"
+  className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20"
 >
   <div>
     <h2
-      className="text-5xl font-[\\"Poppins\\"] font-normal mb-28"
+      className="text-5xl font-[\\"Poppins\\"] font-normal mb-44 max-[767px]:mt-20 md:mt-20 max-[767px]:mb-10 md:mb-10"
     >
       LOGIN
     </h2>
@@ -66,17 +66,19 @@ exports[`renders correctly 1`] = `
     >
       <img
         alt="Facebook logo"
+        className="cursor-pointer"
         src="FacebookLogo.svg"
       />
       <img
         alt="Google logo"
+        className="cursor-pointer"
         src="GoogleLogo.svg"
       />
     </div>
   </div>
   <img
     alt="Login"
-    className="m-[150px]"
+    className="max-[767px]:mt-20 md:mt-20"
     src="LoginSofa.svg"
   />
 </div>
