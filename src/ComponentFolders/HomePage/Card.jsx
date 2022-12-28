@@ -1,15 +1,11 @@
 import React from 'react';
 
-function Card({ cards }) {
+function Card({ image, title, content }) {
   return (
     <div>
-      {cards.map((card) => (
-        <div key={card.title}>
-          <h2>{card.title}</h2>
-          <img src={card.image} alt="call" />
-          <p>{card.content}</p>
-        </div>
-      ))}
+        <h1>{title}</h1>
+        <img src={image} alt={title}/>
+        <p>{content}</p>
     </div>
   );
 }
