@@ -21,3 +21,5 @@ function Card({ image, title, content, price, ticket, button }) {
 }
 
 export default Card;
+
+
