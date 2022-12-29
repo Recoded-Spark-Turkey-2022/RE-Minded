@@ -17,11 +17,11 @@ function ContentE() {
 
         <Card ticket="50 TICKETS" price="70$" button="PURCHASE" />
       </div>
-      <div className=" font-poppins flex flex-col justify-around items-center p-4 rounded-lg h-1/3 lg:mx-16">
+      <div className=" font-poppins flex flex-col justify-around items-center p-4 rounded-lg h-1/3 lg:mx-16 my-4  shadow-lg ">
         <h1 className="text-2xl lg:text-3xl uppercase text-center py-4">
           ARE YOU A COUNSELOR?
         </h1>
-        <p className="font-poppins w-3/4  md:text-md  text-justify md:text-center text-opacity-50">
+        <p className="font-poppins w-2/4  md:text-md  text-justify md:text-center text-opacity-50">
           Interested in joining our mental health platform? You decide your
           schedule and how much you want to work, well take care of the client
           referrals and billing details!
