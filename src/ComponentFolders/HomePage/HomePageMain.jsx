@@ -3,6 +3,7 @@ import ContentA  from "./ContentA";
 import ContentB from "./ContentB";
 import ContentC from "./ContentC";
 import ContentD from './ContentD';
+import ContentE from './ContentE';
 
 
 function HomePageMain () {
@@ -12,6 +13,7 @@ function HomePageMain () {
         <ContentB />
         <ContentC />
         <ContentD />
+        <ContentE />
       </>
     );
 }
