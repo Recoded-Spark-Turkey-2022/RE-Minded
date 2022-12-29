@@ -6,18 +6,6 @@ module.exports = {
       fontFamily : {
         poppins:['Poppins']
       },
-      spacing: {
-        128: '32rem'
-      },
-      fontSize:{
-        large: '3rem',
-        medium: '1.75rem',
-        small: '1rem',
-        xsmall: '0.6rem'
-      },
-      colors:{
-        lightBlue: '#EAF8F9'
-      },
       screens:{
         sm:'320px',
         md:'640px'
