@@ -1,9 +1,9 @@
 import renderer from 'react-test-renderer';
-import Login from "../Login";
+import SignUp from "../SignUp";
 
 it('renders correctly', () => {
     const loginComponent = renderer
-        .create(<Login />)
+        .create(<SignUp />)
         .toJSON();
     expect(loginComponent).toMatchSnapshot();
 });

@@ -1,14 +1,14 @@
 import './App.css';
-import AddCardPage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage'
-
+/* import Login from './ComponentFolders/LoginPage/Login'; */
+import SignUp from './ComponentFolders/SignUpPage/SignUp';
 
 function App() {
    return (
-    <>
-    <div> Hello World! </div>
-    <AddCardPage/>
-    </>
-   )
+      <>
+         {/* <Login /> */}
+         <SignUp />
+      </>
+   );
 }
 
 export default App;
