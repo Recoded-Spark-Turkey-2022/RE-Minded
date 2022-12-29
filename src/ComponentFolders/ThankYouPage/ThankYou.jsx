@@ -1,6 +1,6 @@
 import React from 'react'
 
-const ThankYou = () => {
+const ThankYou = ({ content }) => {
   return (
     <div className='flex flex-col w-screen h-screen font-poppins text-black tracking-[-0.01em]'>
 
@@ -8,9 +8,9 @@ const ThankYou = () => {
         THANK YOU!
       </h1>
       <div>
-        <p className='absolute flex flex-wrap w-[1273px] h-[36px] top-[251px] left-[84px] sm:text-lg leading-6 text-2xl lg:text-3xl leading-9 text-SubTexts'>
-          Your email has been added to the mailing list successfully!
-        </p>
+        <div className='absolute flex flex-wrap w-[1273px] h-[36px] top-[251px] left-[84px] sm:text-lg leading-6 text-2xl lg:text-3xl leading-9 text-SubTexts'>
+          {content}
+        </div>
       </div>
 
       <div>
