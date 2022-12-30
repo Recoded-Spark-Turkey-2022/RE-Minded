@@ -1,16 +1,20 @@
 import './App.css';
 import About from './ComponentFolders/AboutPage/About';
-// import AddCardPage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage'
-
+import HomePageMain from './ComponentFolders/HomePage/HomePageMain';
+/* import Login from './ComponentFolders/LoginPage/Login'; */
+import SignUp from './ComponentFolders/SignUpPage/SignUp';
 
 function App() {
    return (
-    <>
-    {/* <div> Hello World! </div> */}
-    {/* <AddCardPage/> */}
-    <About/>
-    </>
-   )
+
+      <>
+         {/* <Login /> */}
+         <SignUp />
+         <HomePageMain/>
+         <About/>
+      </>
+   );
+
 }
 
 export default App;
