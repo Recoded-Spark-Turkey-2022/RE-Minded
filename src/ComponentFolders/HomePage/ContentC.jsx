@@ -16,6 +16,9 @@ function ContentC() {
           title="Video Call"
           content="For better experience therapists recommend video calls, but always remember that its a choice!"
           buttonPreview={false}
+          imagePreview
+          contentPreview
+          titlePreview
         />
 
         <Card
@@ -23,6 +26,9 @@ function ContentC() {
           title="Chat"
           content="Need to talk to someone? Come have a chat with your therapist!"
           buttonPreview={false}
+          imagePreview
+          contentPreview
+          titlePreview
         />
 
         <Card
@@ -30,6 +36,9 @@ function ContentC() {
           title="Voice Call"
           content="Feeling ready to start a conversation? Give your therapist a voice call and talk your heart out!"
           buttonPreview={false}
+          imagePreview
+          contentPreview
+          titlePreview
         />
       </div>
     </div>
