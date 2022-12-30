@@ -1,0 +1,149 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Team Page snapshot test 1`] = `
+<div
+  className="flex flex-col text-[#424A4F] "
+>
+  <div
+    className=" font-poppins lg:text-5xl text-3xl leading-10"
+  >
+    <h1
+      className="lg:ml-44 lg:mt-20 ml-10 sm:mr-10 md:mr-10 mt-10 text-black"
+    >
+      WE ARE HEALING, NICE TO MEET YOU!
+    </h1>
+  </div>
+  <div
+    className="text-3xl leading-10"
+  >
+    <h3
+      className="lg:ml-44 lg:mt-28 ml-10 mt-8"
+    >
+      Meet the Team!
+    </h3>
+  </div>
+  <div
+    className=" ml-36 mt-[4em] mr-36"
+  >
+    <div
+      className="font-poppins flex flex-rows justify-items-center justify-evenly flex-wrap -m-6"
+    >
+      <div
+        className="bg-[#EAF8F9] rounded-[2em] shadow-md lg:max-w-[17em] mt-[4%] lg:mt-[0%]"
+      >
+        <img
+          alt="photoOfTeamMember"
+          className="object-cover w-full rounded-t-[2em] border-b-[0.5em] border-[#6BD24D] h-64"
+          src="Menar Selamet_Turkey_2022.jpg"
+        />
+        <div
+          className="p-4 flex flex-col items-center"
+        >
+          <h4
+            className="text-2xl font-semibold leading-5 text-[#424A4F] "
+          >
+            Menar Selamet
+          </h4>
+          <p
+            className="text-lg mb-2 leading-10"
+          >
+            Frontend Developer
+          </p>
+        </div>
+      </div>
+      <div
+        className="bg-[#EAF8F9] rounded-[2em] shadow-md lg:max-w-[17em] mt-[4%] lg:mt-[0%]"
+      >
+        <img
+          alt="photoOfTeamMember"
+          className="object-cover w-full rounded-t-[2em] border-b-[0.5em] border-[#6BD24D] h-64"
+          src="SohailAhmed.jpeg"
+        />
+        <div
+          className="p-4 flex flex-col items-center"
+        >
+          <h4
+            className="text-2xl font-semibold leading-5 text-[#424A4F] "
+          >
+            Sohail Ahmed
+          </h4>
+          <p
+            className="text-lg mb-2 leading-10"
+          >
+            Frontend Developer
+          </p>
+        </div>
+      </div>
+      <div
+        className="bg-[#EAF8F9] rounded-[2em] shadow-md lg:max-w-[17em] mt-[4%] lg:mt-[0%]"
+      >
+        <img
+          alt="photoOfTeamMember"
+          className="object-cover w-full rounded-t-[2em] border-b-[0.5em] border-[#6BD24D] h-64"
+          src="Seyma Demir_Turkey_2022.jpg"
+        />
+        <div
+          className="p-4 flex flex-col items-center"
+        >
+          <h4
+            className="text-2xl font-semibold leading-5 text-[#424A4F] "
+          >
+            Şeyma Demir
+          </h4>
+          <p
+            className="text-lg mb-2 leading-10"
+          >
+            Frontend Developer
+          </p>
+        </div>
+      </div>
+      <div
+        className="bg-[#EAF8F9] rounded-[2em] shadow-md lg:max-w-[17em] mt-[4%] lg:mt-[0%]"
+      >
+        <img
+          alt="photoOfTeamMember"
+          className="object-cover w-full rounded-t-[2em] border-b-[0.5em] border-[#6BD24D] h-64"
+          src="Selvi Ece Dugan_Turkey_2022.jpg"
+        />
+        <div
+          className="p-4 flex flex-col items-center"
+        >
+          <h4
+            className="text-2xl font-semibold leading-5 text-[#424A4F] "
+          >
+            Selvi Ece Dugan
+          </h4>
+          <p
+            className="text-lg mb-2 leading-10"
+          >
+            Frontend Developer
+          </p>
+        </div>
+      </div>
+      <div
+        className="bg-[#EAF8F9] rounded-[2em] shadow-md lg:max-w-[17em] mt-[4%] lg:mt-[0%]"
+      >
+        <img
+          alt="photoOfTeamMember"
+          className="object-cover w-full rounded-t-[2em] border-b-[0.5em] border-[#6BD24D] h-64"
+          src="Ammar Eldik_Turkey_2022.jpg"
+        />
+        <div
+          className="p-4 flex flex-col items-center"
+        >
+          <h4
+            className="text-2xl font-semibold leading-5 text-[#424A4F] "
+          >
+            Ammar Eldik
+          </h4>
+          <p
+            className="text-lg mb-2 leading-10"
+          >
+            Frontend Developer
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
