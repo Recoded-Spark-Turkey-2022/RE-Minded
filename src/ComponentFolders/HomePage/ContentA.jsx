@@ -6,7 +6,7 @@ import './main.css';
 function ContentA() {
   return (
     <>
-      <img className="absolute inset-0" src={Background} alt="Background" />
+      <img className="absolute w-full top-0" src={Background} alt="Background" />
       <div className="">
         <div className="relative flex justify-between m-44 bottom-5">
           <div>
