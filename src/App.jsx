@@ -15,7 +15,7 @@ import SignUp from './ComponentFolders/SignUpPage/SignUp';
 // import BookingPage6 from './ComponentFolders/BookingPage/BookingPage6';
 // import BookingPage7 from './ComponentFolders/BookingPage/BookingPage7';
 // import BookingPage8 from './ComponentFolders/BookingPage/BookingPage8';
-// import CareersPage from './ComponentFolders/CareersPage/CareersPageMain';
+ import CareersPage from './ComponentFolders/CareersPage/CareersPageMain';
 // import ContactUsPage from './ComponentFolders/ContactUsPage/ContactPageMain';
 // import EditProfilePage from './ComponentFolders/EditProfilePage/EditProfileMain';
 // import Footer from './ComponentFolders/Footer/Footer';
@@ -36,6 +36,7 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="about" element={<About />} />
+        <Route path="careers" element={<CareersPage />} />
         {/* <Route path="addcard" element={<AddCardPage />} />
         <Route path="blog" element={<BlogPage />} />
         <Route path="booking1" element={<BookingPage1 />} />
