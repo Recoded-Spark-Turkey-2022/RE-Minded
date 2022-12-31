@@ -36,7 +36,6 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="about" element={<About />} />
-        <Route path="careers" element={<CareersPage />} />
         {/* <Route path="addcard" element={<AddCardPage />} />
         <Route path="blog" element={<BlogPage />} />
         <Route path="booking1" element={<BookingPage1 />} />
@@ -46,9 +45,9 @@ function App() {
         <Route path="booking5" element={<BookingPage5 />} />
         <Route path="booking6" element={<BookingPage6 />} />
         <Route path="booking7" element={<BookingPage7 />} />
-        <Route path="booking8" element={<BookingPage8 />} />
+  <Route path="booking8" element={<BookingPage8 />} /> */}
         <Route path="careers" element={<CareersPage />} />
-        <Route path="contactus" element={<ContactUsPage />} />
+        {/* <Route path="contactus" element={<ContactUsPage />} />
         <Route path="editprofile" element={<EditProfilePage />} />
         <Route path="requirements" element={<RequirementsPage />} />
         <Route path="savedcards" element={<SavedCardsPage />} />

@@ -3,7 +3,7 @@ import React from 'react';
 function ContentA() {
   return (
     <div>
-      <div className="lg:text-5xl md:text-3xl text-2xl leading-6 mt-10 lg:ml-28 ml-10">
+      <div className="lg:text-5xl md:text-3xl text-2xl leading-6 mt-10 lg:ml-28 ml-10 text-gray-700">
         <h1>CAREERS AT HEALING</h1>
       </div>
       <div className="lg:text-xl text-lg leading-6 mt-4 lg:ml-28 ml-10 text-gray-400">
