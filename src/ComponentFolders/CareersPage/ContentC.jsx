@@ -49,17 +49,17 @@ const jobs = [
 function ContentC() {
   return (
     <div>
-      <div className="text-5xl leading-6 mt-12 pt-12 ml-28 text-gray-700">
+      <div className="lg:text-5xl md:text-3xl text-2xl leading-6 lg:mt-12 mt-4 lg:pt-12 pt-8 lg:ml-28 ml-10 text-gray-700">
         <h1>CURRENT OPEN POSITIONS</h1>
       </div>
-      <div className="text-xl leading-6 mt-4 ml-28 text-gray-400">
+      <div className="lg:text-xl text-lg leading-6 mt-4 lg:ml-28 ml-10 lg:mr-0 mr-10 text-gray-400">
         <h3>
           Please send us an email with the application title as the subject with
           an attached CV in PDF format!
         </h3>
       </div>
       <div>
-        <div className='overflow-y-scroll overflow-y-auto mb-12 pl-24 mt-6 mr-20 h-[30em] '>
+        <div className='overflow-y-scroll overflow-y-auto mb-12 lg:ml-24 ml-10 mt-6 lg:mr-20 mr-10 h-[30em] '>
             {jobs.map((job) => {
                 return <JobCard job={job.job} description={job.description} department={job.department}/>
             } )}

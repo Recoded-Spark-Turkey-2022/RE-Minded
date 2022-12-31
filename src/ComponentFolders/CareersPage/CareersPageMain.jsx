@@ -11,7 +11,7 @@ function CareersPageMain() {
              <ContentA />
             
         </div>
-        <div className='bg-yellow-300'>
+        <div className='bg-yellow-300 w-full'>
             <ContentB />
         </div>
       </div>
