@@ -6,11 +6,11 @@ import Card from './Card';
 
 function ContentC() {
   return (
-    <div className="h-5/6 w-5/6 mt-4 lg:mt-0 md:h-section flex flex-col justify-center  font-poppins pl-40 pb-16">
+    <div className="p-12 mb-16 mt-4 lg:mt-0 flex flex-col justify-evenly ">
       <h1 className="sm:text-xl md:text-4xl xl:text-4xl p-16 mb-2">
         WE CAN COMMUNICATE THROUGH
       </h1>
-      <div className=" flex flex-col md:flex-row items-center md:items-start md:justify-around pb-14">
+      <div className=" flex flex-col md:flex-row items-center md:items-start md:justify-around">
         <Card
           image={VideoCall}
           title="Video Call"

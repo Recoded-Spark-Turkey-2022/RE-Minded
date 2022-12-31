@@ -13,29 +13,32 @@ function Card({
   titlePreview,
 }) {
   return (
-    <div className="shadow-zinc-300 space-x-4 box-border h-96 w-80  my-4 flex flex-col items-center justify-evenly shadow-md  rounded-3xl md:w-1/4 p-4">
-      {imagePreview && <img className="p-8 " src={image} alt={title} />}
+    <div className="shadow-zinc-300 h-full w-full my-4 flex flex-col items-center justify-evenly shadow-lg rounded-lg md:w-1/4 p-4">
+      {imagePreview && (
+        <img className="flex-initial mb-4" src={image} alt={title} />
+      )}
       {titlePreview && (
-        <h1 className=" text-center text-xl lg:text-3xl 2xl:text-4xl pb-4">
+        <h1 className="text-center text-xl lg:text-3xl 2xl:text-title pb-1 ">
           {title}
         </h1>
       )}
       {contentPreview && (
-        <p className="lg:text-xl p-2 md:text-sm flex justify-center pb-8 text-gray-500">
+        <p className="text-opacity-50 text-black text-center text-sm md:text-md lg:text-paragraph py-4">
           {content}
         </p>
       )}
-      <h2 className="text-3xl">{ticket}</h2>
-      <h2 className="text-2xl flex justify-center">{price}</h2>
-      {buttonPreview && (
-        <button
-          type="button"
-          className="font-poppins rounded-md box-border p-2 mb-4 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
-        >
-          {button}
-        </button>
-      )}
-    </div>
+        <h2 className="text-2xl">{ticket}</h2>
+        <h2 className="text-2xl flex justify-center p-6">{price}</h2>
+        {buttonPreview && (
+          <button
+            type="button"
+            className="font-poppins rounded-md box-border p-2 mb-4 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
+          >
+            {button}
+          </button>
+        )}
+      </div>
+    
   );
 }
 
