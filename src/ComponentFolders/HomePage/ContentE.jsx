@@ -3,7 +3,7 @@ import Card from './Card';
 
 function ContentE() {
   return (
-    <div className="p-12 flex flex-col justify-evenly lg:h-section py-8">
+    <div className="font-poppins p-12 flex flex-col justify-evenly lg:h-section py-8">
       <h1 className="pl-16 font-poppins text-3xl md:text-4xl pb-8 pt-12">
         PURCHASE TICKETS
       </h1>

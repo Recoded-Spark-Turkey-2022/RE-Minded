@@ -13,22 +13,22 @@ function Card({
   titlePreview,
 }) {
   return (
-    <div className="shadow-zinc-300 h-full w-full my-4 flex flex-col items-center justify-evenly shadow-lg rounded-lg md:w-1/4 p-4">
+    <div className="shadow-zinc-300 h-full w-full my-4 flex flex-col items-center justify-evenly shadow-lg  rounded-lg md:m-12 p-4">
       {imagePreview && (
-        <img className="flex-initial mb-4" src={image} alt={title} />
+        <img className="pt-4  mb-4 " src={image} alt={title} />
       )}
       {titlePreview && (
-        <h1 className="text-center text-xl lg:text-3xl 2xl:text-title pb-1 ">
+        <h1 className="pt-4 text-center md:text-xl lg:text-3xl   ">
           {title}
         </h1>
       )}
       {contentPreview && (
-        <p className="text-opacity-50 text-black text-center text-sm md:text-md lg:text-paragraph py-4">
+        <p className="text-opacity-50 text-black text-center text-sm md:text-lg lg:text-lg py-4">
           {content}
         </p>
       )}
-        <h2 className="text-2xl">{ticket}</h2>
-        <h2 className="text-2xl flex justify-center p-6">{price}</h2>
+        <h2 className="text-2xl md:text-lg lg:text-2xl">{ticket}</h2>
+        <h2 className="text-2xl flex justify-center p-6 md:text-lg lg:text-2xl">{price}</h2>
         {buttonPreview && (
           <button
             type="button"
