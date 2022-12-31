@@ -15,7 +15,7 @@ function CareersPageMain() {
             <ContentB />
         </div>
       </div>
-      <div className='flex flex-col w-screen '>
+      <div className='flex flex-col w-screen font-poppins'>
         <div >
             <ContentC />
         </div>
