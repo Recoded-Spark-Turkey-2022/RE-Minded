@@ -5,18 +5,18 @@ import ContentC from './ContentC';
 
 function CareersPageMain() {
   return (
-    <div>
-      <div className='flex flex-col font-poppins'>
-        <div className='bg-blue-500 '>
+    <div className='h-screen w-screen'>
+      <div className='flex flex-col font-poppins w-screen '>
+        <div >
              <ContentA />
             
         </div>
-        <div className='bg-pink-500 '>
+        <div className='bg-yellow-300'>
             <ContentB />
         </div>
       </div>
-      <div className='flex flex-col '>
-        <div className='bg-yellow-500'>
+      <div className='flex flex-col w-screen '>
+        <div >
             <ContentC />
         </div>
         
