@@ -19,7 +19,10 @@ module.exports = {
       '50%': '50%',
       '16': '4rem',
     },
-    extend: {   
+    extend: { 
+      transitionProperty:{
+        right:"right"
+      }, 
     },
   },
   plugins: [],

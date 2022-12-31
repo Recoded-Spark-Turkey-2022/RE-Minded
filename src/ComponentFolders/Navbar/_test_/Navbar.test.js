@@ -1,10 +1,10 @@
 import React from "react";
 import  renderer  from "react-test-renderer";
-import NaveBar from "../Navbar";
+import Navbar from "../Navbar";
 
 
-test ('Navbar test snapshot', () => {
-    const tree = renderer.create(<NaveBar />).toJSON
-    expect(tree).toMatchSnapshot();
-});
-
+test ( "Navbar test snapshot", () => { 
+    const component=renderer.create(<Navbar/>)
+    let tree= component.toJSON(); 
+    expect(tree).toMatchSnapshot(); 
+})
