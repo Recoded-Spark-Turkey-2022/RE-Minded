@@ -7,7 +7,7 @@ import image4 from './Images/SubscribeArrow.svg'
 
 function Footer() {
   return (
-    <div className='grid-cols-3 gap-8 xs:w-full h-[240px] top-[2832px] left-0 bottom-0 rounded-none absolute flex-wrap bg-Footer'>
+    <div className='gap-8 xs:w-full h-[240px] top-[2832px] left-0 bottom-0 rounded-none absolute flex-wrap bg-Footer'>
       <div className='grid-cols-1 p-o gap-6 absolute w-[500px] h-[160px] left-[87px] top-[40px] rounded-none'>
         <div className='items-center flex-col p-o gap-3 w-[500px] h-[78px]'>
           <h1 className='text-4xl font-medium leading-[44xp] tracking-[0.18px] w-[500px] h-[44px] text-BlackTexts'>
@@ -34,21 +34,38 @@ function Footer() {
         <div className='grid grid-cols-4 gap-6 absolute  
               w-[33%] h-[160px] right-[87px] top-[65px]
              text-SubTexts font-normal text-xl leading-5 tracking-[0.075px]'>
-          <ul>
-            <li>Home</li>
-          </ul> 
-          <ul>
-            <li>Blogs</li>
-          </ul>
-          <ul>
-            <li>About</li>
-          </ul>
-          <ul>
-            <li>Contact</li>
-          </ul>
+          <ul >
+            <li>
+              <a href="Home" className="mr-4 hover:underline md:mr-6 ">
+                  Home
+              </a>
+            </li>
+            </ul>
+            <ul >
+            <li>
+              <a href="Blogs" className="mr-4 hover:underline md:mr-6">
+              Blogs
+              </a>
+            </li>
+            </ul>
+            <ul >
+            <li>
+              <a href="About" className="mr-4 hover:underline md:mr-6">
+                About
+              </a>
+            </li>
+            </ul>
+            <ul >
+            <li>
+              <a href="Contact" className="hover:underline">
+              Contact
+              </a>
+            </li>
+            </ul>
+          
 
-          <div className='justify-center mx-36 w-[200px] h-[78px]'>
-            <div className='flex flex-row justify-center mx-8 space-x-10 '>
+          <div className='justify-center mx-[175px] w-[200px] h-[78px]'>
+            <div className='flex flex-row items-center mx-auto space-x-10'>
               <img src={image3} alt='Twitter Logo' />
               <img src={image1} alt='Facebook Logo' />
               <img src={image2} alt='Google Logo' />
