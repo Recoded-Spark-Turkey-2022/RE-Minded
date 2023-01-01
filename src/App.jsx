@@ -24,7 +24,7 @@ import SignUp from './ComponentFolders/SignUpPage/SignUp';
 // import SavedCardsPage from './ComponentFolders/SavedCardsPage/SavedCardsPage';
 // import TeamPage from './ComponentFolders/TeamPage/TeamPageMain';
 // import ThankYouPage from './ComponentFolders/ThankYouPage/ThankYou';
-// import TherapistCreatePage from './ComponentFolders/TherapistCreatePage/TherapistCreatePage';
+ import TherapistCreatePage from './ComponentFolders/TherapistCreatePage/TherapistCreatePage';
 // import TicketPruchasePage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage';
 
 function App() {
@@ -52,9 +52,9 @@ function App() {
         <Route path="requirements" element={<RequirementsPage />} />
        {/* <Route path="savedcards" element={<SavedCardsPage />} />
         <Route path="team" element={<TeamPage />} />
-        <Route path="thankyou" element={<ThankYouPage />} />
+<Route path="thankyou" element={<ThankYouPage />} /> */}
         <Route path="therapistcreate" element={<TherapistCreatePage />} />
-        <Route path="ticketpurchase" element={<TicketPruchasePage />} />
+        {/* <Route path="ticketpurchase" element={<TicketPruchasePage />} />
         <Footer /> */}
       </Routes>
     </BrowserRouter>

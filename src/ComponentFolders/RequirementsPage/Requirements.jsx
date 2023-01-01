@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from "react-router-dom";
 import requirementPageImg from './Images/LaptopImage.svg';
 
 function Requirements() {
@@ -51,12 +52,13 @@ function Requirements() {
         </div>
 
         <div className='mt-6'>
+          <Link to="/therapistcreate">
         <button
           type="button"
           className="lg:text-xl md:text-base text-sm lg:ml-0 ml-10 lg:mb-10 lg:px-6 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 cursor-pointer "
         >
           GET STARTED
-        </button>
+        </button></Link>
         </div>
       </div>
 
