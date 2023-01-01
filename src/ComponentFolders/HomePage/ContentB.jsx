@@ -1,5 +1,5 @@
 import React from 'react';
-import Therapists from './Images/ContentB(Therapists).svg';
+import Therapists from './Images/ContentBTherapists.svg';
 
 function ContentB() {
   return (

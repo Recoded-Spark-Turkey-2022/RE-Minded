@@ -1,6 +1,6 @@
 import React from 'react';
 import Background from './Images/Background.svg';
-import Sofa from './Images/ContentA(sofa).svg';
+import Sofa from './Images/ContentAsofa.svg';
 
 function ContentA() {
   return (
@@ -15,7 +15,6 @@ function ContentA() {
         top: 0,
       }}
     >
-      
       <div className="flex flex-col pt-40   items-center md:flex-col   lg:flex-row    lg:justify-evenly lg:items-center md:items-center lg:pt-72  md:pt-40">
         <div className=" p-32 flex flex-col items-center   md:flex-col md:items-center  lg:items-center ">
           <p className="text-3xl md:text-4xl lg:text-5xl"> WE ARE HERE TO</p>
