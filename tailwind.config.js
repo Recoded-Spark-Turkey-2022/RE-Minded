@@ -6,7 +6,19 @@ module.exports = {
       fontFamily: {
         poppins: ['Poppins'],
       },
+      backgroundImage: {
+        backgroundOfContentA:
+          'url(./ComponentFolders/HomePage/Images/Background.svg)',
+      },
+      backgroundSize: {
+        auto: 'auto',
+        cover: 'cover',
+        contain: 'contain',
+        '100%': '100%',
+        16: '4rem',
+      },
     },
   },
+  variants: {},
   plugins: [],
 };
