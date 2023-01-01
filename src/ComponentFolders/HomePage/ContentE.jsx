@@ -42,7 +42,7 @@ function ContentE() {
         />
       </div>
       <div className=" shadow-zinc-300 font-poppins flex flex-col justify-around items-center p-4 rounded-lg h-1/3 lg:mx-16 my-4  shadow-lg ">
-        <h1 className="text-2xl lg:text-3xl uppercase text-center py-4">
+        <h1 className="text-xl lg:text-3xl uppercase text-center py-4 md:text-2xl">
           ARE YOU A COUNSELOR?
         </h1>
         <p className="font-poppins text-xl w-2/4  md:text-md  text-justify md:text-center text-opacity-50">
