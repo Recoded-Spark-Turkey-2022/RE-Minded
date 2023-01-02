@@ -31,19 +31,23 @@ export const facebookProvider = new FacebookAuthProvider();
 export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
-    const {user} = result; // Destructure the user from the result
-    console.log(user)
+    const { user } = result; // Destructure the user from the result
+    localStorage.setItem('userName', user.displayName);
+    localStorage.setItem('userEmail', user.email);
+    return user;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };
 
 export const signInWithFacebook = async () => {
   try {
     const result = await signInWithPopup(auth, facebookProvider);
-    const {user} = result; // Destructure the user from the result
-    console.log(user)
+    const { user } = result; // Destructure the user from the result
+    localStorage.setItem('userName', user.displayName);
+    localStorage.setItem('userEmail', user.email);
+    return user;
   } catch (error) {
-    console.log(error);
+    return error;
   }
 };

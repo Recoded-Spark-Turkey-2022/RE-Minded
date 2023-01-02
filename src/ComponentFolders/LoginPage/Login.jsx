@@ -15,13 +15,16 @@ function Login() {
   const login = async (e) => {
     e.preventDefault();
     try {
-      const user = await signInWithEmailAndPassword(auth, loginData.userEmail, loginData.userPassword)
-      console.log(user)
-
+      const user = await signInWithEmailAndPassword(
+        auth,
+        loginData.userEmail,
+        loginData.userPassword
+      );
+      console.log(user);
     } catch (error) {
-      console.log(error.message)
+      console.log(error.message);
     }
-  }
+  };
 
   function handleOnClick(e) {
     const { value, name } = e.target;

@@ -6,7 +6,6 @@ import SignUp from './ComponentFolders/SignUpPage/SignUp';
 
 function App() {
    return (
-
       <>
          {/* <Login /> */}
          <SignUp />
@@ -14,7 +13,6 @@ function App() {
          <About/> */}
       </>
    );
-
 }
 
 export default App;

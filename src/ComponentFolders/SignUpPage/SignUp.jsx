@@ -6,7 +6,6 @@ import lineImage from './Images/line.svg';
 import FacebookLogo from './Images/FacebookLogo.svg';
 import GoogleLogo from './Images/GoogleLogo.svg';
 
-
 function SignUp() {
   const [signUpData, setSignUpData] = useState({
     userFirstName: '',
@@ -23,13 +22,16 @@ function SignUp() {
   const register = async (e) => {
     e.preventDefault();
     try {
-      const user = await createUserWithEmailAndPassword(auth, signUpData.userEmail, signUpData.userPassword)
-      console.log(user)
-
+      const user = await createUserWithEmailAndPassword(
+        auth,
+        signUpData.userEmail,
+        signUpData.userPassword
+      );
+      console.log(user);
     } catch (error) {
-      console.log(error.message)
+      console.log(error.message);
     }
-  }
+  };
 
   function handleOnClick(e) {
     const { value, name } = e.target;
@@ -150,8 +152,12 @@ function SignUp() {
           <img src={lineImage} alt="A line" />
         </div>
         <div className="flex justify-center my-6 gap-x-20">
-          <img src={FacebookLogo} alt="Facebook logo" className='cursor-pointer'/>
-          <img src={GoogleLogo} alt="Google logo" className='cursor-pointer'/>
+          <img
+            src={FacebookLogo}
+            alt="Facebook logo"
+            className="cursor-pointer"
+          />
+          <img src={GoogleLogo} alt="Google logo" className="cursor-pointer" />
         </div>
       </div>
     </div>
