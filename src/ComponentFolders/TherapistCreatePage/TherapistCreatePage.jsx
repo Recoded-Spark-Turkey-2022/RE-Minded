@@ -3,12 +3,12 @@ import React from 'react';
 function TherapistCreatePage() {
   return (
     <div className=" font-poppins h-screen flex flex-col justify-center content-center lg:ml-56 lg:mr-64 ml-10 mr-10 sm:ml-16 sm:mr-16 md:ml-32 md:mr-32 lg:mt-10 mt-20">
-      <h1 className='lg:mt-16 mt-4 lg:text-5xl text-xl'>CREATE AN ACCOUNT</h1>
+      <h1 className="lg:mt-16 mt-4 lg:text-5xl text-xl">CREATE AN ACCOUNT</h1>
 
       <form className="mb-0 mt-4 space-y-6" action="#" method="POST">
         <div>
           <label htmlFor="username">
-            <span className='lg:text-xl text-sm'>User Name</span>
+            <span className="lg:text-xl text-sm">User Name</span>
             <input
               id="username"
               name="username"
@@ -20,7 +20,7 @@ function TherapistCreatePage() {
 
         <div>
           <label htmlFor="email">
-            <span className='lg:text-xl text-sm'>Email</span>
+            <span className="lg:text-xl text-sm">Email</span>
             <input
               id="email"
               name="email"
@@ -32,7 +32,7 @@ function TherapistCreatePage() {
 
         <div>
           <label htmlFor="city">
-            <span className='lg:text-xl text-sm'>City</span>
+            <span className="lg:text-xl text-sm">City</span>
             <input
               id="city"
               name="city"
@@ -44,7 +44,7 @@ function TherapistCreatePage() {
 
         <div>
           <label htmlFor="licensenumber">
-            <span className='lg:text-xl text-sm'>License Number</span>
+            <span className="lg:text-xl text-sm">License Number</span>
             <input
               id="licensenumber"
               name="licensenumber"
@@ -56,7 +56,7 @@ function TherapistCreatePage() {
 
         <div>
           <label htmlFor="password">
-            <span className='lg:text-xl text-sm'>Create Password</span>
+            <span className="lg:text-xl text-sm">Create Password</span>
             <input
               id="password"
               name="password"
@@ -68,7 +68,7 @@ function TherapistCreatePage() {
 
         <div>
           <label htmlFor="confirm">
-            <span className='lg:text-xl text-sm'>Confirm Password</span>
+            <span className="lg:text-xl text-sm">Confirm Password</span>
             <input
               id="confirm"
               name="confirm"
