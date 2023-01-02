@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import Image from './Images/LoginSofa.svg';
 import lineImage from './Images/line.svg';
@@ -6,7 +7,9 @@ import FacebookLogo from './Images/FacebookLogo.svg';
 import GoogleLogo from './Images/GoogleLogo.svg';
 import { signInWithGoogle, signInWithFacebook, auth } from '../../Firebase';
 
+
 function Login() {
+  const navigate = useNavigate();
   const [loginData, setLoginData] = useState({
     userEmail: '',
     userPassword: '',
@@ -68,8 +71,9 @@ function Login() {
               Login
             </button>
             <button
-              type="submit"
+              type="button"
               className="broder-solid border-2 border-[#2DD3E3] font-medium text-2xl px-14 rounded-md"
+              onClick={() => navigate("/signup")}
             >
               Signup
             </button>

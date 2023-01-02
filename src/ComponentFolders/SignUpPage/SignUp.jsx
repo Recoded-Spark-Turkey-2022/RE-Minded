@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { auth } from '../../Firebase';
 import Image from './Images/SofaImage.svg';
@@ -7,6 +8,7 @@ import FacebookLogo from './Images/FacebookLogo.svg';
 import GoogleLogo from './Images/GoogleLogo.svg';
 
 function SignUp() {
+  const navigate = useNavigate();
   const [signUpData, setSignUpData] = useState({
     userFirstName: '',
     userLastName: '',
@@ -132,8 +134,9 @@ function SignUp() {
           </div>
           <div className="flex justify-around py-3 gap-8">
             <button
-              type="submit"
+              type="button"
               className="bg-[#2DD3E3] font-medium text-2xl px-14 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
+              onClick={() => navigate("/login")}
             >
               Login
             </button>
