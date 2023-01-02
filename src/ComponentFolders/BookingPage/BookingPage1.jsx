@@ -12,7 +12,8 @@ function BookingPage1(){
         />
         <Question
           header="What type of coumseling are you looking for?"
-          content="Choices"
+          content="Indivisual Counseling
+          Teen Counseling(For my Child)"
           button="Next"
         />
       </div>
