@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`About Page snapshot test 1`] = `
+exports[`Therapist Page snapshot test 1`] = `
 <div
   className=" font-poppins h-screen flex flex-col justify-center content-center lg:ml-56 lg:mr-64 ml-10 mr-10 sm:ml-16 sm:mr-16 md:ml-32 md:mr-32 lg:mt-10 mt-20"
 >
