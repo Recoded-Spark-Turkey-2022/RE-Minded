@@ -1,8 +1,11 @@
 import React, { useState } from 'react';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../Firebase';
 import Image from './Images/SofaImage.svg';
 import lineImage from './Images/line.svg';
 import FacebookLogo from './Images/FacebookLogo.svg';
 import GoogleLogo from './Images/GoogleLogo.svg';
+
 
 function SignUp() {
   const [signUpData, setSignUpData] = useState({
@@ -16,6 +19,17 @@ function SignUp() {
     monthOfBirth: '',
     yearOfYear: '',
   });
+
+  const register = async (e) => {
+    e.preventDefault();
+    try {
+      const user = await createUserWithEmailAndPassword(auth, signUpData.userEmail, signUpData.userPassword)
+      console.log(user)
+
+    } catch (error) {
+      console.log(error.message)
+    }
+  }
 
   function handleOnClick(e) {
     const { value, name } = e.target;
@@ -124,6 +138,7 @@ function SignUp() {
             <button
               type="submit"
               className="broder-solid border-2 border-[#2DD3E3] font-medium text-2xl px-14 rounded-md"
+              onClick={(e) => register(e)}
             >
               Signup
             </button>
