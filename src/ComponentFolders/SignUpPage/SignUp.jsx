@@ -59,7 +59,7 @@ function SignUp() {
               placeholder="   First Name"
               name="userFirstName"
               onChange={(e) => handleOnClick(e)}
-              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
               value={signUpData.userFirstName}
             />
             <input
@@ -67,7 +67,7 @@ function SignUp() {
               placeholder="   Last Name"
               name="userLastName"
               onChange={(e) => handleOnClick(e)}
-              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
               value={signUpData.userLastName}
             />
           </div>
@@ -76,7 +76,7 @@ function SignUp() {
             placeholder="   Your Email"
             name="userEmail"
             onChange={(e) => handleOnClick(e)}
-            className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+            className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             value={signUpData.userEmail}
           />
           <input
@@ -84,7 +84,7 @@ function SignUp() {
             placeholder="   Confirm email"
             name="userConfirmEmail"
             onChange={(e) => handleOnClick(e)}
-            className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+            className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             value={signUpData.userConfirmEmail}
           />
           <div className="flex gap-x-7">
@@ -93,7 +93,7 @@ function SignUp() {
               placeholder="   Password"
               name="userPassword"
               onChange={(e) => handleOnClick(e)}
-              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
               value={signUpData.userPassword}
             />
             <input
@@ -101,7 +101,7 @@ function SignUp() {
               placeholder="   Confirm password"
               name="userCondirmPassword"
               onChange={(e) => handleOnClick(e)}
-              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
               value={signUpData.userCondirmPassword}
             />
           </div>
@@ -112,7 +112,7 @@ function SignUp() {
               placeholder="  DD"
               name="dayOfBirth"
               onChange={(e) => handleOnClick(e)}
-              className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
               value={signUpData.dayOfBirth}
             />
             <input
@@ -120,7 +120,7 @@ function SignUp() {
               placeholder="  MM"
               name="monthOfBirth"
               onChange={(e) => handleOnClick(e)}
-              className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300"
+              className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
               value={signUpData.monthOfBirth}
             />
             <input
@@ -128,7 +128,7 @@ function SignUp() {
               placeholder="  YYYY"
               name="yearOfYear"
               onChange={(e) => handleOnClick(e)}
-              className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300"
+              className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300 focus:outline-none focus:placeholder-white"
               value={signUpData.yearOfYear}
             />
           </div>
@@ -136,7 +136,7 @@ function SignUp() {
             <button
               type="button"
               className="bg-[#2DD3E3] font-medium text-2xl px-14 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
-              onClick={() => navigate("/login")}
+              onClick={() => navigate('/login')}
             >
               Login
             </button>

@@ -7,7 +7,6 @@ import FacebookLogo from './Images/FacebookLogo.svg';
 import GoogleLogo from './Images/GoogleLogo.svg';
 import { signInWithGoogle, signInWithFacebook, auth } from '../../Firebase';
 
-
 function Login() {
   const navigate = useNavigate();
   const [loginData, setLoginData] = useState({
@@ -51,15 +50,15 @@ function Login() {
             placeholder="   Your Email"
             name="userEmail"
             onChange={(e) => handleOnClick(e)}
-            className="h-20 broder-solid border-2 border-[#D1DBE3] rounded-md"
+            className="h-20 broder-solid border-2 border-[#D1DBE3] rounded-md focus:outline-none focus:placeholder-white"
             value={loginData.userEmail}
           />
           <input
-            type="text"
+            type="password"
             placeholder="   Your Password"
             name="userPassword"
             onChange={(e) => handleOnClick(e)}
-            className="h-20 broder-solid border-2 border-[#D1DBE3] rounded-md"
+            className="h-20 broder-solid border-2 border-[#D1DBE3] rounded-md focus:outline-none focus:placeholder-white"
             value={loginData.userPassword}
           />
           <div className="flex justify-around py-3 gap-8">
@@ -73,7 +72,7 @@ function Login() {
             <button
               type="button"
               className="broder-solid border-2 border-[#2DD3E3] font-medium text-2xl px-14 rounded-md"
-              onClick={() => navigate("/signup")}
+              onClick={() => navigate('/signup')}
             >
               Signup
             </button>
