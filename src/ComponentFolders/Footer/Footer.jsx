@@ -7,79 +7,63 @@ import image4 from './Images/SubscribeArrow.svg'
 
 function Footer() {
   return (
-    <div className='gap-8 xs:w-full h-[240px] top-[2832px] left-0 bottom-0 rounded-none absolute flex-wrap bg-Footer'>
-      <div className='grid-cols-1 p-o gap-6 absolute w-[500px] h-[160px] left-[87px] top-[40px] rounded-none'>
-        <div className='items-center flex-col p-o gap-3 w-[500px] h-[78px]'>
-          <h1 className='text-4xl font-medium leading-[44xp] tracking-[0.18px] w-[500px] h-[44px] text-BlackTexts'>
+<footer className=" bg-Footer fixed bottom-0 w-full p-4 md:flex md:items-center md:justify-between md:p-6 ">
+      <span className=" ml-12 text-sm">
+      <div className='flex-col gap-3 w-[500px] h-[78px] mb-4'>
+          <h1 className='text-BlackTexts text-4xl font-medium h-[44px]'>
             Subscribe
           </h1>
-          <p className='text-SubTexts w-[500px] h-[22px] top-[56px] font-normal text-xl leading-5 tracking-[0.075px]'>
+          <p className='text-SubTexts mb-4 
+            w-auto h-[22px] top-[56px] mt-2
+            font-normal md:text-xl sm:text-sm leading-5'>
             We’ll never spam to you or share your email
           </p>
         </div>
         
-        <div className='md:flex'>
-          <div className='md:shrink-0'>
+        <div className='md:flex'> 
           <div className='flex flex-wrap mb-4 w-[300px] h-[50px] box-border rounded-md border-2 border-[#718096]'>
             <input className=' w-3/4 h-auto rounded-l-lg text-SubTexts font-normal ' type="email" placeholder='  Enter your e-mail' />
-                <button type="button" className='bg-Buttons rounded-r-lg w-1/4 h-auto '>
+                <button type="button" className='bg-Buttons rounded-r-lg w-1/4 h-auto'>
                     <img className='w-[24px] h-[24px] top-[18px] left-[310px] items-center mx-auto' src={image4} alt='Arrow' />
                 </button>
           </div>
-          </div>
+        </div>
+      </span>
+
+      <div className='flex flex-col items-center sm:mr-12
+              
+             text-SubTexts font-normal text-xl leading-5 tracking-[0.075px]'>
+        <ul className="flex p-4 items-center sm:text-center mt-3 sm:mt-0 md:space-x-6">
+          <li>
+            <a href="Home" className="mr-4 hover:underline md:mr-6 ">
+              Home
+            </a>
+          </li>
+          <li>
+            <a href="Blogs" className="mr-4 hover:underline md:mr-6">
+              Blogs
+            </a>
+          </li>
+          <li>
+            <a href="About" className="mr-4 hover:underline md:mr-6">
+              About
+            </a>
+          </li>
+          <li>
+            <a href="Contact" className="mr-4 hover:underline md:mr-6">
+              Contact
+            </a>
+          </li>
+        </ul>
+        <div className='flex flex-row w-[200px] h-[78px] 
+          justify-center items-center mx-auto space-x-4'>
+          <img className='cursor-pointer box-content px-2 py-2 rounded-lg hover:shadow-inner' src={image3} alt="image3" />
+          <img className='cursor-pointer box-content px-2 py-2 rounded-lg hover:shadow-inner' src={image1} alt="image1" />
+          <img className='cursor-pointer box-content px-2 py-2 rounded-lg hover:shadow-inner' src={image2} alt="image2" />
         </div>
       </div>
-      
-      
-        <div className='grid grid-cols-4 gap-6 absolute  
-              w-[33%] h-[160px] right-[87px] top-[65px]
-             text-SubTexts font-normal text-xl leading-5 tracking-[0.075px]'>
-          <ul >
-            <li>
-              <a href="Home" className="mr-4 hover:underline md:mr-6 ">
-                  Home
-              </a>
-            </li>
-            </ul>
-            <ul >
-            <li>
-              <a href="Blogs" className="mr-4 hover:underline md:mr-6">
-              Blogs
-              </a>
-            </li>
-            </ul>
-            <ul >
-            <li>
-              <a href="About" className="mr-4 hover:underline md:mr-6">
-                About
-              </a>
-            </li>
-            </ul>
-            <ul >
-            <li>
-              <a href="Contact" className="hover:underline">
-              Contact
-              </a>
-            </li>
-            </ul>
-          
-
-          <div className='justify-center mx-[175px] w-[200px] h-[78px]'>
-            <div className='flex flex-row items-center mx-auto space-x-10'>
-              <img src={image3} alt='Twitter Logo' />
-              <img src={image1} alt='Facebook Logo' />
-              <img src={image2} alt='Google Logo' />
-
-            </div>
-          </div>
-        </div>
-      
-
-
-
-    </div>
-
-
+              
+    </footer>
 
   )
 }
