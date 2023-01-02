@@ -22,9 +22,11 @@ function Login() {
         loginData.userEmail,
         loginData.userPassword
       );
-      console.log(user);
+      return user;
     } catch (error) {
-      console.log(error.message);
+      return error;
+    } finally {
+      navigate('/');
     }
   };
 
