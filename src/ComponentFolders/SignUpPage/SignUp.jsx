@@ -3,6 +3,7 @@ import { useNavigate } from 'react-router';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
 import { useFormik } from 'formik';
 import { auth } from '../../Firebase';
+import { basicSchema } from '../../schemas/basicSchema';
 import Image from './Images/SofaImage.svg';
 import lineImage from './Images/line.svg';
 import FacebookLogo from './Images/FacebookLogo.svg';
@@ -10,8 +11,26 @@ import GoogleLogo from './Images/GoogleLogo.svg';
 
 function SignUp() {
   const navigate = useNavigate();
+  let userEmailAuth;
+  let userPasswordAuth; 
+  function onSubmit(e) {
+    e.preventDefault()
+    const register = async () => {
+      try {
+        const user = await createUserWithEmailAndPassword(
+          auth,
+          userEmailAuth,
+          userPasswordAuth
+        );
+        console.log(user);
+      } catch (error) {
+        console.log(error.message);
+      }
+    };
+    register();
+  }
 
-  const formik = useFormik({
+  const { values, errors, handleChange, handleBlur, handleSubmit } = useFormik({
     initialValues: {
       userFirstName: '',
       userLastName: '',
@@ -23,20 +42,14 @@ function SignUp() {
       monthOfBirth: '',
       yearOfYear: '',
     },
+    validationSchema: basicSchema,
+    onSubmit,
   });
 
-  const register = async () => {
-    try {
-      const user = await createUserWithEmailAndPassword(
-        auth
-        /* signUpData.userEmail,
-        signUpData.userPassword */
-      );
-      console.log(user);
-    } catch (error) {
-      console.log(error.message);
-    }
-  };
+  userEmailAuth = values.userEmail;
+  userPasswordAuth = values.userPassword;
+
+  console.log(errors)
 
   return (
     <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20">
@@ -46,7 +59,7 @@ function SignUp() {
           SIGNUP NOW
         </h2>
         <form
-          onSubmit={register}
+          onSubmit={(e) => handleSubmit(e)}
           className="grid grid-rows-3 gap-4 shadow-2xl px-10 py-10 w-[555px] h-[493]"
         >
           <div className="flex gap-x-7">
@@ -54,37 +67,37 @@ function SignUp() {
               type="text"
               placeholder="   First Name"
               name="userFirstName"
-              value={formik.values.userFirstName}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+              value={values.userFirstName}
+              onChange={handleChange}
+              onBlur={handleBlur}
               className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
             <input
               type="text"
               placeholder="   Last Name"
               name="userLastName"
-              value={formik.values.userLastName}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+              value={values.userLastName}
+              onChange={handleChange}
+              onBlur={handleBlur}
               className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
           </div>
           <input
-            type="text"
+            type="email"
             placeholder="   Your Email"
             name="userEmail"
-            value={formik.values.userEmail}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
+            value={values.userEmail}
+            onChange={handleChange}
+            onBlur={handleBlur}
             className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
           />
           <input
-            type="text"
+            type="email"
             placeholder="   Confirm email"
             name="userConfirmEmail"
-            value={formik.values.userConfirmEmail}
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
+            value={values.userConfirmEmail}
+            onChange={handleChange}
+            onBlur={handleBlur}
             className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
           />
           <div className="flex gap-x-7">
@@ -92,48 +105,48 @@ function SignUp() {
               type="password"
               placeholder="   Password"
               name="userPassword"
-              value={formik.values.userPassword}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+              value={values.userPassword}
+              onChange={handleChange}
+              onBlur={handleBlur}
               className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
             <input
               type="password"
               placeholder="   Confirm password"
               name="userCondirmPassword"
-              value={formik.values.userCondirmPassword}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+              value={values.userCondirmPassword}
+              onChange={handleChange}
+              onBlur={handleBlur}
               className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
           </div>
           <div className="flex items-center justify-between">
             <p className="mr-7 ml-7 font-light text-[#9DAFBD]">Birth Date</p>
             <input
-              type="text"
+              type="number"
               placeholder="  DD"
               name="dayOfBirth"
-              value={formik.values.dayOfBirth}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+              value={values.dayOfBirth}
+              onChange={handleChange}
+              onBlur={handleBlur}
               className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
             <input
-              type="text"
+              type="number"
               placeholder="  MM"
               name="monthOfBirth"
-              value={formik.values.monthOfBirth}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+              value={values.monthOfBirth}
+              onChange={handleChange}
+              onBlur={handleBlur}
               className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
             <input
-              type="text"
+              type="number"
               placeholder="  YYYY"
               name="yearOfYear"
-              value={formik.values.yearOfYear}
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
+              value={values.yearOfYear}
+              onChange={handleChange}
+              onBlur={handleBlur}
               className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
           </div>
