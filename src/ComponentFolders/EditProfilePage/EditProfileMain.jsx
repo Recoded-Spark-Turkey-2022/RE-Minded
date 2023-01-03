@@ -1,18 +1,20 @@
 import React from 'react';
 import profilePhoto from './Images/ProfilePhoto.svg';
+import profileIcon from './Images/profileIcon.svg'
 
 function EditProfileMain() {
   return (
-    <div className="flex flex-col font-poppins">
+    <div className="flex flex-col font-poppins items-center">
       <div className="self-center mt-8 text-xl text-[#FF0000]">
         Please fill all the fields with correct and valid details to complete
         your profile.
       </div>
       <div className="flex flex-row">
-        <div>
-          <img src={profilePhoto} alt="profile" className="self-center ml-36" />
+        <div className='flex flex-col ml-[-10em]'>
+          <img src={profilePhoto} alt="profile" className="self-center ml-28" />
+          <img src={profileIcon} alt="profileIcon" className='w-16 ml-32 self-center mt-[-4em]'/>
         </div>
-        <div className="flex flex-col ml-10">
+        <div className="flex flex-col ml-16">
           <div className=" ml-20 self-start mr-44 mt-6 ">
             <h1 className="text-5xl">PROFILE INFO</h1>
             <div className="flex flex-rows">
@@ -27,26 +29,49 @@ function EditProfileMain() {
                 <div>Phone Number</div>
                 <div>Upload ID</div>
               </div>
-              <div className="flex flex-col gap-7 mt-1 ml-4 ">
+              <div className="flex flex-col gap-7 mt-1 ml-6 ">
                 <div>
                   <input
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 w-[28em]"
+                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 w-[28.5em]"
                     id="fullname"
                     name="fullname"
                     type="text"
                   />
                 </div>
                 <div>
-                  <input
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block  lg:p-2 p-1 w-[28em]"
-                    id="education"
-                    name="education"
-                    type="text"
-                  />
+                  <div className="relative w-full lg:max-w-sm">
+                    <select className="w-[25em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600">
+                      <option value="" selected="selected" disabled="disabled">
+                        -- Select Education --
+                      </option>
+                      <option value="No formal education">
+                        No formal education
+                      </option>
+                      <option value="Primary education">
+                        Primary education
+                      </option>
+                      <option value="Secondary education">
+                        Secondary education or high school
+                      </option>
+                      <option value="GED">GED</option>
+                      <option value="Vocational qualification">
+                        Vocational qualification
+                      </option>
+                      <option value="Bachelor's degree">
+                        Bachelor&apos;s degree
+                      </option>
+                      <option value="Master's degree">
+                        Master&apos;s degree
+                      </option>
+                      <option value="Doctorate or higher">
+                        Doctorate or higher
+                      </option>
+                    </select>
+                  </div>
                 </div>
                 <div>
                   <input
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 w-[28em]"
+                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 w-[28.5em]"
                     id="hobby"
                     name="hobby"
                     type="text"
@@ -62,12 +87,13 @@ function EditProfileMain() {
                   <div className="self-center ml-4">Member(s)</div>
                 </div>
                 <div>
-                  <input
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 w-[28em]"
-                    id="gender"
-                    name="gender"
-                    type="text"
-                  />
+                  <select className="w-[25em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts">
+                    <option value="" selected="selected" disabled="disabled">
+                      -- Select Gender --
+                    </option>
+                    <option value="female">Female</option>
+                    <option value="male">Male</option>
+                  </select>
                 </div>
                 <div className="flex flex-row">
                   <input
@@ -85,7 +111,7 @@ function EditProfileMain() {
                     placeholder="DD"
                   />
                   <input
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-4 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 w-[16em]"
+                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-4 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 w-[17em]"
                     id="birthyear"
                     name="birthyear"
                     type="text"
@@ -94,7 +120,7 @@ function EditProfileMain() {
                 </div>
                 <div>
                   <input
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 w-[28em]"
+                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 w-[28.5em]"
                     id="email"
                     name="email"
                     type="email"
@@ -102,7 +128,7 @@ function EditProfileMain() {
                 </div>
                 <div>
                   <input
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 w-[28em]"
+                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 w-[28.5em]"
                     id="phone"
                     name="phone"
                     type="text"
@@ -110,7 +136,7 @@ function EditProfileMain() {
                 </div>
                 <div>
                   <input
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 w-[28em]"
+                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 w-[28.5em]"
                     id="uploadID"
                     name="uploadID"
                     type="text"
@@ -120,7 +146,7 @@ function EditProfileMain() {
             </div>
           </div>
           <div className="ml-20">
-            <div className="text-5xl mt-6">Security</div>
+            <div className="text-5xl mt-12">Security</div>
             <div className="flex flex-rows mt-6">
               <div className="flex flex-col mt-4 text-xl gap-9 self-start">
                 <div>Password</div>
@@ -166,11 +192,11 @@ function EditProfileMain() {
               CANCEL
             </button>
           </div>
-          <div className="flex flex-col mt-4 ml-20 mt-10">
+          <div className="flex flex-col mt-4 ml-20 mt-16">
             <div className="text-5xl">Payment Methods & Tickets</div>
-            <div className="flex flex-rows gap-10 mt-8 mb-10">
+            <div className="flex flex-rows gap-10 mt-8 mb-16">
               <div className="flex flex-col">
-                <div className='text-lg mb-2'>3 Cards Added</div>
+                <div className="text-lg mb-2">3 Cards Added</div>
                 <button
                   type="button"
                   className="rounded-md box-border p-2 pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
@@ -179,7 +205,7 @@ function EditProfileMain() {
                 </button>
               </div>
               <div className="flex flex-col">
-                <div className='text-lg mb-2'>10 Tickets Remaining</div>
+                <div className="text-lg mb-2">10 Tickets Remaining</div>
                 <button
                   type="button"
                   className="rounded-md box-border p-2 pl-10 pr-10 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
