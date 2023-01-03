@@ -1,0 +1,142 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Navbar test snapshot 1`] = `
+<nav
+  className=" md:flex justify-between sticky top-0 items-center z-20 bg-cyan-50 h-16 max-w-full  max-h-15 mt-0 text-center  md:items-center md:justify-between "
+>
+  <div
+    className=" flex justify-between items-center"
+  >
+    <img
+      alt="logo"
+      className=" h-5 w-5 mt-1 ml-9 inline "
+      src="Logo.svg"
+    />
+    <h1
+      className="absolute top-0 left-14  text-xl mt-5  flex  "
+    >
+      Healing
+    </h1>
+    <svg
+      aria-hidden="true"
+      className=" md:hidden block w-10 h-10 p-2 cursor-pointer"
+      fill="currentColor"
+      height="1em"
+      onClick={[Function]}
+      stroke="currentColor"
+      strokeWidth="0"
+      style={
+        Object {
+          "color": undefined,
+        }
+      }
+      viewBox="0 0 24 24"
+      width="1em"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <path
+        clipRule="evenodd"
+        d="M3 6.75A.75.75 0 013.75 6h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 6.75zM3 12a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75A.75.75 0 013 12zm0 5.25a.75.75 0 01.75-.75h16.5a.75.75 0 010 1.5H3.75a.75.75 0 01-.75-.75z"
+        fillRule="evenodd"
+      />
+    </svg>
+    <div
+      className=" flex justify-around text-xs absolute top-0 right-14 mt-0 "
+    >
+      <ul
+        className="-right-full right-0 md:static fixed bottom-0 top-12 md:flex justify-between items-center md:bg-transparent bg-opacity-90 bg-cyan-50 md:w-auto w-10/12 md:space-y-3 p-2 transition-right"
+      >
+        <li
+          className=" mx-4 my-6 md:my-0 "
+        >
+          <a
+            className=" hover:text-orange-300 duration-500 "
+            href="#Home"
+          >
+            Home
+          </a>
+        </li>
+        <li
+          className=" mx-4 my-6 md:my-0 "
+        >
+          <a
+            className=" hover:text-orange-300 duration-500 "
+            href="#Blogs"
+          >
+            Blogs
+          </a>
+        </li>
+        <li
+          className=" hover:text-orange-300 duration-500 mx-4 my-6 md:my-0 relative inline-block"
+        >
+          <select
+            className="  flex w-16 h-5 bg-cyan-50"
+            onChange={[Function]}
+            value="About"
+          >
+            <option>
+               
+              <a
+                href="# about"
+                selected={true}
+                value="about"
+              >
+                About
+              </a>
+            </option>
+            <option>
+               
+              <a
+                href="# About Us"
+                value="about Us"
+              >
+                About Us
+              </a>
+            </option>
+            <option>
+               
+              <a
+                href="# Our Team"
+                value="Our team "
+              >
+                Our Team
+              </a>
+            </option>
+            <option>
+               
+              <a
+                href="# Open Carees"
+                value="Open carees"
+              >
+                Open Carees
+              </a>
+            </option>
+          </select>
+        </li>
+        <li
+          className=" mx-4 my-6 md:my-0 "
+        >
+          <a
+            className=" hover:text-orange-300 duration-500 "
+            href="#Contact Us"
+          >
+            Contact Us
+          </a>
+        </li>
+        <li
+          className=" mx-4 my-6 md:my-0 "
+        >
+          <a
+            className=" bg-cyan-400 hover:bg-cyan-500 active:bg-sky-700 focus:outline-none 
+ hover:text-orange-300 rounded-md  
+ grid grid-cols-1 divide-x-2px text-center w-16 h-5  my-2 duration-500 "
+            href="#Loge In"
+          >
+            Log In
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+`;
