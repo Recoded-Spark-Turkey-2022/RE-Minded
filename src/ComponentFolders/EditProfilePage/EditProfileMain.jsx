@@ -7,7 +7,7 @@ import passwordIcon from './Images/PasswordIcon.svg'
 
 function EditProfileMain() {
   return (
-    <div className="flex flex-col font-poppins lg:items-center lg:pr-0 pr-10">
+    <div className="flex flex-col font-poppins lg:items-center">
       <div className="self-center mt-8 lg:text-xl text-sm text-[#FF0000] lg:ml-0 ml-16 lg:mr-0 mr-[-1em]">
         Please fill all the fields with correct and valid details to complete
         your profile.
@@ -54,7 +54,7 @@ function EditProfileMain() {
                         Primary education
                       </option>
                       <option value="Secondary education">
-                        Secondary education or high school
+                       High school
                       </option>
                       <option value="GED">GED</option>
                       <option value="Vocational qualification">
@@ -201,7 +201,7 @@ function EditProfileMain() {
           <div className="flex flex-col mt-4 lg:ml-20 ml-[-10em] mt-16">
             <div className="lg:text-5xl text-2xl">Payment Methods & Tickets</div>
             <div className="flex flex-rows gap-10 mt-8 mb-16">
-              <div className="flex flex-col">
+              <div className="flex flex-col ">
                 <div className="lg:text-lg text-sm mb-2">3 Cards Added</div>
                 <button
                   type="button"
