@@ -3,7 +3,6 @@ import profilePhoto from './Images/ProfilePhoto.svg';
 import profileIcon from './Images/profileIcon.svg'
 import plusIcon from './Images/PlusIcon.svg'
 import passwordIcon from './Images/PasswordIcon.svg'
-// import arrowIcon from './Images/ArrowIcon.svg'
 
 function EditProfileMain() {
   return (
