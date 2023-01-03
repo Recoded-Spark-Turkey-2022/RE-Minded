@@ -14,20 +14,21 @@ function Login() {
     userPassword: '',
   });
 
-  const login = async (e) => {
-    e.preventDefault();
+  const login = async () => {
     try {
       const user = await signInWithEmailAndPassword(
         auth,
         loginData.userEmail,
         loginData.userPassword
       );
-      return user;
+      return user
     } catch (error) {
       return error;
-    } finally {
-      navigate('/');
-    }
+    } /* finally {
+      if (!error) {
+        navigate('/');
+      }
+    } */
   };
 
   function handleOnClick(e) {
@@ -46,7 +47,7 @@ function Login() {
         <h2 className='text-5xl font-["Poppins"] font-normal mb-44 max-[767px]:mt-20 md:mt-20 max-[767px]:mb-10 md:mb-10'>
           LOGIN
         </h2>
-        <form className="grid grid-rows-3 gap-12 shadow-2xl px-10 py-10">
+        <form onSubmit={login} className="grid grid-rows-3 gap-12 shadow-2xl px-10 py-10">
           <input
             type="text"
             placeholder="   Your Email"
@@ -67,7 +68,6 @@ function Login() {
             <button
               type="submit"
               className="bg-[#2DD3E3] font-medium text-2xl px-14 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
-              onClick={(e) => login(e)}
             >
               Login
             </button>
