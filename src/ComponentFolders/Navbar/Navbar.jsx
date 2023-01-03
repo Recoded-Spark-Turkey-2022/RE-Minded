@@ -1,61 +1,126 @@
-import { useState, React } from "react";
-import { HiBars3 } from "react-icons/hi2";
-import Image from "./Images/Logo.svg"
+import { useState } from 'react';
+import Logo from './Images/Logo.svg';
 
+export default function NavBar() {
+  const [navbar, setNavbar] = useState(false);
 
-
-function NaveBar() {
-   const [title, setTitle] = useState('About');
-   const [showNav, setShowNav] = useState(false);
-
-   return (
-      <nav className=" md:flex justify-between sticky top-0 items-center z-20 bg-cyan-50 h-16 max-w-full  max-h-15 mt-0 text-center  md:items-center md:justify-between ">
-
-         <div className=" flex justify-between items-center">
-            <img src={Image} alt="logo" className=" h-5 w-5 mt-1 ml-9 inline " />
-            <h1 className="absolute top-0 left-14  text-xl mt-5  flex  ">Healing</h1>
-            <HiBars3 onClick={() => setShowNav(!showNav)} className=" md:hidden block w-10 h-10 p-2 cursor-pointer" />
-
-
-
-
-            <div className=" flex justify-around text-xs absolute top-0 right-14 mt-0 ">
-
-               <ul className={(showNav ? "right-0" : "-right-full") +
-                  " right-0 md:static fixed bottom-0 top-12 md:flex justify-between items-center md:bg-transparent bg-opacity-90 bg-cyan-50 md:w-auto w-10/12 md:space-y-3 p-2 transition-right"}>
-
-                  <li className=" mx-4 my-6 md:my-0 "><a href="#Home" className=" hover:text-orange-300 duration-500 " >Home</a></li>
-                  <li className=" mx-4 my-6 md:my-0 "><a href="#Blogs" className=" hover:text-orange-300 duration-500 ">Blogs</a></li>
-
-                  <li className=" hover:text-orange-300 duration-500 mx-4 my-6 md:my-0 relative inline-block">
-                     <select value={title} onChange={(e) => setTitle(e.target.value)} className="  flex w-16 h-5 bg-cyan-50">
-                        <option> <a href="# about" selected value="about" >About</a></option>
-                        <option> <a href="# About Us" value="about Us" >About Us</a></option>
-                        <option> <a href="# Our Team" value="Our team ">Our Team</a></option>
-                        <option> <a href="# Open Carees" value="Open carees">Open Carees</a></option>
-                     </select></li>
-                  <li className=" mx-4 my-6 md:my-0 "><a href="#Contact Us" className=" hover:text-orange-300 duration-500 ">Contact Us</a></li>
-                  <li className=" mx-4 my-6 md:my-0 "><a href="#Loge In" className=" bg-cyan-400 hover:bg-cyan-500 active:bg-sky-700 focus:outline-none 
-              hover:text-orange-300 rounded-md  
-                grid grid-cols-1 divide-x-2px text-center w-16 h-5  my-2 duration-500 ">Log In</a></li>
-               </ul>
-
+  return (
+    <nav className="w-full bg-cyan-50 shadow font-poppins">
+      <div className="justify-between px-4 mx-auto  md:items-center md:flex md:px-8">
+        <div>
+          <div className="flex items-center  py-3 md:py-5 md:block">
+            <div className="flex flex-row ">
+              <img src={Logo} alt="Logo" />
+              <a href="Logo">
+                <h2 className="text-3xl text-bold m-4 ml-3 font-medium">
+                  Healing
+                </h2>
+              </a>
             </div>
-         </div>
+            <div className="md:hidden">
+              <button
+                type="button"
+                className="p-2 text-gray-700 rounded-md outline-none focus:border-gray-400 focus:border"
+                onClick={() => setNavbar(!navbar)}
+              >
+                {navbar ? (
+                  <svg
+                    className="w-6 h-6 "
+                    viewBox="0 0 20 20"
+                    fill="currentColor"
+                  >
+                    <path
+                      fillRule="evenodd"
+                      d="M4.293 4.293a1 1 0 011.414 0L10 8.586l4.293-4.293a1 1 0 111.414 1.414L11.414 10l4.293 4.293a1 1 0 01-1.414 1.414L10 11.414l-4.293 4.293a1 1 0 01-1.414-1.414L8.586 10 4.293 5.707a1 1 0 010-1.414z"
+                      clipRule="evenodd"
+                    />
+                  </svg>
+                ) : (
+                  <svg
+                    className="w-6 h-6 "
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    strokeWidth={2}
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                )}
+              </button>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div
+            className={`flex-1 justify-self-center pb-3 mt-8 md:block md:pb-0 md:mt-0 ${
+              navbar ? 'block' : 'hidden'
+            }`}
+          >
+            <div className="mt-3 space-y-2 lg:hidden md:hidden ">
+              <div className="flex flex-col  items-center  text-xl ">
+                <a className=" hover:text-indigo-200 pb-1 " href="Home">
+                  Home
+                </a>
 
+                <a className=" hover:text-indigo-200 p-2" href="Blog">
+                  Blog
+                </a>
 
-      </nav>
+                <a className=" hover:text-indigo-200 p-2" href="Home">
+                  About
+                </a>
 
-   );
+                <a className=" hover:text-indigo-200 p-2" href="Blog">
+                  Contact Us
+                </a>
+
+                <a
+                  href="Log In"
+                  className="flex justify-center w-1/3  px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
+                >
+                  Log In
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div className="hidden space-x-2 md:inline-block">
+          <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
+            <li className=" hover:text-indigo-200">
+              <a href="Home">Home</a>
+            </li>
+            <li className=" hover:text-indigo-200">
+              <a href="Blog">Blog</a>
+            </li>
+            <li className=" hover:text-indigo-200 cursor-pointer">
+              <select className=" p-2.5 bg-cyan-50 cursor-pointer">
+                <option>
+                  <a href="About">About</a>
+                </option>
+                <option>
+                  <a href="Team">Team</a>
+                </option>
+                <option>
+                  <a href="Carees">Carees</a>
+                </option>
+              </select>
+            </li>
+            <li className=" hover:text-indigo-200">
+              <a href="Contact">Contact US</a>
+            </li>
+            <a
+              href="Log In"
+              className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
+            >
+              Log in
+            </a>
+          </ul>
+        </div>
+      </div>
+    </nav>
+  );
 }
-export default NaveBar;
-
-
-
-
-
-
-
-
-
-
