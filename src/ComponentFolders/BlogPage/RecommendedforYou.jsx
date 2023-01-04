@@ -8,7 +8,7 @@ function Bottom() {
         <div>
             <div className="  inline-block  mt-32 mx-40 ">
                 <h2 className=" font-semibold font-sans text-start uppercase md:text-2xl text-xl">Recommended for you</h2>
-                <div className=" flex justify-between justify-items-start mt-10">
+                <div className=" flex flex-col md:flex-col lg:flex-row mt-10">
                         <img src={Image1} alt="Heal" className=" mr-10 h-64 w-96" />
                         <img src={Image2} alt="Need" className=" h-64 w-96" />
                 </div>
