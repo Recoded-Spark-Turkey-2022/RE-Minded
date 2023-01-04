@@ -3,8 +3,8 @@ import OfficeImage from './Images/OfficeImage.svg'
 
 const ContactPageMain = () => {
   return (
-    <div className='flex lg:flex-row flex-col w-screen h-screen font-poppins'>
-        <div className='basis-3/5 lg:ml-28 ml-10 lg:pr-36 md:pr-20 pr-10'>
+    <div className='flex flex-col w-screen h-screen font-poppins'>
+        <div className='lg:ml-28 ml-10 lg:pr-36 md:pr-20 pr-10'>
             <div className='lg:text-5xl md:text-3xl text-2xl leading-6 lg:mt-20 mt-14'>
                 <h1>SEND US YOUR REQUEST!</h1>
                 <div className='w-full lg:text-xl text-lg leading-8 mt-4 lg:ml-0 ml-4 lg:mr-0 text-SubTexts'>
@@ -16,12 +16,12 @@ const ContactPageMain = () => {
                 </div>
             </div>
         </div>
-        <div className='form check'>
-            <div className='mt-2'>
+        <div className='flex lg:flex-row flex-col lg:ml-28'>
+            <div className='basis-1/2 mt-4'>
                 <h3 className='lg:text-xl text-lg lg:mt-10 mt-8 lg:ml-0 ml-4 lg:mr-0 font-semibold'>
                     Type of contact
                 </h3>
-                <ul className="w-48 text-sm font-medium mt-4 lg:text-xl lg:mt-5 lg:ml-2 ml-4 lg:mr-0">
+                <ul className="text-sm font-medium mt-4 lg:text-xl lg:mt-5 lg:ml-2 ml-4 lg:mr-0">
                     <li className="w-full">
                             <label 
                             htmlFor="list-radio-1" 
@@ -122,12 +122,13 @@ const ContactPageMain = () => {
                     </li>
                 </ul>
             </div>
+            <div className='basis-1/2 lg:mt-10 lg:pr-16 lg:ml-0 md:ml-40 ml-10 mt-12 mr-10'>
+        <img src={OfficeImage} alt="OfficeImg" className='mb-10'/>
+      </div>
         </div>
         
         
-        <div className='basis-2/5 lg:mt-32 lg:pr-16 lg:ml-0 md:ml-40 ml-10 mt-12 mr-10'>
-        <img src={OfficeImage} alt="OfficeImg" className='mb-10'/>
-      </div>
+        
     </div>
         
     

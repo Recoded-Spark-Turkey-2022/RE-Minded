@@ -17,8 +17,8 @@ module.exports = {
       SubTexts: '#718096'
     },
     screens: {
-      sm: "640px",
-      md: "768px",
+      sm: "320px",
+      md: "640px",
       lg: "1024px",
       xl: "1280px",
     },
