@@ -16,7 +16,7 @@ const ContactPageMain = () => {
                 </div>
             </div>
         </div>
-        <div className='flex lg:flex-row flex-col lg:ml-28'>
+        <div className='flex lg:flex-row flex-col lg:ml-28 '>
             <div className='basis-1/2 mt-4'>
                 <h3 className='lg:text-xl text-lg lg:mt-10 mt-8 lg:ml-0 ml-4 lg:mr-0 font-semibold'>
                     Type of contact
@@ -127,7 +127,71 @@ const ContactPageMain = () => {
       </div>
         </div>
         
-        
+    <div>
+        <div className='flex lg:flex-row flex-col lg:ml-28'>
+            <div className='basis-1/2 mt-4 mb-8'>
+                <form>
+                    <div>
+                        <label htmlFor="fullname" className='form-label inline-block mb-2'> Full Name:
+                         <input 
+                          type="text"
+                          id="fullname"
+                          placeholder='Enter your full name here...'
+                          className='form-control
+                          block
+                          w-full
+                          px-3
+                          py-1.5
+                          text-base
+                          font-normal
+                          text-gray-700
+                          bg-white bg-clip-padding
+                          border border-solid border-gray-300
+                          rounded
+                          transition
+                          ease-in-out
+                          m-0
+                          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'/>
+                        </label> 
+                    </div>
+                    <div>
+                        <label htmlFor="email" className='form-label inline-block mb-2'> Email:
+                         <input 
+                          type="text"
+                          id="email"
+                          placeholder='Enter your full name here...'
+                          className='form-control
+                          block
+                          w-full
+                          px-3
+                          py-1.5
+                          text-base
+                          font-normal
+                          text-gray-700
+                          bg-white bg-clip-padding
+                          border border-solid border-gray-300
+                          rounded
+                          transition
+                          ease-in-out
+                          m-0
+                          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'/>
+                        </label> 
+                    </div>
+                    <label htmlFor="message"
+                        className="block mb-2 text-sm font-medium text-gray-900">
+                        Details
+                        <textarea
+                        id="message" rows="4" 
+                        className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50
+                        rounded-lg border border-gray-300
+                        focus:ring-blue-500 focus:border-blue-500"
+                        placeholder='Enter your details here...'>
+                        Enter your details here...</textarea>
+                        </label>
+                </form>
+            </div>
+        </div>
+    </div>
         
     </div>
         
