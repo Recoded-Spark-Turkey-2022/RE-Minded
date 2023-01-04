@@ -27,6 +27,7 @@ import SignUp from './ComponentFolders/SignUpPage/SignUp';
 // import TherapistCreatePage from './ComponentFolders/TherapistCreatePage/TherapistCreatePage';
 import TicketPurchasePage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage';
 
+
 function App() {
   return (
     <BrowserRouter>
@@ -56,6 +57,7 @@ function App() {
   <Route path="therapistcreate" element={<TherapistCreatePage />} /> */}
         <Route path="ticketpurchase" element={<TicketPurchasePage />} />
         {/* <Footer /> */}
+
       </Routes>
     </BrowserRouter>
   );
