@@ -3,6 +3,8 @@ import Card from './Card';
 import ChoicesA from './QuestionChoicesA';
 
 function BookingPage1() {
+
+  
   return (
     <div className="flex flex-col items-center p-12">
       <Card
@@ -11,11 +13,19 @@ function BookingPage1() {
       />
       <div className="font-poppins shadow-zinc-300 flex flex-col w-full md:max-w-2xl lg:max-w-4xl my-16 mx-auto px-8 py-4 shadow-md">
         <ChoicesA
-          question="What type of coumseling are you looking for?"
+          question="What type of counseling are you looking for?"
           first="Individual counseling"
           second="Teen counseling (for my child)"
-          button="NEXT"
         />
+        <div className="flex justify-center md:justify-start lg:justify-start ">
+          <button
+            type="button"
+            className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
+          
+          >
+            NEXT
+          </button>
+        </div>
       </div>
     </div>
   );

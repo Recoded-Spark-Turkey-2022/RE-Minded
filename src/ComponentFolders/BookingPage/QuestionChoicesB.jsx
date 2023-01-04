@@ -7,7 +7,6 @@ function ChoicesB({
   four,
   five,
   six,
-  button,
   question,
   showSix,
 }) {
@@ -17,41 +16,34 @@ function ChoicesB({
         {question}
       </h1>
       <div className="flex flex-col pl-6 text-md md:text-lg  lg:text-xl">
-        <label>
+        <label htmlFor="one">
           <input type="radio" className="m-2 mb-6 mt-12" />
           {one}
         </label>
-        <label>
+        <label htmlFor="two">
           <input type="radio" className="m-2 mb-6" />
           {two}
         </label>
-        <label>
+        <label htmlFor="three">
           <input type="radio" className="m-2 mb-6" />
           {three}
         </label>
-        <label>
+        <label htmlFor="four">
           <input type="radio" className="m-2 mb-6" />
           {four}
         </label>
-        <label>
+        <label htmlFor="five">
           <input type="radio" className="m-2 mb-6" />
           {five}
         </label>
         {showSix && (
-          <label>
+          <label htmlFor="six">
             <input type="radio" className="m-2 mb-4" />
             {six}
           </label>
         )}
       </div>
-      <div className="flex justify-center md:justify-start lg:justify-start ">
-        <button
-          type="button"
-          className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
-        >
-          {button}
-        </button>
-      </div>
+      
     </div>
   );
 }
