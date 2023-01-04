@@ -1,6 +1,6 @@
 import React from 'react';
 import Card1 from './Card';
-// import Question from './Question';
+
 
 function BookingPage6() {
    return (
@@ -9,7 +9,9 @@ function BookingPage6() {
          header="WHAT BRINGS YOU HERE?"
          content="Please specify (in a few sentences) why you'd like counseling.This will give your counselor a good understanding of where to start."
        />
-       <input className="font-poppins shadow-zinc-300 flex flex-col justify-between w-full h-full md:max-w-md lg:max-w-6xl lg:max-h-6xl my-16 mx-auto px-8 py-4 shadow-md" />
+       <div className="font-poppins shadow-zinc-300 flex flex-col w-full md:max-w-2xl lg:max-w-6xl my-16 mx-auto px-8 py-4 shadow-md">
+         <input  />
+       </div>
      </div>
    );
 }

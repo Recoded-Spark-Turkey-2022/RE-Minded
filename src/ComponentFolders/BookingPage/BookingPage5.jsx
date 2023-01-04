@@ -1,6 +1,7 @@
 import React from 'react';
 import Card1 from './Card';
-import Question from './Question';
+import ChoicesB from './QuestionChoicesB';
+
 
 function BookingPage5() {
    return (
@@ -9,11 +10,19 @@ function BookingPage5() {
          header="LET'S MATCH YOU WITH THE RIGHT THERAPIST"
          content="Please fill out this short questionnaire to provide some general and anonymous background about you and the issues you'd like to deal with in online therapy. It would help us match you with the most suitable therapist for you. "
        />
-       <Question
-         header="Are there any issues you'd like to focus on?"
-         content="Choices"
-         button="Next"
-       />
+       <div className="font-poppins shadow-zinc-300 flex flex-col w-full md:max-w-2xl lg:max-w-6xl my-16 mx-auto px-8 py-4 shadow-md">
+         <ChoicesB
+           question="Are there any issues you'd like to focus on?"
+           one="Depression"
+           two="Stress and Anxiety"
+           three="Relationship issues"
+           four="Family conflicts"
+           five="Trauma and abuse"
+           six="Eating disorders"
+           showSix
+           button="NEXT"
+         />
+       </div>
      </div>
    );
 }
