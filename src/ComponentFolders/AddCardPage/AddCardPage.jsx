@@ -3,6 +3,7 @@ import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
 
 function AddCard () {
+    
     return (
       <div className="p-20 font-poppins">
         <h1 className="text-3xl pb-5">ADD CARD DETAILS</h1>
