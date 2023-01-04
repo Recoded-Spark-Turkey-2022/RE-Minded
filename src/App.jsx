@@ -17,7 +17,7 @@ import SignUp from './ComponentFolders/SignUpPage/SignUp';
 // import BookingPage8 from './ComponentFolders/BookingPage/BookingPage8';
 // import CareersPage from './ComponentFolders/CareersPage/CareersPageMain';
 // import ContactUsPage from './ComponentFolders/ContactUsPage/ContactPageMain';
-// import EditProfilePage from './ComponentFolders/EditProfilePage/EditProfileMain';
+ import EditProfilePage from './ComponentFolders/EditProfilePage/EditProfileMain';
 // import Footer from './ComponentFolders/Footer/Footer';
 // import Navbar from './ComponentFolders/Navbar/Navbar';
 // import RequirementsPage from './ComponentFolders/RequirementsPage/Requirements';
@@ -48,9 +48,9 @@ function App() {
         <Route path="booking7" element={<BookingPage7 />} />
         <Route path="booking8" element={<BookingPage8 />} />
         <Route path="careers" element={<CareersPage />} />
-        <Route path="contactus" element={<ContactUsPage />} />
+  <Route path="contactus" element={<ContactUsPage />} /> */}
         <Route path="editprofile" element={<EditProfilePage />} />
-        <Route path="requirements" element={<RequirementsPage />} />
+      {/*  <Route path="requirements" element={<RequirementsPage />} />
         <Route path="savedcards" element={<SavedCardsPage />} />
         <Route path="team" element={<TeamPage />} />
         <Route path="thankyou" element={<ThankYouPage />} />
