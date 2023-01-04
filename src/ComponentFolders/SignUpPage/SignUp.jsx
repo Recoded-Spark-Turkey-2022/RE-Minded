@@ -1,9 +1,9 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import * as yup from 'yup';
+/* import { createUserWithEmailAndPassword } from 'firebase/auth'; */
+/* import { auth } from '../../Firebase'; */
 import { useFormik } from 'formik';
-import { auth } from '../../Firebase';
-import { basicSchema } from '../../schemas/basicSchema';
 import Image from './Images/SofaImage.svg';
 import lineImage from './Images/line.svg';
 import FacebookLogo from './Images/FacebookLogo.svg';
@@ -11,45 +11,74 @@ import GoogleLogo from './Images/GoogleLogo.svg';
 
 function SignUp() {
   const navigate = useNavigate();
-  let userEmailAuth;
-  let userPasswordAuth; 
-  function onSubmit(e) {
-    e.preventDefault()
-    const register = async () => {
+
+  const basicSchema = yup.object().shape({
+    userFirstName: yup.string().min(3).max(20),
+    userLastName: yup.string().min(3).max(20),
+    userEmail: yup.string().email('Please enter a vaild email').required(),
+    userConfirmEmail: yup
+      .string()
+      .oneOf([yup.ref('userEmail'), null], 'Emails must match')
+      .required(),
+    userPassword: yup
+      .string()
+      .min(8)
+      .matches(
+        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
+        {
+          message: 'Please create a stronger password',
+        }
+      )
+      .required(),
+    userCondirmPassword: yup
+      .string()
+      .oneOf([yup.ref('userPassword'), null], 'Passwords must match')
+      .required(),
+    dayOfBirth: yup.number().positive().integer().min(1).max(31).required(),
+    monthOfBirth: yup.number().positive().integer().min(1).max(12).required(),
+    yearOfYear: yup
+      .number()
+      .positive()
+      .integer()
+      .min(1900)
+      .max(2023)
+      .required(),
+  });
+
+  const handleFormSubmit = (event) => {
+    event.preventDefault();
+    console.log('Done');
+    /* const register = async () => {
       try {
         const user = await createUserWithEmailAndPassword(
           auth,
-          userEmailAuth,
-          userPasswordAuth
+          values.userEmail,
+          values.userPassword
         );
-        console.log(user);
+        return user
       } catch (error) {
-        console.log(error.message);
+        return error.message
       }
     };
-    register();
-  }
+    register(); */
+  };
 
-  const { values, errors, handleChange, handleBlur, handleSubmit } = useFormik({
-    initialValues: {
-      userFirstName: '',
-      userLastName: '',
-      userEmail: '',
-      userConfirmEmail: '',
-      userPassword: '',
-      userCondirmPassword: '',
-      dayOfBirth: '',
-      monthOfBirth: '',
-      yearOfYear: '',
-    },
-    validationSchema: basicSchema,
-    onSubmit,
-  });
-
-  userEmailAuth = values.userEmail;
-  userPasswordAuth = values.userPassword;
-
-  console.log(errors)
+  const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
+    useFormik({
+      initialValues: {
+        userFirstName: '',
+        userLastName: '',
+        userEmail: '',
+        userConfirmEmail: '',
+        userPassword: '',
+        userCondirmPassword: '',
+        dayOfBirth: '',
+        monthOfBirth: '',
+        yearOfYear: '',
+      },
+      validationSchema: basicSchema,
+      onSubmit: handleFormSubmit,
+    });
 
   return (
     <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20">
@@ -59,7 +88,7 @@ function SignUp() {
           SIGNUP NOW
         </h2>
         <form
-          onSubmit={(e) => handleSubmit(e)}
+          onSubmit={handleSubmit}
           className="grid grid-rows-3 gap-4 shadow-2xl px-10 py-10 w-[555px] h-[493]"
         >
           <div className="flex gap-x-7">
@@ -70,7 +99,7 @@ function SignUp() {
               value={values.userFirstName}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
+              className="px-3 h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
             <input
               type="text"
@@ -79,7 +108,7 @@ function SignUp() {
               value={values.userLastName}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
+              className="px-3 h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
           </div>
           <input
@@ -89,8 +118,11 @@ function SignUp() {
             value={values.userEmail}
             onChange={handleChange}
             onBlur={handleBlur}
-            className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
+            className="px-3 h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
           />
+          {errors.userEmail && touched.userEmail && (
+            <p className="text-red-500">{errors.userEmail}</p>
+          )}
           <input
             type="email"
             placeholder="   Confirm email"
@@ -98,7 +130,7 @@ function SignUp() {
             value={values.userConfirmEmail}
             onChange={handleChange}
             onBlur={handleBlur}
-            className="h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
+            className="px-3 h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
           />
           <div className="flex gap-x-7">
             <input
@@ -108,7 +140,7 @@ function SignUp() {
               value={values.userPassword}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
+              className="px-3 h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
             <input
               type="password"
@@ -117,7 +149,7 @@ function SignUp() {
               value={values.userCondirmPassword}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
+              className="px-3 h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
           </div>
           <div className="flex items-center justify-between">
@@ -129,7 +161,7 @@ function SignUp() {
               value={values.dayOfBirth}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
+              className="px-3 h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
             <input
               type="number"
@@ -138,7 +170,7 @@ function SignUp() {
               value={values.monthOfBirth}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
+              className="px-3 h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
             <input
               type="number"
@@ -147,7 +179,7 @@ function SignUp() {
               value={values.yearOfYear}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300 focus:outline-none focus:placeholder-white"
+              className="px-3 h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
           </div>
           <div className="flex justify-around py-3 gap-8">
