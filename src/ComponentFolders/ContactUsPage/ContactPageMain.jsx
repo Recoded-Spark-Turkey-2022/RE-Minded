@@ -30,7 +30,7 @@ const ContactPageMain = () => {
                                 id="list-radio-1" 
                                 type="radio" 
                                 name="list-radio" 
-                                className="w-4 h-4 focus:ring-blue-500"/>
+                                className="w-4 h-4"/>
                                     <span className='ml-2'>
                                         I have a question about the service.
                                     </span> 
@@ -44,7 +44,7 @@ const ContactPageMain = () => {
                                 id="list-radio-1" 
                                 type="radio" 
                                 name="list-radio" 
-                                className="w-4 h-4 focus:ring-blue-500"/>
+                                className="w-4 h-4"/>
                                     <span className='ml-2'>
                                     I am a registered client and I need support.
                                     </span> 
@@ -58,7 +58,7 @@ const ContactPageMain = () => {
                                 id="list-radio-1" 
                                 type="radio" 
                                 name="list-radio" 
-                                className="w-4 h-4 focus:ring-blue-500"/>
+                                className="w-4 h-4"/>
                                     <span className='ml-2'>
                                         I am a counselor interested in joining.
                                     </span> 
@@ -72,7 +72,7 @@ const ContactPageMain = () => {
                                 id="list-radio-1" 
                                 type="radio" 
                                 name="list-radio" 
-                                className="w-4 h-4 focus:ring-blue-500"/>
+                                className="w-4 h-4"/>
                                     <span className='ml-2'>
                                     I am a registered counselor and I need support.
                                     </span> 
@@ -86,7 +86,7 @@ const ContactPageMain = () => {
                                 id="list-radio-1" 
                                 type="radio" 
                                 name="list-radio" 
-                                className="w-4 h-4 focus:ring-blue-500"/>
+                                className="w-4 h-4"/>
                                     <span className='ml-2'>
                                     I have a business-related inquiry.
                                     </span> 
@@ -100,7 +100,7 @@ const ContactPageMain = () => {
                                 id="list-radio-1" 
                                 type="radio" 
                                 name="list-radio" 
-                                className="w-4 h-4 focus:ring-blue-500"/>
+                                className="w-4 h-4"/>
                                     <span className='ml-2'>
                                     I am interested in Healing Online for my organization.
                                     </span> 
@@ -114,7 +114,7 @@ const ContactPageMain = () => {
                                 id="list-radio-1" 
                                 type="radio" 
                                 name="list-radio" 
-                                className="w-4 h-4 focus:ring-blue-500"/>
+                                className="w-4 h-4"/>
                                     <span className='ml-2'>
                                     I have a billing related question.
                                     </span> 
@@ -128,67 +128,112 @@ const ContactPageMain = () => {
         </div>
         
     <div>
-        <div className='flex lg:flex-row flex-col lg:ml-28'>
+        <div className='flex lg:flex-row flex-col lg:ml-28 mt-8 ml-10 lg:pr-36 md:pr-20 pr-10'>
             <div className='basis-1/2 mt-4 mb-8'>
                 <form>
                     <div>
-                        <label htmlFor="fullname" className='form-label inline-block mb-2'> Full Name:
+                        <label 
+                          htmlFor="fullname"
+                          className='inline-block mb-2'> 
+                          Full Name:
                          <input 
                           type="text"
                           id="fullname"
                           placeholder='Enter your full name here...'
-                          className='form-control
-                          block
+                          className='
                           w-full
                           px-3
-                          py-1.5
-                          text-base
+                          py-3
+                          text-base 
                           font-normal
                           text-gray-700
-                          bg-white bg-clip-padding
-                          border border-solid border-gray-300
-                          rounded
-                          transition
-                          ease-in-out
-                          m-0
-                          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'/>
+                          border
+                          border-solid
+                          rounded-[10px]
+                          drop-shadow-lg
+                          shadow-[#AC97971F]'/>
                         </label> 
                     </div>
                     <div>
-                        <label htmlFor="email" className='form-label inline-block mb-2'> Email:
+                        <label
+                          htmlFor="email"
+                          className='inline-block mb-2'>
+                          Email:
                          <input 
                           type="text"
                           id="email"
-                          placeholder='Enter your full name here...'
-                          className='form-control
-                          block
+                          placeholder='Enter your email address here...'
+                          className='
                           w-full
                           px-3
-                          py-1.5
-                          text-base
+                          py-3
+                          text-base 
                           font-normal
                           text-gray-700
-                          bg-white bg-clip-padding
-                          border border-solid border-gray-300
-                          rounded
-                          transition
-                          ease-in-out
-                          m-0
-                          focus:text-gray-700 focus:bg-white focus:border-blue-600 focus:outline-none'/>
+                          border
+                          border-solid
+                          rounded-[10px]
+                          drop-shadow-lg
+                          shadow-[#AC97971F]'/>
                         </label> 
                     </div>
-                    <label htmlFor="message"
-                        className="block mb-2 text-sm font-medium text-gray-900">
+                    <div>
+                    <label
+                        htmlFor="message"
+                        className="inline-block mb-2">
                         Details
                         <textarea
                         id="message" rows="4" 
-                        className="block p-2.5 w-full text-sm text-gray-900 bg-gray-50
-                        rounded-lg border border-gray-300
-                        focus:ring-blue-500 focus:border-blue-500"
-                        placeholder='Enter your details here...'>
-                        Enter your details here...</textarea>
-                        </label>
+                        className="
+                        w-full 
+                        px-3
+                        py-3
+                        text-base 
+                        font-normal
+                        text-gray-700
+                        border
+                        border-solid
+                        rounded-[10px]
+                        drop-shadow-lg
+                        shadow-[#AC97971F]"
+                        placeholder='Enter your details here...'
+                        />
+                    </label>
+                    </div>
+                    <div className="mt-6">
+                    <button
+                        type="button"
+                        className="
+                        lg:text-xl md:text-base text-sm 
+                        lg:ml-0 lg:mb-10 lg:px-6 
+                        rounded-md box-border p-2 
+                        bg-Buttons hover:bg-Background
+                        cursor-pointer">
+                        SUBMIT
+                    </button>
+                    </div>
                 </form>
+            </div>
+            <div className='basis-1/2 mt-16 mb-8'>
+                <div className='items-center'>
+                   <div className='max-w-sm p-6
+                     bg-[#EAF8F9] 
+                        h-[200px] 
+                        w-[400px]
+                        l-[832px]
+                        t-[966px] 
+                        border-[0.5px] 
+                        border-solid 
+                        rounded-[35px] 
+                        border-color-[]
+                        shadow-md'>
+                    <h3 className='font-medium text-lg'>Find Us At:</h3>
+                    <p className='text-[#0000008A] font-medium text-lg'> Hello World! Street </p>
+                    <p className='text-[#0000008A] font-medium text-lg'> Re:Minded Plaza </p>
+                    <p className='text-[#0000008A] font-medium text-lg'> Re:Coded 01012023 </p>
+                    <p className='text-[#0000008A] font-medium text-lg'> Turkey/World </p>
+                   </div>
+                </div>
             </div>
         </div>
     </div>
