@@ -11,7 +11,7 @@ function BookingPage3() {
       />
       <div className="font-poppins shadow-zinc-300 flex flex-col w-full md:max-w-2xl lg:max-w-4xl my-16 mx-auto px-8 py-4 shadow-md">
         <ChoicesA
-          question="Have you ever been in therspy before?"
+          question="Have you ever been in therapy before?"
           first="Yes"
           second="No"
         />

@@ -18,6 +18,7 @@ function BookingPage5() {
           four="Family conflicts"
           five="Trauma and abuse"
           six="Eating disorders"
+          showFive
           showSix
         />
         <div className="flex justify-center md:justify-start lg:justify-start ">

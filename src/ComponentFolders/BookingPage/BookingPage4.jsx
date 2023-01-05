@@ -16,7 +16,7 @@ function BookingPage4() {
           two="I prefer a female counselor"
           three="I prefer an older counselor (45+)"
           four="I prefer a non-religious counselor"
-          five="I prefer an older counselor (45+)"
+  
         />
         <div className="flex justify-center md:justify-start lg:justify-start ">
           <button
