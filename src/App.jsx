@@ -17,7 +17,7 @@ import './App.css';
 // import BookingPage8 from './ComponentFolders/BookingPage/BookingPage8';
 // import CareersPage from './ComponentFolders/CareersPage/CareersPageMain';
 // import ContactUsPage from './ComponentFolders/ContactUsPage/ContactPageMain';
-// import EditProfilePage from './ComponentFolders/EditProfilePage/EditProfileMain';
+ import EditProfilePage from './ComponentFolders/EditProfilePage/EditProfileMain';
 // import Footer from './ComponentFolders/Footer/Footer';
 // import Navbar from './ComponentFolders/Navbar/Navbar';
 // import RequirementsPage from './ComponentFolders/RequirementsPage/Requirements';
@@ -25,40 +25,44 @@ import SavedCardsPage from './ComponentFolders/SavedCardsPage/SavedCardsPage';
 // import TeamPage from './ComponentFolders/TeamPage/TeamPageMain';
 // import ThankYouPage from './ComponentFolders/ThankYouPage/ThankYou';
 // import TherapistCreatePage from './ComponentFolders/TherapistCreatePage/TherapistCreatePage';
-// import TicketPruchasePage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage';
+import TicketPurchasePage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage';
+
 
 function App() {
   return (
-    <SavedCardsPage/>
-    // <BrowserRouter>
-    //   <Routes>
-    //     <Route path="navbar" element={<Navbar />} /> 
-    //     <Route exact path="/" element={<HomePageMain />} />
-    //     <Route path="login" element={<Login />} />
-    //     <Route path="signup" element={<SignUp />} />
-    //     <Route path="about" element={<About />} />
-    //     <Route path="addcard" element={<AddCardPage />} />
-    //     <Route path="blog" element={<BlogPage />} />
-    //     <Route path="booking1" element={<BookingPage1 />} />
-    //     <Route path="booking2" element={<BookingPage2 />} />
-    //     <Route path="booking3" element={<BookingPage3 />} />
-    //     <Route path="booking4" element={<BookingPage4 />} />
-    //     <Route path="booking5" element={<BookingPage5 />} />
-    //     <Route path="booking6" element={<BookingPage6 />} />
-    //     <Route path="booking7" element={<BookingPage7 />} />
-    //     <Route path="booking8" element={<BookingPage8 />} />
-    //     <Route path="careers" element={<CareersPage />} />
-    //     <Route path="contactus" element={<ContactUsPage />} />
-    //     <Route path="editprofile" element={<EditProfilePage />} />
-    //     <Route path="requirements" element={<RequirementsPage />} />
-    //     <Route path="savedcards" element={<SavedCardsPage />} />
-    //     <Route path="team" element={<TeamPage />} />
-    //     <Route path="thankyou" element={<ThankYouPage />} />
-    //     <Route path="therapistcreate" element={<TherapistCreatePage />} />
-    //     <Route path="ticketpurchase" element={<TicketPruchasePage />} />
-    //     <Footer /> 
-    //   </Routes>
-    // </BrowserRouter>
+
+   
+    <BrowserRouter>
+      <Routes>
+        {/* <Route path="navbar" element={<Navbar />} /> */}
+        <Route exact path="/" element={<HomePageMain />} />
+        <Route path="login" element={<Login />} />
+        <Route path="signup" element={<SignUp />} />
+        <Route path="about" element={<About />} />
+        {/* <Route path="addcard" element={<AddCardPage />} />
+        <Route path="blog" element={<BlogPage />} />
+        <Route path="booking1" element={<BookingPage1 />} />
+        <Route path="booking2" element={<BookingPage2 />} />
+        <Route path="booking3" element={<BookingPage3 />} />
+        <Route path="booking4" element={<BookingPage4 />} />
+        <Route path="booking5" element={<BookingPage5 />} />
+        <Route path="booking6" element={<BookingPage6 />} />
+        <Route path="booking7" element={<BookingPage7 />} />
+        <Route path="booking8" element={<BookingPage8 />} />
+        <Route path="careers" element={<CareersPage />} />
+  <Route path="contactus" element={<ContactUsPage />} /> */}
+        <Route path="editprofile" element={<EditProfilePage />} />
+      {/*  <Route path="requirements" element={<RequirementsPage />} />
+        <Route path="savedcards" element={<SavedCardsPage />} />
+        <Route path="team" element={<TeamPage />} />
+        <Route path="thankyou" element={<ThankYouPage />} />
+  <Route path="therapistcreate" element={<TherapistCreatePage />} /> */}
+        <Route path="ticketpurchase" element={<TicketPurchasePage />} />
+        {/* <Footer /> */}
+
+      </Routes>
+    </BrowserRouter>
+
   );
 }
 
