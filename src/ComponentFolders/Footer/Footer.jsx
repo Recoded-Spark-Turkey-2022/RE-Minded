@@ -6,7 +6,7 @@ import image4 from './Images/SubscribeArrow.svg';
 
 function Footer() {
   return (
-    <footer className=" bg-Footer  bottom-0 w-full p-4 md:flex md:items-center md:justify-between md:p-6 ">
+    <footer className="relative bg-Footer  bottom-0 w-full p-4 md:flex md:items-center md:justify-between md:p-6 ">
       <span className=" ml-12 text-sm ">
         <div className="ml-36 md:ml-0 lg:md-0 flex-col gap-3 w-[500px] h-[78px] mb-4">
           <h1 className=" text-BlackTexts text-4xl font-medium h-[44px]">

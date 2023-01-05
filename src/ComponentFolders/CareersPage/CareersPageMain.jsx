@@ -5,7 +5,7 @@ import ContentC from './ContentC';
 
 function CareersPageMain() {
   return (
-    <div className="h-screen w-screen">
+    <div className="  h-screen w-screen">
       <div className="flex flex-col font-poppins w-screen ">
         <div>
           <ContentA />

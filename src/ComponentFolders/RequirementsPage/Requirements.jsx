@@ -4,7 +4,7 @@ import requirementPageImg from './Images/LaptopImage.svg';
 
 function Requirements() {
   return (
-    <div className="flex lg:flex-row flex-col w-screen h-screen font-poppins ">
+    <div className="flex lg:flex-row flex-col w-screen h-screen font-poppins mb-56">
       <div className="basis-3/5 lg:ml-28 ml-10 lg:pr-36 md:pr-20 pr-10">
         <div className="lg:text-5xl md:text-3xl text-2xl leading-6 lg:mt-20 mt-14">
           <h1>WHY WORK WITH HEALING?</h1>
