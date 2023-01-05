@@ -5,7 +5,7 @@ export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
 
   return (
-    <nav className="w-full bg-cyan-50 shadow font-poppins">
+    <nav className="w-full sticky top-0 z-50 bg-cyan-50 shadow font-poppins">
       <div className="justify-between px-4 mx-auto  md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center  py-3 md:py-5 md:block">

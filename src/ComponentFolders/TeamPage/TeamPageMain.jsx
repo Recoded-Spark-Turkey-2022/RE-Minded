@@ -22,7 +22,9 @@ function TeamPageMain() {
   return (
     <div className="flex flex-col text-[#424A4F] ">
       <div className=" font-poppins lg:text-5xl text-3xl leading-10">
-        <h1 className="lg:ml-44 lg:mt-20 ml-10 sm:mr-10 md:mr-10 mt-10 text-black">WE ARE HEALING, NICE TO MEET YOU!</h1>
+        <h1 className="lg:ml-44 lg:mt-20 ml-10 sm:mr-10 md:mr-10 mt-10 text-black">
+          WE ARE HEALING, NICE TO MEET YOU!
+        </h1>
       </div>
       <div className="text-3xl leading-10">
         <h3 className="lg:ml-44 lg:mt-28 ml-10 mt-8">Meet the Team!</h3>

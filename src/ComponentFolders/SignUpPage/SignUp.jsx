@@ -135,8 +135,12 @@ function SignUp() {
           <img src={lineImage} alt="A line" />
         </div>
         <div className="flex justify-center my-6 gap-x-20">
-          <img src={FacebookLogo} alt="Facebook logo" className='cursor-pointer'/>
-          <img src={GoogleLogo} alt="Google logo" className='cursor-pointer'/>
+          <img
+            src={FacebookLogo}
+            alt="Facebook logo"
+            className="cursor-pointer"
+          />
+          <img src={GoogleLogo} alt="Google logo" className="cursor-pointer" />
         </div>
       </div>
     </div>

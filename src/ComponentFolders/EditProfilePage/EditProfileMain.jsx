@@ -1,8 +1,8 @@
 import React from 'react';
 import profilePhoto from './Images/ProfilePhoto.svg';
-import profileIcon from './Images/profileIcon.svg'
-import plusIcon from './Images/PlusIcon.svg'
-import passwordIcon from './Images/PasswordIcon.svg'
+import profileIcon from './Images/profileIcon.svg';
+import plusIcon from './Images/PlusIcon.svg';
+import passwordIcon from './Images/PasswordIcon.svg';
 
 function EditProfileMain() {
   return (
@@ -12,9 +12,13 @@ function EditProfileMain() {
         your profile.
       </div>
       <div className="flex lg:flex-row flex-col">
-        <div className='flex flex-col lg:ml-[-10em] md:ml-[10%] ml-[25%] lg:mr-[0%] md:mr-[30%] mr-[25%]'>
+        <div className="flex flex-col lg:ml-[-10em] md:ml-[10%] ml-[25%] lg:mr-[0%] md:mr-[30%] mr-[25%]">
           <img src={profilePhoto} alt="profile" className="self-center ml-28" />
-          <img src={profileIcon} alt="profileIcon" className='lg:w-16 w-14 ml-32 self-center lg:mt-[-4em] mt-[-3em]'/>
+          <img
+            src={profileIcon}
+            alt="profileIcon"
+            className="lg:w-16 w-14 ml-32 self-center lg:mt-[-4em] mt-[-3em]"
+          />
         </div>
         <div className="flex flex-col lg:ml-16 ml-44">
           <div className=" lg:ml-20 ml-[-15em] lg:self-start lg:mr-44 mt-6 ">
@@ -27,9 +31,9 @@ function EditProfileMain() {
                 <div>Family Size</div>
                 <div>Gender</div>
                 <div>Birth Date</div>
-                <div className='mt-2'>Email</div>
+                <div className="mt-2">Email</div>
                 <div>Phone Number</div>
-                <div className='mt-2'>Upload ID</div>
+                <div className="mt-2">Upload ID</div>
               </div>
               <div className="flex flex-col gap-7 lg:mt-1 mt-3 ml-6 ">
                 <div>
@@ -52,9 +56,7 @@ function EditProfileMain() {
                       <option value="Primary education">
                         Primary education
                       </option>
-                      <option value="Secondary education">
-                       High school
-                      </option>
+                      <option value="Secondary education">High school</option>
                       <option value="GED">GED</option>
                       <option value="Vocational qualification">
                         Vocational qualification
@@ -136,14 +138,18 @@ function EditProfileMain() {
                     type="text"
                   />
                 </div>
-                <div className='flex flex-row'>
-                  <input 
+                <div className="flex flex-row">
+                  <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
                     id="uploadID"
                     name="uploadID"
                     type="text"
                   />
-                  <img src={plusIcon} alt="plusIcon" className='w-6 ml-[-2em]'/>
+                  <img
+                    src={plusIcon}
+                    alt="plusIcon"
+                    className="w-6 ml-[-2em]"
+                  />
                 </div>
               </div>
             </div>
@@ -153,26 +159,34 @@ function EditProfileMain() {
             <div className="flex flex-rows mt-6">
               <div className="flex flex-col mt-4 lg:text-xl text-base gap-9 self-start">
                 <div>Password</div>
-                <div className='lg:mt-0 mt-[-1em]'>Confirm Password</div>
+                <div className="lg:mt-0 mt-[-1em]">Confirm Password</div>
               </div>
               <div className="flex flex-col gap-7 mt-1 lg:ml-0 ml-4">
-                <div className='flex flex-row'>
+                <div className="flex flex-row">
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28em] w-[17.5em]"
                     id="password"
                     name="password"
                     type="text"
                   />
-                  <img src={passwordIcon} alt="passwordIcon" className="w-6 ml-[-2em]"/>
+                  <img
+                    src={passwordIcon}
+                    alt="passwordIcon"
+                    className="w-6 ml-[-2em]"
+                  />
                 </div>
-                <div className='flex flex-row'>
+                <div className="flex flex-row">
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block  lg:p-2 p-1 lg:w-[28em] w-[17.5em]"
                     id="confirmpassword"
                     name="confirmpassword"
                     type="text"
                   />
-                  <img src={passwordIcon} alt="passwordIcon" className="w-6 ml-[-2em]"/>
+                  <img
+                    src={passwordIcon}
+                    alt="passwordIcon"
+                    className="w-6 ml-[-2em]"
+                  />
                 </div>
               </div>
             </div>
@@ -198,7 +212,9 @@ function EditProfileMain() {
             </button>
           </div>
           <div className="flex flex-col mt-4 lg:ml-20 ml-[-10em] mt-16">
-            <div className="lg:text-5xl text-2xl">Payment Methods & Tickets</div>
+            <div className="lg:text-5xl text-2xl">
+              Payment Methods & Tickets
+            </div>
             <div className="flex flex-rows gap-10 mt-8 mb-16">
               <div className="flex flex-col ">
                 <div className="lg:text-lg text-sm mb-2">3 Cards Added</div>
@@ -210,7 +226,9 @@ function EditProfileMain() {
                 </button>
               </div>
               <div className="flex flex-col">
-                <div className="lg:text-lg text-sm mb-2 ">10 Tickets Remaining</div>
+                <div className="lg:text-lg text-sm mb-2 ">
+                  10 Tickets Remaining
+                </div>
                 <button
                   type="button"
                   className="rounded-md lg:text-base text-sm box-border p-2 pl-10 pr-10 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "

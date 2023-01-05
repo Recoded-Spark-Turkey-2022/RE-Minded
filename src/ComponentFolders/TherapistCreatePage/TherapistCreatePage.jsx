@@ -1,4 +1,3 @@
-
 import React from 'react';
 
 function TherapistCreatePage() {
@@ -93,4 +92,3 @@ function TherapistCreatePage() {
 }
 
 export default TherapistCreatePage;
-
