@@ -8,6 +8,7 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif'],
       },
 
+
       colors: {
         Background: '#E5E5E5',
         Navbar: '#EAF8F9',
@@ -22,6 +23,7 @@ module.exports = {
         lg: '1024px',
         xl: '1280px',
       },
+
 
 
     },
