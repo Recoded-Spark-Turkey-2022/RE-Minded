@@ -1,11 +1,13 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+// import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import './App.css';
+
 
 import About from './ComponentFolders/AboutPage/About';
 import HomePageMain from './ComponentFolders/HomePage/HomePageMain';
 import Login from './ComponentFolders/LoginPage/Login';
 import SignUp from './ComponentFolders/SignUpPage/SignUp';
+
 // import AddCardPage from './ComponentFolders/AddCardPage/AddCardPage';
 // import BlogPage from './ComponentFolders/BlogPage/BlogPageMain';
 // import BookingPage1 from './ComponentFolders/BookingPage/BookingPage1';
@@ -21,8 +23,10 @@ import SignUp from './ComponentFolders/SignUpPage/SignUp';
  import EditProfilePage from './ComponentFolders/EditProfilePage/EditProfileMain';
 // import Footer from './ComponentFolders/Footer/Footer';
 // import Navbar from './ComponentFolders/Navbar/Navbar';
+
  import RequirementsPage from './ComponentFolders/RequirementsPage/Requirements';
 // import SavedCardsPage from './ComponentFolders/SavedCardsPage/SavedCardsPage';
+
 // import TeamPage from './ComponentFolders/TeamPage/TeamPageMain';
 // import ThankYouPage from './ComponentFolders/ThankYouPage/ThankYou';
 
@@ -32,6 +36,8 @@ import TicketPurchasePage from './ComponentFolders/TicketPurchasePage/TicketPurc
 
 function App() {
   return (
+
+   
     <BrowserRouter>
       <Routes>
         {/* <Route path="navbar" element={<Navbar />} /> */}
@@ -66,6 +72,7 @@ function App() {
 
       </Routes>
     </BrowserRouter>
+
   );
 
 
