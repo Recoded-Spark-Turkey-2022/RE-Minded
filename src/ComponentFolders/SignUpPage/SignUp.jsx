@@ -1,66 +1,31 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
-import * as yup from 'yup';
-/* import { createUserWithEmailAndPassword } from 'firebase/auth'; */
-/* import { auth } from '../../Firebase'; */
 import { useFormik } from 'formik';
+import { createUserWithEmailAndPassword } from 'firebase/auth';
+import { auth } from '../../Firebase';
 import Image from './Images/SofaImage.svg';
 import lineImage from './Images/line.svg';
 import FacebookLogo from './Images/FacebookLogo.svg';
 import GoogleLogo from './Images/GoogleLogo.svg';
+import { basicSchema } from '../../schemas/basicSchema';
 
 function SignUp() {
   const navigate = useNavigate();
 
-  const basicSchema = yup.object().shape({
-    userFirstName: yup.string().min(3).max(20),
-    userLastName: yup.string().min(3).max(20),
-    userEmail: yup.string().email('Please enter a vaild email').required(),
-    userConfirmEmail: yup
-      .string()
-      .oneOf([yup.ref('userEmail'), null], 'Emails must match')
-      .required(),
-    userPassword: yup
-      .string()
-      .min(8)
-      .matches(
-        /^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{8,}$/,
-        {
-          message: 'Please create a stronger password',
-        }
-      )
-      .required(),
-    userCondirmPassword: yup
-      .string()
-      .oneOf([yup.ref('userPassword'), null], 'Passwords must match')
-      .required(),
-    dayOfBirth: yup.number().positive().integer().min(1).max(31).required(),
-    monthOfBirth: yup.number().positive().integer().min(1).max(12).required(),
-    yearOfYear: yup
-      .number()
-      .positive()
-      .integer()
-      .min(1900)
-      .max(2023)
-      .required(),
-  });
-
-  const handleFormSubmit = (event) => {
-    event.preventDefault();
-    console.log('Done');
-    /* const register = async () => {
+  const handleFormSubmit = (e) => {
+    const register = async () => {
       try {
         const user = await createUserWithEmailAndPassword(
           auth,
-          values.userEmail,
-          values.userPassword
+          e.userEmail,
+          e.userPassword
         );
         return user
       } catch (error) {
         return error.message
       }
     };
-    register(); */
+    register();
   };
 
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
@@ -91,6 +56,18 @@ function SignUp() {
           onSubmit={handleSubmit}
           className="grid grid-rows-3 gap-4 shadow-2xl px-10 py-10 w-[555px] h-[493]"
         >
+            {errors.userEmail && touched.userEmail && (
+            <li className="text-red-500">{errors.userEmail}</li>
+          )}
+            {errors.userConfirmEmail && touched.userConfirmEmail && (
+            <li className="text-red-500">{errors.userConfirmEmail}</li>
+          )}
+            {errors.userPassword && touched.userPassword && (
+            <li className="text-red-500">{errors.userPassword}</li>
+          )}
+            {errors.userCondirmPassword && touched.userCondirmPassword && (
+            <li className="text-red-500">{errors.userCondirmPassword}</li>
+          )}
           <div className="flex gap-x-7">
             <input
               type="text"
@@ -120,9 +97,6 @@ function SignUp() {
             onBlur={handleBlur}
             className="px-3 h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
           />
-          {errors.userEmail && touched.userEmail && (
-            <p className="text-red-500">{errors.userEmail}</p>
-          )}
           <input
             type="email"
             placeholder="   Confirm email"
