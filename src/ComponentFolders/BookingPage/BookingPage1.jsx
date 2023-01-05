@@ -3,8 +3,6 @@ import Card from './Card';
 import ChoicesA from './QuestionChoicesA';
 
 function BookingPage1() {
-
-  
   return (
     <div className="flex flex-col items-center p-12">
       <Card
@@ -21,7 +19,6 @@ function BookingPage1() {
           <button
             type="button"
             className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
-          
           >
             NEXT
           </button>

@@ -1,0 +1,152 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Booking1 Page snapshot test 1`] = `
+<div
+  className="flex flex-col items-center p-12"
+>
+  <div
+    className=" flex flex-col p-14 font-poppins "
+  >
+    <h1
+      className="text-2xl pb-6 md:text-2xl lg:text-4xl"
+    >
+      LET'S MATCH YOU WITH THE RIGHT THERAPIST
+    </h1>
+    <p
+      className="text-lg  md:text-xl opacity-50 lg:text-2xl lg:pr-40  "
+    >
+      Please fill out this short questionnaire to provide some general and anonymous background about you and the issues you'd like to deal with in online therapy. It would help us match you with the most suitable therapist for you. 
+    </p>
+  </div>
+  <div
+    className="font-poppins shadow-zinc-300 flex flex-col w-full md:max-w-2xl lg:max-w-4xl my-16 mx-auto px-8 py-4 shadow-md"
+  >
+    <div
+      className="p-10"
+    >
+      <h1
+        className="text-xl pb-6 md:text-2xl lg:text-3xl lg:flex justify-center mt-4"
+      >
+        What type of counseling are you looking for?
+      </h1>
+      <div
+        className="flex flex-col pl-6 text-md md:text-lg lg:text-xl"
+      >
+        <div
+          className="shadow-zinc-300 flex flex-col w-full mb-6 mt-12 px-4 py-4 shadow-md hover:bg-cyan-400 cursor-pointer"
+        >
+          Individual counseling
+        </div>
+        <div
+          className="shadow-zinc-300 flex flex-col w-full mb-6 px-4 py-4 shadow-md hover:bg-cyan-400 cursor-pointer"
+        >
+          Teen counseling (for my child)
+        </div>
+      </div>
+    </div>
+    <div
+      className="flex justify-center md:justify-start lg:justify-start "
+    >
+      <button
+        className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
+        type="button"
+      >
+        NEXT
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Booking4 Page snapshot test 1`] = `
+<div
+  className="flex flex-col items-center p-12"
+>
+  <div
+    className=" flex flex-col p-14 font-poppins "
+  >
+    <h1
+      className="text-2xl pb-6 md:text-2xl lg:text-4xl"
+    >
+      LET'S MATCH YOU WITH THE RIGHT THERAPIST
+    </h1>
+    <p
+      className="text-lg  md:text-xl opacity-50 lg:text-2xl lg:pr-40  "
+    >
+      Please fill out this short questionnaire to provide some general and anonymous background about you and the issues you'd like to deal with in online therapy. It would help us match you with the most suitable therapist for you. 
+    </p>
+  </div>
+  <div
+    className="font-poppins shadow-zinc-300 flex flex-col w-full md:max-w-2xl lg:max-w-4xl my-16 mx-auto px-8 py-4 shadow-md"
+  >
+    <div
+      className="p-10"
+    >
+      <h1
+        className="text-xl pb-6 md:text-2xl lg:text-3xl lg:flex justify-center mt-4 "
+      >
+        Are there any specific qualities that you'd like in a counselor?
+      </h1>
+      <div
+        className="flex flex-col pl-6 text-md md:text-lg  lg:text-xl"
+      >
+        <label
+          htmlFor="one"
+        >
+          <input
+            className="m-2 mb-6 mt-12"
+            type="radio"
+          />
+          I prefer a male counselor
+        </label>
+        <label
+          htmlFor="two"
+        >
+          <input
+            className="m-2 mb-6"
+            type="radio"
+          />
+          I prefer a female counselor
+        </label>
+        <label
+          htmlFor="three"
+        >
+          <input
+            className="m-2 mb-6"
+            type="radio"
+          />
+          I prefer an older counselor (45+)
+        </label>
+        <label
+          htmlFor="four"
+        >
+          <input
+            className="m-2 mb-6"
+            type="radio"
+          />
+          I prefer a non-religious counselor
+        </label>
+        <label
+          htmlFor="five"
+        >
+          <input
+            className="m-2 mb-6"
+            type="radio"
+          />
+          I prefer an older counselor (45+)
+        </label>
+      </div>
+    </div>
+    <div
+      className="flex justify-center md:justify-start lg:justify-start "
+    >
+      <button
+        className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
+        type="button"
+      >
+        NEXT
+      </button>
+    </div>
+  </div>
+</div>
+`;

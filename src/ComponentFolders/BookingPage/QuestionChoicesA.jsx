@@ -19,7 +19,6 @@ function ChoicesA({ question, first, second, third, showThird }) {
           </div>
         )}
       </div>
-     
     </div>
   );
 }
