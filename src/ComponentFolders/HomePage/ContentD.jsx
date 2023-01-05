@@ -1,6 +1,6 @@
 import React from 'react';
-import Blog1 from './Images/ContentD(Blog1).svg';
-import Blog2 from './Images/ContentD(Blog2).svg';
+import Blog1 from './Images/ContentDBlog1.svg';
+import Blog2 from './Images/ContentDBlog2.svg';
 import RightArrow from './Images/RightArrow.svg';
 import LeftArrow from './Images/LeftArrow.svg';
 
