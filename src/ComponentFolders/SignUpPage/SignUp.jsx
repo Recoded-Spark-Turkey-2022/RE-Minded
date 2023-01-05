@@ -10,6 +10,7 @@ import GoogleLogo from './Images/GoogleLogo.svg';
 import { basicSchema } from '../../schemas/basicSchema';
 
 function SignUp() {
+
   const navigate = useNavigate();
 
   const handleFormSubmit = (e) => {
@@ -20,9 +21,12 @@ function SignUp() {
           e.userEmail,
           e.userPassword
         );
-        return user
+        return user;
       } catch (error) {
-        return error.message
+        if (error.message === "Firebase: Error (auth/email-already-in-use).") {
+          alert("The same email is used, try another one")
+        }
+        return error;
       }
     };
     register();
@@ -56,16 +60,16 @@ function SignUp() {
           onSubmit={handleSubmit}
           className="grid grid-rows-3 gap-4 shadow-2xl px-10 py-10 w-[555px] h-[493]"
         >
-            {errors.userEmail && touched.userEmail && (
+          {errors.userEmail && touched.userEmail && (
             <li className="text-red-500">{errors.userEmail}</li>
           )}
-            {errors.userConfirmEmail && touched.userConfirmEmail && (
+          {errors.userConfirmEmail && touched.userConfirmEmail && (
             <li className="text-red-500">{errors.userConfirmEmail}</li>
           )}
-            {errors.userPassword && touched.userPassword && (
+          {errors.userPassword && touched.userPassword && (
             <li className="text-red-500">{errors.userPassword}</li>
           )}
-            {errors.userCondirmPassword && touched.userCondirmPassword && (
+          {errors.userCondirmPassword && touched.userCondirmPassword && (
             <li className="text-red-500">{errors.userCondirmPassword}</li>
           )}
           <div className="flex gap-x-7">
