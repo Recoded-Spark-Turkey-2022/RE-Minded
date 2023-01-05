@@ -1,3 +1,4 @@
+
 import { useState } from 'react';
 import Logo from './Images/Logo.svg';
 
@@ -16,6 +17,7 @@ export default function NavBar() {
                   Healing
                 </h2>
               </a>
+
             </div>
             <div className="md:hidden">
               <button

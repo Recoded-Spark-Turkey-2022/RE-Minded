@@ -2,6 +2,7 @@
 
 exports[`Navbar test snapshot 1`] = `
 <nav
+
   className="w-full bg-cyan-50 shadow font-poppins"
 >
   <div
@@ -108,11 +109,13 @@ exports[`Navbar test snapshot 1`] = `
         >
           <a
             href="Home"
+
           >
             Home
           </a>
         </li>
         <li
+
           className=" hover:text-indigo-200"
         >
           <a
@@ -130,11 +133,13 @@ exports[`Navbar test snapshot 1`] = `
             <option>
               <a
                 href="About"
+
               >
                 About
               </a>
             </option>
             <option>
+
               <a
                 href="Team"
               >
@@ -146,11 +151,13 @@ exports[`Navbar test snapshot 1`] = `
                 href="Carees"
               >
                 Carees
+
               </a>
             </option>
           </select>
         </li>
         <li
+
           className=" hover:text-indigo-200"
         >
           <a
@@ -165,6 +172,7 @@ exports[`Navbar test snapshot 1`] = `
         >
           Log in
         </a>
+
       </ul>
     </div>
   </div>
