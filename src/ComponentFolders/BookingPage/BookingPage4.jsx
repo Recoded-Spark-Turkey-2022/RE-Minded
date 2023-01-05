@@ -1,5 +1,4 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
 import Card1 from './Card';
 import ChoicesB from './QuestionChoicesB';
 
@@ -24,7 +23,7 @@ function BookingPage4() {
             type="button"
             className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
           >
-            <Link to="/BookingPage5"> NEXT </Link>
+            NEXT 
           </button>
         </div>
       </div>
