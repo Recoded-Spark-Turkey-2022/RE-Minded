@@ -1,7 +1,7 @@
 import React from 'react';
-import VideoCall from './Images/ContentC(VideoCall).svg';
-import VoiceCall from './Images/ContentC(VoiceCall).svg';
-import Chat from './Images/ContentC(Chat).svg';
+import VideoCall from './Images/ContentCVideoCall.svg';
+import VoiceCall from './Images/ContentCVoiceCall.svg';
+import Chat from './Images/ContentCChat.svg';
 import Card from './Card';
 
 function ContentC() {

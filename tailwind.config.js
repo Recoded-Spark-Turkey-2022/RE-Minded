@@ -8,6 +8,19 @@ module.exports = {
         poppins: ['Poppins', 'sans-serif'],
       },
 
+      backgroundImage: {
+        backgroundOfContentA:
+          'url(./ComponentFolders/HomePage/Images/Background.svg)',
+      },
+      backgroundSize: {
+        auto: 'auto',
+        cover: 'cover',
+        contain: 'contain',
+        '100%': '100%',
+        16: '4rem',
+      },
+
+
 
       colors: {
         Background: '#E5E5E5',
@@ -26,7 +39,9 @@ module.exports = {
 
 
 
+
     },
   },
+  variants: {},
   plugins: [],
 };
