@@ -1,0 +1,322 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Careers Page snapshot test 1`] = `
+<div
+  className="h-screen w-screen"
+>
+  <div
+    className="flex flex-col font-poppins w-screen "
+  >
+    <div>
+      <div>
+        <div
+          className="lg:text-5xl md:text-3xl text-2xl leading-6 mt-10 lg:ml-28 ml-10 text-gray-700"
+        >
+          <h1>
+            CAREERS AT HEALING
+          </h1>
+        </div>
+        <div
+          className="lg:text-xl text-lg leading-6 mt-4 lg:ml-28 ml-10 text-gray-400"
+        >
+          <h3>
+            Be a part of making people feel better.
+          </h3>
+        </div>
+        <div
+          className="lg:text-lg text-base leading-6 lg:mt-24 mt-16 lg:ml-28 ml-10 lg:mr-52 md:mr-20 mr-10 text-gray-700"
+        >
+          Our SEO software cuts through mountains of data to surface critical insights. We build and maintain systems that process massive amounts of data (we're talking 36 trillion records per day and multiple petabytes of storage.) We model transparent and empathetic marketing for the world. We educate our community, making every effort to help them improve their skill. And we do it all by fostering a culture that encourages accountability, empathy, and transparency.
+        </div>
+        <div
+          className="lg:text-2xl text-lg leading-6 mt-20 lg:ml-28 ml-10 text-gray-700"
+        >
+          <h3>
+            What role will you play?
+          </h3>
+        </div>
+        <div
+          className="text-xl leading-6 mt-4 lg:ml-12 mb-8"
+        >
+          <button
+            className="lg:text-xl md:text-base text-sm lg:ml-16 ml-10 lg:px-6 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 cursor-pointer "
+            type="button"
+          >
+            SEE OUR OPEN LIST
+          </button>
+        </div>
+      </div>
+    </div>
+    <div
+      className="bg-yellow-300 w-full"
+    >
+      <div
+        className="text-gray-700"
+      >
+        <div
+          className="lg:text-5xl md:text-3xl text-2xl leading-6 mt-10 lg:ml-28 ml-10"
+        >
+          <h1>
+            OUR HIRING PHILOSOPHY
+          </h1>
+        </div>
+        <div
+          className="lg:text-lg text-base leading-6 mt-6 lg:ml-28 ml-10 lg:mr-52 md:mr-20 mr-10 mb-8"
+        >
+          To build the very best SEO tools, we need a workforce that reflects the diversity of our communities and customers. We want Online Therapy to be a place where everyone feels welcome and engaged, bar none. It's our mission and promise to interview a diverse and representative slate of candidates before making an offer for our open roles.
+        </div>
+      </div>
+    </div>
+  </div>
+  <div
+    className="flex flex-col w-screen font-poppins"
+  >
+    <div>
+      <div>
+        <div
+          className="lg:text-5xl md:text-3xl text-2xl leading-6 lg:mt-12 mt-4 lg:pt-12 pt-8 lg:ml-28 ml-10 text-gray-700"
+        >
+          <h1>
+            CURRENT OPEN POSITIONS
+          </h1>
+        </div>
+        <div
+          className="lg:text-xl text-lg leading-6 mt-4 lg:ml-28 ml-10 lg:mr-0 mr-10 text-gray-400"
+        >
+          <h3>
+            Please send us an email with the application title as the subject with an attached CV in PDF format!
+          </h3>
+        </div>
+        <div>
+          <div
+            className="overflow-y-scroll overflow-y-auto mb-12 lg:ml-24 ml-10 mt-6 lg:mr-20 mr-10 h-[30em] "
+          >
+            <div
+              className="w-full p-4 shadow-md flex flex-row hover:bg-yellow-100 cursor-pointer"
+            >
+              <div
+                className="basis-3/4 flex flex-col items-stretch"
+              >
+                <h3
+                  className="lg:text-2xl text-lg font-medium text-cyan-500 self-start"
+                >
+                  Senior Software Developer | Backend | Remote in the USA
+                </h3>
+                <p
+                  className="text-gray-600 self-start lg:text-base text-sm"
+                >
+                  Moz is looking for a Senior Software Developer to join our Application Development team.
+                </p>
+              </div>
+              <div
+                className="basis-1/4  flex flex-col items-stretch pl-4"
+              >
+                <h3
+                  className="text-cyan-500 lg:text-xl text-base leading-8 self-end"
+                >
+                  Engineering
+                </h3>
+                <p
+                  className="text-gray-600 self-end lg:text-base text-sm"
+                >
+                  Application Development
+                </p>
+              </div>
+            </div>
+            <div
+              className="w-full p-4 shadow-md flex flex-row hover:bg-yellow-100 cursor-pointer"
+            >
+              <div
+                className="basis-3/4 flex flex-col items-stretch"
+              >
+                <h3
+                  className="lg:text-2xl text-lg font-medium text-cyan-500 self-start"
+                >
+                  Senior Software Developer | Rapid Prototyping | Remote in
+                </h3>
+                <p
+                  className="text-gray-600 self-start lg:text-base text-sm"
+                >
+                  Moz is looking for a Senior Software Developer to join our Rapid Prototyping Team (RPT). This team is responsible for working closely with product managers to take ideas for new features and quickly validate their technical and business feasibility.
+                </p>
+              </div>
+              <div
+                className="basis-1/4  flex flex-col items-stretch pl-4"
+              >
+                <h3
+                  className="text-cyan-500 lg:text-xl text-base leading-8 self-end"
+                >
+                  Engineering
+                </h3>
+                <p
+                  className="text-gray-600 self-end lg:text-base text-sm"
+                >
+                  Rapid Prototyping
+                </p>
+              </div>
+            </div>
+            <div
+              className="w-full p-4 shadow-md flex flex-row hover:bg-yellow-100 cursor-pointer"
+            >
+              <div
+                className="basis-3/4 flex flex-col items-stretch"
+              >
+                <h3
+                  className="lg:text-2xl text-lg font-medium text-cyan-500 self-start"
+                >
+                  Senior Product Analyst | Remote in Canada
+                </h3>
+                <p
+                  className="text-gray-600 self-start lg:text-base text-sm"
+                >
+                  Moz is looking for a Product Analyst to define our suite of product metrics.
+                </p>
+              </div>
+              <div
+                className="basis-1/4  flex flex-col items-stretch pl-4"
+              >
+                <h3
+                  className="text-cyan-500 lg:text-xl text-base leading-8 self-end"
+                >
+                  Engineering
+                </h3>
+                <p
+                  className="text-gray-600 self-end lg:text-base text-sm"
+                >
+                  Business Intelligence
+                </p>
+              </div>
+            </div>
+            <div
+              className="w-full p-4 shadow-md flex flex-row hover:bg-yellow-100 cursor-pointer"
+            >
+              <div
+                className="basis-3/4 flex flex-col items-stretch"
+              >
+                <h3
+                  className="lg:text-2xl text-lg font-medium text-cyan-500 self-start"
+                >
+                  Business Intelligence Manager | Remote in Canada
+                </h3>
+                <p
+                  className="text-gray-600 self-start lg:text-base text-sm"
+                >
+                  Moz is hiring a Manager of Business Intelligence to lead our analytics and data warehousing efforts in a new phase of development.
+                </p>
+              </div>
+              <div
+                className="basis-1/4  flex flex-col items-stretch pl-4"
+              >
+                <h3
+                  className="text-cyan-500 lg:text-xl text-base leading-8 self-end"
+                >
+                  Engineering
+                </h3>
+                <p
+                  className="text-gray-600 self-end lg:text-base text-sm"
+                >
+                  Business Intelligence
+                </p>
+              </div>
+            </div>
+            <div
+              className="w-full p-4 shadow-md flex flex-row hover:bg-yellow-100 cursor-pointer"
+            >
+              <div
+                className="basis-3/4 flex flex-col items-stretch"
+              >
+                <h3
+                  className="lg:text-2xl text-lg font-medium text-cyan-500 self-start"
+                >
+                  Engineering Manager | Remote in Canada
+                </h3>
+                <p
+                  className="text-gray-600 self-start lg:text-base text-sm"
+                >
+                  Moz is seeking an Engineering Manager within our Application Development team.
+                </p>
+              </div>
+              <div
+                className="basis-1/4  flex flex-col items-stretch pl-4"
+              >
+                <h3
+                  className="text-cyan-500 lg:text-xl text-base leading-8 self-end"
+                >
+                  Engineering
+                </h3>
+                <p
+                  className="text-gray-600 self-end lg:text-base text-sm"
+                />
+              </div>
+            </div>
+            <div
+              className="w-full p-4 shadow-md flex flex-row hover:bg-yellow-100 cursor-pointer"
+            >
+              <div
+                className="basis-3/4 flex flex-col items-stretch"
+              >
+                <h3
+                  className="lg:text-2xl text-lg font-medium text-cyan-500 self-start"
+                >
+                  Sr. Data Engineer | Remote in Canada
+                </h3>
+                <p
+                  className="text-gray-600 self-start lg:text-base text-sm"
+                >
+                  Moz is looking for a talented Senior Software Developer to join our Data Collection team.
+                </p>
+              </div>
+              <div
+                className="basis-1/4  flex flex-col items-stretch pl-4"
+              >
+                <h3
+                  className="text-cyan-500 lg:text-xl text-base leading-8 self-end"
+                >
+                  Engineering
+                </h3>
+                <p
+                  className="text-gray-600 self-end lg:text-base text-sm"
+                >
+                  Data Collection
+                </p>
+              </div>
+            </div>
+            <div
+              className="w-full p-4 shadow-md flex flex-row hover:bg-yellow-100 cursor-pointer"
+            >
+              <div
+                className="basis-3/4 flex flex-col items-stretch"
+              >
+                <h3
+                  className="lg:text-2xl text-lg font-medium text-cyan-500 self-start"
+                >
+                  Sr. Data Engineer | Remote in Canada
+                </h3>
+                <p
+                  className="text-gray-600 self-start lg:text-base text-sm"
+                >
+                  Moz is looking for a talented Senior Software Developer to join our Data Collection team.
+                </p>
+              </div>
+              <div
+                className="basis-1/4  flex flex-col items-stretch pl-4"
+              >
+                <h3
+                  className="text-cyan-500 lg:text-xl text-base leading-8 self-end"
+                >
+                  Engineering
+                </h3>
+                <p
+                  className="text-gray-600 self-end lg:text-base text-sm"
+                >
+                  Data Collection
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
