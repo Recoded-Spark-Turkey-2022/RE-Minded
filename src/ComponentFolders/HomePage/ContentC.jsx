@@ -7,7 +7,7 @@ import Card from './Card';
 function ContentC() {
   return (
     <div className="font-poppins p-12 mb-16 mt-4  flex flex-col justify-evenly ">
-      <h1 className="sm:text-xl md:text-4xl xl:text-4xl p-16 mb-2">
+      <h1 className=" text-2xl md:text-4xl xl:text-4xl p-16 mb-2 lg:ml-0">
         WE CAN COMMUNICATE THROUGH
       </h1>
       <div className="flex flex-col md:flex-row items-center justify-evenly ">
