@@ -7,7 +7,7 @@ const ContactPageMain = () => {
         <div className='lg:ml-28 ml-10 lg:pr-36 md:pr-20 pr-10'>
             <div className='lg:text-5xl md:text-3xl text-2xl leading-6 lg:mt-20 mt-14'>
                 <h1>SEND US YOUR REQUEST!</h1>
-                <div className='w-full lg:text-xl text-lg leading-8 mt-4 lg:ml-0 ml-4 lg:mr-0 text-SubTexts'>
+                <div className='w-full lg:text-2xl text-lg leading-8 mt-4 lg:ml-0 lg:mr-0 text-SubTexts'>
                 <h3>
                 Do you have a question, concern, idea, feedback, or problem?
                 If you need assistance, please fill out the form below
@@ -129,12 +129,12 @@ const ContactPageMain = () => {
         
     <div>
         <div className='flex lg:flex-row flex-col lg:ml-28 mt-8 ml-10 lg:pr-36 md:pr-20 pr-10'>
-            <div className='basis-1/2 mt-4 mb-8'>
-                <form>
+        <div className='basis-1/2'>
+                <form className='container'>
                     <div>
                         <label 
                           htmlFor="fullname"
-                          className='inline-block mb-2'> 
+                          className='inline-block lg:w-[70%] mt-2 mb-2'> 
                           Full Name:
                          <input 
                           type="text"
@@ -147,7 +147,7 @@ const ContactPageMain = () => {
                           text-base 
                           font-normal
                           text-gray-700
-                          border
+                          border-#0000001F
                           border-solid
                           rounded-[10px]
                           drop-shadow-lg
@@ -157,7 +157,7 @@ const ContactPageMain = () => {
                     <div>
                         <label
                           htmlFor="email"
-                          className='inline-block mb-2'>
+                          className='inline-block lg:w-[70%] mt-2 mb-2'>
                           Email:
                          <input 
                           type="text"
@@ -170,7 +170,7 @@ const ContactPageMain = () => {
                           text-base 
                           font-normal
                           text-gray-700
-                          border
+                          border-#0000001F
                           border-solid
                           rounded-[10px]
                           drop-shadow-lg
@@ -180,8 +180,8 @@ const ContactPageMain = () => {
                     <div>
                     <label
                         htmlFor="message"
-                        className="inline-block mb-2">
-                        Details
+                        className="inline-block lg:w-[70%] mt-2 mb-2">
+                        Details:
                         <textarea
                         id="message" rows="4" 
                         className="
@@ -191,7 +191,7 @@ const ContactPageMain = () => {
                         text-base 
                         font-normal
                         text-gray-700
-                        border
+                        border-#0000001F
                         border-solid
                         rounded-[10px]
                         drop-shadow-lg
@@ -205,8 +205,10 @@ const ContactPageMain = () => {
                         type="button"
                         className="
                         lg:text-xl md:text-base text-sm 
-                        lg:ml-0 lg:mb-10 lg:px-6 
-                        rounded-md box-border p-2 
+                        lg:ml-0 lg:mb-10 lg:px-16 
+                        px-6 py-3
+                        rounded-md box-border 
+                        font-semibold 
                         bg-Buttons hover:bg-Background
                         cursor-pointer">
                         SUBMIT
@@ -214,20 +216,18 @@ const ContactPageMain = () => {
                     </div>
                 </form>
             </div>
+
             <div className='basis-1/2 mt-16 mb-8'>
                 <div className='items-center'>
                    <div className='max-w-sm p-6
                      bg-[#EAF8F9] 
                         h-[200px] 
-                        w-[400px]
-                        l-[832px]
-                        t-[966px] 
-                        border-[0.5px] 
+                        t-[966px]
                         border-solid 
                         rounded-[35px] 
-                        border-color-[]
-                        shadow-md'>
-                    <h3 className='font-medium text-lg'>Find Us At:</h3>
+                        border-[#0000001F]
+                        drop-shadow-lg'>
+                    <h3 className='font-medium text-lg mb-3'>Find Us At:</h3>
                     <p className='text-[#0000008A] font-medium text-lg'> Hello World! Street </p>
                     <p className='text-[#0000008A] font-medium text-lg'> Re:Minded Plaza </p>
                     <p className='text-[#0000008A] font-medium text-lg'> Re:Coded 01012023 </p>
