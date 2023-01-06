@@ -13,7 +13,7 @@ import {
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY,
+  apiKey: "AIzaSyCRRQfyq926m7lyzLmizQTEAESABecwd7U",
   authDomain: 're-minded.firebaseapp.com',
   projectId: 're-minded',
   storageBucket: 're-minded.appspot.com',
@@ -27,6 +27,7 @@ export const auth = getAuth();
 export const fireStore = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
 export const facebookProvider = new FacebookAuthProvider();
+export const db = getFirestore(app);
 
 export const signInWithGoogle = async () => {
   try {

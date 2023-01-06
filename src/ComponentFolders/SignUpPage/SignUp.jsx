@@ -2,7 +2,8 @@ import React from 'react';
 import { useNavigate } from 'react-router';
 import { useFormik } from 'formik';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { auth } from '../../Firebase';
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from '../../Firebase';
 import Image from './Images/SofaImage.svg';
 import lineImage from './Images/line.svg';
 import FacebookLogo from './Images/FacebookLogo.svg';
@@ -21,7 +22,15 @@ function SignUp() {
           e.userEmail,
           e.userPassword
         );
-        return user;
+        await setDoc(doc(db, 'Users', user.uid), {
+          firstName: e.userFirstName,
+          lastName: e.userLastName,
+          email: e.userEmail,
+          dayOfBirth: e.dayOfBirth,
+          monthOfBirth: e.monthOfBirth,
+          yearOfBirth: e.yearOfBirth
+        });
+        return user
       } catch (error) {
         if (error.message === "Firebase: Error (auth/email-already-in-use).") {
           alert("The same email is used, try another one")
@@ -30,6 +39,7 @@ function SignUp() {
       }
     };
     register();
+    navigate("/")
   };
 
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } =
@@ -43,7 +53,7 @@ function SignUp() {
         userCondirmPassword: '',
         dayOfBirth: '',
         monthOfBirth: '',
-        yearOfYear: '',
+        yearOfBirth: '',
       },
       validationSchema: basicSchema,
       onSubmit: handleFormSubmit,

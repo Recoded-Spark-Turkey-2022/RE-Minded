@@ -1,5 +1,9 @@
 import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth';
+import { setCurrentUser } from './features/userInfo/currentUserSlice';
+import { auth } from './Firebase';
 import './App.css';
 import About from './ComponentFolders/AboutPage/About';
 import HomePageMain from './ComponentFolders/HomePage/HomePageMain';
@@ -28,6 +32,25 @@ import SignUp from './ComponentFolders/SignUpPage/SignUp';
 // import TicketPruchasePage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage';
 
 function App() {
+
+  const dispatch = useDispatch();
+
+  onAuthStateChanged(auth, (currentUser) => {
+    if (currentUser) {
+      // User is signed in, see docs for a list of available properties
+      // https://firebase.google.com/docs/reference/js/firebase.User
+      dispatch(setCurrentUser(JSON.stringify(currentUser)))
+      // ...
+    } else {
+      // User is signed out
+      // ...
+    }
+  });
+
+  const user = useSelector((state) => state.currentUser)
+
+  console.log(user)
+
   return (
     <BrowserRouter>
       {/* <Route path="navbar" element={<Navbar />} /> */}
