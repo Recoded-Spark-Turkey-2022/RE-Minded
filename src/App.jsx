@@ -53,7 +53,7 @@ function App() {
           <Route path="requirements" element={<RequirementsPage />} />
           <Route path="savedcards" element={<SavedCardsPage />} />
           <Route path="team" element={<TeamPage />} />
-          <Route path="thankyou" element={<ThankYouPage />} />
+          <Route path="/thankyou" element={<ThankYouPage />} />
           <Route path="therapistcreate" element={<TherapistCreatePage />} />
           <Route path="/ticketpurchase" element={<TicketPurchasePage />} />
         </Routes>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useLocation } from 'react-router-dom';
+import { useLocation, Link } from 'react-router-dom';
 import yellowCard from './Images/YellowCard.svg';
 import pinkCard from './Images/PinkCard.svg';
 import blueCard from './Images/BlueCard.svg';
@@ -7,6 +7,8 @@ import leftArrow from './Images/LeftArrow.svg';
 import rightArrow from './Images/RightArrow.svg';
 
 let ticket;
+
+const thanksProps = "You purchase has been submitted, you should receive an email with the receipt soon."
 
 function TicketPurchasePage() {
   const [pinkCardBtn, setPink] = useState(false);
@@ -56,15 +58,15 @@ function TicketPurchasePage() {
   tabIndex="0">
           <img
             src={pinkCard}
-            alt="pinkCard" className={pinkCardBtn ? 'border-4 border-amber-400 border-dashed' : 'border-0'}/>
+            alt="pinkCard" className={pinkCardBtn ? 'border-8 rounded-lg border-Buttons border-dashed' : 'border-0'}/>
         </div>
         <div onClick={() => handleClick("blue")} onKeyDown={()=> handleKeyDown} role="button"
   tabIndex="0">
-          <img src={blueCard} alt="blueCard" className={blueCardBtn ? 'border-4 border-amber-400 border-dashed' : 'border-0'} />
+          <img src={blueCard} alt="blueCard" className={blueCardBtn ? 'border-8 rounded-lg border-Buttons border-dashed' : 'border-0'} />
         </div>
         <div onClick={() => handleClick("yellow")} onKeyDown={()=> handleKeyDown} role="button"
   tabIndex="0">
-          <img src={yellowCard} alt="yellowcard" className={yellowCardBtn ? 'border-4 border-amber-400 border-dashed' : 'border-0'}/>
+          <img src={yellowCard} alt="yellowcard" className={yellowCardBtn ? 'border-8 rounded-lg border-Buttons border-dashed' : 'border-0'}/>
         </div>
         <div className="flex space-y-4 self-center">
           <img
@@ -80,12 +82,13 @@ function TicketPurchasePage() {
         {propsData}
       </div>
       <div className="self-center lg:mt-12 mt-8 lg:mb-20 mb-10">
+        <Link to="/thankyou" state={thanksProps}>
         <button
           type="button"
           className="rounded-md box-border p-2 lg:pl-6 lg:pr-6 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
         >
           CONFIRM PURCHASE
-        </button>
+        </button></Link>
       </div>
     </div>
   );
