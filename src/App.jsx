@@ -55,7 +55,7 @@ function App() {
           <Route path="team" element={<TeamPage />} />
           <Route path="thankyou" element={<ThankYouPage />} />
           <Route path="therapistcreate" element={<TherapistCreatePage />} />
-          <Route path="ticketpurchase" element={<TicketPurchasePage />} />
+          <Route path="/ticketpurchase" element={<TicketPurchasePage />} />
         </Routes>
       </BrowserRouter>
       <Footer />
