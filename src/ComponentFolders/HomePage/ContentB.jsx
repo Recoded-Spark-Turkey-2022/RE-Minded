@@ -1,5 +1,5 @@
 import React from 'react';
-import Therapists from './Images/ContentB(Therapists).svg';
+import Therapists from './Images/ContentBTherapists.svg';
 
 function ContentB() {
   return (
@@ -20,7 +20,7 @@ function ContentB() {
 
         <button
           type="button"
-          className="text-xl md:text-lg ml-16 lg:px-6 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 "
+          className="m-12 text-md md:text-lg ml-16 lg:px-6 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 "
         >
           BOOK AN APPOINTMENT
         </button>
