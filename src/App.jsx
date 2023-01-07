@@ -1,6 +1,7 @@
 import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
+//  import {  Routes, Route } from 'react-router-dom';
 import './App.css';
+
 import About from './ComponentFolders/AboutPage/About';
 import HomePageMain from './ComponentFolders/HomePage/HomePageMain';
 import Login from './ComponentFolders/LoginPage/Login';
@@ -26,6 +27,7 @@ import TeamPage from './ComponentFolders/TeamPage/TeamPageMain';
 import ThankYouPage from './ComponentFolders/ThankYouPage/ThankYou';
 import TherapistCreatePage from './ComponentFolders/TherapistCreatePage/TherapistCreatePage';
 import TicketPurchasePage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage';
+
 
 function App() {
   return (
