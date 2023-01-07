@@ -5,7 +5,6 @@ import { onAuthStateChanged } from 'firebase/auth';
 import { setCurrentUser } from './features/userInfo/currentUserSlice';
 import { auth } from './Firebase';
 import './App.css';
-
 import About from './ComponentFolders/AboutPage/About';
 import HomePageMain from './ComponentFolders/HomePage/HomePageMain';
 import Login from './ComponentFolders/LoginPage/Login';
