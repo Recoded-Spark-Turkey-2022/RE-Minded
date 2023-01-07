@@ -1,8 +1,13 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { onAuthStateChanged } from 'firebase/auth';
+import { setCurrentUser } from './features/userInfo/currentUserSlice';
+import { auth } from './Firebase';
 import './App.css';
 import About from './ComponentFolders/AboutPage/About';
 import HomePageMain from './ComponentFolders/HomePage/HomePageMain';
+import Login from './ComponentFolders/LoginPage/Login';
 import Login from './ComponentFolders/LoginPage/Login';
 import SignUp from './ComponentFolders/SignUpPage/SignUp';
 import AddCardPage from './ComponentFolders/AddCardPage/AddCardPage';
@@ -28,40 +33,54 @@ import TherapistCreatePage from './ComponentFolders/TherapistCreatePage/Therapis
 import TicketPurchasePage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage';
 
 function App() {
-  return (
-    <>
-      <Navbar />
-      <BrowserRouter>
-        <Routes>
-          <Route exact path="/" element={<HomePageMain />} />
-          <Route path="login" element={<Login />} />
-          <Route path="signup" element={<SignUp />} />
-          <Route path="about" element={<About />} />
-          <Route path="addcard" element={<AddCardPage />} />
-          <Route path="blog" element={<BlogPage />} />
-          <Route path="booking1" element={<BookingPage1 />} />
-          <Route path="booking2" element={<BookingPage2 />} />
-          <Route path="booking3" element={<BookingPage3 />} />
-          <Route path="booking4" element={<BookingPage4 />} />
-          <Route path="booking5" element={<BookingPage5 />} />
-          <Route path="booking6" element={<BookingPage6 />} />
-          <Route path="booking7" element={<BookingPage7 />} />
-          <Route path="booking8" element={<BookingPage8 />} /> 
-          <Route path="careers" element={<CareersPage />} />
-          <Route path="contactus" element={<ContactUsPage />} />
-          <Route path="editprofile" element={<EditProfilePage />} />
-          <Route path="requirements" element={<RequirementsPage />} />
-          <Route path="savedcards" element={<SavedCardsPage />} />
-          <Route path="team" element={<TeamPage />} />
-          <Route path="thankyou" element={<ThankYouPage />} />
-          <Route path="therapistcreate" element={<TherapistCreatePage />} />
-          <Route path="ticketpurchase" element={<TicketPurchasePage />} />
-        </Routes>
-      </BrowserRouter>
-      <Footer />
-    </>
-  );
+  const dispatch = useDispatch();
 
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        const { uid, email } = currentUser;
+        dispatch(
+          setCurrentUser({
+            userId: uid,
+            userEmail: email,
+          })
+        );
+      }
+    });
+  }, []);
+
+  return (
+    <BrowserRouter>
+      {/* <Route path="navbar" element={<Navbar />} /> */}
+      <Routes>
+        <Route index exact path="/" element={<HomePageMain />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/signup" element={<SignUp />} />
+        <Route path="/about" element={<About />} />
+        {/* <Route path="addcard" element={<AddCardPage />} />
+        <Route path="blog" element={<BlogPage />} />
+        <Route path="booking1" element={<BookingPage1 />} />
+        <Route path="booking2" element={<BookingPage2 />} />
+        <Route path="booking3" element={<BookingPage3 />} />
+        <Route path="booking4" element={<BookingPage4 />} />
+        <Route path="booking5" element={<BookingPage5 />} />
+        <Route path="booking6" element={<BookingPage6 />} />
+        <Route path="booking7" element={<BookingPage7 />} />
+        <Route path="booking8" element={<BookingPage8 />} />
+        <Route path="careers" element={<CareersPage />} />
+        <Route path="contactus" element={<ContactUsPage />} />
+        <Route path="editprofile" element={<EditProfilePage />} />
+        <Route path="requirements" element={<RequirementsPage />} />
+        <Route path="savedcards" element={<SavedCardsPage />} />
+        <Route path="team" element={<TeamPage />} />
+        <Route path="thankyou" element={<ThankYouPage />} />
+        <Route path="therapistcreate" element={<TherapistCreatePage />} />
+        <Route path="ticketpurchase" element={<TicketPruchasePage />} />
+         */}
+      </Routes>
+      {/* <Footer /> */}
+    </BrowserRouter>
+  );
 }
 
 export default App;
