@@ -1,0 +1,148 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Booking5 Page snapshot test 1`] = `
+<div
+  className="flex flex-col items-center p-12"
+>
+  <div
+    className=" flex flex-col p-14 font-poppins "
+  >
+    <h1
+      className="text-2xl pb-6 md:text-2xl lg:text-4xl"
+    >
+      LET'S MATCH YOU WITH THE RIGHT THERAPIST
+    </h1>
+    <p
+      className="text-lg  md:text-xl opacity-50 lg:text-2xl lg:pr-40  "
+    >
+      Please fill out this short questionnaire to provide some general and anonymous background about you and the issues you'd like to deal with in online therapy. It would help us match you with the most suitable therapist for you. 
+    </p>
+  </div>
+  <div
+    className="font-poppins shadow-zinc-300 flex flex-col w-full md:max-w-2xl lg:max-w-4xl my-16 mx-auto px-8 py-4 shadow-md"
+  >
+    <div
+      className="p-10"
+    >
+      <h1
+        className="text-xl pb-6 md:text-2xl lg:text-3xl lg:flex justify-center mt-4 "
+      >
+        Are there any issues you'd like to focus on?
+      </h1>
+      <div
+        className="flex flex-col pl-6 text-md md:text-lg  lg:text-xl"
+      >
+        <label
+          htmlFor="one"
+        >
+          <input
+            className="m-2 mb-6 mt-12"
+            type="radio"
+          />
+          Depression
+        </label>
+        <label
+          htmlFor="two"
+        >
+          <input
+            className="m-2 mb-6"
+            type="radio"
+          />
+          Stress and Anxiety
+        </label>
+        <label
+          htmlFor="three"
+        >
+          <input
+            className="m-2 mb-6"
+            type="radio"
+          />
+          Relationship issues
+        </label>
+        <label
+          htmlFor="four"
+        >
+          <input
+            className="m-2 mb-6"
+            type="radio"
+          />
+          Family conflicts
+        </label>
+        <label
+          htmlFor="five"
+        >
+          <input
+            className="m-2 mb-6"
+            type="radio"
+          />
+          Trauma and abuse
+        </label>
+        <label
+          htmlFor="six"
+        >
+          <input
+            className="m-2 mb-4"
+            type="radio"
+          />
+          Eating disorders
+        </label>
+      </div>
+    </div>
+    <div
+      className="flex justify-center md:justify-start lg:justify-start "
+    >
+      <button
+        className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
+        type="button"
+      >
+        NEXT
+      </button>
+    </div>
+  </div>
+</div>
+`;
+
+exports[`Booking7 Page snapshot test 1`] = `
+<div
+  className="flex flex-col  p-24"
+>
+  <div
+    className=" flex flex-col p-14 font-poppins "
+  >
+    <h1
+      className="text-2xl pb-6 md:text-2xl lg:text-4xl"
+    >
+      SUBMIT YOUR APPOINTMENT
+    </h1>
+    <p
+      className="text-lg  md:text-xl opacity-50 lg:text-2xl lg:pr-40  "
+    >
+      Click Submit if you are sure of all your choices.
+    </p>
+  </div>
+  <div
+    className="font-poppins shadow-zinc-300 flex flex-col items-center lg:max-w-4xl my-16 mx-auto px-16 py-24 shadow-md"
+  >
+    <h1
+      className="text-xl pb-12 md:text-2xl lg:text-3xl lg:flex justify-center"
+    >
+      Submit Appointment?
+    </h1>
+    <h2
+      className="text-md pb-10 md:text-lg lg:text-xl lg:flex justify-center"
+    >
+      Please Be Aware That This Action Will Cost You A Ticket!
+    </h2>
+    <div
+      className="flex justify-center"
+    >
+      <button
+        className="m-6 rounded-md box-border text-md md:text-lg pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
+        type="button"
+      >
+        SUBMIT
+      </button>
+    </div>
+  </div>
+</div>
+`;
