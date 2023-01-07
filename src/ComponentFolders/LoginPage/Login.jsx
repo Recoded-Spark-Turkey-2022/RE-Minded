@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
+import { useSelector } from 'react-redux';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import Image from './Images/LoginSofa.svg';
 import lineImage from './Images/line.svg';
@@ -9,6 +10,7 @@ import { signInWithGoogle, signInWithFacebook, auth } from '../../Firebase';
 
 function Login() {
   const navigate = useNavigate();
+  const currentUser = useSelector((state) => state.currentUser);
   const [loginData, setLoginData] = useState({
     userEmail: '',
     userPassword: '',
@@ -21,14 +23,14 @@ function Login() {
         loginData.userEmail,
         loginData.userPassword
       );
-      return user
+      return user;
     } catch (error) {
       return error;
-    } /* finally {
-      if (!error) {
+    } finally {
+      if (currentUser) {
         navigate('/');
       }
-    } */
+    }
   };
 
   function handleOnClick(e) {
@@ -47,7 +49,10 @@ function Login() {
         <h2 className='text-5xl font-["Poppins"] font-normal mb-44 max-[767px]:mt-20 md:mt-20 max-[767px]:mb-10 md:mb-10'>
           LOGIN
         </h2>
-        <form onSubmit={login} className="grid grid-rows-3 gap-12 shadow-2xl px-10 py-10">
+        <form
+          onSubmit={login}
+          className="grid grid-rows-3 gap-12 shadow-2xl px-10 py-10"
+        >
           <input
             type="text"
             placeholder="   Your Email"

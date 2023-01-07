@@ -1,5 +1,5 @@
-import React from 'react';
-import { useDispatch, useSelector } from 'react-redux';
+import React, { useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { onAuthStateChanged } from 'firebase/auth';
 import { setCurrentUser } from './features/userInfo/currentUserSlice';
@@ -32,24 +32,21 @@ import SignUp from './ComponentFolders/SignUpPage/SignUp';
 // import TicketPruchasePage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage';
 
 function App() {
-
   const dispatch = useDispatch();
 
-  onAuthStateChanged(auth, (currentUser) => {
-    if (currentUser) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      dispatch(setCurrentUser(JSON.stringify(currentUser)))
-      // ...
-    } else {
-      // User is signed out
-      // ...
-    }
-  });
-
-  const user = useSelector((state) => state.currentUser)
-
-  console.log(user)
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        const { uid, email } = currentUser;
+        dispatch(
+          setCurrentUser({
+            userId: uid,
+            userEmail: email,
+          })
+        );
+      }
+    });
+  }, []);
 
   return (
     <BrowserRouter>
