@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Card1 from './Card';
 import ChoicesB from './QuestionChoicesB';
 
@@ -22,12 +23,14 @@ function BookingPage5() {
           showSix
         />
         <div className="flex justify-center md:justify-start lg:justify-start ">
-          <button
-            type="button"
-            className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
-          >
-            NEXT
-          </button>
+          <Link to="booking6">
+            <button
+              type="button"
+              className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
+            >
+              NEXT
+            </button>
+          </Link>
         </div>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Card1 from './Card';
 
 function BookingPage7() {
@@ -16,12 +17,14 @@ function BookingPage7() {
           Please Be Aware That This Action Will Cost You A Ticket!
         </h2>
         <div className="flex justify-center">
-          <button
-            type="button"
-            className="m-6 rounded-md box-border text-md md:text-lg pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
-          >
-            SUBMIT
-          </button>
+          <Link to="booking8">
+            <button
+              type="button"
+              className="m-6 rounded-md box-border text-md md:text-lg pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
+            >
+              SUBMIT
+            </button>
+          </Link>
         </div>
       </div>
     </div>
