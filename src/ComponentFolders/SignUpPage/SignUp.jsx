@@ -17,7 +17,7 @@ function SignUp() {
   const handleFormSubmit = (e) => {
     const register = async () => {
       try {
-        const user = await createUserWithEmailAndPassword(
+        const {user} = await createUserWithEmailAndPassword(
           auth,
           e.userEmail,
           e.userPassword
