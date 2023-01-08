@@ -3,7 +3,7 @@ import OfficeImage from './Images/OfficeImage.svg'
 
 const ContactPageMain = () => {
   return (
-    <div className='flex flex-col w-screen h-screen font-poppins'>
+    <div className='flex flex-col w-screen pb-24 font-poppins'>
         <div className='lg:ml-28 ml-10 lg:pr-36 md:pr-20 pr-10'>
             <div className='lg:text-5xl md:text-3xl text-2xl leading-6 lg:mt-20 mt-14'>
                 <h1>SEND US YOUR REQUEST!</h1>
