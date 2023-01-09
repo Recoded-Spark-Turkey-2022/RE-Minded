@@ -50,9 +50,9 @@ function App() {
   }, []);
 
   return (
-    <>
+    
       <BrowserRouter>
-      <Navbar />
+        <Navbar />
         <Routes>
           <Route exact path="/" element={<HomePageMain />} />
           <Route path="login" element={<Login />} />
@@ -67,7 +67,7 @@ function App() {
           <Route path="booking5" element={<BookingPage5 />} />
           <Route path="booking6" element={<BookingPage6 />} />
           <Route path="booking7" element={<BookingPage7 />} />
-          <Route path="booking8" element={<BookingPage8 />} /> 
+          <Route path="booking8" element={<BookingPage8 />} />
           <Route path="careers" element={<CareersPage />} />
           <Route path="contactus" element={<ContactUsPage />} />
           <Route path="editprofile" element={<EditProfilePage />} />
@@ -78,9 +78,9 @@ function App() {
           <Route path="therapistcreate" element={<TherapistCreatePage />} />
           <Route path="/ticketpurchase" element={<TicketPurchasePage />} />
         </Routes>
+        <Footer />
       </BrowserRouter>
-      <Footer />
-    </>
+    
   );
 }
 
