@@ -1,5 +1,6 @@
 
 import { useState } from 'react';
+import {Link} from 'react-router-dom';
 import Logo from './Images/Logo.svg';
 
 export default function NavBar() {
@@ -10,15 +11,16 @@ export default function NavBar() {
       <div className="justify-between px-4 mx-auto  md:items-center md:flex md:px-8">
         <div>
           <div className="flex items-center  py-3 md:py-5 md:block">
-            <div className="flex flex-row ">
-              <img src={Logo} alt="Logo" />
-              <a href="Logo">
-                <h2 className="text-3xl text-bold m-4 ml-3 font-medium">
-                  Healing
-                </h2>
-              </a>
-
-            </div>
+            <Link to="/">
+              <div className="flex flex-row ">
+                <img src={Logo} alt="Logo" />
+                <a href="Logo">
+                  <h2 className="text-3xl text-bold m-4 ml-3 font-medium">
+                    Healing
+                  </h2>
+                </a>
+              </div>
+            </Link>
             <div className="md:hidden">
               <button
                 type="button"
@@ -64,62 +66,86 @@ export default function NavBar() {
           >
             <div className="mt-3 space-y-2 lg:hidden md:hidden ">
               <div className="flex flex-col  items-center  text-xl ">
-                <a className=" hover:text-indigo-200 pb-1 " href="Home">
-                  Home
-                </a>
-
-                <a className=" hover:text-indigo-200 p-2" href="Blog">
-                  Blog
-                </a>
-
-                <a className=" hover:text-indigo-200 p-2" href="Home">
-                  About
-                </a>
-
-                <a className=" hover:text-indigo-200 p-2" href="Blog">
-                  Contact Us
-                </a>
-
-                <a
-                  href="Log In"
-                  className="flex justify-center w-1/3  px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
-                >
-                  Log In
-                </a>
+                <Link to="/">
+                  <a className=" hover:text-indigo-200 pb-1 " href="Home">
+                    Home
+                  </a>
+                </Link>
+                <Link to="blog">
+                  <a className=" hover:text-indigo-200 p-2" href="Blog">
+                    Blog
+                  </a>
+                </Link>
+                <Link to="about">
+                  <a className=" hover:text-indigo-200 p-2" href="Home">
+                    About
+                  </a>
+                </Link>
+                <Link to="contactus">
+                  <a className=" hover:text-indigo-200 p-2" href="Blog">
+                    Contact Us
+                  </a>
+                </Link>
+                <Link to="login">
+                  <a
+                    href="Log In"
+                    className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
+                  >
+                    Log In
+                  </a>
+                </Link>
               </div>
             </div>
           </div>
         </div>
         <div className="hidden space-x-2 md:inline-block">
           <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
-            <li className=" hover:text-indigo-200">
-              <a href="Home">Home</a>
-            </li>
-            <li className=" hover:text-indigo-200">
-              <a href="Blog">Blog</a>
-            </li>
+            <Link to="/">
+              <li className=" hover:text-indigo-200">
+                <a href="Home">Home</a>
+              </li>
+            </Link>
+            <Link to="blog">
+              <li className=" hover:text-indigo-200">
+                <a href="Blog">Blog</a>
+              </li>
+            </Link>
+
             <li className=" hover:text-indigo-200 cursor-pointer">
               <select className=" p-2.5 bg-cyan-50 cursor-pointer">
                 <option>
-                  <a href="About">About</a>
+                  <Link to="about">
+                    <li>
+                      <a href="About">About</a>
+                    </li>
+                  </Link>
                 </option>
                 <option>
-                  <a href="Team">Team</a>
+                  <Link to="team">
+                    <a href="Team">Team</a>
+                  </Link>
                 </option>
                 <option>
-                  <a href="Carees">Carees</a>
+                  <Link to="careers">
+                    <a href="Carees">Carees</a>
+                  </Link>
                 </option>
               </select>
             </li>
-            <li className=" hover:text-indigo-200">
-              <a href="Contact">Contact US</a>
-            </li>
-            <a
-              href="Log In"
-              className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
-            >
-              Log in
-            </a>
+
+            <Link to="contactus">
+              <li className=" hover:text-indigo-200">
+                <a href="Contact">Contact US</a>
+              </li>
+            </Link>
+            <Link to="login">
+              <a
+                href="Log In"
+                className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
+              >
+                Log in
+              </a>
+            </Link>
           </ul>
         </div>
       </div>

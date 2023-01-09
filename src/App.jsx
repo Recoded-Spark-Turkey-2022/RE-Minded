@@ -51,8 +51,8 @@ function App() {
 
   return (
     <>
-      <Navbar />
       <BrowserRouter>
+      <Navbar />
         <Routes>
           <Route exact path="/" element={<HomePageMain />} />
           <Route path="login" element={<Login />} />
