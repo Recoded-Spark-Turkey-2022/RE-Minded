@@ -18,8 +18,16 @@ function BookingPage4() {
           three="I prefer an older counselor (45+)"
           four="I prefer a non-religious counselor"
         />
-        <div className="flex justify-center md:justify-start lg:justify-start ">
-          <Link to="booking5">
+        <div className="flex justify-center md:justify-between lg:justify-between ">
+          <Link to="/booking3">
+            <button
+              type="button"
+              className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
+            >
+              PREVIOUS
+            </button>
+          </Link>
+          <Link to="/booking5">
             <button
               type="button"
               className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"

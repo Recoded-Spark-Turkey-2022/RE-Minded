@@ -1,6 +1,5 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { v4 as uuidv4 } from 'uuid';
 import Card from './Card';
 import ChoicesA from './QuestionChoicesA';
 
@@ -17,8 +16,8 @@ function BookingPage1() {
           first="Individual counseling"
           second="Teen counseling (for my child)"
         />
-        <div className="flex justify-center md:justify-start lg:justify-start ">
-          <Link to="booking2">
+        <div className="flex justify-center md:justify-end lg:justify-end ">
+          <Link to="/booking2">
             <button
               type="button"
               className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
