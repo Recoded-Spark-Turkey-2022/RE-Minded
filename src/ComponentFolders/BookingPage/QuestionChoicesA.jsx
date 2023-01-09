@@ -2,6 +2,8 @@ import React from 'react';
 
 function ChoicesA({ question, first, second, third, showThird }) {
   return (
+
+  
     <div className="p-10">
       <h1 className="text-xl pb-6 md:text-2xl lg:text-3xl lg:flex justify-center mt-4">
         {question}

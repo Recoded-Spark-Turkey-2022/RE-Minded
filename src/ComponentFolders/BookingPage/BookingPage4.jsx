@@ -1,5 +1,5 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import { React } from 'react';
+import { Link } from 'react-router-dom';
 import Card1 from './Card';
 import ChoicesB from './QuestionChoicesB';
 
@@ -18,6 +18,7 @@ function BookingPage4() {
           three="I prefer an older counselor (45+)"
           four="I prefer a non-religious counselor"
         />
+
         <div className="flex justify-center md:justify-between lg:justify-between ">
           <Link to="/booking3">
             <button
