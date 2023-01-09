@@ -7,6 +7,8 @@ import {
   getAuth,
   signInWithPopup,
 } from 'firebase/auth';
+import { useNavigate } from 'react-router';
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -38,6 +40,11 @@ export const signInWithGoogle = async () => {
     return user;
   } catch (error) {
     return error;
+  } finally {
+    const navigate = useNavigate();
+    if (localStorage.getItem("userName")) {
+      navigate('/');
+    }
   }
 };
 
@@ -50,5 +57,10 @@ export const signInWithFacebook = async () => {
     return user;
   } catch (error) {
     return error;
+  } finally {
+    const navigate = useNavigate();
+    if (localStorage.getItem("userName")) {
+      navigate('/');
+    }
   }
 };

@@ -1,10 +1,35 @@
-
-import { useState } from 'react';
-import {Link} from 'react-router-dom';
+import { useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
+import { auth } from '../../Firebase';
 import Logo from './Images/Logo.svg';
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
+
+  const [signOutButton, setSignOutButton] = useState(false);
+
+  useEffect(() => {
+    onAuthStateChanged(auth, (currentUser) => {
+      if (currentUser) {
+        setSignOutButton(true);
+      }
+    });
+  }, [signOutButton]);
+
+  function handleSignout() {
+    const signOutAuth = getAuth();
+    signOut(signOutAuth)
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+        return error;
+      });
+  }
+
+  /* console.log(useSelector((state) => state.currentUser)) */
 
   return (
     <nav className="w-full sticky top-0 z-50 bg-cyan-50 shadow font-poppins">
@@ -86,13 +111,23 @@ export default function NavBar() {
                     Contact Us
                   </a>
                 </Link>
-                <Link to="login">
-                  <a
-                    href="Log In"
-                    className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
-                  >
-                    Log In
-                  </a>
+                <Link to={signOutButton ? "signup" : "login"}>
+                  {!signOutButton ? (
+                    <a
+                      href="Log In"
+                      className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
+                    >
+                      Log In
+                    </a>
+                  ) : (
+                    <button
+                      type="button"
+                      className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
+                      onClick={handleSignout}
+                    >
+                      Sign out
+                    </button>
+                  )}
                 </Link>
               </div>
             </div>
@@ -138,13 +173,23 @@ export default function NavBar() {
                 <a href="Contact">Contact US</a>
               </li>
             </Link>
-            <Link to="login">
-              <a
-                href="Log In"
-                className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
-              >
-                Log in
-              </a>
+            <Link to={signOutButton ? "signup" : "login"}>
+              {!signOutButton ? (
+                <a
+                  href="Log In"
+                  className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
+                >
+                  Log in
+                </a>
+              ) : (
+                <button
+                  type="button"
+                  className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
+                  onClick={handleSignout}
+                >
+                  Sign out
+                </button>
+              )}
             </Link>
           </ul>
         </div>

@@ -38,6 +38,7 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
+        console.log(currentUser)
         const { uid, email } = currentUser;
         dispatch(
           setCurrentUser({
