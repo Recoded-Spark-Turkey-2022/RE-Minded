@@ -31,19 +31,19 @@ function AddCard() {
       </h2>
       <div className="flex flex-col lg:flex-row lg:space-x-96">
         <div className="text-md md:text-lg lg:text-xl items-center flex  flex-col md:flex-col lg:flex-row lg:space-x-52  ">
-          <form className="w-full md:w-full opacity-50">
+          <form className="w-full  opacity-50 pt-4 ">
             <label
-              htmlFor="card number"
+              htmlFor="card type"
               className="block font-medium text-gray-700 mb-2"
             >
               Supported Card types
             </label>
-            <div className="flex  pb-6">
-              <div className=" h-12 px-1 py-2  border-2 border-r-0 w-full  text-center rounded-lg rounded-r-none">
-                MasterCard
+            <div className="flex  pb-6 text-Buttons">
+              <div className="text-cyan-200 h-12 px-1 py-2  border-2 border-r-0 w-full  text-center rounded-lg rounded-r-none">
+                Visa
               </div>
               <div className=" h-12 px-1 py-2  border-2 w-full  text-center rounded-lg rounded-l-none">
-                Visa
+                MasterCard
               </div>
             </div>
 
@@ -63,13 +63,14 @@ function AddCard() {
               <div>
                 <label
                   htmlFor="expiry date"
-                  className="block font-medium text-gray-700 mb-2 mt-4"
+                  className="block font-medium text-gray-700 mb-2 mt-4 "
                 >
                   Expiry Date
                 </label>
                 <input
                   className="w-full border border-gray-400 p-2 rounded-lg"
                   type="text"
+                  placeholder='MM/YY'
                   value={expiryDate}
                   onChange={(e) => setExpiryDate(e.target.value)}
                 />
@@ -85,6 +86,7 @@ function AddCard() {
                   className="w-full border border-gray-400 p-2 rounded-lg"
                   type="text"
                   value={cvv}
+                  placeholder="***"
                   onChange={(e) => setCvv(e.target.value)}
                 />
               </div>
@@ -102,7 +104,7 @@ function AddCard() {
               onChange={(e) => setNameOnCard(e.target.value)}
             />
           </form>
-          <form className="w-full md:w-full  opacity-50">
+          <form className="w-full   opacity-50">
             <label
               htmlFor="country"
               className="block font-medium text-gray-700 mb-2 mt-4 "
@@ -159,12 +161,14 @@ function AddCard() {
           </div>
         </div>
       </div>
-      <button
-        type="button"
-        className="rounded-md box-border p-2 transition-all duration-250 bg-cyan-300 hover:bg-cyan-500 "
-      >
-        ADD CARD
-      </button>
+      <div className="pt-12 lg:pt-0 text-md md:text-lg lg:text-xl flex justify-center lg:justify-start ">
+        <button
+          type="button"
+          className="rounded-md box-border p-2 transition-all duration-250 bg-Buttons"
+        >
+          ADD CARD
+        </button>
+      </div>
     </div>
   );
 }
