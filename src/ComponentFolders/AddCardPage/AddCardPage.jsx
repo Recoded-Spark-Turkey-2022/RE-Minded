@@ -1,4 +1,6 @@
-import { React, useState } from 'react';
+import { React, useState, useMemo } from 'react';
+import Select from 'react-select';
+import countryList from 'react-select-country-list';
 import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
 
@@ -7,30 +9,40 @@ function AddCard() {
   const [expiryDate, setExpiryDate] = useState('');
   const [cvv, setCvv] = useState('');
   const [nameOnCard, setNameOnCard] = useState('');
+  const [zipCode, setZipCode] = useState('');
+  const [city, setCity] = useState('');
+  const [address, setAddress] = useState('');
+
+  const [value, setValue] = useState('');
+  const options = useMemo(() => countryList().getData(), []);
+
+  const changeHandler = () => {
+    setValue(value);
+  };
 
   return (
     <div className="p-20 font-poppins">
       <h1 className="text-3xl pb-5 md:text-4xl lg:text-5xl">
         ADD CARD DETAILS
       </h1>
-      <h2 className="text-lg md:text-xl lg:text-2xl opacity-50">
+      <h2 className="pb-8 lg:pb-0 text-lg md:text-xl lg:text-2xl opacity-50">
         Please make sure all of the info you enter are the same as your
         registration info.
       </h2>
       <div className="flex flex-col lg:flex-row lg:space-x-96">
-        <div className=" items-center flex flex-col md:flex-col lg:flex-row lg:space-x-80 ">
-          <form className="">
+        <div className="text-md md:text-lg lg:text-xl items-center flex  flex-col md:flex-col lg:flex-row lg:space-x-52  ">
+          <form className="w-full md:w-full opacity-50">
             <label
               htmlFor="card number"
               className="block font-medium text-gray-700 mb-2"
             >
               Supported Card types
             </label>
-            <div className="flex">
-              <div className="leading-snug h-12 px-1 py-2 text-paragraph text-blue-dark border-2 border-r-0 border-blue-dark w-36 text-center rounded-lg rounded-r-none">
+            <div className="flex  pb-6">
+              <div className=" h-12 px-1 py-2  border-2 border-r-0 w-full  text-center rounded-lg rounded-r-none">
                 MasterCard
               </div>
-              <div className="leading-snug h-12 px-1 py-2 text-paragraph text-blue-dark border-2 border-blue-dark w-36 text-center rounded-lg rounded-l-none">
+              <div className=" h-12 px-1 py-2  border-2 w-full  text-center rounded-lg rounded-l-none">
                 Visa
               </div>
             </div>
@@ -47,7 +59,7 @@ function AddCard() {
               value={cardNumber}
               onChange={(e) => setCardNumber(e.target.value)}
             />
-            <div className='flex space-x-7'>
+            <div className="flex  space-x-7">
               <div>
                 <label
                   htmlFor="expiry date"
@@ -90,23 +102,21 @@ function AddCard() {
               onChange={(e) => setNameOnCard(e.target.value)}
             />
           </form>
-          <form className="">
-            
-
+          <form className="w-full md:w-full  opacity-50">
             <label
-              htmlFor="card number"
-              className="block font-medium text-gray-700 mb-2"
+              htmlFor="country"
+              className="block font-medium text-gray-700 mb-2 mt-4 "
             >
-             Country
+              Country
             </label>
-            <input
-              className="w-full border border-gray-400 p-2 rounded-lg"
-              type="text"
-              value={cardNumber}
-              onChange={(e) => setCardNumber(e.target.value)}
+            <Select
+              className="pb-4"
+              options={options}
+              value={value}
+              onChange={changeHandler}
             />
             <label
-              htmlFor="expiry date"
+              htmlFor="zip code"
               className="block font-medium text-gray-700 mb-2 mt-4"
             >
               ZIP Code
@@ -114,11 +124,11 @@ function AddCard() {
             <input
               className="w-full border border-gray-400 p-2 rounded-lg"
               type="text"
-              value={expiryDate}
-              onChange={(e) => setExpiryDate(e.target.value)}
+              value={zipCode}
+              onChange={(e) => setZipCode(e.target.value)}
             />
             <label
-              htmlFor="cvv"
+              htmlFor="city"
               className="block font-medium text-gray-700 mb-2 mt-4"
             >
               City
@@ -126,11 +136,11 @@ function AddCard() {
             <input
               className="w-full border border-gray-400 p-2 rounded-lg"
               type="text"
-              value={cvv}
-              onChange={(e) => setCvv(e.target.value)}
+              value={city}
+              onChange={(e) => setCity(e.target.value)}
             />
             <label
-              htmlFor="name on card"
+              htmlFor="address"
               className="block font-medium text-gray-700 mb-2 mt-4"
             >
               Address
@@ -138,17 +148,23 @@ function AddCard() {
             <input
               className="w-full border border-gray-400 p-2 rounded-lg"
               type="text"
-              value={nameOnCard}
-              onChange={(e) => setNameOnCard(e.target.value)}
+              value={address}
+              onChange={(e) => setAddress(e.target.value)}
             />
           </form>
 
-          <div className="pt-12">
+          <div className="pt-12 w-full flex flex-col justify-center">
             <img src={Card1} alt="TopCard" />
             <img src={Card2} alt="BottomCard" />
           </div>
         </div>
       </div>
+      <button
+        type="button"
+        className="rounded-md box-border p-2 transition-all duration-250 bg-cyan-300 hover:bg-cyan-500 "
+      >
+        ADD CARD
+      </button>
     </div>
   );
 }
