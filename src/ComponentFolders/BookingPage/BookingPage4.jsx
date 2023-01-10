@@ -36,7 +36,7 @@ function BookingPage4() {
       />
       <div className="font-poppins shadow-zinc-300 flex flex-col w-full md:max-w-2xl lg:max-w-4xl my-16 mx-auto px-8 py-4 shadow-md">
         <h1 className="text-xl pb-6 md:text-2xl lg:text-3xl lg:flex justify-center mt-4">
-          Are there any specific qualities that youd like in a counselor?
+          Are there any specific qualities that you would like in a counselor?
         </h1>
         <form className="flex flex-col pl-6 text-md md:text-lg  lg:text-xl">
           <label htmlFor="one">
