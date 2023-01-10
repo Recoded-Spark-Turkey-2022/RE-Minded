@@ -5,6 +5,9 @@ import image2 from './Images/GoogleLogo.svg';
 import image3 from './Images/TwitterLogo.svg';
 import image4 from './Images/SubscribeArrow.svg';
 
+const thanksProps = "Your email has been added to the mailing list successfully!"
+
+
 function Footer() {
   return (
     <footer className="relative bg-Footer  bottom-0 w-full p-4 md:flex md:items-center md:justify-between md:p-6 ">
@@ -27,18 +30,19 @@ function Footer() {
             <input
               className=" w-3/4 h-auto rounded-l-lg text-SubTexts font-normal "
               type="email"
-              placeholder="  Enter your e-mail"
-            />
+              placeholder="  Enter your e-mail"/>
+
+            <Link to="/thankyou" state={thanksProps}>
             <button
               type="button"
-              className="bg-Buttons rounded-r-lg w-1/4 h-auto"
-            >
+              className="bg-Buttons rounded-r-lg w-[74px] h-[46px]">
               <img
                 className="w-[24px] h-[24px] top-[18px] left-[310px] items-center mx-auto"
                 src={image4}
-                alt="Arrow"
-              />
+                alt="Arrow"/>
             </button>
+            </Link>
+            
           </div>
         </div>
       </span>
