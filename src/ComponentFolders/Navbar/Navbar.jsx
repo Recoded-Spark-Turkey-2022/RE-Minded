@@ -1,35 +1,10 @@
-import { useEffect, useState } from 'react';
+import React, {useState} from "react"
 import { Link } from 'react-router-dom';
-import { getAuth, signOut, onAuthStateChanged } from 'firebase/auth';
-import { auth } from '../../Firebase';
 import Logo from './Images/Logo.svg';
 
-export default function NavBar() {
+export default function NavBar({signOutButton, handleSignout}) {
+
   const [navbar, setNavbar] = useState(false);
-
-  const [signOutButton, setSignOutButton] = useState(false);
-
-  useEffect(() => {
-    onAuthStateChanged(auth, (currentUser) => {
-      if (currentUser) {
-        setSignOutButton(true);
-      }
-    });
-  }, [signOutButton]);
-
-  function handleSignout() {
-    const signOutAuth = getAuth();
-    signOut(signOutAuth)
-      .then(() => {
-        // Sign-out successful.
-      })
-      .catch((error) => {
-        // An error happened.
-        return error;
-      });
-  }
-
-  /* console.log(useSelector((state) => state.currentUser)) */
 
   return (
     <nav className="w-full sticky top-0 z-50 bg-cyan-50 shadow font-poppins">
@@ -91,25 +66,19 @@ export default function NavBar() {
           >
             <div className="mt-3 space-y-2 lg:hidden md:hidden ">
               <div className="flex flex-col  items-center  text-xl ">
-                <Link to="/">
-                  <a className=" hover:text-indigo-200 pb-1 " href="Home">
+                <Link to="/" className=" hover:text-indigo-200 pb-1 " href="Home">
                     Home
-                  </a>
                 </Link>
-                <Link to="blog">
-                  <a className=" hover:text-indigo-200 p-2" href="Blog">
+                <Link to="blog" className=" hover:text-indigo-200 p-2" href="Blog">
                     Blog
-                  </a>
                 </Link>
                 <Link to="about">
                   <a className=" hover:text-indigo-200 p-2" href="Home">
                     About
                   </a>
                 </Link>
-                <Link to="contactus">
-                  <a className=" hover:text-indigo-200 p-2" href="Blog">
+                <Link to="contactus" className=" hover:text-indigo-200 p-2" href="Blog">
                     Contact Us
-                  </a>
                 </Link>
                 <Link to={signOutButton ? "signup" : "login"}>
                   {!signOutButton ? (

@@ -1,7 +1,7 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut, getAuth } from 'firebase/auth';
 import { setCurrentUser } from './features/userInfo/currentUserSlice';
 import { auth } from './Firebase';
 import './App.css';
@@ -9,7 +9,7 @@ import About from './ComponentFolders/AboutPage/About';
 import HomePageMain from './ComponentFolders/HomePage/HomePageMain';
 import Login from './ComponentFolders/LoginPage/Login';
 import SignUp from './ComponentFolders/SignUpPage/SignUp';
-import AddCardPage from './ComponentFolders/AddCardPage/AddCardPage';
+/* import AddCardPage from './ComponentFolders/AddCardPage/AddCardPage'; */
 import BlogPage from './ComponentFolders/BlogPage/BlogPageMain';
 import BookingPage1 from './ComponentFolders/BookingPage/BookingPage1';
 import BookingPage2 from './ComponentFolders/BookingPage/BookingPage2';
@@ -33,12 +33,27 @@ import TicketPurchasePage from './ComponentFolders/TicketPurchasePage/TicketPurc
 
 
 function App() {
+  const [signOutButton, setSignOutButton] = useState(false);
+
   const dispatch = useDispatch();
+
+  const handleSignout = () => {
+    const signOutAuth = getAuth();
+    signOut(signOutAuth)
+      .then(() => {
+        // Sign-out successful.
+      })
+      .catch((error) => {
+        // An error happened.
+        return error;
+      });
+  }
 
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        console.log(currentUser)
+        setSignOutButton(true);
+        /* console.log(currentUser) */
         const { uid, email } = currentUser;
         dispatch(
           setCurrentUser({
@@ -53,13 +68,13 @@ function App() {
   return (
     
       <BrowserRouter>
-        <Navbar />
+        <Navbar signOutButton={signOutButton} handleSignout={handleSignout} />
         <Routes>
           <Route exact path="/" element={<HomePageMain />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
           <Route path="about" element={<About />} />
-          <Route path="addcard" element={<AddCardPage />} />
+          {/* <Route path="addcard" element={<AddCardPage />} /> */}
           <Route path="blog" element={<BlogPage />} />
           <Route path="booking1" element={<BookingPage1 />} />
           <Route path="booking2" element={<BookingPage2 />} />
