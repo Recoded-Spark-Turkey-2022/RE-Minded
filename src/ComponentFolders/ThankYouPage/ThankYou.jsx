@@ -6,24 +6,22 @@ const ThankYou = () => {
   const propsData = location.state;
 
   return (
-    <div className="flex flex-col w-screen h-screen font-poppins text-black tracking-[-0.01em]">
-      <h1 className="absolute flex flex-wrap w-[300px] h-[75px] top-[156px] left-[84px]  text-3xl lg:text-5xl ">
-        THANK YOU!
-      </h1>
-      <div>
-        <div className="absolute flex flex-wrap w-[1273px] h-[36px] top-[251px] left-[84px] sm:text-lg leading-6 text-2xl lg:text-3xl leading-9 text-SubTexts">
-          {propsData}
-        </div>
+    <div className="flex flex-col lg:mt-32 mt-20 lg:ml-24 ml-10 lg:mr-0 mr-6 font-poppins text-black">
+      <div className=" text-2xl lg:text-5xl ">THANK YOU!</div>
+
+      <div className="flex mt-6 sm:text-lg leading-6 text-xl lg:text-3xl leading-9 text-SubTexts">
+        {propsData}
       </div>
 
-      <div>
+      <div className='mt-20 mb-20'>
         <Link to="/">
-        <button
-          type="button"
-          className="bg-Buttons absolute w-[200px] md:[250px] lg:w-[300px] h-[60px] top-[343px] left-[84px]  rounded-md font-poppins text-2xl font-normal leading-9 tracking-normal text-center "
-        >
-          BACK TO HOME
-        </button></Link>
+          <button
+            type="button"
+            className="bg-Buttons hover:bg-cyan-500 rounded-md p-2 lg:pl-10 pl-4 lg:pr-10 pr-4 font-poppins lg:text-2xl text-base leading-9 text-center "
+          >
+            BACK TO HOME
+          </button>
+        </Link>
       </div>
     </div>
   );
