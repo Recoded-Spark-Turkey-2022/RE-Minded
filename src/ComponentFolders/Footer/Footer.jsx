@@ -1,4 +1,4 @@
-import {React, useState} from 'react';
+import React from 'react';
 import {Link} from 'react-router-dom';
 import image1 from './Images/FacebookLogo.svg';
 import image2 from './Images/GoogleLogo.svg';
@@ -9,13 +9,11 @@ const thanksProps = "Your email has been added to the mailing list successfully!
 
 
 function Footer() {
-const [value, setValue] = useState("")
+
 const click = () => {
   alert("Warning: Please enter your e-mail for subscription")
 }
-const change = event => {
-setValue(event.target.value)
-}
+
 
   return (
     <footer className="relative bg-Footer  bottom-0 w-full p-4 md:flex md:items-center md:justify-between md:p-6 ">
@@ -35,9 +33,8 @@ setValue(event.target.value)
 
         <div className="ml-36 md:flex md:ml-0 lg:ml-0">
           <div className="flex flex-wrap mb-4 w-[300px] h-[50px] box-border rounded-md border-2 border-[#718096]">
+            
             <input
-            onChange={change}
-            value={value}
               className=" w-3/4 h-auto rounded-l-lg text-SubTexts font-normal "
               type="email"
               placeholder="  Enter your e-mail"/>
