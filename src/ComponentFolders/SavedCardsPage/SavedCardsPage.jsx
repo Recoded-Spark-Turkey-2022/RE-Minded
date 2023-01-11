@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from "react-router-dom"
 import yellowCard from './Images/YellowCard.svg';
 import pinkCard from './Images/PinkCard.svg';
 import blueCard from './Images/BlueCard.svg';
@@ -41,12 +42,14 @@ function TicketPurchasePage() {
       </div>
 
       <div className="self-center lg:mt-12 mt-8 lg:mb-20 mb-10 pt-12 ">
-        <button
-          type="button"
-          className="rounded-md box-border p-2 lg:pl-6 lg:pr-6 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
-        >
-          ADD NEW CARD +
-        </button>
+        <Link to="/addcard">
+          <button
+            type="button"
+            className="rounded-md box-border p-2 lg:pl-6 lg:pr-6 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+          >
+            ADD NEW CARD +
+          </button>
+        </Link>
       </div>
     </div>
   );

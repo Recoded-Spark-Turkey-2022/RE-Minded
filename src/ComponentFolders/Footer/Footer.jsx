@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import image1 from './Images/FacebookLogo.svg';
 import image2 from './Images/GoogleLogo.svg';
 import image3 from './Images/TwitterLogo.svg';
@@ -48,26 +49,34 @@ function Footer() {
              text-SubTexts font-normal text-xl leading-5 tracking-[0.075px]"
       >
         <ul className="flex p-4 items-center sm:text-center mt-3 sm:mt-0 md:space-x-6">
-          <li>
-            <a href="Home" className="mr-4 hover:underline md:mr-6 ">
-              Home
-            </a>
-          </li>
-          <li>
-            <a href="Blogs" className="mr-4 hover:underline md:mr-6">
-              Blogs
-            </a>
-          </li>
-          <li>
-            <a href="About" className="mr-4 hover:underline md:mr-6">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="Contact" className="mr-4 hover:underline md:mr-6">
-              Contact
-            </a>
-          </li>
+          <Link to="/">
+            <li>
+              <a href="Home" className="mr-4 hover:underline md:mr-6 ">
+                Home
+              </a>
+            </li>
+          </Link>
+          <Link to="blog">
+            <li>
+              <a href="Blogs" className="mr-4 hover:underline md:mr-6">
+                Blogs
+              </a>
+            </li>
+          </Link>
+          <Link to="about">
+            <li>
+              <a href="About" className="mr-4 hover:underline md:mr-6">
+                About
+              </a>
+            </li>
+          </Link>
+          <Link to="contactus">
+            <li>
+              <a href="Contact" className="mr-4 hover:underline md:mr-6">
+                Contact
+              </a>
+            </li>
+          </Link>
         </ul>
         <div
           className="flex flex-row w-[200px] h-[78px] 
