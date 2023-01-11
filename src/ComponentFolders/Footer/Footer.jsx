@@ -1,5 +1,6 @@
 import React, {useState}from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+
 import image1 from './Images/FacebookLogo.svg';
 import image2 from './Images/GoogleLogo.svg';
 import image3 from './Images/TwitterLogo.svg';
@@ -12,11 +13,11 @@ function Footer() {
 const [value, setValue] = useState('');
 const navigate = useNavigate();
 
-  function handleTextareaChange(event) {
+  function handleChange(event) {
     setValue(event.target.value);
   }
 function handleClick() {
-  if (value.trim().length > 0) {
+  if (value.trim().match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)) {
     navigate('/thankyou' , { state: thanksProps }) ;}
     else {
     alert('Warning: Please enter your e-mail for subscription');
@@ -43,7 +44,8 @@ function handleClick() {
           <div className="flex flex-wrap mb-4 w-[300px] h-[50px] box-border rounded-md border-2 border-[#718096]">
             
             <input
-              onChange={handleTextareaChange}
+  
+              onChange={handleChange}
               className=" w-3/4 h-auto rounded-l-lg text-SubTexts font-normal "
               type="email"
               placeholder="  Enter your e-mail"/>
