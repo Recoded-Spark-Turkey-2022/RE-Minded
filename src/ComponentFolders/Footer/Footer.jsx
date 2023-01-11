@@ -1,4 +1,4 @@
-import React, {useState}from 'react';
+import React, { useState , useRef }from 'react';
 import {Link, useNavigate} from 'react-router-dom';
 
 import image1 from './Images/FacebookLogo.svg';
@@ -10,18 +10,21 @@ const thanksProps = "Your email has been added to the mailing list successfully!
 
 function Footer() {
 
+const ref = useRef(null);
 const [value, setValue] = useState('');
 const navigate = useNavigate();
 
-  function handleChange(event) {
-    setValue(event.target.value);
+function handleChange(event) {
+  setValue(event.target.value);
   }
+
 function handleClick() {
   if (value.trim().match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)) {
     navigate('/thankyou' , { state: thanksProps }) ;}
     else {
-    alert('Warning: Please enter your e-mail for subscription');
+    alert('Please enter your e-mail for subscription!');
   }
+  ref.current.value = '';
 }
 
   return (
@@ -44,7 +47,7 @@ function handleClick() {
           <div className="flex flex-wrap mb-4 w-[300px] h-[50px] box-border rounded-md border-2 border-[#718096]">
             
             <input
-  
+              ref={ref}
               onChange={handleChange}
               className=" w-3/4 h-auto rounded-l-lg text-SubTexts font-normal "
               type="email"
