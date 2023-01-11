@@ -1,0 +1,274 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Add Card Page snapshot test 1`] = `
+<div
+  className="p-20 font-poppins"
+>
+  <h1
+    className="text-3xl pb-5 md:text-4xl lg:text-5xl"
+  >
+    ADD CARD DETAILS
+  </h1>
+  <h2
+    className="pb-8 lg:pb-0 text-lg md:text-xl lg:text-2xl opacity-50"
+  >
+    Please make sure all of the info you enter are the same as your registration info.
+  </h2>
+  <div
+    className="flex flex-col lg:flex-row lg:space-x-96"
+  >
+    <div
+      className="text-md md:text-lg lg:text-xl items-center flex  flex-col md:flex-col lg:flex-row lg:space-x-52  "
+    >
+      <form
+        className="w-full  opacity-50 pt-4 "
+      >
+        <label
+          className="block font-medium text-gray-700 mb-2"
+          htmlFor="card type"
+        >
+          Supported Card types
+        </label>
+        <div
+          className="flex  pb-6 text-Buttons"
+        >
+          <div
+            className="text-cyan-200 h-12 px-1 py-2  border-2 border-r-0 w-full  text-center rounded-lg rounded-r-none"
+          >
+            Visa
+          </div>
+          <div
+            className=" h-12 px-1 py-2  border-2 w-full  text-center rounded-lg rounded-l-none"
+          >
+            MasterCard
+          </div>
+        </div>
+        <label
+          className="block font-medium text-gray-700 mb-2"
+          htmlFor="card number"
+        >
+          Card Number
+        </label>
+        <input
+          className="w-full border border-gray-400 p-2 rounded-lg"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+        <div
+          className="flex  space-x-7"
+        >
+          <div>
+            <label
+              className="block font-medium text-gray-700 mb-2 mt-4 "
+              htmlFor="expiry date"
+            >
+              Expiry Date
+            </label>
+            <input
+              className="w-full border border-gray-400 p-2 rounded-lg"
+              onChange={[Function]}
+              placeholder="MM/YY"
+              type="text"
+              value=""
+            />
+          </div>
+          <div>
+            <label
+              className="block font-medium text-gray-700 mb-2 mt-4"
+              htmlFor="cvv"
+            >
+              CVV Code
+            </label>
+            <input
+              className="w-full border border-gray-400 p-2 rounded-lg"
+              onChange={[Function]}
+              placeholder="***"
+              type="text"
+              value=""
+            />
+          </div>
+        </div>
+        <label
+          className="block font-medium text-gray-700 mb-2 mt-4"
+          htmlFor="name on card"
+        >
+          Name on Card
+        </label>
+        <input
+          className="w-full border border-gray-400 p-2 rounded-lg"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </form>
+      <form
+        className="w-full   opacity-50"
+      >
+        <label
+          className="block font-medium text-gray-700 mb-2 mt-4 "
+          htmlFor="country"
+        >
+          Country
+        </label>
+        <div
+          className="pb-4 css-b62m3t-container"
+          onKeyDown={[Function]}
+        >
+          <span
+            className="css-1f43avz-a11yText-A11yText"
+            id="react-select-2-live-region"
+          />
+          <span
+            aria-atomic="false"
+            aria-live="polite"
+            aria-relevant="additions text"
+            className="css-1f43avz-a11yText-A11yText"
+          />
+          <div
+            className=" css-13cymwt-control"
+            onMouseDown={[Function]}
+            onTouchEnd={[Function]}
+          >
+            <div
+              className=" css-1fdsijx-ValueContainer"
+            >
+              <div
+                className=" css-1jqq78o-placeholder"
+                id="react-select-2-placeholder"
+              >
+                Select...
+              </div>
+              <div
+                className=" css-qbdosj-Input"
+                data-value=""
+              >
+                <input
+                  aria-autocomplete="list"
+                  aria-describedby="react-select-2-placeholder"
+                  aria-expanded={false}
+                  aria-haspopup={true}
+                  autoCapitalize="none"
+                  autoComplete="off"
+                  autoCorrect="off"
+                  className=""
+                  disabled={false}
+                  id="react-select-2-input"
+                  onBlur={[Function]}
+                  onChange={[Function]}
+                  onFocus={[Function]}
+                  role="combobox"
+                  spellCheck="false"
+                  style={
+                    Object {
+                      "background": 0,
+                      "border": 0,
+                      "color": "inherit",
+                      "font": "inherit",
+                      "gridArea": "1 / 2",
+                      "label": "input",
+                      "margin": 0,
+                      "minWidth": "2px",
+                      "opacity": 1,
+                      "outline": 0,
+                      "padding": 0,
+                      "width": "100%",
+                    }
+                  }
+                  tabIndex={0}
+                  type="text"
+                  value=""
+                />
+              </div>
+            </div>
+            <div
+              className=" css-1hb7zxy-IndicatorsContainer"
+            >
+              <span
+                className=" css-1u9des2-indicatorSeparator"
+              />
+              <div
+                aria-hidden="true"
+                className=" css-1xc3v61-indicatorContainer"
+                onMouseDown={[Function]}
+                onTouchEnd={[Function]}
+              >
+                <svg
+                  aria-hidden="true"
+                  className="css-tj5bde-Svg"
+                  focusable="false"
+                  height={20}
+                  viewBox="0 0 20 20"
+                  width={20}
+                >
+                  <path
+                    d="M4.516 7.548c0.436-0.446 1.043-0.481 1.576 0l3.908 3.747 3.908-3.747c0.533-0.481 1.141-0.446 1.574 0 0.436 0.445 0.408 1.197 0 1.615-0.406 0.418-4.695 4.502-4.695 4.502-0.217 0.223-0.502 0.335-0.787 0.335s-0.57-0.112-0.789-0.335c0 0-4.287-4.084-4.695-4.502s-0.436-1.17 0-1.615z"
+                  />
+                </svg>
+              </div>
+            </div>
+          </div>
+        </div>
+        <label
+          className="block font-medium text-gray-700 mb-2 mt-4"
+          htmlFor="zip code"
+        >
+          ZIP Code
+        </label>
+        <input
+          className="w-full border border-gray-400 p-2 rounded-lg"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+        <label
+          className="block font-medium text-gray-700 mb-2 mt-4"
+          htmlFor="city"
+        >
+          City
+        </label>
+        <input
+          className="w-full border border-gray-400 p-2 rounded-lg"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+        <label
+          className="block font-medium text-gray-700 mb-2 mt-4"
+          htmlFor="address"
+        >
+          Address
+        </label>
+        <input
+          className="w-full border border-gray-400 p-2 rounded-lg"
+          onChange={[Function]}
+          type="text"
+          value=""
+        />
+      </form>
+      <div
+        className="pt-12 w-full flex flex-col justify-center"
+      >
+        <img
+          alt="TopCard"
+          src="TopCard.svg"
+        />
+        <img
+          alt="BottomCard"
+          src="BottomCard.svg"
+        />
+      </div>
+    </div>
+  </div>
+  <div
+    className="pt-12 lg:pt-0 text-md md:text-lg lg:text-xl flex justify-center lg:justify-start "
+  >
+    <button
+      className="rounded-md box-border p-2 transition-all duration-250 bg-Buttons"
+      type="button"
+    >
+      ADD CARD
+    </button>
+  </div>
+</div>
+`;

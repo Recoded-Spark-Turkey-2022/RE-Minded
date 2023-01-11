@@ -17,7 +17,7 @@ function SignUp() {
   const handleFormSubmit = (e) => {
     const register = async () => {
       try {
-        const user = await createUserWithEmailAndPassword(
+        const {user} = await createUserWithEmailAndPassword(
           auth,
           e.userEmail,
           e.userPassword
@@ -164,7 +164,7 @@ function SignUp() {
               type="number"
               placeholder="  YYYY"
               name="yearOfYear"
-              value={values.yearOfYear}
+              value={values.yearOfBirth}
               onChange={handleChange}
               onBlur={handleBlur}
               className="px-3 h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300 focus:outline-none focus:placeholder-white"
