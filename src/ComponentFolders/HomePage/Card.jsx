@@ -1,5 +1,5 @@
 import React from 'react';
-import {Link} from 'react-router-dom'
+import { Link } from 'react-router-dom';
 
 function Card({
   image,
@@ -30,12 +30,12 @@ function Card({
       </h2>
       {buttonPreview && (
         <Link to="/ticketpurchase" state={price}>
-        <button
-          type="button"
-          className="font-poppins rounded-md box-border p-2 mb-4 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
-        >
-          {button}
-        </button>
+          <button
+            type="button"
+            className="font-poppins rounded-md box-border p-2 mb-4 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
+          >
+            {button}
+          </button>
         </Link>
       )}
     </div>
