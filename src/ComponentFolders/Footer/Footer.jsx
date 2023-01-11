@@ -1,5 +1,5 @@
-import React from 'react';
-import {Link} from 'react-router-dom';
+import React, {useState}from 'react';
+import {Link, useNavigate} from 'react-router-dom';
 import image1 from './Images/FacebookLogo.svg';
 import image2 from './Images/GoogleLogo.svg';
 import image3 from './Images/TwitterLogo.svg';
@@ -7,13 +7,21 @@ import image4 from './Images/SubscribeArrow.svg';
 
 const thanksProps = "Your email has been added to the mailing list successfully!"
 
-
 function Footer() {
 
-const click = () => {
-  alert("Warning: Please enter your e-mail for subscription")
-}
+const [value, setValue] = useState('');
+const navigate = useNavigate();
 
+  function handleTextareaChange(event) {
+    setValue(event.target.value);
+  }
+function handleClick() {
+  if (value.trim().length > 0) {
+    navigate('/thankyou' , { state: thanksProps }) ;}
+    else {
+    alert('Warning: Please enter your e-mail for subscription');
+  }
+}
 
   return (
     <footer className="relative bg-Footer  bottom-0 w-full p-4 md:flex md:items-center md:justify-between md:p-6 ">
@@ -35,12 +43,12 @@ const click = () => {
           <div className="flex flex-wrap mb-4 w-[300px] h-[50px] box-border rounded-md border-2 border-[#718096]">
             
             <input
+              onChange={handleTextareaChange}
               className=" w-3/4 h-auto rounded-l-lg text-SubTexts font-normal "
               type="email"
               placeholder="  Enter your e-mail"/>
 
-            <Link to="/thankyou" state={thanksProps}>
-            <button onClick={click}
+            <button onClick={handleClick}
               type="button"
               className="bg-Buttons rounded-r-lg w-[74px] h-[46px]">
               <img
@@ -48,8 +56,7 @@ const click = () => {
                 src={image4}
                 alt="Arrow"/>
             </button>
-            </Link>
-            
+      
           </div>
         </div>
       </span>
