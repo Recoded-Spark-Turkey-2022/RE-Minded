@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom'
 import profilePhoto from './Images/ProfilePhoto.svg';
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
@@ -218,12 +219,14 @@ function EditProfileMain() {
             <div className="flex flex-rows gap-10 mt-8 mb-16">
               <div className="flex flex-col ">
                 <div className="lg:text-lg text-sm mb-2">3 Cards Added</div>
-                <button
-                  type="button"
-                  className="rounded-md lg:text-base text-sm box-border p-2 pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
-                >
-                  SHOW CARDS
-                </button>
+                <Link to="/savedcards">
+                  <button
+                    type="button"
+                    className="rounded-md lg:text-base text-sm box-border p-2 pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+                  >
+                    SHOW CARDS
+                  </button>
+                </Link>
               </div>
               <div className="flex flex-col">
                 <div className="lg:text-lg text-sm mb-2 ">
