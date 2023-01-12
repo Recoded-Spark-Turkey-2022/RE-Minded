@@ -86,7 +86,7 @@ function BookingPage5() {
               type="checkbox"
               className="m-2 mb-6"
               name="option5"
-              checked={checkboxes.option4}
+              checked={checkboxes.option5}
               onChange={handleCheckboxChange}
             />
             Trauma and abuse
@@ -96,7 +96,7 @@ function BookingPage5() {
               type="checkbox"
               className="m-2 mb-6"
               name="option6"
-              checked={checkboxes.option4}
+              checked={checkboxes.option6}
               onChange={handleCheckboxChange}
             />
             Eating disorders
