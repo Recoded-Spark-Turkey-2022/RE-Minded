@@ -1,17 +1,39 @@
 import { React, useState, useMemo } from 'react';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
+import * as Yup from 'yup';
+import { useNavigate } from 'react-router-dom';
+import { yupResolver } from '@hookform/resolvers/yup';
+import { useForm } from 'react-hook-form';
 import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
 
+const thanksProps =
+  'Your new payment method is under review, you will receive an email soon when your card is confirmed.Otherwise you will get a notification telling you what went wrong and how to add a new card. .';
+
 function AddCard() {
-  const [cardNumber, setCardNumber] = useState('');
-  const [expiryDate, setExpiryDate] = useState('');
-  const [cvv, setCvv] = useState('');
-  const [nameOnCard, setNameOnCard] = useState('');
-  const [zipCode, setZipCode] = useState('');
-  const [city, setCity] = useState('');
-  const [address, setAddress] = useState('');
+
+  const navigate = useNavigate();
+
+  const yupValidation = Yup.object().shape({
+    cardNumber: Yup.string()
+      .required('Please enter Card Number.')
+      .min(16, 'Add minimum 16 characters'),
+    expiryDate: Yup.string().required('Expiry Date is required'),
+    cvv: Yup.string().required('Please enter a CVV Code.'),
+    nameOnCard: Yup.string().required('Please enter a Valid Name.'),
+    zipCode: Yup.string().required('Zip Code is required'),
+    city: Yup.string().required('City is required'),
+    Address: Yup.string().required('Address is required'),
+  });
+  const formOptions = { resolver: yupResolver(yupValidation) };
+  const { register, handleSubmit, formState } = useForm(formOptions);
+  const { errors } = formState;
+  function onSubmit(data) {
+    console.log(JSON.stringify(data, null, 4));
+    navigate('/thankyou', { replace: true, state: thanksProps });
+    return false;
+  }
 
   const [value, setValue] = useState('');
   const options = useMemo(() => countryList().getData(), []);
@@ -52,13 +74,18 @@ function AddCard() {
               className="block font-medium text-gray-700 mb-2"
             >
               Card Number
-            </label>
             <input
-              className="w-full border border-gray-400 p-2 rounded-lg"
+              className={`w-full border border-gray-400 p-2 rounded-lg ${
+                errors.username ? 'is-invalid' : ''
+              }`}
+              {...register('cardNumber')}
               type="text"
-              value={cardNumber}
-              onChange={(e) => setCardNumber(e.target.value)}
-            />
+              name="cardNumber"
+              />
+              </label>
+            <div className="invalid-feedback text-red-400 lg:text-base text-sm">
+              {errors.cardNumber?.message}
+            </div>
             <div className="flex  space-x-7">
               <div>
                 <label
@@ -66,14 +93,19 @@ function AddCard() {
                   className="block font-medium text-gray-700 mb-2 mt-4 "
                 >
                   Expiry Date
-                </label>
                 <input
-                  className="w-full border border-gray-400 p-2 rounded-lg"
+                  className={`w-full border border-gray-400 p-2 rounded-lg ${
+                    errors.email ? 'is-invalid' : ''
+                  }`}
+                  {...register('expiryDate')}
                   type="text"
+                  name="expiryDate"
                   placeholder="MM/YY"
-                  value={expiryDate}
-                  onChange={(e) => setExpiryDate(e.target.value)}
-                />
+                  />
+                  </label>
+                <div className="invalid-feedback text-red-400 lg:text-base text-sm">
+                  {errors.expiryDate?.message}
+                </div>
               </div>
               <div>
                 <label
@@ -81,14 +113,18 @@ function AddCard() {
                   className="block font-medium text-gray-700 mb-2 mt-4"
                 >
                   CVV Code
-                </label>
                 <input
-                  className="w-full border border-gray-400 p-2 rounded-lg"
+                  className={`w-full border border-gray-400 p-2 rounded-lg ${
+                    errors.cvv? 'is-invalid' : ''
+                  }`}
+                  {...register('city')}
                   type="text"
-                  value={cvv}
-                  placeholder="***"
-                  onChange={(e) => setCvv(e.target.value)}
-                />
+                  name="cvv"
+                  />
+                  </label>
+                <div className="invalid-feedback text-red-400 lg:text-base text-sm">
+                  {errors.cvv?.message}
+                </div>
               </div>
             </div>
             <label
@@ -98,11 +134,16 @@ function AddCard() {
               Name on Card
             </label>
             <input
-              className="w-full border border-gray-400 p-2 rounded-lg"
+              className={`w-full border border-gray-400 p-2 rounded-lg ${
+                errors.license ? 'is-invalid' : ''
+              }`}
+              {...register('nameOnCard')}
               type="text"
-              value={nameOnCard}
-              onChange={(e) => setNameOnCard(e.target.value)}
+              name="nameOnCard"
             />
+            <div className="invalid-feedback text-red-400 lg:text-base text-sm">
+              {errors.nameOnCard?.message}
+            </div>
           </form>
           <form className="w-full   opacity-50">
             <label
@@ -124,11 +165,16 @@ function AddCard() {
               ZIP Code
             </label>
             <input
-              className="w-full border border-gray-400 p-2 rounded-lg"
+              className={`w-full border border-gray-400 p-2 rounded-lg  ${
+                errors.license ? 'is-invalid' : ''
+              }`}
+              {...register('zipCode')}
               type="text"
-              value={zipCode}
-              onChange={(e) => setZipCode(e.target.value)}
+              name="zipCode"
             />
+            <div className="invalid-feedback text-red-400 lg:text-base text-sm">
+              {errors.zipCode?.message}
+            </div>
             <label
               htmlFor="city"
               className="block font-medium text-gray-700 mb-2 mt-4"
@@ -136,11 +182,16 @@ function AddCard() {
               City
             </label>
             <input
-              className="w-full border border-gray-400 p-2 rounded-lg"
+              className={`w-full border border-gray-400 p-2 rounded-lg  ${
+                errors.license ? 'is-invalid' : ''
+              }`}
+              {...register('city')}
               type="text"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
+              name="city"
             />
+            <div className="invalid-feedback text-red-400 lg:text-base text-sm">
+              {errors.city?.message}
+            </div>
             <label
               htmlFor="address"
               className="block font-medium text-gray-700 mb-2 mt-4"
@@ -148,11 +199,16 @@ function AddCard() {
               Address
             </label>
             <input
-              className="w-full border border-gray-400 p-2 rounded-lg"
+              className={`w-full border border-gray-400 p-2 rounded-lg ${
+                errors.license ? 'is-invalid' : ''
+              }`}
+              {...register('Address')}
               type="text"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              name="Address"
             />
+            <div className="invalid-feedback text-red-400 lg:text-base text-sm">
+              {errors.Address?.message}
+            </div>
           </form>
 
           <div className="pt-12 w-full flex flex-col justify-center">
@@ -163,7 +219,8 @@ function AddCard() {
       </div>
       <div className="pt-12 lg:pt-0 text-md md:text-lg lg:text-xl flex justify-center lg:justify-start ">
         <button
-          type="button"
+          type="submit"
+          onSubmit={handleSubmit(onSubmit)}
           className="rounded-md box-border p-2 transition-all duration-250 bg-Buttons"
         >
           ADD CARD
