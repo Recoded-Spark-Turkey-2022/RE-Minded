@@ -3,11 +3,10 @@ import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Logo from './Images/Logo.svg';
 
-export default function NavBar({handleSignout}) {
-
+export default function NavBar({ handleSignout }) {
   const [navbar, setNavbar] = useState(false);
 
-  const signoutButton = useSelector((state) => state.signoutButton)
+  const signoutButton = useSelector((state) => state.signoutButton);
 
   return (
     <nav className="w-full sticky top-0 z-50 bg-cyan-50 shadow font-poppins">
@@ -17,11 +16,10 @@ export default function NavBar({handleSignout}) {
             <Link to="/">
               <div className="flex flex-row ">
                 <img src={Logo} alt="Logo" />
-                <a href="Logo">
-                  <h2 className="text-3xl text-bold m-4 ml-3 font-medium">
-                    Healing
-                  </h2>
-                </a>
+
+                <h2 className="text-3xl text-bold m-4 ml-3 font-medium">
+                  Healing
+                </h2>
               </div>
             </Link>
             <div className="md:hidden">
@@ -99,12 +97,12 @@ export default function NavBar({handleSignout}) {
                 </Link>
                 <Link to={signoutButton ? 'signup' : 'login'}>
                   {!signoutButton ? (
-                    <a
-                      href="Log In"
+                    <button
+                      type="button"
                       className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
                     >
                       Log In
-                    </a>
+                    </button>
                   ) : (
                     <button
                       type="button"
@@ -135,11 +133,7 @@ export default function NavBar({handleSignout}) {
             <li className=" hover:text-indigo-200 cursor-pointer">
               <select className=" p-2.5 bg-cyan-50 cursor-pointer">
                 <option>
-                  <Link to="about">
-                    <li>
-                      <a href="About">About</a>
-                    </li>
-                  </Link>
+                  <Link to="about">About</Link>
                 </option>
                 <option>
                   <Link to="team" href="Team">
@@ -161,12 +155,12 @@ export default function NavBar({handleSignout}) {
             </Link>
             <Link to={signoutButton ? 'signup' : 'login'}>
               {!signoutButton ? (
-                <a
-                  href="Log In"
+                <button
+                  type="button"
                   className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
                 >
                   Log in
-                </a>
+                </button>
               ) : (
                 <button
                   type="button"
