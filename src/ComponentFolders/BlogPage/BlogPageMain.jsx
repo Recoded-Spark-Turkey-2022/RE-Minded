@@ -1,14 +1,14 @@
 import React from "react";
-import Top from "./MainContent";
-import Bottom from "./RecommendedforYou";
+import MainContent from "./MainContent";
+import Recommended from "./RecommendedforYou";
 import SignUp from "./SignUp";
 
 function Main (){
     return(
         <>
-        <Top /> 
+        <MainContent /> 
         <SignUp />
-        <Bottom />
+        <Recommended />
         </>
     );
 }
