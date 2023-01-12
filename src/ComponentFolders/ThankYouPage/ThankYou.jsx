@@ -6,14 +6,14 @@ const ThankYou = () => {
   const propsData = location.state;
 
   return (
-    <div className="flex flex-col lg:mt-32 mt-20 lg:ml-24 ml-10 lg:mr-0 mr-6 font-poppins text-black">
+    <div className="flex flex-col lg:mt-24 mt-20 mb-20 lg:ml-24 ml-10 lg:mr-0 mr-6 font-poppins text-black">
       <div className=" text-2xl lg:text-5xl ">THANK YOU!</div>
 
-      <div className="flex mt-6 sm:text-lg leading-6 text-xl lg:text-3xl leading-9 text-SubTexts">
+      <div className="flex mt-6 sm:text-lg leading-6 text-lg lg:text-xl leading-9 text-SubTexts">
         {propsData}
       </div>
 
-      <div className='mt-20 mb-20'>
+      <div className='mt-20 mb-40'>
         <Link to="/">
           <button
             type="button"
