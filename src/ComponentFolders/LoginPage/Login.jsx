@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { useSelector } from 'react-redux';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import Image from './Images/LoginSofa.svg';
 import lineImage from './Images/line.svg';
@@ -10,27 +9,26 @@ import { signInWithGoogle, signInWithFacebook, auth } from '../../Firebase';
 
 function Login() {
   const navigate = useNavigate();
-  const currentUser = useSelector((state) => state.currentUser);
+
   const [loginData, setLoginData] = useState({
     userEmail: '',
     userPassword: '',
   });
 
-  const login = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginData.userEmail,
-        loginData.userPassword
-      );
-      return user;
-    } catch (error) {
-      return error;
-    } finally {
-      if (currentUser) {
-        navigate('/');
-      }
-    }
+  const login = (e) => {
+    e.preventDefault();
+
+    signInWithEmailAndPassword(
+      auth,
+      loginData.userEmail,
+      loginData.userPassword
+    )
+      .then((user) => {
+        if (user) {
+          navigate('/');
+        }
+      })
+      .catch(() => alert('Try another email and password'));
   };
 
   function handleOnClick(e) {
