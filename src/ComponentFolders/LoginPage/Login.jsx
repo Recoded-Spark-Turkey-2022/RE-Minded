@@ -58,7 +58,7 @@ function Login() {
             placeholder="   Your Email"
             name="userEmail"
             onChange={(e) => handleOnClick(e)}
-            className="h-20 broder-solid border-2 border-[#D1DBE3] rounded-md focus:outline-none focus:placeholder-white"
+            className="h-20 px-3 broder-solid border-2 border-[#D1DBE3] rounded-md focus:outline-none focus:placeholder-white"
             value={loginData.userEmail}
           />
           <input
@@ -66,7 +66,7 @@ function Login() {
             placeholder="   Your Password"
             name="userPassword"
             onChange={(e) => handleOnClick(e)}
-            className="h-20 broder-solid border-2 border-[#D1DBE3] rounded-md focus:outline-none focus:placeholder-white"
+            className="h-20 px-3 broder-solid border-2 border-[#D1DBE3] rounded-md focus:outline-none focus:placeholder-white"
             value={loginData.userPassword}
           />
           <div className="flex justify-around py-3 gap-8">
