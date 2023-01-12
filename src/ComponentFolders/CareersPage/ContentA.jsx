@@ -1,4 +1,5 @@
 import React from 'react';
+import { HashLink as Link } from 'react-router-hash-link';
 
 function ContentA() {
   return (
@@ -22,12 +23,13 @@ function ContentA() {
         <h3>What role will you play?</h3>
       </div>
       <div className="text-xl leading-6 mt-4 lg:ml-12 mb-8">
+      <Link to="/careers#openpositions">
         <button
           type="button"
           className="lg:text-xl md:text-base text-sm lg:ml-16 ml-10 lg:px-6 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 cursor-pointer "
         >
           SEE OUR OPEN LIST
-        </button>
+        </button></Link>
       </div>
     </div>
   );

@@ -49,8 +49,8 @@ const jobs = [
 function ContentC() {
   return (
     <div>
-      <div className="lg:text-5xl md:text-3xl text-2xl leading-6 lg:mt-12 mt-4 lg:pt-12 pt-8 lg:ml-28 ml-10 text-gray-700">
-        <h1>CURRENT OPEN POSITIONS</h1>
+      <div id="openpositions" className="lg:text-5xl md:text-3xl text-2xl leading-6 lg:mt-12 mt-4 lg:pt-12 pt-8 lg:ml-28 ml-10 text-gray-700">
+        <h1 >CURRENT OPEN POSITIONS</h1>
       </div>
       <div className="lg:text-xl text-lg leading-6 mt-4 lg:ml-28 ml-10 lg:mr-0 mr-10 text-gray-400">
         <h3>
