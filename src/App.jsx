@@ -1,9 +1,10 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { onAuthStateChanged, signOut, getAuth } from 'firebase/auth';
 import { setCurrentUser } from './features/userInfo/currentUserSlice';
 import { auth } from './Firebase';
+import { setSignoutButton } from './features/signoutButton/signoutButtonSlice';
 import './App.css';
 import About from './ComponentFolders/AboutPage/About';
 import HomePageMain from './ComponentFolders/HomePage/HomePageMain';
@@ -33,7 +34,6 @@ import TicketPurchasePage from './ComponentFolders/TicketPurchasePage/TicketPurc
 
 
 function App() {
-  const [signOutButton, setSignOutButton] = useState(false);
 
   const dispatch = useDispatch();
 
@@ -41,7 +41,8 @@ function App() {
     const signOutAuth = getAuth();
     signOut(signOutAuth)
       .then(() => {
-        // Sign-out successful.
+        // Sign-out successful, then reload the page
+        window.location.reload(false);
       })
       .catch((error) => {
         // An error happened.
@@ -52,8 +53,7 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
-        setSignOutButton(true);
-        /* console.log(currentUser) */
+        dispatch(setSignoutButton())
         const { uid, email } = currentUser;
         dispatch(
           setCurrentUser({
@@ -68,7 +68,7 @@ function App() {
   return (
     
       <BrowserRouter>
-        <Navbar signOutButton={signOutButton} handleSignout={handleSignout} />
+        <Navbar handleSignout={handleSignout} />
         <Routes>
           <Route exact path="/" element={<HomePageMain />} />
           <Route path="login" element={<Login />} />

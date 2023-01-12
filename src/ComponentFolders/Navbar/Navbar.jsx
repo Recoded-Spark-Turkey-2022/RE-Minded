@@ -1,10 +1,13 @@
-import React, {useState} from "react"
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Logo from './Images/Logo.svg';
 
-export default function NavBar({signOutButton, handleSignout}) {
+export default function NavBar({handleSignout}) {
 
   const [navbar, setNavbar] = useState(false);
+
+  const signoutButton = useSelector((state) => state.signoutButton)
 
   return (
     <nav className="w-full sticky top-0 z-50 bg-cyan-50 shadow font-poppins">
@@ -66,22 +69,36 @@ export default function NavBar({signOutButton, handleSignout}) {
           >
             <div className="mt-3 space-y-2 lg:hidden md:hidden ">
               <div className="flex flex-col  items-center  text-xl ">
-                <Link to="/" className=" hover:text-indigo-200 pb-1 " href="Home">
-                    Home
+                <Link
+                  to="/"
+                  className=" hover:text-indigo-200 pb-1 "
+                  href="Home"
+                >
+                  Home
                 </Link>
-                <Link to="blog" className=" hover:text-indigo-200 p-2" href="Blog">
-                    Blog
+                <Link
+                  to="blog"
+                  className=" hover:text-indigo-200 p-2"
+                  href="Blog"
+                >
+                  Blog
                 </Link>
-                <Link to="about">
-                  <a className=" hover:text-indigo-200 p-2" href="Home">
-                    About
-                  </a>
+                <Link
+                  to="about"
+                  className=" hover:text-indigo-200 p-2"
+                  href="Home"
+                >
+                  About
                 </Link>
-                <Link to="contactus" className=" hover:text-indigo-200 p-2" href="Blog">
-                    Contact Us
+                <Link
+                  to="contactus"
+                  className=" hover:text-indigo-200 p-2"
+                  href="Blog"
+                >
+                  Contact Us
                 </Link>
-                <Link to={signOutButton ? "signup" : "login"}>
-                  {!signOutButton ? (
+                <Link to={signoutButton ? 'signup' : 'login'}>
+                  {!signoutButton ? (
                     <a
                       href="Log In"
                       className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
@@ -125,13 +142,13 @@ export default function NavBar({signOutButton, handleSignout}) {
                   </Link>
                 </option>
                 <option>
-                  <Link to="team">
-                    <a href="Team">Team</a>
+                  <Link to="team" href="Team">
+                    Team
                   </Link>
                 </option>
                 <option>
-                  <Link to="careers">
-                    <a href="Carees">Carees</a>
+                  <Link to="careers" href="Carees">
+                    Carees
                   </Link>
                 </option>
               </select>
@@ -142,8 +159,8 @@ export default function NavBar({signOutButton, handleSignout}) {
                 <a href="Contact">Contact US</a>
               </li>
             </Link>
-            <Link to={signOutButton ? "signup" : "login"}>
-              {!signOutButton ? (
+            <Link to={signoutButton ? 'signup' : 'login'}>
+              {!signoutButton ? (
                 <a
                   href="Log In"
                   className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
