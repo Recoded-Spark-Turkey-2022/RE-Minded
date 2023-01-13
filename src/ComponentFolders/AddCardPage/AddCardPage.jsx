@@ -1,39 +1,66 @@
 import { React, useState, useMemo } from 'react';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
-import * as Yup from 'yup';
-import { useNavigate } from 'react-router-dom';
-import { yupResolver } from '@hookform/resolvers/yup';
-import { useForm } from 'react-hook-form';
+import { useFormik } from 'formik';
 import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
 
-const thanksProps =
-  'Your new payment method is under review, you will receive an email soon when your card is confirmed.Otherwise you will get a notification telling you what went wrong and how to add a new card. .';
-
 function AddCard() {
+  const formik = useFormik({
+    initialValues: {
+      cardNumber: '',
+      expirationDate: '',
+      cvv: '',
+      nameOnCard: '',
+      zipCode: '',
+      city: '',
+      address: '',
+    },
+    validate: (values) => {
+      const errors = {};
+      if (!values.cardNumber) {
+        errors.cardNumber = 'Please do not leave this field empty!';
+      } else if (!/^\d{16}$/.test(values.cardNumber)) {
+        errors.cardNumber = 'Invalid card number';
+      }
 
-  const navigate = useNavigate();
+      if (!values.expirationDate) {
+        errors.expirationDate = 'Please do not leave this field empty!';
+      } else if (!/^\d{2}\/\d{2}$/.test(values.expirationDate)) {
+        errors.expirationDate = 'Invalid expiration date';
+      }
 
-  const yupValidation = Yup.object().shape({
-    cardNumber: Yup.string()
-      .required('Please enter Card Number.')
-      .min(16, 'Add minimum 16 characters'),
-    expiryDate: Yup.string().required('Expiry Date is required'),
-    cvv: Yup.string().required('Please enter a CVV Code.'),
-    nameOnCard: Yup.string().required('Please enter a Valid Name.'),
-    zipCode: Yup.string().required('Zip Code is required'),
-    city: Yup.string().required('City is required'),
-    Address: Yup.string().required('Address is required'),
+      if (!values.cvv) {
+        errors.cvv = 'Please do not leave this field empty!';
+      } else if (!/^\d{3}$/.test(values.cvv)) {
+        errors.cvv = 'Invalid CVV';
+      }
+      if (!values.nameOnCard) {
+        errors.nameOnCard = 'Please do not leave this field empty!';
+      } else if (!/^[a-zA-Z ]+$/.test(values.nameOnCard)) {
+        errors.nameOnCard = 'Invalid name';
+      }
+
+      if (!values.zipCode) {
+        errors.zipCode = 'Please do not leave this field empty!';
+      } else if (!/^\d{5}$/.test(values.zipCode)) {
+        errors.zipCode = 'Invalid zip code';
+      }
+
+      if (!values.city) {
+        errors.city = 'Please do not leave this field empty!';
+      }
+
+      if (!values.address) {
+        errors.address = 'Please do not leave this field empty!';
+      }
+
+      return errors;
+    },
+    onSubmit: (values) => {
+      console.log(values);
+    },
   });
-  const formOptions = { resolver: yupResolver(yupValidation) };
-  const { register, handleSubmit, formState } = useForm(formOptions);
-  const { errors } = formState;
-  function onSubmit(data) {
-    console.log(JSON.stringify(data, null, 4));
-    navigate('/thankyou', { replace: true, state: thanksProps });
-    return false;
-  }
 
   const [value, setValue] = useState('');
   const options = useMemo(() => countryList().getData(), []);
@@ -53,7 +80,10 @@ function AddCard() {
       </h2>
       <div className="flex flex-col lg:flex-row lg:space-x-96">
         <div className="text-md md:text-lg lg:text-xl items-center flex  flex-col md:flex-col lg:flex-row lg:space-x-52  ">
-          <form className="w-full  opacity-50 pt-4 ">
+          <form
+            className="w-full  opacity-50 pt-4 "
+            onSubmit={formik.handleSubmit}
+          >
             <label
               htmlFor="card type"
               className="block font-medium text-gray-700 mb-2"
@@ -74,18 +104,19 @@ function AddCard() {
               className="block font-medium text-gray-700 mb-2"
             >
               Card Number
+            </label>
             <input
-              className={`w-full border border-gray-400 p-2 rounded-lg ${
-                errors.username ? 'is-invalid' : ''
-              }`}
-              {...register('cardNumber')}
+              className="w-full border border-gray-400 p-2 rounded-lg"
               type="text"
+              id="cardNumber"
               name="cardNumber"
-              />
-              </label>
-            <div className="invalid-feedback text-red-400 lg:text-base text-sm">
-              {errors.cardNumber?.message}
-            </div>
+              {...formik.getFieldProps('cardNumber')}
+            />
+            {formik.errors.cardNumber && formik.touched.cardNumber ? (
+              <div className=" text-sm text-red-500 ">
+                {formik.errors.cardNumber}
+              </div>
+            ) : null}
             <div className="flex  space-x-7">
               <div>
                 <label
@@ -93,19 +124,21 @@ function AddCard() {
                   className="block font-medium text-gray-700 mb-2 mt-4 "
                 >
                   Expiry Date
+                </label>
                 <input
-                  className={`w-full border border-gray-400 p-2 rounded-lg ${
-                    errors.email ? 'is-invalid' : ''
-                  }`}
-                  {...register('expiryDate')}
+                  className="w-full border border-gray-400 p-2 rounded-lg"
                   type="text"
-                  name="expiryDate"
                   placeholder="MM/YY"
-                  />
-                  </label>
-                <div className="invalid-feedback text-red-400 lg:text-base text-sm">
-                  {errors.expiryDate?.message}
-                </div>
+                  id="expirationDate"
+                  name="expirationDate"
+                  {...formik.getFieldProps('expirationDate')}
+                />
+                {formik.errors.expirationDate &&
+                formik.touched.expirationDate ? (
+                  <div className="text-sm text-red-500">
+                    {formik.errors.expirationDate}
+                  </div>
+                ) : null}
               </div>
               <div>
                 <label
@@ -113,18 +146,20 @@ function AddCard() {
                   className="block font-medium text-gray-700 mb-2 mt-4"
                 >
                   CVV Code
+                </label>
                 <input
-                  className={`w-full border border-gray-400 p-2 rounded-lg ${
-                    errors.cvv? 'is-invalid' : ''
-                  }`}
-                  {...register('city')}
+                  className="w-full border border-gray-400 p-2 rounded-lg"
                   type="text"
+                  placeholder="***"
+                  id="cvv"
                   name="cvv"
-                  />
-                  </label>
-                <div className="invalid-feedback text-red-400 lg:text-base text-sm">
-                  {errors.cvv?.message}
-                </div>
+                  {...formik.getFieldProps('cvv')}
+                />
+                {formik.errors.cvv && formik.touched.cvv ? (
+                  <div className="text-sm text-red-500">
+                    {formik.errors.cvv}
+                  </div>
+                ) : null}
               </div>
             </div>
             <label
@@ -134,16 +169,17 @@ function AddCard() {
               Name on Card
             </label>
             <input
-              className={`w-full border border-gray-400 p-2 rounded-lg ${
-                errors.license ? 'is-invalid' : ''
-              }`}
-              {...register('nameOnCard')}
+              className="w-full border border-gray-400 p-2 rounded-lg"
               type="text"
+              id="nameOnCard"
               name="nameOnCard"
+              {...formik.getFieldProps('nameOnCard')}
             />
-            <div className="invalid-feedback text-red-400 lg:text-base text-sm">
-              {errors.nameOnCard?.message}
-            </div>
+            {formik.errors.nameOnCard && formik.touched.nameOnCard ? (
+              <div className="text-sm text-red-500">
+                {formik.errors.nameOnCard}
+              </div>
+            ) : null}
           </form>
           <form className="w-full   opacity-50">
             <label
@@ -165,16 +201,17 @@ function AddCard() {
               ZIP Code
             </label>
             <input
-              className={`w-full border border-gray-400 p-2 rounded-lg  ${
-                errors.license ? 'is-invalid' : ''
-              }`}
-              {...register('zipCode')}
+              className="w-full border border-gray-400 p-2 rounded-lg"
               type="text"
+              id="zipCode"
               name="zipCode"
+              {...formik.getFieldProps('zipCode')}
             />
-            <div className="invalid-feedback text-red-400 lg:text-base text-sm">
-              {errors.zipCode?.message}
-            </div>
+            {formik.errors.zipCode && formik.touched.zipCode ? (
+              <div className="text-sm text-red-500">
+                {formik.errors.zipCode}
+              </div>
+            ) : null}
             <label
               htmlFor="city"
               className="block font-medium text-gray-700 mb-2 mt-4"
@@ -182,16 +219,15 @@ function AddCard() {
               City
             </label>
             <input
-              className={`w-full border border-gray-400 p-2 rounded-lg  ${
-                errors.license ? 'is-invalid' : ''
-              }`}
-              {...register('city')}
+              className="w-full border border-gray-400 p-2 rounded-lg"
               type="text"
+              id="city"
               name="city"
+              {...formik.getFieldProps('city')}
             />
-            <div className="invalid-feedback text-red-400 lg:text-base text-sm">
-              {errors.city?.message}
-            </div>
+            {formik.errors.city && formik.touched.city ? (
+              <div className="text-sm text-red-500">{formik.errors.city}</div>
+            ) : null}
             <label
               htmlFor="address"
               className="block font-medium text-gray-700 mb-2 mt-4"
@@ -199,16 +235,17 @@ function AddCard() {
               Address
             </label>
             <input
-              className={`w-full border border-gray-400 p-2 rounded-lg ${
-                errors.license ? 'is-invalid' : ''
-              }`}
-              {...register('Address')}
+              className="w-full border border-gray-400 p-2 rounded-lg"
               type="text"
-              name="Address"
+              id="address"
+              name="address"
+              {...formik.getFieldProps('address')}
             />
-            <div className="invalid-feedback text-red-400 lg:text-base text-sm">
-              {errors.Address?.message}
-            </div>
+            {formik.errors.address && formik.touched.address ? (
+              <div className="text-sm text-red-500">
+                {formik.errors.address}
+              </div>
+            ) : null}
           </form>
 
           <div className="pt-12 w-full flex flex-col justify-center">
@@ -219,8 +256,7 @@ function AddCard() {
       </div>
       <div className="pt-12 lg:pt-0 text-md md:text-lg lg:text-xl flex justify-center lg:justify-start ">
         <button
-          type="submit"
-          onSubmit={handleSubmit(onSubmit)}
+          type="button"
           className="rounded-md box-border p-2 transition-all duration-250 bg-Buttons"
         >
           ADD CARD
