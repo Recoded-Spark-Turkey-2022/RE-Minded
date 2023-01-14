@@ -1,10 +1,48 @@
-import React from 'react';
+import React, {useState} from 'react';
 import profilePhoto from './Images/ProfilePhoto.svg';
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
 
 function EditProfileMain() {
+
+  const [profileData, setProfileData] = useState({
+    fullname: "",
+    educationLevel: "",
+    hobby: "",
+    familySize: "",
+    gender: "",
+    birthmonth: "",
+    birthday: "",
+    birthyear: "",
+    email: "",
+    phone: "",
+    uploadID: "",
+    password: "",
+    passwordConfirm: ""
+  })
+
+  console.log(profileData)
+
+  function handleInputChange(e) {
+    const { value, name, files } = e.target;
+    if (files) {
+      return setProfileData((prevObj) => {
+        return {
+          ...prevObj,
+          [name]: files[0],
+        };
+      });
+    }
+    return setProfileData((prevObj) => {
+      return {
+        ...prevObj,
+        [name]: value,
+      };
+    });
+  }
+
+
   return (
     <div className="flex flex-col font-poppins lg:items-center">
       <div className="self-center mt-8 lg:text-xl text-sm text-[#FF0000] lg:ml-0 ml-16 lg:mr-0 mr-[-1em]">
@@ -42,11 +80,13 @@ function EditProfileMain() {
                     id="fullname"
                     name="fullname"
                     type="text"
+                    value={profileData.fullname}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div>
                   <div className="relative w-full lg:max-w-sm">
-                    <select className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600">
+                    <select value={profileData.educationLevel} name="educationLevel" onChange={handleInputChange} className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600">
                       <option value="" selected="selected" disabled="disabled">
                         -- Select Education --
                       </option>
@@ -79,19 +119,23 @@ function EditProfileMain() {
                     id="hobby"
                     name="hobby"
                     type="text"
+                    value={profileData.hobby}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="flex flex-row">
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block w-[4em] p-0.5"
                     id="familysize"
-                    name="familysize"
+                    name="familySize"
                     type="text"
+                    value={profileData.familySize}
+                    onChange={handleInputChange}
                   />
                   <div className="self-center ml-4">Member(s)</div>
                 </div>
                 <div>
-                  <select className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts">
+                  <select value={profileData.gender} name="gender" onChange={handleInputChange} className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts">
                     <option value="" selected="selected" disabled="disabled">
                       -- Select Gender --
                     </option>
@@ -106,6 +150,8 @@ function EditProfileMain() {
                     name="birthmonth"
                     type="text"
                     placeholder="MM"
+                    value={profileData.birthmonth}
+                    onChange={handleInputChange}
                   />
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-2 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[5em] w-[3em]"
@@ -113,6 +159,8 @@ function EditProfileMain() {
                     name="birthday"
                     type="text"
                     placeholder="DD"
+                    value={profileData.birthday}
+                    onChange={handleInputChange}
                   />
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-4 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[17em] w-[8.5em]"
@@ -120,6 +168,8 @@ function EditProfileMain() {
                     name="birthyear"
                     type="text"
                     placeholder="YYYY"
+                    value={profileData.birthyear}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div>
@@ -128,6 +178,8 @@ function EditProfileMain() {
                     id="email"
                     name="email"
                     type="email"
+                    value={profileData.email}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div>
@@ -136,6 +188,8 @@ function EditProfileMain() {
                     id="phone"
                     name="phone"
                     type="text"
+                    value={profileData.phone}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="flex flex-row">
@@ -143,7 +197,8 @@ function EditProfileMain() {
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
                     id="uploadID"
                     name="uploadID"
-                    type="text"
+                    type="file"
+                    onChange={handleInputChange}
                   />
                   <img
                     src={plusIcon}
@@ -167,7 +222,9 @@ function EditProfileMain() {
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28em] w-[17.5em]"
                     id="password"
                     name="password"
-                    type="text"
+                    type="password"
+                    value={profileData.password}
+                    onChange={handleInputChange}
                   />
                   <img
                     src={passwordIcon}
@@ -179,8 +236,10 @@ function EditProfileMain() {
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block  lg:p-2 p-1 lg:w-[28em] w-[17.5em]"
                     id="confirmpassword"
-                    name="confirmpassword"
-                    type="text"
+                    name="confirmPassword"
+                    type="password"
+                    value={profileData.confirmPassword}
+                    onChange={handleInputChange}
                   />
                   <img
                     src={passwordIcon}
