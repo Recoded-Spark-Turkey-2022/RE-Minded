@@ -1,28 +1,32 @@
-import React, {useState} from 'react';
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+import { doc, setDoc } from 'firebase/firestore';
+import { db } from '../../Firebase';
 import profilePhoto from './Images/ProfilePhoto.svg';
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
 
 function EditProfileMain() {
+  const currentUser = useSelector((state) => state.currentUser.user);
+
+  console.log(currentUser);
 
   const [profileData, setProfileData] = useState({
-    fullname: "",
-    educationLevel: "",
-    hobby: "",
-    familySize: "",
-    gender: "",
-    birthmonth: "",
-    birthday: "",
-    birthyear: "",
-    email: "",
-    phone: "",
-    uploadID: "",
-    password: "",
-    passwordConfirm: ""
-  })
-
-  console.log(profileData)
+    fullname: '',
+    educationLevel: '',
+    hobby: '',
+    familySize: '',
+    gender: '',
+    birthmonth: '',
+    birthday: '',
+    birthyear: '',
+    email: '',
+    phone: '',
+    uploadID: '',
+    password: '',
+    passwordConfirm: '',
+  });
 
   function handleInputChange(e) {
     const { value, name, files } = e.target;
@@ -42,9 +46,26 @@ function EditProfileMain() {
     });
   }
 
+  const handleOnSubmit = (e) => {
+    e.preventDefault()
+    const addDoc = async () => {
+      try {
+        await setDoc(doc(db, 'Users', '0000000000000'), {
+          name: "Sohail"
+        });
+        console.log("submitted")
+      } catch (error) {
+        console.log(error);
+      }
+    }
+    addDoc()
+  };
 
   return (
-    <div className="flex flex-col font-poppins lg:items-center">
+    <form
+      onSubmit={handleOnSubmit}
+      className="flex flex-col font-poppins lg:items-center"
+    >
       <div className="self-center mt-8 lg:text-xl text-sm text-[#FF0000] lg:ml-0 ml-16 lg:mr-0 mr-[-1em]">
         Please fill all the fields with correct and valid details to complete
         your profile.
@@ -86,7 +107,12 @@ function EditProfileMain() {
                 </div>
                 <div>
                   <div className="relative w-full lg:max-w-sm">
-                    <select value={profileData.educationLevel} name="educationLevel" onChange={handleInputChange} className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600">
+                    <select
+                      value={profileData.educationLevel}
+                      name="educationLevel"
+                      onChange={handleInputChange}
+                      className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
+                    >
                       <option value="" selected="selected" disabled="disabled">
                         -- Select Education --
                       </option>
@@ -135,7 +161,12 @@ function EditProfileMain() {
                   <div className="self-center ml-4">Member(s)</div>
                 </div>
                 <div>
-                  <select value={profileData.gender} name="gender" onChange={handleInputChange} className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts">
+                  <select
+                    value={profileData.gender}
+                    name="gender"
+                    onChange={handleInputChange}
+                    className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts"
+                  >
                     <option value="" selected="selected" disabled="disabled">
                       -- Select Gender --
                     </option>
@@ -252,7 +283,7 @@ function EditProfileMain() {
           </div>
           <div className="flex flex-rows lg:gap-8 gap-3 mt-10 lg:ml-20 ml-[-12em] lg:text-base text-sm">
             <button
-              type="button"
+              type="submit"
               className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
             >
               SAVE CHANGES
@@ -299,7 +330,7 @@ function EditProfileMain() {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
 
