@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { doc, setDoc } from 'firebase/firestore';
-import { db } from '../../Firebase';
+import { ref, uploadBytes } from "firebase/storage"
+import { db, storage } from '../../Firebase';
 import profilePhoto from './Images/ProfilePhoto.svg';
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
 
 function EditProfileMain() {
+
   const currentUser = useSelector((state) => state.currentUser.user);
 
   console.log(currentUser);
+
+  const [uploadID, setUploadID] = useState(null)
 
   const [profileData, setProfileData] = useState({
     fullname: '',
@@ -23,7 +27,6 @@ function EditProfileMain() {
     birthyear: '',
     email: '',
     phone: '',
-    uploadID: '',
     password: '',
     passwordConfirm: '',
   });
@@ -31,12 +34,7 @@ function EditProfileMain() {
   function handleInputChange(e) {
     const { value, name, files } = e.target;
     if (files) {
-      return setProfileData((prevObj) => {
-        return {
-          ...prevObj,
-          [name]: files[0],
-        };
-      });
+      return setUploadID(files[0])
     }
     return setProfileData((prevObj) => {
       return {
@@ -47,18 +45,38 @@ function EditProfileMain() {
   }
 
   const handleOnSubmit = (e) => {
-    e.preventDefault()
+    e.preventDefault();
+
+    const imageRef = ref(storage, `userImages/${currentUser.userId}`)
+    console.log(imageRef)
+
+    uploadBytes(imageRef, uploadID).then(() => {
+      console.log("Image uploaded")
+    })
+
     const addDoc = async () => {
       try {
-        await setDoc(doc(db, 'Users', '0000000000000'), {
-          name: "Sohail"
+        await setDoc(doc(db, 'Users', currentUser.userId), {
+          fullname: profileData.fullname,
+          educationLevel: profileData.educationLevel,
+          hobby: profileData.hobby,
+          familySize: profileData.familySize,
+          gender: profileData.gender,
+          birthmonth: profileData.birthmonth,
+          birthday: profileData.birthday,
+          birthyear: profileData.birthyear,
+          email: profileData.email,
+          phone: profileData.phone,
+          uploadID: "photo",
+          password: profileData.password,
+          passwordConfirm: profileData.passwordConfirm,
         });
-        console.log("submitted")
+        console.log('submitted');
       } catch (error) {
         console.log(error);
       }
-    }
-    addDoc()
+    };
+    addDoc();
   };
 
   return (
@@ -229,6 +247,7 @@ function EditProfileMain() {
                     id="uploadID"
                     name="uploadID"
                     type="file"
+                    accept=".png, .jpg, .jpeg"
                     onChange={handleInputChange}
                   />
                   <img

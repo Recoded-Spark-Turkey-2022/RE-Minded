@@ -7,6 +7,7 @@ import {
   getAuth,
   signInWithPopup,
 } from 'firebase/auth';
+import { getStorage } from "firebase/storage"
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
@@ -28,6 +29,7 @@ export const fireStore = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
 export const facebookProvider = new FacebookAuthProvider();
 export const db = getFirestore(app);
+export const storage = getStorage(app)
 
 export const signInWithGoogle = async () => {
   try {
