@@ -1,5 +1,5 @@
 import { React, useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import OfficeImage from './Images/OfficeImage.svg';
 
 
@@ -9,13 +9,17 @@ const ContactPageMain = () => {
     const [details, setDetails] = useState("");
     const [radio, setRadio] = useState("");
     const [error, setError] = useState(false);
+    const navigate = useNavigate();
 
     const handelSubmit = (e) => {
         e.preventDefault();
         if (name.length === 0 || email.length === 0 ||
             details.length === 0 || radio.length === 0) {
             setError(true)
-        } 
+        } if (name.length > 0 || email.length > 0 ||
+            details.length > 0 || radio.length > 0) {
+            navigate("/ThankYou")
+        }
 
     }
     return (
@@ -138,7 +142,7 @@ const ContactPageMain = () => {
                         </li>
                     </ul>
                     {error && radio.length <= 0 ?
-                        <p className='text-red-600'>gg</p> : ""}
+                        <p className='text-red-600'>Please chose one of the above!!! </p> : ""}
                 </div>
                 <div className='basis-1/2 lg:mt-10 lg:pr-16 lg:ml-0 md:ml-40 ml-10 mt-12 mr-10'>
                     <img src={OfficeImage} alt="OfficeImg" className='mb-10' />
@@ -173,7 +177,7 @@ const ContactPageMain = () => {
                           shadow-[#AC97971F]'/>
                                 </label>
                             </div>{error && name.length <= 0 ?
-                                <p className='text-red-600'>Full Name can not be Empty </p> : ""}
+                                <p className='text-red-600'>Full Name can not be Empty!!! </p> : ""}
                             <div>
                                 <label
                                     htmlFor="email"
@@ -197,7 +201,7 @@ const ContactPageMain = () => {
                           shadow-[#AC97971F]'/>
                                 </label>
                             </div>{error && email.length <= 0 ?
-                                <p className=' text-red-600'> The Email can not be Empty </p> : ""}
+                                <p className=' text-red-600'> The Email can not be Empty!!! </p> : ""}
                             <div>
                                 <label
                                     htmlFor="message"
@@ -222,9 +226,9 @@ const ContactPageMain = () => {
                                 </label>
                             </div>
                             {error && details <= 0 ?
-                                <p className=' text-red-600'>The Details can not be Empty</p> : ""}
+                                <p className=' text-red-600'>The Details can not be Empty!!!</p> : ""}
                             <div className="mt-6">
-                                <Link to="Thank You">
+                                <Link to="/ThankYou">
                                     <button onClick={handelSubmit}
                                         type="submit"
                                         className="

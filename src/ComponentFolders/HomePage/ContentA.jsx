@@ -1,4 +1,5 @@
 import React from 'react';
+import {Link} from 'react-router-dom';
 import Background from './Images/Background.svg';
 import Sofa from './Images/ContentAsofa.svg';
 
@@ -19,12 +20,14 @@ function ContentA() {
         <div className=" flex flex-col items-center   md:flex-col md:items-center  lg:items-center ">
           <p className="text-3xl md:text-4xl lg:text-5xl"> WE ARE HERE TO</p>
           <p className="text-5xl  md:text-7xl lg:text-9xl ">HELP</p>
-          <button
-            type="button"
-            className="text-md mb-8 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 md:text-2xl"
-          >
-            BOOK AN APPOINTMENT
-          </button>
+          <Link to="booking1">
+            <button
+              type="button"
+              className="text-md mb-8 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 md:text-2xl"
+            >
+              BOOK AN APPOINTMENT
+            </button>
+          </Link>
         </div>
 
         <img

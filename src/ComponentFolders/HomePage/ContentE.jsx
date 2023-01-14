@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import Card from './Card';
 
 function ContentE() {
@@ -50,12 +51,14 @@ function ContentE() {
           schedule and how much you want to work, well take care of the client
           referrals and billing details!
         </p>
-        <button
-          type="button"
-          className="font-poppins text-center my-8 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
-        >
-          LEARN MORE
-        </button>
+        <Link to="/requirements">
+          <button
+            type="button"
+            className="font-poppins text-center my-8 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
+          >
+            LEARN MORE
+          </button>
+        </Link>
       </div>
     </div>
   );

@@ -1,10 +1,10 @@
 import React from 'react';
-// import { Link } from "react-router-dom";
+import { Link } from 'react-router-dom';
 import requirementPageImg from './Images/LaptopImage.svg';
 
 function Requirements() {
   return (
-    <div className="flex lg:flex-row flex-col w-screen h-screen font-poppins mb-56">
+    <div className="flex lg:flex-row flex-col w-screen font-poppins mb-20">
       <div className="basis-3/5 lg:ml-28 ml-10 lg:pr-36 md:pr-20 pr-10">
         <div className="lg:text-5xl md:text-3xl text-2xl leading-6 lg:mt-20 mt-14">
           <h1>WHY WORK WITH HEALING?</h1>
@@ -61,12 +61,14 @@ function Requirements() {
         </div>
 
         <div className="mt-6">
-          <button
-            type="button"
-            className="lg:text-xl md:text-base text-sm lg:ml-0 ml-10 lg:mb-10 lg:px-6 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 cursor-pointer "
-          >
-            GET STARTED
-          </button>
+          <Link to="/therapistcreate">
+            <button
+              type="button"
+              className="lg:text-xl md:text-base text-sm lg:ml-0 ml-10 lg:mb-10 lg:px-6 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 cursor-pointer "
+            >
+              GET STARTED
+            </button>
+          </Link>
         </div>
       </div>
 
