@@ -1,12 +1,33 @@
 import { React, useState, useMemo } from 'react';
+import { useNavigate } from 'react-router';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import { useFormik } from 'formik';
+// import { collection, addDoc } from 'firebase/firestore';
+// import { db } from '../../Firebase';
 import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
 
 function AddCard() {
-  const formik = useFormik({
+  // const navigate = useNavigate();
+  const [value, setValue] = useState('');
+  const options = useMemo(() => countryList().getData(), []);
+
+  // const creditCardCollectionRef = collection(db, "creditCards");
+
+  // const handleFormSubmit = () => {
+  //   addDoc(creditCardCollectionRef,{
+  //     cardNumber: cardNumber,
+  //     expirationDate: expirationDate,
+  //     cvv: cvv,
+  //     nameOnCard: nameOnCard,
+  //     zipCode: zipCode,
+  //     city: city,
+  //     address: address
+  //   })
+  // }
+
+  const formik  = useFormik({
     initialValues: {
       cardNumber: '',
       expirationDate: '',
@@ -57,13 +78,7 @@ function AddCard() {
 
       return errors;
     },
-    onSubmit: (values) => {
-      console.log(values);
-    },
   });
-
-  const [value, setValue] = useState('');
-  const options = useMemo(() => countryList().getData(), []);
 
   const changeHandler = () => {
     setValue(value);
@@ -110,7 +125,9 @@ function AddCard() {
               type="text"
               id="cardNumber"
               name="cardNumber"
-              {...formik.getFieldProps('cardNumber')}
+              value={values.cardNumber}
+              onChange={handleChange}
+              onBlur={handleBlur}
             />
             {formik.errors.cardNumber && formik.touched.cardNumber ? (
               <div className=" text-sm text-red-500 ">
@@ -131,7 +148,9 @@ function AddCard() {
                   placeholder="MM/YY"
                   id="expirationDate"
                   name="expirationDate"
-                  {...formik.getFieldProps('expirationDate')}
+                  value={values.expirationDate}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                 />
                 {formik.errors.expirationDate &&
                 formik.touched.expirationDate ? (
@@ -153,7 +172,9 @@ function AddCard() {
                   placeholder="***"
                   id="cvv"
                   name="cvv"
-                  {...formik.getFieldProps('cvv')}
+                  value={values.cvv}
+                  onChange={handleChange}
+                  onBlur={handleBlur}
                 />
                 {formik.errors.cvv && formik.touched.cvv ? (
                   <div className="text-sm text-red-500">
@@ -173,7 +194,9 @@ function AddCard() {
               type="text"
               id="nameOnCard"
               name="nameOnCard"
-              {...formik.getFieldProps('nameOnCard')}
+              value={values.nameOnCard}
+              onChange={handleChange}
+              onBlur={handleBlur}
             />
             {formik.errors.nameOnCard && formik.touched.nameOnCard ? (
               <div className="text-sm text-red-500">
@@ -205,7 +228,9 @@ function AddCard() {
               type="text"
               id="zipCode"
               name="zipCode"
-              {...formik.getFieldProps('zipCode')}
+              value={values.zipCode}
+              onChange={handleChange}
+              onBlur={handleBlur}
             />
             {formik.errors.zipCode && formik.touched.zipCode ? (
               <div className="text-sm text-red-500">
@@ -223,7 +248,9 @@ function AddCard() {
               type="text"
               id="city"
               name="city"
-              {...formik.getFieldProps('city')}
+              value={values.city}
+              onChange={handleChange}
+              onBlur={handleBlur}
             />
             {formik.errors.city && formik.touched.city ? (
               <div className="text-sm text-red-500">{formik.errors.city}</div>
@@ -239,7 +266,9 @@ function AddCard() {
               type="text"
               id="address"
               name="address"
-              {...formik.getFieldProps('address')}
+              value={values.address}
+              onChange={handleChange}
+              onBlur={handleBlur}
             />
             {formik.errors.address && formik.touched.address ? (
               <div className="text-sm text-red-500">
@@ -258,6 +287,7 @@ function AddCard() {
         <button
           type="button"
           className="rounded-md box-border p-2 transition-all duration-250 bg-Buttons"
+          onClick={handleFormSubmit}
         >
           ADD CARD
         </button>

@@ -22,7 +22,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const fireStore = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
@@ -52,3 +52,5 @@ export const signInWithFacebook = async () => {
     return error;
   }
 };
+
+
