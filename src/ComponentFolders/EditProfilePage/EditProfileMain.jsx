@@ -1,16 +1,20 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import { doc, setDoc } from 'firebase/firestore';
-import { ref, uploadBytes } from 'firebase/storage';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '../../Firebase';
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
 
 function EditProfileMain({ handleSignout }) {
+
+  
   const currentUser = useSelector((state) => state.currentUser.user);
 
-  /* console.log(`The current user is: ${currentUser.userId ? currentUser.userId : "not found"}`); */
+  const [url, setUrl] = useState(null);
+
+  console.log(url)
 
   const [uploadID, setUploadID] = useState(null);
 
@@ -42,8 +46,8 @@ function EditProfileMain({ handleSignout }) {
     });
   }
 
-  const handleOnSubmit = (e) => {
-    e.preventDefault();
+  const handleOnSubmit = () => {
+    /* e.preventDefault(); */
 
     if (!currentUser) {
       alert('Please sign in first');
@@ -53,10 +57,10 @@ function EditProfileMain({ handleSignout }) {
       storage,
       `userImages/${currentUser.userId}/${currentUser.userId}`
     );
-    console.log(imageRef);
-
     uploadBytes(imageRef, uploadID).then(() => {
-      console.log('Image uploaded');
+      getDownloadURL(imageRef)
+        .then((imageUrl) => setUrl(imageUrl))
+        .then(() => console.log('Image url has updated'));
     });
 
     const addDoc = async () => {
@@ -83,6 +87,20 @@ function EditProfileMain({ handleSignout }) {
     addDoc();
   };
 
+  useEffect(() => {
+    if (currentUser) {
+      const imageRef = ref(
+        storage,
+        `userImages/${currentUser.userId}/${currentUser.userId}`
+      );
+        getDownloadURL(imageRef)
+          .then((imageUrl) => setUrl(imageUrl))
+          .then(() => console.log('Welcome again'));
+    }
+  }, [currentUser])
+
+  
+
   return (
     <form
       onSubmit={handleOnSubmit}
@@ -95,11 +113,7 @@ function EditProfileMain({ handleSignout }) {
       <div className="flex lg:flex-row flex-col">
         <div className="flex flex-col lg:ml-[-10em] md:ml-[10%] ml-[25%] lg:mr-[0%] md:mr-[30%] mr-[25%]">
           <img
-            src={
-              currentUser
-                ? 'https://firebasestorage.googleapis.com/v0/b/re-minded.appspot.com/o/userImages%2FrX98iPhy4XMyCQ2ErhwxOhOG9Hw1%2FrX98iPhy4XMyCQ2ErhwxOhOG9Hw1?alt=media&token=71442b3e-87da-45a5-bc2e-a61dfa431bda'
-                : profileIcon
-            }
+            src={currentUser ? url : profileIcon}
             alt="profile"
             className="self-center ml-28 w-80 h-80 rounded-full"
           />
