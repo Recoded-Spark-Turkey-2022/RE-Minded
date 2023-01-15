@@ -3,12 +3,11 @@ import { useSelector } from 'react-redux';
 import { doc, setDoc } from 'firebase/firestore';
 import { ref, uploadBytes } from 'firebase/storage';
 import { db, storage } from '../../Firebase';
-import profilePhoto from './Images/ProfilePhoto.svg';
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
 
-function EditProfileMain({handleSignout}) {
+function EditProfileMain({ handleSignout }) {
   const currentUser = useSelector((state) => state.currentUser.user);
 
   /* console.log(`The current user is: ${currentUser.userId ? currentUser.userId : "not found"}`); */
@@ -50,7 +49,10 @@ function EditProfileMain({handleSignout}) {
       alert('Please sign in first');
     }
 
-    const imageRef = ref(storage, `userImages/${currentUser.userId}/${currentUser.userId}`);
+    const imageRef = ref(
+      storage,
+      `userImages/${currentUser.userId}/${currentUser.userId}`
+    );
     console.log(imageRef);
 
     uploadBytes(imageRef, uploadID).then(() => {
@@ -92,7 +94,15 @@ function EditProfileMain({handleSignout}) {
       </div>
       <div className="flex lg:flex-row flex-col">
         <div className="flex flex-col lg:ml-[-10em] md:ml-[10%] ml-[25%] lg:mr-[0%] md:mr-[30%] mr-[25%]">
-          <img src={profilePhoto} alt="profile" className="self-center ml-28" />
+          <img
+            src={
+              currentUser
+                ? 'https://firebasestorage.googleapis.com/v0/b/re-minded.appspot.com/o/userImages%2FrX98iPhy4XMyCQ2ErhwxOhOG9Hw1%2FrX98iPhy4XMyCQ2ErhwxOhOG9Hw1?alt=media&token=71442b3e-87da-45a5-bc2e-a61dfa431bda'
+                : profileIcon
+            }
+            alt="profile"
+            className="self-center ml-28 w-80 h-80 rounded-full"
+          />
           <img
             src={profileIcon}
             alt="profileIcon"
