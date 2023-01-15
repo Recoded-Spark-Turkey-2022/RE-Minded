@@ -1,10 +1,11 @@
 import { React, useState, useMemo } from 'react';
-import { useNavigate } from 'react-router';
+// import { useNavigate } from 'react-router';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import { useFormik } from 'formik';
+import * as Yup from 'yup';
 // import { collection, addDoc } from 'firebase/firestore';
-// import { db } from '../../Firebase';
+import { db } from '../../Firebase';
 import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
 
@@ -13,21 +14,7 @@ function AddCard() {
   const [value, setValue] = useState('');
   const options = useMemo(() => countryList().getData(), []);
 
-  // const creditCardCollectionRef = collection(db, "creditCards");
-
-  // const handleFormSubmit = () => {
-  //   addDoc(creditCardCollectionRef,{
-  //     cardNumber: cardNumber,
-  //     expirationDate: expirationDate,
-  //     cvv: cvv,
-  //     nameOnCard: nameOnCard,
-  //     zipCode: zipCode,
-  //     city: city,
-  //     address: address
-  //   })
-  // }
-
-  const formik  = useFormik({
+  const formik = useFormik({
     initialValues: {
       cardNumber: '',
       expirationDate: '',
@@ -37,46 +24,26 @@ function AddCard() {
       city: '',
       address: '',
     },
-    validate: (values) => {
-      const errors = {};
-      if (!values.cardNumber) {
-        errors.cardNumber = 'Please do not leave this field empty!';
-      } else if (!/^\d{16}$/.test(values.cardNumber)) {
-        errors.cardNumber = 'Invalid card number';
-      }
-
-      if (!values.expirationDate) {
-        errors.expirationDate = 'Please do not leave this field empty!';
-      } else if (!/^\d{2}\/\d{2}$/.test(values.expirationDate)) {
-        errors.expirationDate = 'Invalid expiration date';
-      }
-
-      if (!values.cvv) {
-        errors.cvv = 'Please do not leave this field empty!';
-      } else if (!/^\d{3}$/.test(values.cvv)) {
-        errors.cvv = 'Invalid CVV';
-      }
-      if (!values.nameOnCard) {
-        errors.nameOnCard = 'Please do not leave this field empty!';
-      } else if (!/^[a-zA-Z ]+$/.test(values.nameOnCard)) {
-        errors.nameOnCard = 'Invalid name';
-      }
-
-      if (!values.zipCode) {
-        errors.zipCode = 'Please do not leave this field empty!';
-      } else if (!/^\d{5}$/.test(values.zipCode)) {
-        errors.zipCode = 'Invalid zip code';
-      }
-
-      if (!values.city) {
-        errors.city = 'Please do not leave this field empty!';
-      }
-
-      if (!values.address) {
-        errors.address = 'Please do not leave this field empty!';
-      }
-
-      return errors;
+    validationSchema: Yup.object({
+      nameOnCard: Yup.string().required(
+        'Please do not leave this field empty!'
+      ),
+      cardNumber: Yup.string()
+        .required('Please do not leave this field empty!')
+        .min(16, 'Invalid card number'),
+      expirationDate: Yup.string().required(
+        'Please do not leave this field empty!'
+      ),
+      cvv: Yup.string()
+        .required('Please do not leave this field empty!')
+        .min(3, 'Invalid CVV'),
+      city: Yup.string().required('Please do not leave this field empty!'),
+      address: Yup.string().required('Please do not leave this field empty!'),
+      zipCode: Yup.string().required('Please do not leave this field empty!'),
+    }),
+    onSubmit: (values) => {
+      const firestore = db.firestore();
+      firestore.collection('credit-card').add(values);
     },
   });
 
@@ -125,12 +92,12 @@ function AddCard() {
               type="text"
               id="cardNumber"
               name="cardNumber"
-              value={values.cardNumber}
-              onChange={handleChange}
-              onBlur={handleBlur}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.cardNumber}
             />
-            {formik.errors.cardNumber && formik.touched.cardNumber ? (
-              <div className=" text-sm text-red-500 ">
+            {formik.touched.cardNumber && formik.errors.cardNumber ? (
+              <div className="text-sm text-red-500">
                 {formik.errors.cardNumber}
               </div>
             ) : null}
@@ -148,12 +115,12 @@ function AddCard() {
                   placeholder="MM/YY"
                   id="expirationDate"
                   name="expirationDate"
-                  value={values.expirationDate}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.expirationDate}
                 />
-                {formik.errors.expirationDate &&
-                formik.touched.expirationDate ? (
+                {formik.touched.expirationDate &&
+                formik.errors.expirationDate ? (
                   <div className="text-sm text-red-500">
                     {formik.errors.expirationDate}
                   </div>
@@ -172,11 +139,11 @@ function AddCard() {
                   placeholder="***"
                   id="cvv"
                   name="cvv"
-                  value={values.cvv}
-                  onChange={handleChange}
-                  onBlur={handleBlur}
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.cvv}
                 />
-                {formik.errors.cvv && formik.touched.cvv ? (
+                {formik.touched.cvv && formik.errors.cvv ? (
                   <div className="text-sm text-red-500">
                     {formik.errors.cvv}
                   </div>
@@ -194,11 +161,11 @@ function AddCard() {
               type="text"
               id="nameOnCard"
               name="nameOnCard"
-              value={values.nameOnCard}
-              onChange={handleChange}
-              onBlur={handleBlur}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.nameOnCard}
             />
-            {formik.errors.nameOnCard && formik.touched.nameOnCard ? (
+            {formik.touched.nameOnCard && formik.errors.nameOnCard ? (
               <div className="text-sm text-red-500">
                 {formik.errors.nameOnCard}
               </div>
@@ -228,11 +195,11 @@ function AddCard() {
               type="text"
               id="zipCode"
               name="zipCode"
-              value={values.zipCode}
-              onChange={handleChange}
-              onBlur={handleBlur}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.zipCode}
             />
-            {formik.errors.zipCode && formik.touched.zipCode ? (
+            {formik.touched.zipCode && formik.errors.zipCode ? (
               <div className="text-sm text-red-500">
                 {formik.errors.zipCode}
               </div>
@@ -248,11 +215,11 @@ function AddCard() {
               type="text"
               id="city"
               name="city"
-              value={values.city}
-              onChange={handleChange}
-              onBlur={handleBlur}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.city}
             />
-            {formik.errors.city && formik.touched.city ? (
+            {formik.touched.city && formik.errors.city ? (
               <div className="text-sm text-red-500">{formik.errors.city}</div>
             ) : null}
             <label
@@ -266,11 +233,11 @@ function AddCard() {
               type="text"
               id="address"
               name="address"
-              value={values.address}
-              onChange={handleChange}
-              onBlur={handleBlur}
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.address}
             />
-            {formik.errors.address && formik.touched.address ? (
+            {formik.touched.address && formik.errors.address ? (
               <div className="text-sm text-red-500">
                 {formik.errors.address}
               </div>
@@ -287,7 +254,6 @@ function AddCard() {
         <button
           type="button"
           className="rounded-md box-border p-2 transition-all duration-250 bg-Buttons"
-          onClick={handleFormSubmit}
         >
           ADD CARD
         </button>
