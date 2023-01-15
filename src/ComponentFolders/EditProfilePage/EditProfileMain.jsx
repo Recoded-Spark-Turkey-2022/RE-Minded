@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 import { doc, setDoc } from 'firebase/firestore';
-import { ref, uploadBytes } from "firebase/storage"
+import { ref, uploadBytes } from 'firebase/storage';
 import { db, storage } from '../../Firebase';
 import profilePhoto from './Images/ProfilePhoto.svg';
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
 
-function EditProfileMain() {
-
+function EditProfileMain({handleSignout}) {
   const currentUser = useSelector((state) => state.currentUser.user);
 
-  console.log(currentUser);
+  /* console.log(`The current user is: ${currentUser.userId ? currentUser.userId : "not found"}`); */
 
-  const [uploadID, setUploadID] = useState(null)
+  const [uploadID, setUploadID] = useState(null);
 
   const [profileData, setProfileData] = useState({
     fullname: '',
@@ -34,7 +33,7 @@ function EditProfileMain() {
   function handleInputChange(e) {
     const { value, name, files } = e.target;
     if (files) {
-      return setUploadID(files[0])
+      return setUploadID(files[0]);
     }
     return setProfileData((prevObj) => {
       return {
@@ -47,12 +46,16 @@ function EditProfileMain() {
   const handleOnSubmit = (e) => {
     e.preventDefault();
 
-    const imageRef = ref(storage, `userImages/${currentUser.userId}`)
-    console.log(imageRef)
+    if (!currentUser) {
+      alert('Please sign in first');
+    }
+
+    const imageRef = ref(storage, `userImages/${currentUser.userId}/${currentUser.userId}`);
+    console.log(imageRef);
 
     uploadBytes(imageRef, uploadID).then(() => {
-      console.log("Image uploaded")
-    })
+      console.log('Image uploaded');
+    });
 
     const addDoc = async () => {
       try {
@@ -67,7 +70,6 @@ function EditProfileMain() {
           birthyear: profileData.birthyear,
           email: profileData.email,
           phone: profileData.phone,
-          uploadID: "photo",
           password: profileData.password,
           passwordConfirm: profileData.passwordConfirm,
         });
@@ -318,6 +320,13 @@ function EditProfileMain() {
               className="rounded-md box-border p-2 lg:pl-16 lg:pr-16  pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
             >
               CANCEL
+            </button>
+            <button
+              type="button"
+              className="rounded-md box-border p-2 lg:pl-16 lg:pr-16  pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+              onClick={handleSignout}
+            >
+              SIGN OUT
             </button>
           </div>
           <div className="flex flex-col mt-4 lg:ml-20 ml-[-10em] mt-16">

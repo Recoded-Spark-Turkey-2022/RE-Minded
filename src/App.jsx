@@ -68,7 +68,7 @@ function App() {
   return (
     
       <BrowserRouter>
-        <Navbar handleSignout={handleSignout} />
+        <Navbar />
         <Routes>
           <Route exact path="/" element={<HomePageMain />} />
           <Route path="login" element={<Login />} />
@@ -86,7 +86,7 @@ function App() {
           <Route path="booking8" element={<BookingPage8 />} />
           <Route path="careers" element={<CareersPage />} />
           <Route path="contactus" element={<ContactUsPage />} />
-          <Route path="editprofile" element={<EditProfilePage />} />
+          <Route path="editprofile" element={<EditProfilePage handleSignout={handleSignout} />} />
           <Route path="requirements" element={<RequirementsPage />} />
           <Route path="savedcards" element={<SavedCardsPage />} />
           <Route path="team" element={<TeamPage />} />

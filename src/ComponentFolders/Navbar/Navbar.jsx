@@ -2,8 +2,9 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Logo from './Images/Logo.svg';
+import ProfilePhoto from './Images/ProfilePhoto.svg';
 
-export default function NavBar({ handleSignout }) {
+export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
 
   const signoutButton = useSelector((state) => state.signoutButton);
@@ -95,7 +96,7 @@ export default function NavBar({ handleSignout }) {
                 >
                   Contact Us
                 </Link>
-                <Link to={signoutButton ? 'signup' : 'login'}>
+                <Link to={signoutButton ? 'editprofile' : 'login'}>
                   {!signoutButton ? (
                     <button
                       type="button"
@@ -104,13 +105,7 @@ export default function NavBar({ handleSignout }) {
                       Log In
                     </button>
                   ) : (
-                    <button
-                      type="button"
-                      className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
-                      onClick={handleSignout}
-                    >
-                      Sign out
-                    </button>
+                    <img className='w-11 h-11' src={ProfilePhoto} alt="Abstract profile pic" />
                   )}
                 </Link>
               </div>
@@ -153,7 +148,7 @@ export default function NavBar({ handleSignout }) {
                 <a href="Contact">Contact US</a>
               </li>
             </Link>
-            <Link to={signoutButton ? 'signup' : 'login'}>
+            <Link to={signoutButton ? 'editprofile' : 'login'}>
               {!signoutButton ? (
                 <button
                   type="button"
@@ -162,13 +157,7 @@ export default function NavBar({ handleSignout }) {
                   Log in
                 </button>
               ) : (
-                <button
-                  type="button"
-                  className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
-                  onClick={handleSignout}
-                >
-                  Sign out
-                </button>
+                <img className='w-11 h-11' src={ProfilePhoto} alt="Abstract profile pic" />
               )}
             </Link>
           </ul>
