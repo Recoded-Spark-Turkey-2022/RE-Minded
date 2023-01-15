@@ -93,9 +93,13 @@ function EditProfileMain({ handleSignout }) {
         storage,
         `userImages/${currentUser.userId}/${currentUser.userId}`
       );
+      if(imageRef) {
         getDownloadURL(imageRef)
-          .then((imageUrl) => setUrl(imageUrl))
-          .then(() => console.log('Welcome again'));
+        .then((imageUrl) => setUrl(imageUrl))
+        .then(() => console.log('Welcome again'));
+      } else {
+        setUrl("https://media.istockphoto.com/id/1393750072/vector/flat-white-icon-man-for-web-design-silhouette-flat-illustration-vector-illustration-stock.jpg?b=1&s=612x612&w=0&k=20&c=Dnxc_cOvh1zQjTE8Za9MMADydkRc8lSKzIEX6ej9H8g=://icon2.cleanpng.com/20180715/zwr/kisspng-real-estate-profile-picture-icon-5b4c1135ceddd7.2742655015317117978473.jpg")
+      }
     }
   }, [currentUser])
 
@@ -116,11 +120,6 @@ function EditProfileMain({ handleSignout }) {
             src={currentUser ? url : profileIcon}
             alt="profile"
             className="self-center ml-28 w-80 h-80 rounded-full"
-          />
-          <img
-            src={profileIcon}
-            alt="profileIcon"
-            className="lg:w-16 w-14 ml-32 self-center lg:mt-[-4em] mt-[-3em]"
           />
         </div>
         <div className="flex flex-col lg:ml-16 ml-44">
