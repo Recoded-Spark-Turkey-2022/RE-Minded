@@ -78,7 +78,7 @@ function AddCard() {
           city: formik.values.cvv,
           zipCode: formik.values.zipCode,
           address: formik.values.address,
-          contry: value.label
+          contry: value.label,
         },
         navigate('/thankyou', { replace: true, state: thanksProps })
       );
