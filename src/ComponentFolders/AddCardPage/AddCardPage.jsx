@@ -1,5 +1,5 @@
 import { React, useState, useMemo } from 'react';
-// import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import { useFormik } from 'formik';
@@ -10,7 +10,7 @@ import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
 
 function AddCard() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const [value, setValue] = useState('');
   const options = useMemo(() => countryList().getData(), []);
   const userCollectionRef = collection(db,'credit-cards')
@@ -51,15 +51,30 @@ function AddCard() {
   };
 
   const handleFormSubmit = () => {
-      addDoc(userCollectionRef,{
-        cardNumber: formik.values.cardNumber,
-        expirationDate: formik.values.expirationDate,
-        cvv: formik.values.cvv,
-        nameOnCard: formik.values.nameOnCard,
-        city: formik.values.cvv,
-        zipCode: formik.values.zipCode,
-        address: formik.values.address,
-      })
+    if (
+      !formik.values.cardNumber ||
+      !formik.values.expirationDate ||
+      !formik.values.cvv ||
+      !formik.values.nameOnCard ||
+      !formik.values.city ||
+      !formik.values.zipCode ||
+      !formik.values.address
+    ) {
+      alert('Please fill in all fields before submitting!');
+    } else
+      addDoc(
+        userCollectionRef,
+        {
+          cardNumber: formik.values.cardNumber,
+          expirationDate: formik.values.expirationDate,
+          cvv: formik.values.cvv,
+          nameOnCard: formik.values.nameOnCard,
+          city: formik.values.cvv,
+          zipCode: formik.values.zipCode,
+          address: formik.values.address,
+        },
+        navigate('/')
+      );
   }
   
 
