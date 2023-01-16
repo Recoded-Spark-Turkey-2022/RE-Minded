@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
-import { getAuth, updateEmail } from 'firebase/auth';
+import {
+  getAuth,
+  updateEmail,
+  updatePassword,
+  deleteUser,
+} from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '../../Firebase';
@@ -62,6 +67,7 @@ function EditProfileMain({ handleSignout }) {
         .then(() => console.log('Image url has updated'));
     });
 
+    // Update user's email
     const auth = getAuth();
     updateEmail(auth.currentUser, profileData.email)
       .then(() => {
@@ -70,6 +76,18 @@ function EditProfileMain({ handleSignout }) {
       })
       .catch((error) => {
         // An error occurred
+        return error;
+      });
+
+    // Update user's passsword
+    const user = auth.currentUser;
+    updatePassword(user, profileData.password)
+      .then(() => {
+        // Update successful.
+        console.log('Password is updated');
+      })
+      .catch((error) => {
+        // An error ocurred
         return error;
       });
 
@@ -95,6 +113,21 @@ function EditProfileMain({ handleSignout }) {
       }
     };
     addDoc();
+  };
+
+  const handleDeleteUser = () => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+
+    deleteUser(user)
+      .then(() => {
+        // User deleted.
+        console.log("User account is deleted")
+      })
+      .catch((error) => {
+        // An error ocurred
+        return error
+      });
   };
 
   useEffect(() => {
@@ -345,6 +378,7 @@ function EditProfileMain({ handleSignout }) {
             <button
               type="button"
               className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+              onClick={handleDeleteUser}
             >
               DELETE ACCOUNT
             </button>
