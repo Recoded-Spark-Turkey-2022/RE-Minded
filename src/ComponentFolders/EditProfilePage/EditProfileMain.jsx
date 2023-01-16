@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import {
   getAuth,
@@ -14,6 +15,8 @@ import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
 
 function EditProfileMain({ handleSignout }) {
+  const navigate = useNavigate();
+  
   const currentUser = useSelector((state) => state.currentUser.user);
 
   const [url, setUrl] = useState(null);
@@ -122,12 +125,14 @@ function EditProfileMain({ handleSignout }) {
     deleteUser(user)
       .then(() => {
         // User deleted.
-        console.log("User account is deleted")
+        console.log('User account is deleted');
       })
       .catch((error) => {
         // An error ocurred
-        return error
+        return error;
       });
+    handleSignout();
+    navigate('/');
   };
 
   useEffect(() => {
@@ -385,6 +390,7 @@ function EditProfileMain({ handleSignout }) {
             <button
               type="button"
               className="rounded-md box-border p-2 lg:pl-16 lg:pr-16  pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+              onClick={() => window.location.reload(false)}
             >
               CANCEL
             </button>
