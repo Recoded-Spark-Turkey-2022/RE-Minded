@@ -4,8 +4,8 @@ import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-// import { collection, addDoc } from 'firebase/firestore';
-import { db } from '../../Firebase';
+import { addDoc, collection } from 'firebase/firestore';
+import {  db } from '../../Firebase';
 import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
 
@@ -13,6 +13,9 @@ function AddCard() {
   // const navigate = useNavigate();
   const [value, setValue] = useState('');
   const options = useMemo(() => countryList().getData(), []);
+  const userCollectionRef = collection(db,'credit-cards')
+
+
 
   const formik = useFormik({
     initialValues: {
@@ -41,15 +44,24 @@ function AddCard() {
       address: Yup.string().required('Please do not leave this field empty!'),
       zipCode: Yup.string().required('Please do not leave this field empty!'),
     }),
-    onSubmit: (values) => {
-      const firestore = db.firestore();
-      firestore.collection('credit-card').add(values);
-    },
   });
 
   const changeHandler = () => {
     setValue(value);
   };
+
+  const handleFormSubmit = () => {
+      addDoc(userCollectionRef,{
+        cardNumber: formik.values.cardNumber,
+        expirationDate: formik.values.expirationDate,
+        cvv: formik.values.cvv,
+        nameOnCard: formik.values.nameOnCard,
+        city: formik.values.cvv,
+        zipCode: formik.values.zipCode,
+        address: formik.values.address,
+      })
+  }
+  
 
   return (
     <div className="p-20 font-poppins">
@@ -253,6 +265,7 @@ function AddCard() {
       <div className="pt-12 lg:pt-0 text-md md:text-lg lg:text-xl flex justify-center lg:justify-start ">
         <button
           type="button"
+          onClick={handleFormSubmit}
           className="rounded-md box-border p-2 transition-all duration-250 bg-Buttons"
         >
           ADD CARD
