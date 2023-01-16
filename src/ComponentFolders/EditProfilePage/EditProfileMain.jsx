@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
+import { getAuth, updateEmail } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '../../Firebase';
@@ -8,13 +9,11 @@ import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
 
 function EditProfileMain({ handleSignout }) {
-
-  
   const currentUser = useSelector((state) => state.currentUser.user);
 
   const [url, setUrl] = useState(null);
 
-  console.log(url)
+  console.log(url);
 
   const [uploadID, setUploadID] = useState(null);
 
@@ -63,6 +62,17 @@ function EditProfileMain({ handleSignout }) {
         .then(() => console.log('Image url has updated'));
     });
 
+    const auth = getAuth();
+    updateEmail(auth.currentUser, profileData.email)
+      .then(() => {
+        // Email updated!
+        console.log('Email is updated');
+      })
+      .catch((error) => {
+        // An error occurred
+        return error;
+      });
+
     const addDoc = async () => {
       try {
         await setDoc(doc(db, 'Users', currentUser.userId), {
@@ -93,17 +103,17 @@ function EditProfileMain({ handleSignout }) {
         storage,
         `userImages/${currentUser.userId}/${currentUser.userId}`
       );
-      if(imageRef) {
+      if (imageRef) {
         getDownloadURL(imageRef)
-        .then((imageUrl) => setUrl(imageUrl))
-        .then(() => console.log('Welcome again'));
+          .then((imageUrl) => setUrl(imageUrl))
+          .then(() => console.log('Welcome again'));
       } else {
-        setUrl("https://media.istockphoto.com/id/1393750072/vector/flat-white-icon-man-for-web-design-silhouette-flat-illustration-vector-illustration-stock.jpg?b=1&s=612x612&w=0&k=20&c=Dnxc_cOvh1zQjTE8Za9MMADydkRc8lSKzIEX6ej9H8g=://icon2.cleanpng.com/20180715/zwr/kisspng-real-estate-profile-picture-icon-5b4c1135ceddd7.2742655015317117978473.jpg")
+        setUrl(
+          'https://media.istockphoto.com/id/1393750072/vector/flat-white-icon-man-for-web-design-silhouette-flat-illustration-vector-illustration-stock.jpg?b=1&s=612x612&w=0&k=20&c=Dnxc_cOvh1zQjTE8Za9MMADydkRc8lSKzIEX6ej9H8g=://icon2.cleanpng.com/20180715/zwr/kisspng-real-estate-profile-picture-icon-5b4c1135ceddd7.2742655015317117978473.jpg'
+        );
       }
     }
-  }, [currentUser])
-
-  
+  }, [currentUser]);
 
   return (
     <form
