@@ -5,17 +5,18 @@ import countryList from 'react-select-country-list';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { addDoc, collection } from 'firebase/firestore';
-import {  db } from '../../Firebase';
+import { db } from '../../Firebase';
 import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
+
+const thanksProps =
+  'Your new payment method is under review, you will receive an email soon when your card is confirmed.Otherwise you will get a notification telling you what went wrong and how to add a new card.';
 
 function AddCard() {
   const navigate = useNavigate();
   const [value, setValue] = useState('');
   const options = useMemo(() => countryList().getData(), []);
-  const userCollectionRef = collection(db,'credit-cards')
-
-
+  const userCollectionRef = collection(db, 'credit-cards');
 
   const formik = useFormik({
     initialValues: {
@@ -28,26 +29,30 @@ function AddCard() {
       address: '',
     },
     validationSchema: Yup.object({
-      nameOnCard: Yup.string().required(
-        'Please do not leave this field empty!'
-      ),
+      nameOnCard: Yup.string()
+        .matches(/^[a-zA-Z ]+$/, 'Name on card should only contain alphabets')
+        .required('Please do not leave this field empty!'),
       cardNumber: Yup.string()
-        .required('Please do not leave this field empty!')
-        .min(16, 'Invalid card number'),
-      expirationDate: Yup.string().required(
-        'Please do not leave this field empty!'
-      ),
+        .matches(/^[0-9]{16}$/, 'Invalid Card Number')
+        .required('Please do not leave this field empty!'),
+      expirationDate: Yup.string()
+        .matches(/^[0-9]{4}$/, 'Invalid Expiration Date')
+        .required('Please do not leave this field empty!'),
       cvv: Yup.string()
         .required('Please do not leave this field empty!')
         .min(3, 'Invalid CVV'),
-      city: Yup.string().required('Please do not leave this field empty!'),
+      city: Yup.string()
+        .matches(/^[a-zA-Z ]+$/, 'Invalid City name')
+        .required('Please do not leave this field empty!'),
       address: Yup.string().required('Please do not leave this field empty!'),
-      zipCode: Yup.string().required('Please do not leave this field empty!'),
+      zipCode: Yup.string()
+        .matches(/^[0-9]{5}$/, 'Invalid ZipCode')
+        .required('Please do not leave this field empty!'),
     }),
   });
 
-  const changeHandler = () => {
-    setValue(value);
+  const changeHandler = (country) => {
+    setValue(country);
   };
 
   const handleFormSubmit = () => {
@@ -58,7 +63,8 @@ function AddCard() {
       !formik.values.nameOnCard ||
       !formik.values.city ||
       !formik.values.zipCode ||
-      !formik.values.address
+      !formik.values.address ||
+      !value
     ) {
       alert('Please fill in all fields before submitting!');
     } else
@@ -72,11 +78,11 @@ function AddCard() {
           city: formik.values.cvv,
           zipCode: formik.values.zipCode,
           address: formik.values.address,
+          contry: value.label
         },
-        navigate('/')
+        navigate('/thankyou', { replace: true, state: thanksProps })
       );
-  }
-  
+  };
 
   return (
     <div className="p-20 font-poppins">
