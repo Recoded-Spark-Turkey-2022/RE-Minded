@@ -16,7 +16,7 @@ import passwordIcon from './Images/PasswordIcon.svg';
 
 function EditProfileMain({ handleSignout }) {
   const navigate = useNavigate();
-  
+
   const currentUser = useSelector((state) => state.currentUser.user);
 
   const [url, setUrl] = useState(null);
@@ -375,12 +375,14 @@ function EditProfileMain({ handleSignout }) {
           </div>
           <div className="flex flex-rows lg:gap-8 gap-3 mt-10 lg:ml-20 ml-[-12em] lg:text-base text-sm">
             <button
+              disabled={!currentUser}
               type="submit"
               className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
             >
               SAVE CHANGES
             </button>
             <button
+              disabled={!currentUser}
               type="button"
               className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
               onClick={handleDeleteUser}
@@ -388,6 +390,7 @@ function EditProfileMain({ handleSignout }) {
               DELETE ACCOUNT
             </button>
             <button
+              disabled={!currentUser}
               type="button"
               className="rounded-md box-border p-2 lg:pl-16 lg:pr-16  pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
               onClick={() => window.location.reload(false)}
@@ -395,6 +398,7 @@ function EditProfileMain({ handleSignout }) {
               CANCEL
             </button>
             <button
+              disabled={!currentUser}
               type="button"
               className="rounded-md box-border p-2 lg:pl-16 lg:pr-16  pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
               onClick={handleSignout}
