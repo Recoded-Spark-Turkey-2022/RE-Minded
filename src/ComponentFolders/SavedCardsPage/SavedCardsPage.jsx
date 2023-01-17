@@ -1,15 +1,36 @@
-import React from 'react';
+import { React, useEffect, useState } from 'react';
 import {Link} from "react-router-dom"
-import yellowCard from './Images/YellowCard.svg';
-import pinkCard from './Images/PinkCard.svg';
-import blueCard from './Images/BlueCard.svg';
-import leftArrow from './Images/LeftArrow.svg';
-import rightArrow from './Images/RightArrow.svg';
+import { db } from '../../Firebase';
 
-function TicketPurchasePage() {
+// import yellowCard from './Images/YellowCard.svg';
+// import pinkCard from './Images/PinkCard.svg';
+// import blueCard from './Images/BlueCard.svg';
+// import leftArrow from './Images/LeftArrow.svg';
+// import rightArrow from './Images/RightArrow.svg';
+
+function savedCardPage() {
+
+const [data, setData] = useState([]);
+
+
+ useEffect(() => {
+   
+   const fetchData = async () => {
+     try {
+       const snapshot = await db.collection('credit-cards').get();
+       const docs = snapshot.docs.map((doc) => doc.data());
+       setData(docs);
+     } catch (error) {
+       console.error('Error getting documents', error);
+     }
+   };
+
+   fetchData();
+ }, []);
+
   return (
     <div className="flex flex-col font-poppins lg:mt-20 mt-10">
-      <div className="lg:text-5xl md:text-3xl text-xl lg:ml-52 ml-10">
+      {/* <div className="lg:text-5xl md:text-3xl text-xl lg:ml-52 ml-10">
         <h1>YOUR SAVED CARDS</h1>
       </div>
       <div className="lg:text-xl md:text-base text-sm text-SubTexts mt-4 lg:ml-52 ml-10 lg:mr-0 mr-16">
@@ -39,6 +60,15 @@ function TicketPurchasePage() {
             className="lg:rotate-0 md:rotate-0 rotate-90"
           />
         </div>
+      </div> */}
+      <div>
+        {data.map((item) => (
+          <div key={item.id}>
+            CVV: {item.cvv}
+            <br />
+            Card Number: {item.cardNumber}
+          </div>
+        ))}
       </div>
 
       <div className="self-center lg:mt-12 mt-8 lg:mb-20 mb-10 pt-12 ">
@@ -55,4 +85,4 @@ function TicketPurchasePage() {
   );
 }
 
-export default TicketPurchasePage;
+export default savedCardPage;
