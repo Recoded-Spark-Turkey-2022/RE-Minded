@@ -20,8 +20,8 @@ const About = () => {
                     <Link to="/Team">
                         <a href="Team">Team</a>
                     </Link>
-                    <Link to="/carees">
-                        <a href="carees">Carees</a>
+                    <Link to="/careers">
+                        <a href="careers">Careers</a>
                     </Link>
                 </div>
             </div>
