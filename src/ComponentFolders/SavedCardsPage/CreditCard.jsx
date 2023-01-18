@@ -3,7 +3,7 @@ import masterCard from './Images/mastercard.svg';
 import PinkCard from './Images/PinkCard.svg';
 
 
-function CreditCard({ nameOnCard, cardNumber, expirationDate, deleteCard }) {
+function CreditCard({ nameOnCard, cardNumber, expirationDate, deleteCard, previewButton }) {
 
     
   return (
@@ -29,12 +29,12 @@ function CreditCard({ nameOnCard, cardNumber, expirationDate, deleteCard }) {
         </div>
       </div>
       <div className="p-4 flex justify-end">
-        <button
+        {previewButton && (<button
           className=" rounded-md box-border p-2 lg:pl-6 lg:pr-6 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500"
           type="button"
         >
           {deleteCard}
-        </button>
+        </button>)}
       </div>
     </div>
   );

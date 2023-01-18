@@ -51,6 +51,7 @@ function savedCardPage() {
               cardNumber={card.cardNumber}
               expirationDate={card.expirationDate}
               deleteCard="Delete Card -"
+              previewButton
             />
           ))}
         </div>
