@@ -1,20 +1,34 @@
 import { React, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
-import { doc, getDoc } from 'firebase/firestore';
+import { getDocs, collection } from 'firebase/firestore';
+// import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { db } from '../../Firebase';
+import CreditCard from './CreditCard';
+// import CreditCard from './CreditCard';
 
 function savedCardPage() {
   const [data, setData] = useState([]);
 
   useEffect(() => {
     const fetchData = async () => {
-      const docRef = doc(db, 'credit-cards', '657qPnDjG456dVeiN9jg');
-      const docSnap = await getDoc(docRef);
-      setData(docSnap.data());
+      const collectionRef = collection(db, 'credit-cards');
+      const querySnapshot = await getDocs(collectionRef);
+      const dataInfo = querySnapshot.docs.map((doc) => doc.data());
+      setData(dataInfo);
     };
 
     fetchData();
   }, []);
+
+  // const slideLeft = () => {
+  //   const slider= document.getElementById('slider')
+  //   slider.scrollLeft = slider.scrollLeft (- 500)
+  // }
+
+  // const slideRight = () => {
+  //   const slider = document.getElementById('slider');
+  //   slider.scrollLeft = slider.scrollLeft (+ 500)
+  // };
 
   return (
     <div className="flex flex-col font-poppins lg:mt-20 mt-10">
@@ -24,18 +38,31 @@ function savedCardPage() {
       <div className="lg:text-xl md:text-base text-sm text-SubTexts mt-4 lg:ml-52 ml-10 lg:mr-0 mr-16">
         We only support cards as a payment method at the moment!
       </div>
-     
-      <div>
-        {data ? (
-          <div>
-            <p>{data.nameOnCard}</p>
-            <p>{data.cardNumber}</p>
-            <p>{data.expirationDate}</p>
-          </div>
-        ) : (
-          <p>Loading...</p>
-        )}
+      <div className="flex lg:flex-row md:flex-row flex-col self-center  lg:mt-20 mt-8 lg-ml-0  lg:mr-0 mr-10">
+        {/* <MdChevronLeft
+          className="opacity-50 cursor-pointer justify-center"
+          onClick={slideLeft}
+          size={100}
+        /> */}
+
+        <div id="slider" className="flex flex-col md:flex-row lg:flex-row">
+          {data.map((card) => (
+            <CreditCard
+              nameOnCard={card.nameOnCard}
+              cardNumber={card.cardNumber}
+              expirationDate={card.expirationDate}
+              deleteCard="Delete Card -"
+            />
+          ))}
+        </div>
+
+        {/* <MdChevronRight
+          className="opacity-50 cursor-pointer justify-center"
+          onClick={slideRight}
+          size={150}
+        /> */}
       </div>
+
       <div className="self-center lg:mt-12 mt-8 lg:mb-20 mb-10 pt-12 ">
         <Link to="/addcard">
           <button
