@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { getDocs, collection } from 'firebase/firestore';
 import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { db } from '../../Firebase';
-// import CreditCard from './CreditCard';
+import CreditCard from './CreditCard';
 
 function savedCardPage() {
   const [data, setData] = useState([]);
@@ -29,17 +29,6 @@ function savedCardPage() {
     slider.scrollLeft = slider.scrollLeft(+500);
   };
 
-  function deleteCard(docRef) {
-    docRef
-      .remove()
-      .then(() => {
-        console.log('Document successfully deleted!');
-      })
-      .catch((error) => {
-        console.error('Error removing document: ', error);
-      });
-  }
-
   return (
     <div className="flex flex-col font-poppins lg:mt-20 mt-10">
       <div className="lg:text-5xl md:text-3xl text-xl lg:ml-52 ml-10">
@@ -57,20 +46,12 @@ function savedCardPage() {
 
         <div id="slider" className="flex flex-col md:flex-row lg:flex-row">
           {data.map((card) => (
-            <tr key={card.nameOnCard}>
-              <td>{card.nameOnCard}</td>
-              <td>{card.cardNumber}</td>
-              <td>{card.expirationDate}</td>
-              <td>
-                <button type="button" onClick={() => deleteCard(card.docRef)}>Delete</button>
-              </td>
-            </tr>
-            // <CreditCard
-            //   nameOnCard={card.nameOnCard}
-            //   cardNumber={card.cardNumber}
-            //   expirationDate={card.expirationDate}
-            //   deleteCard="Delete Card -"
-            // />
+            <CreditCard
+              nameOnCard={card.nameOnCard}
+              cardNumber={card.cardNumber}
+              expirationDate={card.expirationDate}
+              deleteCard="Delete Card -"
+            />
           ))}
         </div>
 
