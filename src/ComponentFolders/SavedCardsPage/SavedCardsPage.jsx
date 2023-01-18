@@ -12,13 +12,18 @@ function savedCardPage() {
     const fetchData = async () => {
       const collectionRef = collection(db, 'credit-cards');
       const querySnapshot = await getDocs(collectionRef);
-      const dataInfo = querySnapshot.docs.map((doc) => doc.data());
+      const dataInfo = querySnapshot.docs.map((docu) => docu.data());
       setData(dataInfo);
     };
 
     fetchData();
   }, []);
 
+  // function deleteCard(id) {
+  //   deleteDoc(doc(db, 'credit-cards', id)).then(() => {
+  //     console.log('Document successfully deleted!');
+  //   });
+  // }
   const slideLeft = () => {
     const slider = document.getElementById('slider');
     slider.scrollLeft = slider.scrollLeft(-500);
@@ -43,8 +48,20 @@ function savedCardPage() {
           onClick={slideLeft}
           size={150}
         />
+        {/* {data.map((card) => (
+          <tr key={card.name}>
+            <td>{card.nameOnCard}</td>
+            <td>{card.cardNumber}</td>
+            <td>{card.expirationDate}</td>
+            <td>
+              <button type="button" onClick={() => deleteCard(card.id)}>
+                Delete
+              </button>
+            </td>
+          </tr>
+        ))} */}
 
-        <div id="slider" className="flex flex-col md:flex-row lg:flex-row">
+         <div id="slider" className="flex flex-col md:flex-row lg:flex-row ">
           {data.map((card) => (
             <CreditCard
               nameOnCard={card.nameOnCard}
@@ -54,7 +71,7 @@ function savedCardPage() {
               previewButton
             />
           ))}
-        </div>
+        </div> 
 
         <MdChevronRight
           className="opacity-50 cursor-pointer  mt-16"
