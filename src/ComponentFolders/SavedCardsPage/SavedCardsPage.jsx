@@ -1,9 +1,8 @@
 import { React, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getDocs, collection } from 'firebase/firestore';
-// import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
+import { MdChevronLeft, MdChevronRight } from 'react-icons/md';
 import { db } from '../../Firebase';
-import CreditCard from './CreditCard';
 // import CreditCard from './CreditCard';
 
 function savedCardPage() {
@@ -20,15 +19,26 @@ function savedCardPage() {
     fetchData();
   }, []);
 
-  // const slideLeft = () => {
-  //   const slider= document.getElementById('slider')
-  //   slider.scrollLeft = slider.scrollLeft (- 500)
-  // }
+  const slideLeft = () => {
+    const slider = document.getElementById('slider');
+    slider.scrollLeft = slider.scrollLeft(-500);
+  };
 
-  // const slideRight = () => {
-  //   const slider = document.getElementById('slider');
-  //   slider.scrollLeft = slider.scrollLeft (+ 500)
-  // };
+  const slideRight = () => {
+    const slider = document.getElementById('slider');
+    slider.scrollLeft = slider.scrollLeft(+500);
+  };
+
+  function deleteCard(docRef) {
+    docRef
+      .remove()
+      .then(() => {
+        console.log('Document successfully deleted!');
+      })
+      .catch((error) => {
+        console.error('Error removing document: ', error);
+      });
+  }
 
   return (
     <div className="flex flex-col font-poppins lg:mt-20 mt-10">
@@ -39,28 +49,36 @@ function savedCardPage() {
         We only support cards as a payment method at the moment!
       </div>
       <div className="flex lg:flex-row md:flex-row flex-col self-center  lg:mt-20 mt-8 lg-ml-0  lg:mr-0 mr-10">
-        {/* <MdChevronLeft
-          className="opacity-50 cursor-pointer justify-center"
+        <MdChevronLeft
+          className="opacity-50 cursor-pointer  mt-16"
           onClick={slideLeft}
-          size={100}
-        /> */}
+          size={150}
+        />
 
         <div id="slider" className="flex flex-col md:flex-row lg:flex-row">
           {data.map((card) => (
-            <CreditCard
-              nameOnCard={card.nameOnCard}
-              cardNumber={card.cardNumber}
-              expirationDate={card.expirationDate}
-              deleteCard="Delete Card -"
-            />
+            <tr key={card.nameOnCard}>
+              <td>{card.nameOnCard}</td>
+              <td>{card.cardNumber}</td>
+              <td>{card.expirationDate}</td>
+              <td>
+                <button type="button" onClick={() => deleteCard(card.docRef)}>Delete</button>
+              </td>
+            </tr>
+            // <CreditCard
+            //   nameOnCard={card.nameOnCard}
+            //   cardNumber={card.cardNumber}
+            //   expirationDate={card.expirationDate}
+            //   deleteCard="Delete Card -"
+            // />
           ))}
         </div>
 
-        {/* <MdChevronRight
-          className="opacity-50 cursor-pointer justify-center"
+        <MdChevronRight
+          className="opacity-50 cursor-pointer  mt-16"
           onClick={slideRight}
           size={150}
-        /> */}
+        />
       </div>
 
       <div className="self-center lg:mt-12 mt-8 lg:mb-20 mb-10 pt-12 ">
