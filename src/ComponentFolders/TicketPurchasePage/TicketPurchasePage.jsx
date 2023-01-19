@@ -59,7 +59,8 @@ function TicketPurchasePage() {
       </div>
       <div className="flex lg:flex-row md:flex-row flex-col self-center gap-3 lg:mt-20 mt-8 lg-ml-0 ml-10 lg:mr-0 mr-10">
         <div id="slider" className="flex flex-col md:flex-row lg:flex-row ">
-          {data.map((card) => (
+          {data.length === 0 ? <div className="text-center text-sm md:text-2xl lg:text-3xl opacity-50 pt-24">You have no saved cards</div> :
+           data.map((card) => (
             <CreditCard
               nameOnCard={card.nameOnCard}
               cardNumber={card.cardNumber}
