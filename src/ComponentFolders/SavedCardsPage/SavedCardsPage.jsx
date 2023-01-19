@@ -21,14 +21,14 @@ function savedCardPage() {
   }, ['credit-cards']);
 
   return (
-    <div className="flex flex-col font-poppins lg:mt-20 mt-10">
+    <div className="flex flex-col font-poppins lg:mt-20 mt-10 mb-32">
       <div className="lg:text-5xl md:text-3xl text-xl lg:ml-52 ml-10">
         <h1>YOUR SAVED CARDS</h1>
       </div>
       <div className="lg:text-xl md:text-base text-sm text-SubTexts mt-4 lg:ml-52 ml-10 lg:mr-0 mr-16">
         We only support cards as a payment method at the moment!
       </div>
-      <div className="overflow-x-auto flex lg:flex-row md:flex-row flex-col self-center  lg:mt-20 mt-8 lg-ml-0  lg:mr-0 mr-10 ">
+      <div className="flex lg:flex-row md:flex-row flex-col self-center  lg:mt-20 mt-8 lg-ml-0  lg:mr-0 mr-10 ">
         <div id="slider" className="flex flex-col md:flex-row lg:flex-row ">
           {data.length === 0 ? (
             <div className="text-center text-sm md:text-2xl lg:text-3xl opacity-50 pt-24">
@@ -36,19 +36,17 @@ function savedCardPage() {
             </div>
           ) : (
             data.map((card) => (
-              <div className="flex-shrink-0 mx-2">
-                <CreditCard
-                  key={card.data.index}
-                  id={card.id}
-                  nameOnCard={card.data.nameOnCard}
-                  cardNumber={card.data.cardNumber}
-                  expirationDate={card.data.expirationDate}
-                  deleteCard="Delete Card -"
-                  previewButton
-                  setData={setData}
-                  data={data}
-                />
-              </div>
+              <CreditCard
+                key={card.data.index}
+                id={card.id}
+                nameOnCard={card.data.nameOnCard}
+                cardNumber={card.data.cardNumber}
+                expirationDate={card.data.expirationDate}
+                deleteCard="Delete Card -"
+                previewButton
+                setData={setData}
+                data={data}
+              />
             ))
           )}
         </div>
