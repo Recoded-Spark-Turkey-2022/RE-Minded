@@ -36,7 +36,7 @@ function AddCard() {
         .matches(/^[0-9]{16}$/, 'Invalid Card Number')
         .required('Please do not leave this field empty!'),
       expirationDate: Yup.string()
-        .matches(/^[0-9]{4}$/, 'Invalid Expiration Date')
+        .matches(/^\d{2}\/\d{2}$/, 'Invalid Expiration Date')
         .required('Please do not leave this field empty!'),
       cvv: Yup.string()
         .required('Please do not leave this field empty!')
