@@ -1,12 +1,14 @@
 
 import { useState } from 'react';
 import {Link} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Logo from './Images/Logo.svg';
 import About from './About';
 
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
+  const { t } = useTranslation();
   
   return (
     <nav className="w-full sticky top-0 z-50 bg-cyan-50 shadow font-poppins">
@@ -70,22 +72,22 @@ export default function NavBar() {
               <div className="flex flex-col  items-center  text-xl ">
                 <Link to="/">
                   <a className=" hover:text-indigo-200 pb-1 " href="Home">
-                    Home
+                    {t('navbar.home')}
                   </a>
                 </Link>
                 <Link to="blog">
                   <a className=" hover:text-indigo-200 p-2" href="Blog">
-                    Blog
+                  {t('navbar.blog')}
                   </a>
                 </Link>
                 <Link to="About">
                   <a className=" hover:text-indigo-200 p-2" href="Home">
-                    About
+                  {t('navbar.about')}
                   </a>
                 </Link>
                 <Link to="contactus">
                   <a className=" hover:text-indigo-200 p-2" href="Blog">
-                    Contact Us
+                  {t('navbar.contact_us')}
                   </a>
                 </Link>
                 <Link to="login">
@@ -93,7 +95,7 @@ export default function NavBar() {
                     href="Log In"
                     className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
                   >
-                    Log In
+                    {t('navbar.log_in')}
                   </a>
                 </Link>
               </div>

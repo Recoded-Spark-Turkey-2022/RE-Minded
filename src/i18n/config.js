@@ -3,17 +3,16 @@ import { initReactI18next } from 'react-i18next';
 
 i18n.use(initReactI18next).init ({
   fallbackLng: 'en',
-  lng: 'en',
+  lng: 'tr',
   resources: {
     en: {
-      translations: ('./locales/en/translations.json')
+      translations: './locales/en/translation.json'
     },
     tr: {
-      translations: ('./locales/tr/translations.json')
+      translations: './locales/tr/translation.json'
     }
   },
-  ns: ['translations'],
-  defaultNS: 'translations'
+
 });
 
 i18n.languages = ['en', 'tr'];

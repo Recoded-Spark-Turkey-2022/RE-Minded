@@ -1,0 +1,16 @@
+{
+    "navbar": {
+        "home": "Ana Sayfa",
+        "blog": "Blog",
+        "about": "Hakkımızda",
+        "contact_us": "Bize Ulaşın",
+        "log_in": "Giriş Yap"
+    },
+
+    "about_dropdown": {
+        "about": "Hakkımızda",
+        "team": "Ekip",
+        "careers": "Kariyer"
+    }
+
+}
