@@ -12,14 +12,13 @@ function CreditCard({
   previewButton,
   id,
   setData,
-})  {
-    const deleteCardFirebase = async () => {
-      const collectionRef = collection(db, 'credit-cards');
-      await deleteDoc(doc(collectionRef, id)).then(() => {
-      
-       setData((prevData) => prevData.filter((card) => card.id !== id));
-      });
-    };
+}) {
+  const deleteCardFirebase = async () => {
+    const collectionRef = collection(db, 'credit-cards');
+    await deleteDoc(doc(collectionRef, id)).then(() => {
+      setData((prevData) => prevData.filter((card) => card.id !== id));
+    });
+  };
 
   return (
     <div
