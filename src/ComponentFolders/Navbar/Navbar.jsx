@@ -119,7 +119,7 @@ export default function NavBar() {
               
             <Link to="contactus">
               <li className=" hover:text-indigo-200">
-                <a href="Contact">Contact US</a>
+                <a href="Contact">Contact Us</a>
               </li>
             </Link>
             <Link to="login">
@@ -130,6 +130,7 @@ export default function NavBar() {
                 Log in
               </a>
             </Link>
+            
           </ul>
         </div>
       </div>
