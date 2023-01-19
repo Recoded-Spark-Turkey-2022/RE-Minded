@@ -19,7 +19,7 @@ function SignUp() {
           />
           <button
             type="button"
-            className="bg-Buttons bg-sky-500 rounded-r-lg w-1/4 h-auto"
+            className="bg-Buttons rounded-r-lg w-1/4 h-auto"
           >
             <img
               className="w-[24px] h-[24px] top-[18px] left-[310px] items-center mx-auto"
