@@ -1,11 +1,25 @@
 import React from 'react';
+import { collection, doc, deleteDoc } from 'firebase/firestore';
+import { db } from '../../Firebase';
 import masterCard from './Images/mastercard.svg';
 import PinkCard from './Images/PinkCard.svg';
 
+function CreditCard({
+  nameOnCard,
+  cardNumber,
+  expirationDate,
+  deleteCard,
+  previewButton,
+  id
+})  {
+    const deleteCardFirebase = async () => {
+      const collectionRef = collection(db, 'credit-cards');
+      await deleteDoc(doc(collectionRef, id)).then(() => {
+        console.log('Document successfully deleted!');
+        console.log(id);
+      });
+    };
 
-function CreditCard({ nameOnCard, cardNumber, expirationDate, deleteCard, previewButton }) {
-
-    
   return (
     <div
       className=" box-border rounded-lg h-full w-full font-poppins m-2"
@@ -29,12 +43,15 @@ function CreditCard({ nameOnCard, cardNumber, expirationDate, deleteCard, previe
         </div>
       </div>
       <div className="p-4 flex justify-end">
-        {previewButton && (<button
-          className=" rounded-md box-border p-2 lg:pl-6 lg:pr-6 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500"
-          type="button"
-        >
-          {deleteCard}
-        </button>)}
+        {previewButton && (
+          <button
+            className=" rounded-md box-border p-2 lg:pl-6 lg:pr-6 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500"
+            type="button"
+            onClick={() => deleteCardFirebase(doc.id)}
+          >
+            {deleteCard}
+          </button>
+        )}
       </div>
     </div>
   );

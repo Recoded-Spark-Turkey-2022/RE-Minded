@@ -287,7 +287,7 @@ function AddCard() {
         <button
           type="button"
           onClick={handleFormSubmit}
-          className="rounded-md box-border p-2 transition-all duration-250 bg-Buttons"
+          className="rounded-md box-border p-2 pl-4 pr-4 transition-all duration-250 bg-Buttons"
         >
           ADD CARD
         </button>

@@ -64,7 +64,8 @@ function TicketPurchasePage() {
               nameOnCard={card.nameOnCard}
               cardNumber={card.cardNumber}
               expirationDate={card.expirationDate}
-              previewButton={false}
+              deleteCard="-"
+              previewButton
             />
           ))}
         </div>
