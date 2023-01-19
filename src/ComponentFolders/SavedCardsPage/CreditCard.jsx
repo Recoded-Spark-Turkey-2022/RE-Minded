@@ -10,13 +10,14 @@ function CreditCard({
   expirationDate,
   deleteCard,
   previewButton,
-  id
+  id,
+  setData,
 })  {
     const deleteCardFirebase = async () => {
       const collectionRef = collection(db, 'credit-cards');
       await deleteDoc(doc(collectionRef, id)).then(() => {
-        console.log('Document successfully deleted!');
-        console.log(id);
+      
+       setData((prevData) => prevData.filter((card) => card.id !== id));
       });
     };
 

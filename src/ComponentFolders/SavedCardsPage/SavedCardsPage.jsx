@@ -19,7 +19,7 @@ function savedCardPage() {
       setData(dataInfo);
     };
     fetchData();
-  }, []);
+  }, ['credit-cards']);
 
   const slideLeft = () => {
     const slider = document.getElementById('slider');
@@ -68,9 +68,10 @@ function savedCardPage() {
               expirationDate={card.data.expirationDate}
               deleteCard="Delete Card -"
               previewButton
+              setData={setData}
+              data={data}
             />
           ))}
-          
         </div>
 
         <MdChevronRight
