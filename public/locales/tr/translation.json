@@ -8,9 +8,13 @@
     },
 
     "about_dropdown": {
-        "about": "Hakkımızda",
+        "about": "Biz",
         "team": "Ekip",
         "careers": "Kariyer"
-    }
+    },
+    "languages": {
+        "en": "İngilizce",
+        "tr": "Türkçe"
+      }
 
 }

@@ -11,6 +11,10 @@
         "about": "About",
         "team": "Team",
         "careers": "Careers"
-    }
+    },
+    "languages": {
+        "en": "English",
+        "tr": "Turkish"
+      }
 
 }

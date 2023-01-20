@@ -4,11 +4,13 @@ import {Link} from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Logo from './Images/Logo.svg';
 import About from './About';
+import MultiLangDropDown from './MultiLanguageButton';
 
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
   const { t } = useTranslation();
+
   
   return (
     <nav className="w-full sticky top-0 z-50 bg-cyan-50 shadow font-poppins">
@@ -98,6 +100,9 @@ export default function NavBar() {
                     {t('navbar.log_in')}
                   </a>
                 </Link>
+                <div>
+                  <MultiLangDropDown />
+                </div>
               </div>
             </div>
           </div>
@@ -106,12 +111,12 @@ export default function NavBar() {
           <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
             <Link to="/">
               <li className=" hover:text-indigo-200">
-                <a href="Home">Home</a>
+                <a href="Home">{t('navbar.home')}</a>
               </li>
             </Link>
             <Link to="blog">
               <li className=" hover:text-indigo-200">
-                <a href="Blog">Blog</a>
+                <a href="Blog">{t('navbar.blog')}</a>
               </li>
             </Link>
              
@@ -121,7 +126,7 @@ export default function NavBar() {
               
             <Link to="contactus">
               <li className=" hover:text-indigo-200">
-                <a href="Contact">Contact Us</a>
+                <a href="Contact">{t('navbar.contact_us')}</a>
               </li>
             </Link>
             <Link to="login">
@@ -129,10 +134,12 @@ export default function NavBar() {
                 href="Log In"
                 className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
               >
-                Log in
+                {t('navbar.log_in')}
               </a>
             </Link>
-            
+            <li>
+            <MultiLangDropDown />
+            </li>
           </ul>
         </div>
       </div>
