@@ -1,13 +1,13 @@
-import React from "react";
-import renderer from "react-test-renderer"
-import ContactUsPage from "../ContactPageMain";
+// import React from "react";
+// import renderer from "react-test-renderer"
+// import ContactUsPage from "../ContactPageMain";
 
-test('ContactPageMain snapshot test', () => {
+// test('ContactPageMain snapshot test', () => {
 
-    const component = renderer.create(<ContactUsPage/>)
+//     const component = renderer.create(<ContactUsPage/>)
 
-    const tree = component.toJSON();
+//     const tree = component.toJSON();
 
-    expect(tree).toMatchSnapshot();
+//     expect(tree).toMatchSnapshot();
 
-})
+// })

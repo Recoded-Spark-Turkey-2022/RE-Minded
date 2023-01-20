@@ -2,10 +2,12 @@
 import { useState } from 'react';
 import {Link} from 'react-router-dom';
 import Logo from './Images/Logo.svg';
+import About from './About';
+
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
-
+  
   return (
     <nav className="w-full sticky top-0 z-50 bg-cyan-50 shadow font-poppins">
       <div className="justify-between px-4 mx-auto  md:items-center md:flex md:px-8">
@@ -76,7 +78,7 @@ export default function NavBar() {
                     Blog
                   </a>
                 </Link>
-                <Link to="about">
+                <Link to="About">
                   <a className=" hover:text-indigo-200 p-2" href="Home">
                     About
                   </a>
@@ -110,29 +112,11 @@ export default function NavBar() {
                 <a href="Blog">Blog</a>
               </li>
             </Link>
-
-            <li className=" hover:text-indigo-200 cursor-pointer">
-              <select className=" p-2.5 bg-cyan-50 cursor-pointer">
-                <option>
-                  <Link to="about">
-                    <li>
-                      <a href="About">About</a>
-                    </li>
-                  </Link>
-                </option>
-                <option>
-                  <Link to="team">
-                    <a href="Team">Team</a>
-                  </Link>
-                </option>
-                <option>
-                  <Link to="careers">
-                    <a href="Carees">Carees</a>
-                  </Link>
-                </option>
-              </select>
-            </li>
-
+             
+              <li className=" hover:text-indigo-200 cursor-pointer">
+               <About />
+             </li>
+              
             <Link to="contactus">
               <li className=" hover:text-indigo-200">
                 <a href="Contact">Contact US</a>

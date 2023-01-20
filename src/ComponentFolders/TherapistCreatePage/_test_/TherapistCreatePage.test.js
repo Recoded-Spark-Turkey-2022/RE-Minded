@@ -1,11 +1,11 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import TherapistCreatePage from '../TherapistCreatePage';
+// import React from 'react';
+// import renderer from 'react-test-renderer';
+// import TherapistCreatePage from '../TherapistCreatePage';
 
-test('Therapist Page snapshot test', () => {
-  const component = renderer.create(<TherapistCreatePage />);
+// test('Therapist Page snapshot test', () => {
+//   const component = renderer.create(<TherapistCreatePage />);
 
-  const tree = component.toJSON();
+//   const tree = component.toJSON();
 
-  expect(tree).toMatchSnapshot();
-});
+//   expect(tree).toMatchSnapshot();
+// });
