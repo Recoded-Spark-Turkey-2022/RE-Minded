@@ -1,4 +1,4 @@
-import React, { useState,useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../../Firebase';
@@ -6,7 +6,8 @@ import CreditCard from '../SavedCardsPage/CreditCard';
 
 let ticket;
 
-const thanksProps = "You purchase has been submitted, you should receive an email with the receipt soon."
+const thanksProps =
+  'You purchase has been submitted, you should receive an email with the receipt soon.';
 
 function TicketPurchasePage() {
   // const [pinkCardBtn, setPink] = useState(false);
@@ -24,7 +25,6 @@ function TicketPurchasePage() {
 
     fetchData();
   }, []);
-
 
   // function handleClick(e) {
   //   if(e ==="pink") {setPink(!pinkCardBtn); setBlue(false); setYellow(false)}
@@ -59,16 +59,21 @@ function TicketPurchasePage() {
       </div>
       <div className="flex lg:flex-row md:flex-row flex-col self-center gap-3 lg:mt-20 mt-8 lg-ml-0 ml-10 lg:mr-0 mr-10">
         <div id="slider" className="flex flex-col md:flex-row lg:flex-row ">
-          {data.length === 0 ? <div className="text-center text-sm md:text-2xl lg:text-3xl opacity-50 pt-24">You have no saved cards</div> :
-           data.map((card) => (
-            <CreditCard
-              nameOnCard={card.nameOnCard}
-              cardNumber={card.cardNumber}
-              expirationDate={card.expirationDate}
-              deleteCard="-"
-              previewButton
-            />
-          ))}
+          {data.length === 0 ? (
+            <div className="text-center text-sm md:text-2xl lg:text-3xl opacity-50 pt-24">
+              You have no saved cards
+            </div>
+          ) : (
+            data.map((card) => (
+              <CreditCard
+                nameOnCard={card.nameOnCard}
+                cardNumber={card.cardNumber}
+                expirationDate={card.expirationDate}
+                deleteCard="-"
+                previewButton
+              />
+            ))
+          )}
         </div>
         {/* <div className="flex lg:space-y-4 self-center">
           <img
