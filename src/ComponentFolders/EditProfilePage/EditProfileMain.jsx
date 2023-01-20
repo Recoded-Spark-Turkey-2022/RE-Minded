@@ -21,8 +21,6 @@ function EditProfileMain({ handleSignout }) {
 
   const [url, setUrl] = useState(null);
 
-  console.log(url);
-
   const [uploadID, setUploadID] = useState(null);
 
   const [profileData, setProfileData] = useState({
@@ -67,7 +65,6 @@ function EditProfileMain({ handleSignout }) {
     uploadBytes(imageRef, uploadID).then(() => {
       getDownloadURL(imageRef)
         .then((imageUrl) => setUrl(imageUrl))
-        .then(() => console.log('Image url has updated'));
     });
 
     // Update user's email
@@ -75,7 +72,6 @@ function EditProfileMain({ handleSignout }) {
     updateEmail(auth.currentUser, profileData.email)
       .then(() => {
         // Email updated!
-        console.log('Email is updated');
       })
       .catch((error) => {
         // An error occurred
@@ -87,7 +83,6 @@ function EditProfileMain({ handleSignout }) {
     updatePassword(user, profileData.password)
       .then(() => {
         // Update successful.
-        console.log('Password is updated');
       })
       .catch((error) => {
         // An error ocurred
@@ -110,9 +105,9 @@ function EditProfileMain({ handleSignout }) {
           password: profileData.password,
           passwordConfirm: profileData.passwordConfirm,
         });
-        console.log('submitted');
+        return true 
       } catch (error) {
-        console.log(error);
+        return error
       }
     };
     addDoc();
@@ -125,7 +120,6 @@ function EditProfileMain({ handleSignout }) {
     deleteUser(user)
       .then(() => {
         // User deleted.
-        console.log('User account is deleted');
       })
       .catch((error) => {
         // An error ocurred
@@ -136,20 +130,20 @@ function EditProfileMain({ handleSignout }) {
   };
 
   useEffect(() => {
+
     if (currentUser) {
       const imageRef = ref(
         storage,
         `userImages/${currentUser.userId}/${currentUser.userId}`
       );
-      if (imageRef) {
-        getDownloadURL(imageRef)
-          .then((imageUrl) => setUrl(imageUrl))
-          .then(() => console.log('Welcome again'));
-      } else {
-        setUrl(
-          'https://media.istockphoto.com/id/1393750072/vector/flat-white-icon-man-for-web-design-silhouette-flat-illustration-vector-illustration-stock.jpg?b=1&s=612x612&w=0&k=20&c=Dnxc_cOvh1zQjTE8Za9MMADydkRc8lSKzIEX6ej9H8g=://icon2.cleanpng.com/20180715/zwr/kisspng-real-estate-profile-picture-icon-5b4c1135ceddd7.2742655015317117978473.jpg'
-        );
-      }
+
+      getDownloadURL(imageRef)
+        .then((imageUrl) => setUrl(imageUrl))
+        .catch((error) => {
+          if (error.code === 'storage/object-not-found') {
+            setUrl(null);
+          }
+        });
     }
   }, [currentUser]);
 
@@ -165,7 +159,7 @@ function EditProfileMain({ handleSignout }) {
       <div className="flex lg:flex-row flex-col">
         <div className="flex flex-col lg:ml-[-10em] md:ml-[10%] ml-[25%] lg:mr-[0%] md:mr-[30%] mr-[25%]">
           <img
-            src={currentUser ? url : profileIcon}
+            src={url === null ? profileIcon : url}
             alt="profile"
             className="self-center ml-28 w-80 h-80 rounded-full"
           />
