@@ -41,7 +41,81 @@
           "add": "Adres",
           "button_add": "KARTI EKLE"
 
+    },
+     
+     "blog_main": {
+        "h1": "Ruh Sağlığı ve Teknolojisi",
+        "t1": "Teknoloji ve zihinsel esenlik son derece zıt terimler gibi görünebilir. Ancak, farkındalığa ulaşmanıza ve meditasyon yapmanıza yardımcı olacak mükemmel dijital araçlar var. Stres atmak ve dijital detoksa ulaşmak için akıllı telefon uygulamalarını, sanal gerçeklik çözümlerini ve dijital cihazları bile kullanabilirsiniz, çünkü bir süre sonra her türlü kaygı önleme becerisini kendi başınıza uygulayabileceksiniz. Öyleyse, Tıbbi Fütürist'in size teknolojinin yardımıyla zihinsel ve duygusal sağlığınızı nasıl iyileştirebileceğinizi göstermesine izin verin.",
+        "h2": "Duygusal sağlığımıza dikkat etme ihtiyacı",
+        "t2": "Dalai Lama, Twitter'ında İyi kalmak için fiziksel hijyene dikkat ettiğimiz gibi, bir tür duygusal hijyen de geliştirmemiz gerekiyor diye yazdı. Hazretlerinin beyanı etrafında üç can alıcı nokta vardır. Her şeyden önce, sağlığı iyileştiren, fiziksel olarak aktif yaşam tarzının popülaritesi dünya çapında hızla artıyor. Bununla birlikte, her zaman iyileştirme için yer vardır: Dünya Sağlık Örgütü, küresel olarak yetişkinlerin yüzde 23'ünün ve okula giden ergenlerin yüzde 81'inin yeterince aktif olmadığını söylüyor. Kuruluşa göre, 18-64 yaş arası yetişkinlerin her hafta en az 150 dakika orta yoğunlukta fiziksel aktivite yapması gerekiyor ki bu başarılamaz bir şey değil. Dahası, sayısal ve istatistiksel olarak yönlendirilen 21. yüzyıl zihni, çeşitli spor takip cihazlarından ve giyilebilir cihazlardan büyük bir ilham ve güç alabilir.",
+        "t3": "İkincisi, duygusal hijyen günümüzde gölgede kalmış gibi görünüyor. Her nasılsa, meşguliyet kültürü, yoğun programlarımıza zihinsel sağlık için biraz zaman sıkıştırmamızı engelliyor. Milyonlarca iletişim kanalından üzerimize bilgi yağıyor; sosyal medyada yüzlerce arkadaşla bağlantı kuruyoruz, bir şeyleri kaçırma korkusuyla verilere takıntılıyız ve zaman yönetimi günlerimizi toplantılara ve yapılacaklar listelerine bölüyor.",
+        "t4": "Yürütülmesi gereken baskı ve elde edilmesi gereken stres, her meşgul arının soluduğu havadır. Ancak çalkantılı yaşam tarzının bir bedeli var. Pek çok insanın akıl sağlığı sorunları yaşamasına şaşmamalı. ABD'de bu, her beş yetişkinden biri, 40 milyondan fazla Amerikalı anlamına gelir! Eski kıtada, nüfusun yüzde 27'si zihinsel bozukluklarla mücadele etmek zorunda, bu da mücadele eden 83 milyon Avrupalı anlamına geliyor. Asya'da depresyon yaygınlığı Tayland'da yüzde 20, Tayvan'da yüzde 19,9, Kore'de yüzde 19,4, Malezya'da yüzde 17,5 ve Çin'de yüzde 16,5."
+
+     },
+
+     "recommend": {
+        "h1": "Sizin için öneriler"
+     },
+    
+     "blog_singup": {
+        "h1": "The Healing Blog'a Kaydolun",
+        "t1": "Haberdar olmanıza yardımcı olan haftalık, reklamsız bir Blog.",
+        "button": "E-mail adresinizi girin"
+
+     },
+
+     "home_a": {
+        "h1": "YARDIM ETMEK İÇİN",
+        "h2": "BURADAYIZ",
+        "book": "RANDEVU OLUŞTURUN"
+     },
+
+     "home_b": {
+        "h1": "GÜVENEBİLECEĞİNİZ PROFESYONEL, LİSANSLI VE DENEYİMLİ TERAPİSTLER",
+        "t1": "Depresyon, kaygı, ilişkiler, travma, keder ve daha fazlası dahil olmak üzere çeşitli konularda size yardımcı olabilecek dünyanın en büyük lisanslı, akredite ve deneyimli terapist ağından yararlanın. Terapistlerimizle, ofis içi bir terapistten bekleyeceğiniz aynı profesyonelliği ve kaliteyi elde edersiniz, ancak istediğiniz zaman ve istediğiniz şekilde iletişim kurabilirsiniz."
+        
+
+     },
+
+     "home_c": {
+        "h1": "FARKLI ŞEKİLLERDE İLETİŞİM KURABİLİRİZ",
+        "videocall": "Video Görüşmesi",
+        "content1": "Daha iyi bir deneyim için terapistler görüntülü görüşmeleri önerir, ancak bunun bir seçim olduğunu her zaman unutmayın!",
+        "chat": "Konuşma",
+        "content2": "Biriyle konuşmaya mı ihtiyacınız var? Gelin, terapistinizle sohbet edin!",
+        "voicecall": "Telefon Görüşmesi",
+        "content3": "Bir konuşma başlatmak için hazır hissediyor musun? Terapistinize sesli bir çağrı yapın ve kalbinizi konuşun!"
+
+
+     },
+
+     "home_d": {
+        "recent": "SON BLOG YAZILARI"
+    },
+
+    "home_e": {
+        "h1": "BİLET SATIN ALIN",
+        "h2": "RANDEVU ALMAK İÇİN KULLANILABİLECEK BİLET SATIN ALIN!",
+        "ticket1": "5 BİLET",
+        "button": "SATIN AL",
+        "ticket2": "25 BİLET",
+        "ticket3": "50 BİLET",
+        "question": "TERAPİST MİSİNİZ?",
+        "exp": "Akıl sağlığı platformumuza katılmak ister misiniz? Programınıza ve ne kadar çalışmak istediğinize siz karar verin, müşteri yönlendirmeleri ve fatura ayrıntılarıyla ilgilenin!",
+        "learn_more": "DAHA FAZLA BİLGİ EDİNİN"
+    },
+
+    "footer": {
+        "h1": "Abone ol",
+        "t1": "Size spam göndermeyeceğiz",
+        "button": "E-mail adresinizi girin",
+        "home": "Ana Sayfa",
+        "blog": "Bloglar",
+        "about": "Hakkımızda",
+        "contact": "İletişim"
+
     }
+
 
 
 

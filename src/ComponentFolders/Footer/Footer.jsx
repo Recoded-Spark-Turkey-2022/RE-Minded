@@ -1,5 +1,6 @@
 import React, { useState , useRef }from 'react';
 import {Link, useNavigate} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import image1 from './Images/FacebookLogo.svg';
 import image2 from './Images/GoogleLogo.svg';
@@ -26,20 +27,21 @@ function handleClick() {
   }
   ref.current.value = '';
 }
+const { t } = useTranslation();
 
   return (
     <footer className="relative bg-Footer  bottom-0 w-full p-4 md:flex md:items-center md:justify-between md:p-6 ">
       <span className=" ml-12 text-sm ">
         <div className="lg:ml-36 ml-6 lg:md-0 flex-col gap-3 w-[500px] h-[78px] mb-4">
           <h1 className=" text-BlackTexts text-4xl font-medium h-[44px]">
-            Subscribe
+          {t('footer.h1')}
           </h1>
           <p
             className="text-SubTexts mb-4 
             w-auto h-[22px] top-[56px] mt-2
             font-normal md:text-xl sm:text-sm leading-5"
           >
-            We’ll never spam to you or share your email
+            {t('footer.t1')}
           </p>
         </div>
 
@@ -51,7 +53,7 @@ function handleClick() {
               onChange={handleChange}
               className=" w-3/4 h-auto rounded-l-lg text-SubTexts font-normal "
               type="email"
-              placeholder="  Enter your e-mail"/>
+              placeholder= {t('footer.button')}/>
 
             <button onClick={handleClick}
               type="button"
@@ -75,28 +77,28 @@ function handleClick() {
           <Link to="/">
             <li>
               <a href="Home" className="mr-4 hover:underline md:mr-6 ">
-                Home
+              {t('footer.home')}
               </a>
             </li>
           </Link>
           <Link to="blog">
             <li>
               <a href="Blogs" className="mr-4 hover:underline md:mr-6">
-                Blogs
+              {t('footer.blog')}
               </a>
             </li>
           </Link>
           <Link to="about">
             <li>
               <a href="About" className="mr-4 hover:underline md:mr-6">
-                About
+              {t('footer.about')}
               </a>
             </li>
           </Link>
           <Link to="contactus">
             <li>
               <a href="Contact" className="mr-4 hover:underline md:mr-6">
-                Contact
+              {t('footer.contact')}
               </a>
             </li>
           </Link>
