@@ -4,7 +4,7 @@ import Select from 'react-select';
 import countryList from 'react-select-country-list';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection} from 'firebase/firestore';
 import { db } from '../../Firebase';
 import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
@@ -36,6 +36,7 @@ function AddCard() {
       zipCode: '',
       city: '',
       address: '',
+      type: 'Visa',
     },
     validationSchema: Yup.object({
       nameOnCard: Yup.string()
@@ -64,7 +65,7 @@ function AddCard() {
     setValue(country);
   };
 
-  const handleFormSubmit = () => {
+  const handleFormSubmit = async () => {
     if (
       !formik.values.cardNumber ||
       !formik.values.expirationDate ||
@@ -73,10 +74,12 @@ function AddCard() {
       !formik.values.city ||
       !formik.values.zipCode ||
       !formik.values.address ||
+      !formik.values.type ||
       !value
     ) {
+      // eslint-disable-next-line no-alert
       alert('Please fill in all fields before submitting!');
-    } else
+    } else {
       addDoc(
         userCollectionRef,
         {
@@ -87,11 +90,14 @@ function AddCard() {
           city: formik.values.cvv,
           zipCode: formik.values.zipCode,
           address: formik.values.address,
+          type: formik.values.type,
           contry: value.label,
         },
         navigate('/thankyou', { replace: true, state: thanksProps })
       );
-  };
+    }
+    }
+
 
   return (
     <div className="p-20 font-poppins">
@@ -148,6 +154,7 @@ function AddCard() {
               type="text"
               id="cardNumber"
               name="cardNumber"
+              placeholder="XXXX XXXX XXXX XXXX"
               onChange={formik.handleChange}
               onBlur={formik.handleBlur}
               value={formik.values.cardNumber}
