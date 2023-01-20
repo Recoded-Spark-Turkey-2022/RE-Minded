@@ -15,6 +15,35 @@
     "languages": {
         "en": "İngilizce",
         "tr": "Türkçe"
-      }
+      },
+    
+      "about": {
+          "help": "Yardım etmek için buradayız!",
+          "text1": "Healing'de, işleri yapmanın daha iyi bir yolu olduğuna inanıyoruz. Müşterilerin satın alınması yerine kazanıldığı daha değerli bir yol. Bu konuda saplantılı bir şekilde tutkuluyuz ve görevimiz, insanların bunu başarmasına yardımcı olmaktır. Arama motoru optimizasyonuna odaklanıyoruz. Harika pazarlamanın en az anlaşılan ve en az şeffaf yönlerinden biridir ve biz bunu bir fırsat olarak görüyoruz. Yazılımımız, eğitimimiz ve topluluğumuz aracılığıyla SEO'yu herkes için basitleştirmekten heyecan duyuyoruz.",
+          "founding": "Kuruluşumuz",
+          "text2": "Healing, 2021'de Ammar Sohail tarafından kuruldu. Çevrimiçi Terapist olarak adlandırıldı ve bir blog ve dünyadaki bazı terapistlerin araştırmalarını ve fikirlerini paylaştığı çevrimiçi bir topluluk olarak başladı. Yeni Başlayanlar İçin Terapi Kılavuzunu ve ilk çalışmamızı başlattık ve bu endüstri uzmanlığı merkezi küçük bir danışmanlık firmasına dönüştü ve bugünün Çevrimiçi Terapistini yaratmamıza yol açtı!"
+          
+      },
 
-}
+      "addcard": {
+          "addcarddetails": "KART BİLGİSİ EKLEYİN",
+          "h2": "Lütfen girdiğiniz tüm bilgilerin kayıt bilgilerinizle aynı olduğundan emin olun.",
+          "supported": "Desteklenen Kart Türleri",
+          "visa": "Visa",
+          "mastercard": "MasterCard",
+          "card number": "Kart Numarası",
+          "expiry": "Son. Kul. Tar.",
+          "cvv": "CVV Kodu",
+          "name": "Kartın Üzerindeki İsim",
+          "country": "Ülke",
+          "zip": "Posta Kodu",
+          "city": "Şehir",
+          "add": "Adres",
+          "button_add": "KARTI EKLE"
+
+    }
+
+
+
+    }
+

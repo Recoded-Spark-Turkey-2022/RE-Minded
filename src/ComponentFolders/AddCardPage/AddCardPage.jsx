@@ -1,5 +1,6 @@
 import { React, useState, useMemo } from 'react';
 import Select from 'react-select';
+import { useTranslation } from 'react-i18next';
 import countryList from 'react-select-country-list';
 import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
@@ -19,15 +20,15 @@ function AddCard() {
   const changeHandler = () => {
     setValue(value);
   };
+  const { t } = useTranslation();
 
   return (
     <div className="p-20 font-poppins">
       <h1 className="text-3xl pb-5 md:text-4xl lg:text-5xl">
-        ADD CARD DETAILS
+      {t('addcard.addcarddetails')}
       </h1>
       <h2 className="pb-8 lg:pb-0 text-lg md:text-xl lg:text-2xl opacity-50">
-        Please make sure all of the info you enter are the same as your
-        registration info.
+      {t('addcard.h2')}
       </h2>
       <div className="flex flex-col lg:flex-row lg:space-x-96">
         <div className="text-md md:text-lg lg:text-xl items-center flex  flex-col md:flex-col lg:flex-row lg:space-x-52  ">
@@ -36,14 +37,14 @@ function AddCard() {
               htmlFor="card type"
               className="block font-medium text-gray-700 mb-2"
             >
-              Supported Card types
+              {t('addcard.supported')}
             </label>
             <div className="flex  pb-6 text-Buttons">
               <div className="text-cyan-200 h-12 px-1 py-2  border-2 border-r-0 w-full  text-center rounded-lg rounded-r-none">
-                Visa
+              {t('addcard.visa')}
               </div>
               <div className=" h-12 px-1 py-2  border-2 w-full  text-center rounded-lg rounded-l-none">
-                MasterCard
+              {t('addcard.mastercard')}
               </div>
             </div>
 
@@ -51,7 +52,7 @@ function AddCard() {
               htmlFor="card number"
               className="block font-medium text-gray-700 mb-2"
             >
-              Card Number
+              {t('addcard.cardnumber')}
             </label>
             <input
               className="w-full border border-gray-400 p-2 rounded-lg"
@@ -65,7 +66,7 @@ function AddCard() {
                   htmlFor="expiry date"
                   className="block font-medium text-gray-700 mb-2 mt-4 "
                 >
-                  Expiry Date
+                  {t('addcard.expiry')}
                 </label>
                 <input
                   className="w-full border border-gray-400 p-2 rounded-lg"
@@ -80,7 +81,7 @@ function AddCard() {
                   htmlFor="cvv"
                   className="block font-medium text-gray-700 mb-2 mt-4"
                 >
-                  CVV Code
+                  {t('addcard.cvv')}
                 </label>
                 <input
                   className="w-full border border-gray-400 p-2 rounded-lg"
@@ -95,7 +96,7 @@ function AddCard() {
               htmlFor="name on card"
               className="block font-medium text-gray-700 mb-2 mt-4"
             >
-              Name on Card
+              {t('addcard.name')}
             </label>
             <input
               className="w-full border border-gray-400 p-2 rounded-lg"
@@ -109,7 +110,7 @@ function AddCard() {
               htmlFor="country"
               className="block font-medium text-gray-700 mb-2 mt-4 "
             >
-              Country
+              {t('addcard.country')}
             </label>
             <Select
               className="pb-4"
@@ -121,7 +122,7 @@ function AddCard() {
               htmlFor="zip code"
               className="block font-medium text-gray-700 mb-2 mt-4"
             >
-              ZIP Code
+              {t('addcard.zip')}
             </label>
             <input
               className="w-full border border-gray-400 p-2 rounded-lg"
@@ -133,7 +134,7 @@ function AddCard() {
               htmlFor="city"
               className="block font-medium text-gray-700 mb-2 mt-4"
             >
-              City
+              {t('addcard.city')}
             </label>
             <input
               className="w-full border border-gray-400 p-2 rounded-lg"
@@ -145,7 +146,7 @@ function AddCard() {
               htmlFor="address"
               className="block font-medium text-gray-700 mb-2 mt-4"
             >
-              Address
+              {t('addcard.add')}
             </label>
             <input
               className="w-full border border-gray-400 p-2 rounded-lg"
@@ -166,7 +167,7 @@ function AddCard() {
           type="button"
           className="rounded-md box-border p-2 transition-all duration-250 bg-Buttons"
         >
-          ADD CARD
+          {t('addcard.button_add')}
         </button>
       </div>
     </div>
