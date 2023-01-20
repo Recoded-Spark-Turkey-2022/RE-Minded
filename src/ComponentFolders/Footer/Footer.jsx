@@ -22,8 +22,9 @@ function handleClick() {
   if (value.trim().match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)) {
     navigate('/thankyou' , { state: thanksProps }) ;}
     else {
-    alert('Please enter your e-mail for subscription!');
-  }
+      // eslint-disable-next-line no-alert
+      alert('Please enter your e-mail for subscription!');
+    }
   ref.current.value = '';
 }
 
@@ -43,7 +44,7 @@ function handleClick() {
           </p>
         </div>
 
-        <div className="lg:ml-36 ml-6 md:flex md:ml-0 lg:ml-0">
+        <div className="lg:ml-36 ml-6 md:flex md:ml-0 ">
           <div className="flex flex-wrap mb-4 w-[300px] h-[50px] box-border rounded-md border-2 border-[#718096]">
             
             <input
