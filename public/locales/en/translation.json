@@ -116,6 +116,11 @@
     "team": {
         "h1": "WE ARE HEALING, NICE TO MEET YOU!",
         "meet": "Meet the Team!"
+    },
+
+    "thankyou": {
+        "t1": "THANK YOU!",
+        "backtohome": "BACK TO HOME"
     }
 
 }
