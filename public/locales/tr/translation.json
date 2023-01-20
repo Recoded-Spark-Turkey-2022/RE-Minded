@@ -113,7 +113,12 @@
         "blog": "Bloglar",
         "about": "Hakkımızda",
         "contact": "İletişim"
+ 
+    },
 
+    "team": {
+        "h1": "BİZ HEALING, TANIŞTIĞIMIZA MEMNUN OLDUK!",
+        "meet": "Ekibimizle Tanışın!"
     }
 
 

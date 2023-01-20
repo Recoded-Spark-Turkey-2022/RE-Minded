@@ -110,8 +110,12 @@
         "blog": "Blogs",
         "about": "About",
         "contact": "Contact"
+  
+    },
 
-
+    "team": {
+        "h1": "WE ARE HEALING, NICE TO MEET YOU!",
+        "meet": "Meet the Team!"
     }
 
 }

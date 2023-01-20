@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import TeamCards from './TeamCards';
 import menar from './Images/Menar Selamet_Turkey_2022.jpg';
 import sohail from './Images/SohailAhmed.jpeg';
@@ -19,15 +20,18 @@ const jobs = ['Lead Engineer', 'Frontend Developer'];
 const photos = [menar, sohail, seyma, selvi, ammar];
 
 function TeamPageMain() {
+
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col text-[#424A4F] mb-56">
       <div className=" font-poppins lg:text-5xl text-3xl leading-10">
         <h1 className="lg:ml-44 lg:mt-20 ml-10 sm:mr-10 md:mr-10 mt-10 text-black">
-          WE ARE HEALING, NICE TO MEET YOU!
+          {t('team.h1')}
         </h1>
       </div>
       <div className="text-3xl leading-10">
-        <h3 className="lg:ml-44 lg:mt-28 ml-10 mt-8">Meet the Team!</h3>
+        <h3 className="lg:ml-44 lg:mt-28 ml-10 mt-8">{t('team.meet')}</h3>
       </div>
       <div className=" ml-36 mt-[4em] mr-36">
         <div className="font-poppins flex flex-rows justify-items-center justify-evenly flex-wrap -m-6">
