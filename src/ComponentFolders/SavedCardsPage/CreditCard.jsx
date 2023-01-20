@@ -1,8 +1,10 @@
 import React from 'react';
 import { collection, doc, deleteDoc } from 'firebase/firestore';
 import { db } from '../../Firebase';
-import masterCard from './Images/mastercard.svg';
-import PinkCard from './Images/PinkCard.svg';
+// import masterCard from './Images/mastercard.svg';
+import visa from './Images/Visa.svg';
+// import PinkCard from './Images/PinkCard.svg';
+import BlueCard from './Images/BlueCard.svg';
 
 function CreditCard({
   nameOnCard,
@@ -24,8 +26,7 @@ function CreditCard({
     <div
       className=" box-border rounded-lg h-full w-full font-poppins m-2"
       style={{
-        backgroundImage: `url(${PinkCard})`,
-
+        backgroundImage: `url(${BlueCard})`,
         backgroundSize: 'cover',
         backgroundPosition: 'top',
         backgroundRepeat: 'no-repeat',
@@ -39,7 +40,7 @@ function CreditCard({
           <div className="p-4">{nameOnCard}</div>
         </div>
         <div className="p-12 pl-28">
-          <img src={masterCard} alt="mastercard" />
+          <img src={visa} alt="mastercard" />
         </div>
       </div>
       <div className="p-4 flex justify-end">

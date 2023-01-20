@@ -17,6 +17,15 @@ function AddCard() {
   const [value, setValue] = useState('');
   const options = useMemo(() => countryList().getData(), []);
   const userCollectionRef = collection(db, 'credit-cards');
+  const [selected, setSelected] = useState('');
+
+  function handleButtonClick(e) {
+    if (selected === e.target.value) {
+      setSelected('');
+    } else {
+      setSelected(e.target.value);
+    }
+  }
 
   const formik = useFormik({
     initialValues: {
@@ -106,12 +115,26 @@ function AddCard() {
               Supported Card types
             </label>
             <div className="flex  pb-6 text-Buttons">
-              <div className="text-cyan-200 h-12 px-1 py-2  border-2 border-r-0 w-full  text-center rounded-lg rounded-r-none">
+              <button
+                type="button"
+                value="button1"
+                onClick={handleButtonClick}
+                className={`text-cyan-500 h-12 px-1 py-2  border-2  w-full  text-center rounded-lg  ${
+                  selected === 'button1' ? 'bg-slate-200 border-zinc-600' : ' '
+                }`}
+              >
                 Visa
-              </div>
-              <div className=" h-12 px-1 py-2  border-2 w-full  text-center rounded-lg rounded-l-none">
+              </button>
+              <button
+                type="button"
+                value="button2"
+                onClick={handleButtonClick}
+                className={`text-cyan-500 h-12 px-1 py-2  border-2  w-full  text-center rounded-lg  ${
+                  selected === 'button2' ? 'bg-slate-200 border-zinc-600' : ' '
+                }`}
+              >
                 MasterCard
-              </div>
+              </button>
             </div>
 
             <label
