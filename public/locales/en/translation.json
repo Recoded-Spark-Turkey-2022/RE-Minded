@@ -163,5 +163,34 @@
         "li5": "Currently residing in the US",
         "start": "GET STARTED"
 
+    },
+
+    "contact": {
+        "h1": "SEND US YOUR REQUEST!",
+        "t1": "Do you have a question, concern, idea, feedback, or problem? If you need assistance, please fill out the form below and we would be happy to help!",
+        "h2": "Type of contact",
+        "r1": "I have a question about the service.",
+        "r2": "I am a registered client and I need support.",
+        "r3": "I am a counselor interested in joining.",
+        "r4": "I am a registered counselor and I need support.",
+        "r5": "I have a business-related inquiry.",
+        "r6": "I am interested in Healing Online for my organization.",
+        "r7": "I have a billing related question.",
+        "error1": "Please chose one of the above!!!",
+        "error2": "Full Name can not be Empty!!!",
+        "error3": "The Email can not be Empty!!!",
+        "error4": "The Details can not be Empty!!!",
+        "name1": "Full Name:",
+        "name2": "Enter your full name here...",
+        "email": "Enter your email address here...",
+        "details": "Details:",
+        "details2": "Enter your details here...",
+        "submit": "SUBMIT",
+        "findus": "Find Us At:",
+        "a1": "Hello World! Street",
+        "a2": "Re:Minded Plaza",
+        "a3": "Re:Coded 2023",
+        "a4": "Turkey/World"
+
     }
 }

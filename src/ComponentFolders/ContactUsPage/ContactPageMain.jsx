@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import OfficeImage from './Images/OfficeImage.svg';
 
 const thanksProps =
@@ -32,16 +33,16 @@ const ContactPageMain = () => {
      navigate('/thankyou', { replace: true, state: thanksProps });
     }
   };
+    const { t } = useTranslation();
+
   return (
     <div className="flex flex-col w-screen pb-24 font-poppins">
       <div className="lg:ml-28 ml-10 lg:pr-36 md:pr-20 pr-10">
         <div className="lg:text-5xl md:text-3xl text-2xl leading-6 lg:mt-20 mt-14">
-          <h1>SEND US YOUR REQUEST!</h1>
+          <h1>{t('contact.h1')}</h1>
           <div className="w-full lg:text-2xl text-lg leading-8 mt-4 lg:ml-0 lg:mr-0 text-SubTexts">
             <h3>
-              Do you have a question, concern, idea, feedback, or problem? If
-              you need assistance, please fill out the form below and we would
-              be happy to help!
+            {t('contact.t1')}
             </h3>
           </div>
         </div>
@@ -49,7 +50,7 @@ const ContactPageMain = () => {
       <div className="flex lg:flex-row flex-col lg:ml-28 ">
         <div className="basis-1/2 mt-4">
           <h3 className="lg:text-xl text-lg lg:mt-10 mt-8 lg:ml-0 ml-4 lg:mr-0 font-semibold">
-            Type of contact
+          {t('contact.h2')}
           </h3>
           <ul className="text-sm font-medium mt-4 lg:text-xl lg:mt-5 lg:ml-2 ml-4 lg:mr-0">
             <li className="w-full">
@@ -65,7 +66,7 @@ const ContactPageMain = () => {
                   className="w-4 h-4"
                 />
                 <span className="ml-2">
-                  I have a question about the service.
+                {t('contact.r1')}
                 </span>
               </label>
             </li>
@@ -82,7 +83,7 @@ const ContactPageMain = () => {
                   className="w-4 h-4"
                 />
                 <span className="ml-2">
-                  I am a registered client and I need support.
+                {t('contact.r2')}
                 </span>
               </label>
             </li>
@@ -99,7 +100,7 @@ const ContactPageMain = () => {
                   className="w-4 h-4"
                 />
                 <span className="ml-2">
-                  I am a counselor interested in joining.
+                {t('contact.r3')}
                 </span>
               </label>
             </li>
@@ -116,7 +117,7 @@ const ContactPageMain = () => {
                   className="w-4 h-4"
                 />
                 <span className="ml-2">
-                  I am a registered counselor and I need support.
+                {t('contact.r4')}
                 </span>
               </label>
             </li>
@@ -132,7 +133,7 @@ const ContactPageMain = () => {
                   name="list-radio"
                   className="w-4 h-4"
                 />
-                <span className="ml-2">I have a business-related inquiry.</span>
+                <span className="ml-2">{t('contact.r5')}</span>
               </label>
             </li>
             <li className="w-full">
@@ -148,7 +149,7 @@ const ContactPageMain = () => {
                   className="w-4 h-4"
                 />
                 <span className="ml-2">
-                  I am interested in Healing Online for my organization.
+                {t('contact.r6')}
                 </span>
               </label>
             </li>
@@ -164,12 +165,12 @@ const ContactPageMain = () => {
                   name="list-radio"
                   className="w-4 h-4"
                 />
-                <span className="ml-2">I have a billing related question.</span>
+                <span className="ml-2">{t('contact.r7')}</span>
               </label>
             </li>
           </ul>
           {error && radio.length <= 0 ? (
-            <p className="text-red-600">Please chose one of the above!!! </p>
+            <p className="text-red-600">{t('contact.error1')}</p>
           ) : (
             ''
           )}
@@ -188,12 +189,12 @@ const ContactPageMain = () => {
                   htmlFor="fullname"
                   className="inline-block lg:w-[70%] mt-2 mb-2"
                 >
-                  Full Name:
+                  {t('contact.name1')}
                   <input
                     onChange={(e) => setName(e.target.value)}
                     type="text"
                     id="fullname"
-                    placeholder="Enter your full name here..."
+                    placeholder={t('contact.name2')}
                     className="
                           w-full
                           px-3
@@ -210,7 +211,7 @@ const ContactPageMain = () => {
                 </label>
               </div>
               {error && name.length <= 0 ? (
-                <p className="text-red-600">Full Name can not be Empty!!! </p>
+                <p className="text-red-600">{t('contact.error2')} </p>
               ) : (
                 ''
               )}
@@ -224,7 +225,7 @@ const ContactPageMain = () => {
                     onChange={(e) => setEmail(e.target.value)}
                     type="text"
                     id="email"
-                    placeholder="Enter your email address here..."
+                    placeholder={t('contact.email')}
                     className="
                           w-full
                           px-3
@@ -241,7 +242,7 @@ const ContactPageMain = () => {
                 </label>
               </div>
               {error && email.length <= 0 ? (
-                <p className=" text-red-600"> The Email can not be Empty!!! </p>
+                <p className=" text-red-600"> {t('contact.error3')} </p>
               ) : (
                 ''
               )}
@@ -250,7 +251,7 @@ const ContactPageMain = () => {
                   htmlFor="message"
                   className="inline-block lg:w-[70%] mt-2 mb-2"
                 >
-                  Details:
+                  {t('contact.details')}
                   <textarea
                     onChange={(e) => setDetails(e.target.value)}
                     id="message"
@@ -267,12 +268,12 @@ const ContactPageMain = () => {
                         rounded-[10px]
                         drop-shadow-lg
                         shadow-[#AC97971F]"
-                    placeholder="Enter your details here..."
+                    placeholder={t('contact.details2')}
                   />
                 </label>
               </div>
               {error && details <= 0 ? (
-                <p className=" text-red-600">The Details can not be Empty!!!</p>
+                <p className=" text-red-600">{t('contact.error4')}</p>
               ) : (
                 ''
               )}
@@ -290,7 +291,7 @@ const ContactPageMain = () => {
                         bg-Buttons hover:bg-Background
                         cursor-pointer"
                   >
-                    SUBMIT
+                    {t('contact.submit')}
                   </button>
                 </Link>
               </div>
@@ -309,22 +310,22 @@ const ContactPageMain = () => {
                         border-[#0000001F]
                         drop-shadow-lg"
               >
-                <h3 className="font-medium text-lg mb-3">Find Us At:</h3>
+                <h3 className="font-medium text-lg mb-3">{t('contact.findus')}</h3>
                 <p className="text-[#0000008A] font-medium text-lg">
                   {' '}
-                  Hello World! Street{' '}
+                  {t('contact.a1')}{' '}
                 </p>
                 <p className="text-[#0000008A] font-medium text-lg">
                   {' '}
-                  Re:Minded Plaza{' '}
+                  {t('contact.a2')}{' '}
                 </p>
                 <p className="text-[#0000008A] font-medium text-lg">
                   {' '}
-                  Re:Coded 01012023{' '}
+                  {t('contact.a3')}{' '}
                 </p>
                 <p className="text-[#0000008A] font-medium text-lg">
                   {' '}
-                  Turkey/World{' '}
+                  {t('contact.a4')}{' '}
                 </p>
               </div>
             </div>

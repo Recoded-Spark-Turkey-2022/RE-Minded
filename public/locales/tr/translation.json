@@ -167,6 +167,36 @@
         "li5": "ABD'de ikamet ediyor olmak",
         "start": "ŞİMDİ BAŞLAYIN"
 
+    },
+
+    "contact": {
+        "h1": "BİZE TALEBİNİZİ GÖNDERİN!",
+        "t1": "Bir sorunuz, endişeniz, fikriniz, geri bildiriminiz veya sorununuz mu var? Yardıma ihtiyacınız varsa, lütfen aşağıdaki formu doldurun, size yardımcı olmaktan memnuniyet duyarız!",
+        "h2": "Talebinizin türü",
+        "r1": "Hizmet hakkında bir sorum var.",
+        "r2": "Kayıtlı bir müşteriyim ve desteğe ihtiyacım var.",
+        "r3": "Katılmak isteyen bir danışmanım.",
+        "r4": "Kayıtlı bir danışmanım ve desteğe ihtiyacım var.",
+        "r5": "İşle ilgili bir sorum var.",
+        "r6": "Kurumum için Çevrimiçi Healing ile ilgileniyorum.",
+        "r7": "Faturalandırma ile ilgili bir sorum var.",
+        "error1": "Lütfen yukarıdakilerden birini seçin!!!",
+        "error2": "İsim boş bırakılamaz!!!",
+        "error3": "Email adresi boş bırakılamaz!!!",
+        "error4": "Detaylar boş bırakılamaz!!!",
+        "name1": "İsim Soyisim:",
+        "name2": "İsim soyisim yazınız...",
+        "email": "Email adresinizi yazınız...",
+        "details": "Detaylar:",
+        "details2": "Detayları yazınız...",
+        "submit": "GÖNDER",
+        "findus": "Adres:",
+        "a1": "Hello World! Caddesi",
+        "a2": "Re:Minded Plaza",
+        "a3": "Re:Coded 2023",
+        "a4": "Türkiye/Dünya"
+
+
     }
 
 
