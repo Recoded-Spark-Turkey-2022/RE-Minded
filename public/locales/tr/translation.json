@@ -151,6 +151,22 @@
         "login": "Giriş Yap",
         "signup": "Kaydol",
         "or": "Veya"
+    },
+
+    "requirements": {
+        "h1": "NEDEN HEALING İLE ÇALIŞMALISINIZ?",
+        "h2": "GÜVENİLİR GELİR KAYNAĞI",
+        "t1": "Her Gün 10.000'den Fazla Kişi BetterHelp'e Kaydoluyor ve Hayatın Zorluklarına Yardımcı Olacak Bir Danışman Arıyor. BetterHelp, Ana Gelir Kaynağınız veya Mevcut İşinize Ek Olabilir.",
+        "h3": "TERAPİYE ODAKLANIN",
+        "t2": "Müşteri edinme, faturalandırma, destek veya operasyonlardan kaynaklanan maliyetler konusunda endişelenmenize gerek yok. Ücretleri ve evrak işlerini bize bırakın, böylece en iyi yaptığınız şeye odaklanabilirsiniz!",
+        "r1": "GEREKSİNİMLER",
+        "li1": "Devlet Kurulu tarafından lisanslı terapist olmak",
+        "li2": "Yetişkinler, çiftler ve/veya gençler için danışmanlık deneyimi",
+        "li3": "Mükemmel yazma becerileri",
+        "li4": "Sağlam bir internet bağlantısı",
+        "li5": "ABD'de ikamet ediyor olmak",
+        "start": "ŞİMDİ BAŞLAYIN"
+
     }
 
 

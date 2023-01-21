@@ -1,61 +1,56 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 import requirementPageImg from './Images/LaptopImage.svg';
 
 function Requirements() {
+
+  const { t } = useTranslation();
+
   return (
     <div className="flex lg:flex-row flex-col w-screen font-poppins mb-20">
       <div className="basis-3/5 lg:ml-28 ml-10 lg:pr-36 md:pr-20 pr-10">
         <div className="lg:text-5xl md:text-3xl text-2xl leading-6 lg:mt-20 mt-14">
-          <h1>WHY WORK WITH HEALING?</h1>
+          <h1>{t('requirements.h1')}</h1>
         </div>
         <div>
           <h3 className="lg:text-xl text-lg lg:mt-10 mt-8 font-semibold">
-            RELIABLE INCOME
+          {t('requirements.h2')}
           </h3>
           <div className="capitalize lg:text-lg text-base lg:mt-4 mt-2 text-gray-600">
-            Over 10,000 people sign up on BetterHelp every day looking for a
-            counselor to help with life&apos;s challenges. BetterHelp can be
-            your main source of income (&quot;full time&quot;) or a supplement
-            to your current work.
+          {t('requirements.t1')}
           </div>
         </div>
 
         <div>
           <h3 className="lg:text-xl text-lg lg:mt-10 mt-8 font-semibold">
-            FOCUS ON COUNSELING
+          {t('requirements.h3')}
           </h3>
           <div className="capitalize lg:text-lg text-base lg:mt-4 mt-2 text-gray-600">
-            No need to worry about costs from acquiring clients, billing,
-            support or operations. Let us handle the fees and paperwork so you
-            can focus on what you do best!
+          {t('requirements.t2')}
           </div>
         </div>
 
         <div>
           <h3 className="lg:text-xl text-lg lg:mt-10 mt-8 font-semibold">
-            FOCUS ON COUNSELING
+          {t('requirements.h3')}
           </h3>
           <div className="capitalize lg:text-lg text-base lg:mt-4 mt-2 text-gray-600">
-            No need to worry about costs from acquiring clients, billing,
-            support or operations. Let us handle the fees and paperwork so you
-            can focus on what you do best!
+          {t('requirements.t2')}
           </div>
         </div>
 
         <div>
           <h1 className="lg:text-3xl text-2xl lg:mt-20 mt-16 font-semibold">
-            REQUIREMENTS
+          {t('requirements.r1')}
           </h1>
           <div className="capitalize lg:text-lg text-base mt-4 text-gray-600 ml-6">
             <ul className="list-disc marker:text-black lg:eading-9 leading-6">
-              <li>Licensed by a State Board to provide counseling</li>
-              <li>
-                Experience in counseling for adults, couples, and/or teens
-              </li>
-              <li>Excellent writing skills</li>
-              <li>Reliable Internet connection</li>
-              <li>Currently residing in the US</li>
+              <li>{t('requirements.li1')}</li>
+              <li>{t('requirements.li2')}</li>
+              <li>{t('requirements.li3')}</li>
+              <li>{t('requirements.li4')}</li>
+              <li>{t('requirements.li5')}</li>
             </ul>
           </div>
         </div>
@@ -66,7 +61,7 @@ function Requirements() {
               type="button"
               className="lg:text-xl md:text-base text-sm lg:ml-0 ml-10 lg:mb-10 lg:px-6 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 cursor-pointer "
             >
-              GET STARTED
+              {t('requirements.start')}
             </button>
           </Link>
         </div>
