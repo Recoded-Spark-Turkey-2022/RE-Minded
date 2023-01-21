@@ -105,7 +105,7 @@
     "footer": {
         "h1": "Subscribe",
         "t1": "We will never spam to you or share your email",
-        "button": "Enter your e-mail",
+        "button": "   Enter your e-mail",
         "home": "Home",
         "blog": "Blogs",
         "about": "About",
@@ -121,6 +121,14 @@
     "thankyou": {
         "t1": "THANK YOU!",
         "backtohome": "BACK TO HOME"
-    }
+    },
 
+    "login": {
+        "h1": "LOGIN",
+        "email": "   Your Email",
+        "password": "   Your Password",
+        "login": "Login",
+        "signup": "Signup",
+        "or": "Or"
+    }
 }

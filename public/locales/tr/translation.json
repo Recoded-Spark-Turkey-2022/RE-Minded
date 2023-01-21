@@ -1,6 +1,6 @@
 {
     "navbar": {
-        "home": "Ana Sayfa",
+        "home": "AnaSayfa",
         "blog": "Blog",
         "about": "Hakkımızda",
         "contact_us": "Bize Ulaşın",
@@ -108,8 +108,8 @@
     "footer": {
         "h1": "Abone ol",
         "t1": "Size spam göndermeyeceğiz",
-        "button": "E-mail adresinizi girin",
-        "home": "Ana Sayfa",
+        "button": "   E-mail adresinizi girin",
+        "home": "AnaSayfa",
         "blog": "Bloglar",
         "about": "Hakkımızda",
         "contact": "İletişim"
@@ -124,6 +124,17 @@
     "thankyou": {
         "t1": "TEŞEKKÜRLER!",
         "backtohome": "ANA SAYFAYA DÖN"
+    },
+
+    "login": {
+        "h1": "GİRİŞ YAP",
+        "email": "   Mail Adresi",
+        "password": "   Şifre",
+        "login": "Giriş Yap",
+        "signup": "Kaydol",
+        "or": "Veya"
+
+
     }
 
 
