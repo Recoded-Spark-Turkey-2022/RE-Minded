@@ -134,7 +134,23 @@
         "signup": "Kaydol",
         "or": "Veya"
 
+    },
 
+    "signup": {
+        "h1": "ŞİMDİ KAYDOLUN",
+        "fname": "   İsim",
+        "lname": "   Soyisim",
+        "email": "   Email",
+        "confirm1": "   Email adresinizi doğrulayın",
+        "password":"   Şifre",
+        "confirm2": "   Şifrenizi doğrulayın",
+        "birth": "Doğum Tarihi",
+        "day": "GG",
+        "month": "AA",
+        "year": "YYYY",
+        "login": "Giriş Yap",
+        "signup": "Kaydol",
+        "or": "Veya"
     }
 
 

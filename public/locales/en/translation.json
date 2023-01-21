@@ -130,5 +130,22 @@
         "login": "Login",
         "signup": "Signup",
         "or": "Or"
+    },
+
+    "signup": {
+        "h1": "SIGNUP NOW",
+        "fname": "   First Name",
+        "lname": "   Last Name",
+        "email": "   Your Email",
+        "confirm1": "   Confirm email",
+        "password":"   Password",
+        "confirm2": "Confirm Password",
+        "birth": "Birth Date",
+        "day": "DD",
+        "month": "MM",
+        "year": "YYYY",
+        "login": "Login",
+        "signup": "Signup",
+        "or": "Or"
     }
 }

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { useFormik } from 'formik';
 import { createUserWithEmailAndPassword } from 'firebase/auth';
@@ -58,13 +59,14 @@ function SignUp() {
       validationSchema: basicSchema,
       onSubmit: handleFormSubmit,
     });
+    const { t } = useTranslation();
 
   return (
     <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20 mb-32">
       <img src={Image} alt="Sign up" />
       <div className="flex flex-col">
         <h2 className='text-5xl font-["Poppins"] font-normal mb-32 max-[767px]:mt-20 md:mt-20 max-[767px]:mb-10 md:mb-10'>
-          SIGNUP NOW
+          {t('signup.h1')}
         </h2>
         <form
           onSubmit={handleSubmit}
@@ -85,7 +87,7 @@ function SignUp() {
           <div className="flex gap-x-7">
             <input
               type="text"
-              placeholder="   First Name"
+              placeholder={t('signup.fname')}
               name="userFirstName"
               value={values.userFirstName}
               onChange={handleChange}
@@ -94,7 +96,7 @@ function SignUp() {
             />
             <input
               type="text"
-              placeholder="   Last Name"
+              placeholder={t('signup.lname')}
               name="userLastName"
               value={values.userLastName}
               onChange={handleChange}
@@ -104,7 +106,7 @@ function SignUp() {
           </div>
           <input
             type="email"
-            placeholder="   Your Email"
+            placeholder={t('signup.email')}
             name="userEmail"
             value={values.userEmail}
             onChange={handleChange}
@@ -113,7 +115,7 @@ function SignUp() {
           />
           <input
             type="email"
-            placeholder="   Confirm email"
+            placeholder={t('signup.confirm1')}
             name="userConfirmEmail"
             value={values.userConfirmEmail}
             onChange={handleChange}
@@ -123,7 +125,7 @@ function SignUp() {
           <div className="flex gap-x-7">
             <input
               type="password"
-              placeholder="   Password"
+              placeholder={t('signup.password')}
               name="userPassword"
               value={values.userPassword}
               onChange={handleChange}
@@ -132,7 +134,7 @@ function SignUp() {
             />
             <input
               type="password"
-              placeholder="   Confirm password"
+              placeholder={t('signup.confirm2')}
               name="userCondirmPassword"
               value={values.userCondirmPassword}
               onChange={handleChange}
@@ -141,10 +143,10 @@ function SignUp() {
             />
           </div>
           <div className="flex items-center justify-between">
-            <p className="mr-7 ml-7 font-light text-[#9DAFBD]">Birth Date</p>
+            <p className="mr-7 ml-7 font-light text-[#9DAFBD]">{t('signup.birth')}</p>
             <input
               type="number"
-              placeholder="  DD"
+              placeholder={t('signup.day')}
               name="dayOfBirth"
               value={values.dayOfBirth}
               onChange={handleChange}
@@ -153,7 +155,7 @@ function SignUp() {
             />
             <input
               type="number"
-              placeholder="  MM"
+              placeholder={t('signup.month')}
               name="monthOfBirth"
               value={values.monthOfBirth}
               onChange={handleChange}
@@ -162,7 +164,7 @@ function SignUp() {
             />
             <input
               type="number"
-              placeholder="  YYYY"
+              placeholder={t('signup.year')}
               name="yearOfYear"
               value={values.yearOfBirth}
               onChange={handleChange}
@@ -176,19 +178,19 @@ function SignUp() {
               className="bg-[#2DD3E3] font-medium text-2xl px-14 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
               onClick={() => navigate('/login')}
             >
-              Login
+              {t('signup.login')}
             </button>
             <button
               type="submit"
               className="broder-solid border-2 border-[#2DD3E3] font-medium text-2xl px-14 rounded-md"
             >
-              Signup
+              {t('signup.signup')}
             </button>
           </div>
         </form>
         <div className="flex justify-around my-6">
           <img src={lineImage} alt="A line" />
-          <p>Or</p>
+          <p>{t('signup.or')}</p>
           <img src={lineImage} alt="A line" />
         </div>
         <div className="flex justify-center my-6 gap-x-20">
