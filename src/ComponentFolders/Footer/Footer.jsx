@@ -30,9 +30,11 @@ function Footer() {
       )
       .then(
         (result) => {
+          // eslint-disable-next-line no-console
           console.log(result.text);
         },
         (error) => {
+          // eslint-disable-next-line no-console
           console.log(error.text);
         }
       );
@@ -49,6 +51,7 @@ function Footer() {
 
   function handleFormSubmit() {
     if (!formik.values.email) {
+      // eslint-disable-next-line no-alert
       alert('Please enter an email');
     } else if (formik.values.email) {
       if (
@@ -70,9 +73,11 @@ function Footer() {
             navigate('/thankyou', { state: thanksProps })
           );
         } else {
+          // eslint-disable-next-line no-alert
           alert('this email already exist');
         }
       } else {
+        // eslint-disable-next-line no-alert
         alert('please enter a valid email');
       }
     }

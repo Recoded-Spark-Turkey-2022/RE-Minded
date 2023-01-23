@@ -23,8 +23,10 @@ function SignUp() {
 
     emailjs.sendForm('service_lu1j8v5', 'template_ixxjvzh', form.current, 'da5Fk1wXTnepQQjPI')
       .then((result) => {
+        // eslint-disable-next-line no-console
           console.log(result.text);
       }, (error) => {
+        // eslint-disable-next-line no-console
           console.log(error.text);
       });
   };
@@ -40,6 +42,7 @@ function SignUp() {
 
   function handleFormSubmit() {
     if (!formik.values.email) {
+      // eslint-disable-next-line no-alert
       alert('Please enter an email');
     } else if (formik.values.email) {
       if (
@@ -61,9 +64,11 @@ function SignUp() {
             navigate('/thankyou', { state: thanksProps })
           );
         } else {
+          // eslint-disable-next-line no-alert
           alert('this email already exist');
         }
       } else {
+        // eslint-disable-next-line no-alert
         alert('please enter a valid email');
       }
     }
