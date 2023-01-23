@@ -1,11 +1,10 @@
-import React, { useRef } from 'react';
+import React, { useRef, useEffect, useState } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { Link, useNavigate } from 'react-router-dom';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, getDocs } from 'firebase/firestore';
 import emailjs from '@emailjs/browser';
 import { db } from '../../Firebase';
-
 
 import image1 from './Images/FacebookLogo.svg';
 import image2 from './Images/GoogleLogo.svg';
@@ -17,32 +16,26 @@ const thanksProps =
 
 function Footer() {
   const emailList = collection(db, 'newsletter');
-
-   const form  = useRef();
-  // const [mails, setMails] = useState([]);
-
+  const form = useRef();
   const navigate = useNavigate();
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const collectionRef = collection(db, 'newsletter');
-  //     const querySnapshot = await getDocs(collectionRef);
-  //     const dataInfo = querySnapshot.docs.map((docu) => ({
-  //       data: docu.data(),
-  //     }));
-  //     emails = dataInfo;
-  //   };
-  //   fetchData();
-  // }, []);
+  const [emailArray, setArray] = useState([]);
 
   const sendEmail = () => {
-
-    emailjs.sendForm('service_lu1j8v5', 'template_ixxjvzh', form.current, 'da5Fk1wXTnepQQjPI')
-      .then((result) => {
+    emailjs
+      .sendForm(
+        'service_lu1j8v5',
+        'template_ixxjvzh',
+        form.current,
+        'da5Fk1wXTnepQQjPI'
+      )
+      .then(
+        (result) => {
           console.log(result.text);
-      }, (error) => {
+        },
+        (error) => {
           console.log(error.text);
-      });
+        }
+      );
   };
 
   const formik = useFormik({
@@ -63,21 +56,40 @@ function Footer() {
           .trim()
           .match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)
       ) {
-        sendEmail();
-
-        addDoc(
-          emailList,
-          {
-            email: formik.values.email,
-          },
-          navigate('/thankyou', { state: thanksProps })
-
-        );
+        const newArr = [];
+        emailArray.map((data) => newArr.push(data.data.email));
+        const result = newArr.includes(formik.values.email);
+        // console.log(result)
+        if (result === false) {
+          sendEmail();
+          addDoc(
+            emailList,
+            {
+              email: formik.values.email,
+            },
+            navigate('/thankyou', { state: thanksProps })
+          );
+        } else {
+          alert('this email already exist');
+        }
       } else {
         alert('please enter a valid email');
       }
     }
   }
+
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(emailList);
+      const dataInfo = querySnapshot.docs.map((docu) => ({
+        id: docu.id,
+        data: docu.data(),
+      }));
+      setArray(dataInfo);
+    };
+    fetchData();
+  }, [emailArray]);
 
   return (
     <footer className="relative bg-Footer  bottom-0 w-full p-4 md:flex md:items-center md:justify-between md:p-6 ">
@@ -97,10 +109,10 @@ function Footer() {
 
         <div className="lg:ml-36 ml-6 md:flex md:ml-0 lg:ml-0">
           <div className="flex flex-row mb-4 w-[300px] h-[50px] box-border rounded-lg border-2 border-[#718096]">
-            <form ref={form} className="w-full" onSubmit={formik.handleSubmit} >
+            <form ref={form} className="w-full" onSubmit={formik.handleSubmit}>
               <div>
                 <input
-                name='email'
+                  name="email"
                   id="email"
                   onChange={formik.handleChange}
                   value={formik.values.email}

@@ -1,8 +1,8 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState, useEffect } from 'react';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
-import { addDoc, collection } from 'firebase/firestore';
+import { addDoc, collection, getDocs } from 'firebase/firestore';
 import emailjs from '@emailjs/browser';
 import { db } from '../../Firebase';
 import image4 from './Images/SubscribeArrow.svg';
@@ -12,6 +12,7 @@ const thanksProps =
 
 function SignUp() {
   const emailList = collection(db, 'newsletter');
+  const [emailArray, setArray] = useState([]);
 
    const form  = useRef();
 
@@ -46,21 +47,40 @@ function SignUp() {
           .trim()
           .match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)
       ) {
-        sendEmail();
-
-        addDoc(
-          emailList,
-          {
-            email: formik.values.email,
-          },
-          navigate('/thankyou', { state: thanksProps })
-
-        );
+        const newArr = [];
+        emailArray.map((data) => newArr.push(data.data.email));
+        const result = newArr.includes(formik.values.email);
+        // console.log(result)
+        if (result === false) {
+          sendEmail();
+          addDoc(
+            emailList,
+            {
+              email: formik.values.email,
+            },
+            navigate('/thankyou', { state: thanksProps })
+          );
+        } else {
+          alert('this email already exist');
+        }
       } else {
         alert('please enter a valid email');
       }
     }
   }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(emailList);
+      const dataInfo = querySnapshot.docs.map((docu) => ({
+        id: docu.id,
+        data: docu.data(),
+      }));
+      setArray(dataInfo);
+    };
+    fetchData();
+  }, [emailArray]);
+
   return (
     <div className="lg:pl-48 pl-10">
       <h2 className=" mt-10 uppercase lg:text-2xl text-lg">
