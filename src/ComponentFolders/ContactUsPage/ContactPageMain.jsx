@@ -287,7 +287,7 @@ const ContactPageMain = () => {
                         px-6 py-3
                         rounded-md box-border 
                         font-semibold 
-                        bg-Buttons hover:bg-Background
+                        bg-cyan-400 hover:bg-cyan-500
                         cursor-pointer"
                   >
                     SUBMIT
