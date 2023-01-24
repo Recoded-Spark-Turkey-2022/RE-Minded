@@ -3,6 +3,7 @@ import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
 import { yupResolver } from '@hookform/resolvers/yup';
 import { useForm } from 'react-hook-form';
+import { useTranslation } from 'react-i18next';
 
 const thanksProps =
   'Thank you for your interest in working with Healing, we have recieved your application.You will receive an email guiding you for the next steps soon after your information is reviewed .';
@@ -32,13 +33,16 @@ function TherapistCreatePage() {
     navigate('/thankyou', { replace: true, state: thanksProps });
     return false;
   }
+
+  const { t } = useTranslation();
+
   return (
     <div className=" font-poppins flex flex-col justify-center content-center lg:ml-56 lg:mr-64 ml-10 mr-10 sm:ml-16 sm:mr-16 md:ml-32 md:mr-32 lg:mt-10 mt-20">
-      <h1 className="lg:mt-16 mt-4 lg:text-5xl text-xl">CREATE AN ACCOUNT</h1>
+      <h1 className="lg:mt-16 mt-4 lg:text-5xl text-xl">{t('t-create.h1')}</h1>
       <form className="mb-0 mt-4 space-y-6" onSubmit={handleSubmit(onSubmit)}>
         <div className="form-group">
           <label>
-            <span className="lg:text-xl text-sm">User Name</span>
+            <span className="lg:text-xl text-sm">{t('t-create.f1')}</span>
             <input
               name="username"
               type="text"
@@ -55,7 +59,7 @@ function TherapistCreatePage() {
 
         <div className="form-group">
           <label htmlFor="email">
-            <span className="lg:text-xl text-sm">Email</span>
+            <span className="lg:text-xl text-sm">{t('t-create.f2')}</span>
             <input
               name="email"
               type="text"
@@ -72,7 +76,7 @@ function TherapistCreatePage() {
 
         <div className="form-group">
           <label>
-            <span className="lg:text-xl text-sm">City</span>
+            <span className="lg:text-xl text-sm">{t('t-create.f3')}</span>
             <input
               name="city"
               type="text"
@@ -90,7 +94,7 @@ function TherapistCreatePage() {
 
         <div className="form-group">
           <label>
-            <span className="lg:text-xl text-sm">License Number</span>
+            <span className="lg:text-xl text-sm">{t('t-create.f4')}</span>
             <input
               name="license"
               type="text"
@@ -107,7 +111,7 @@ function TherapistCreatePage() {
 
         <div className="form-group">
           <label>
-            <span className="lg:text-xl text-sm">Password</span>
+            <span className="lg:text-xl text-sm">{t('t-create.f5')}</span>
             <input
               name="password"
               type="password"
@@ -125,7 +129,7 @@ function TherapistCreatePage() {
 
         <div className="form-group">
           <label>
-            <span className="lg:text-xl text-sm">Confirm Password</span>
+            <span className="lg:text-xl text-sm">{t('t-create.f6')}</span>
             <input
               name="confirm"
               type="password"
@@ -146,7 +150,7 @@ function TherapistCreatePage() {
             type="submit"
             className="rounded-md box-border p-2 lg:pl-10 lg:pr-10 pl-4 pr-4 mb-12 font-bold lg:text-xl text-sm text-gray-800 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 "
           >
-            CREATE
+            {t('t-create.create')}
           </button>
         </div>
       </form>

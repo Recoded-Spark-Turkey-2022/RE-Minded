@@ -202,6 +202,17 @@
         "t1": "Lütfen bilet satın almak istediğiniz kartı seçiniz",
         "click": "Bilet Satın Almak İçin Seçilen Kartı Kullanmak İçin Onayla'yı tıklayın.",
         "confirm": "SATIN ALMAYI ONAYLA"
+    },
+    
+    "t-create": {
+        "h1": "HESAP OLUŞTURUN",
+        "f1": "Kullanıcı Adı",
+        "f2": "E-mail",
+        "f3": "Şehir",
+        "f4": "Sicil Numarası",
+        "f5": "Şifre",
+        "f6": "Şifrenizi Doğrulayın",
+        "create": "OLUŞTUR"
     }
 
 
