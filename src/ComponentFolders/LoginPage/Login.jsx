@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
-import { useSelector } from 'react-redux';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import Image from './Images/LoginSofa.svg';
 import lineImage from './Images/line.svg';
@@ -10,27 +9,29 @@ import { signInWithGoogle, signInWithFacebook, auth } from '../../Firebase';
 
 function Login() {
   const navigate = useNavigate();
-  const currentUser = useSelector((state) => state.currentUser);
+
   const [loginData, setLoginData] = useState({
     userEmail: '',
     userPassword: '',
   });
 
-  const login = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginData.userEmail,
-        loginData.userPassword
+  const login = (e) => {
+    e.preventDefault();
+
+    signInWithEmailAndPassword(
+      auth,
+      loginData.userEmail,
+      loginData.userPassword
+    )
+      .then((user) => {
+        if (user) {
+          navigate('/');
+        }
+      })
+      .catch(() =>
+        // eslint-disable-next-line no-alert
+        alert('Try another email and password')
       );
-      return user;
-    } catch (error) {
-      return error;
-    } finally {
-      if (currentUser) {
-        navigate('/');
-      }
-    }
   };
 
   function handleOnClick(e) {
@@ -58,7 +59,7 @@ function Login() {
             placeholder="   Your Email"
             name="userEmail"
             onChange={(e) => handleOnClick(e)}
-            className="h-20 broder-solid border-2 border-[#D1DBE3] rounded-md focus:outline-none focus:placeholder-white"
+            className="h-20 px-3 broder-solid border-2 border-[#D1DBE3] rounded-md focus:outline-none focus:placeholder-white"
             value={loginData.userEmail}
           />
           <input
@@ -66,7 +67,7 @@ function Login() {
             placeholder="   Your Password"
             name="userPassword"
             onChange={(e) => handleOnClick(e)}
-            className="h-20 broder-solid border-2 border-[#D1DBE3] rounded-md focus:outline-none focus:placeholder-white"
+            className="h-20 px-3 broder-solid border-2 border-[#D1DBE3] rounded-md focus:outline-none focus:placeholder-white"
             value={loginData.userPassword}
           />
           <div className="flex justify-around py-3 gap-8">
@@ -91,7 +92,10 @@ function Login() {
           <img src={lineImage} alt="A line" />
         </div>
         <div className="flex justify-center my-6 gap-x-20">
-          <button type="button" onClick={signInWithFacebook}>
+          <button
+            type="button"
+            onClick={() => signInWithFacebook(() => navigate('/'))}
+          >
             <img
               src={FacebookLogo}
               alt="Facebook logo"
@@ -99,7 +103,10 @@ function Login() {
             />
           </button>
 
-          <button type="button" onClick={signInWithGoogle}>
+          <button
+            type="button"
+            onClick={() => signInWithGoogle(() => navigate('/'))}
+          >
             <img
               src={GoogleLogo}
               alt="Google logo"

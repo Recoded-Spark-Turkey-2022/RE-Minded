@@ -6,14 +6,16 @@ import {
   GoogleAuthProvider,
   getAuth,
   signInWithPopup,
+  sendSignInLinkToEmail,
 } from 'firebase/auth';
+import { getStorage } from 'firebase/storage';
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCRRQfyq926m7lyzLmizQTEAESABecwd7U",
+  apiKey: 'AIzaSyCRRQfyq926m7lyzLmizQTEAESABecwd7U',
   authDomain: 're-minded.firebaseapp.com',
   projectId: 're-minded',
   storageBucket: 're-minded.appspot.com',
@@ -28,27 +30,43 @@ export const fireStore = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
 export const facebookProvider = new FacebookAuthProvider();
 export const db = getFirestore(app);
+export const storage = getStorage(app);
+export const signInWithPopups = signInWithPopup();
 
 
+export const signInWithGoogle = async (cb) => {
 
-export const signInWithGoogle = async () => {
+
   try {
     const result = await signInWithPopup(auth, googleProvider);
     const { user } = result; // Destructure the user from the result
     localStorage.setItem('userName', user.displayName);
     localStorage.setItem('userEmail', user.email);
+    cb();
     return user;
   } catch (error) {
     return error;
   }
 };
 
-export const signInWithFacebook = async () => {
+export const signInWithFacebook = async (cb) => {
   try {
     const result = await signInWithPopup(auth, facebookProvider);
     const { user } = result; // Destructure the user from the result
     localStorage.setItem('userName', user.displayName);
     localStorage.setItem('userEmail', user.email);
+    cb();
+    return user;
+  } catch (error) {
+    return error;
+  }
+};
+
+export const signUpWithEmail = async (email) => {
+  try {
+    const result = sendSignInLinkToEmail(auth, email);
+    const { user } = result;
+    localStorage.setItem('emailForSignIn', user.email);
     return user;
   } catch (error) {
     return error;

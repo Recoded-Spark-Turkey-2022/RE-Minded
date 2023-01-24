@@ -1,15 +1,16 @@
 import React, { useEffect } from 'react';
 import { useDispatch } from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { onAuthStateChanged } from 'firebase/auth';
+import { onAuthStateChanged, signOut, getAuth } from 'firebase/auth';
 import { setCurrentUser } from './features/userInfo/currentUserSlice';
 import { auth } from './Firebase';
+import { setSignoutButton } from './features/signoutButton/signoutButtonSlice';
 import './App.css';
 import About from './ComponentFolders/AboutPage/About';
 import HomePageMain from './ComponentFolders/HomePage/HomePageMain';
 import Login from './ComponentFolders/LoginPage/Login';
 import SignUp from './ComponentFolders/SignUpPage/SignUp';
-import AddCardPage from './ComponentFolders/AddCardPage/AddCardPage';
+/* import AddCardPage from './ComponentFolders/AddCardPage/AddCardPage'; */
 import BlogPage from './ComponentFolders/BlogPage/BlogPageMain';
 import BookingPage1 from './ComponentFolders/BookingPage/BookingPage1';
 import BookingPage2 from './ComponentFolders/BookingPage/BookingPage2';
@@ -30,13 +31,29 @@ import TeamPage from './ComponentFolders/TeamPage/TeamPageMain';
 import ThankYouPage from './ComponentFolders/ThankYouPage/ThankYou';
 import TherapistCreatePage from './ComponentFolders/TherapistCreatePage/TherapistCreatePage';
 import TicketPurchasePage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage';
+import SignUpEmail from './ComponentFolders/SignUpPage/SignUpEmail';
+
 
 function App() {
   const dispatch = useDispatch();
 
+  const handleSignout = () => {
+    const signOutAuth = getAuth();
+    signOut(signOutAuth)
+      .then(() => {
+        // Sign-out successful, then reload the page
+        window.location.reload(false);
+      })
+      .catch((error) => {
+        // An error happened.
+        return error;
+      });
+  };
+
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
+        dispatch(setSignoutButton());
         const { uid, email } = currentUser;
         dispatch(
           setCurrentUser({
@@ -55,22 +72,26 @@ function App() {
         <Route exact path="/" element={<HomePageMain />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
+
+        <Route path="signupemail" element={<SignUpEmail />} />
         <Route path="about" element={<About />} />
-        <Route path="addcard" element={<AddCardPage />} />
+        {/* <Route path="addcard" element={<AddCardPage />} /> */}
         <Route path="blog" element={<BlogPage />} />
         <Route path="booking1" element={<BookingPage1 />} />
-
-        <Route path="/booking2" element={<BookingPage2 />} />
-        <Route path="/booking3" element={<BookingPage3 />} />
-        <Route path="/booking4" element={<BookingPage4 />} />
-        <Route path="/booking5" element={<BookingPage5 />} />
-        <Route path="/booking6" element={<BookingPage6 />} />
-        <Route path="/booking7" element={<BookingPage7 />} />
-        <Route path="/booking8" element={<BookingPage8 />} />
-
+        <Route path="booking2" element={<BookingPage2 />} />
+        <Route path="booking3" element={<BookingPage3 />} />
+        <Route path="booking4" element={<BookingPage4 />} />
+        <Route path="booking5" element={<BookingPage5 />} />
+        <Route path="booking6" element={<BookingPage6 />} />
+        <Route path="booking7" element={<BookingPage7 />} />
+        <Route path="booking8" element={<BookingPage8 />} />
         <Route path="careers" element={<CareersPage />} />
         <Route path="contactus" element={<ContactUsPage />} />
-        <Route path="editprofile" element={<EditProfilePage />} />
+        <Route
+          path="editprofile"
+          element={<EditProfilePage handleSignout={handleSignout} />}
+        />
+
         <Route path="requirements" element={<RequirementsPage />} />
         <Route path="savedcards" element={<SavedCardsPage />} />
         <Route path="team" element={<TeamPage />} />
