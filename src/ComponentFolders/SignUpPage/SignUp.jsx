@@ -33,8 +33,7 @@ function SignUp() {
         return user
       } catch (error) {
         if (error.message === "Firebase: Error (auth/email-already-in-use).") {
-          // eslint-disable-next-line no-alert
-          alert('The same email is used, try another one');
+          alert("The same email is used, try another one")
         }
         return error;
       }
@@ -168,9 +167,7 @@ function SignUp() {
               value={values.yearOfBirth}
               onChange={handleChange}
               onBlur={handleBlur}
-
-              className="px-3 h-14  broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300 focus:outline-none focus:placeholder-white"
-
+              className="px-3 h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
           </div>
           <div className="flex justify-around py-3 gap-8">
