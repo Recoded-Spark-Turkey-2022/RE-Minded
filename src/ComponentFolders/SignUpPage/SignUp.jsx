@@ -24,8 +24,6 @@ function SignUp() {
           e.userEmail,
           e.userPassword
         );
-        await user.sendEmailVerification();
-        console.log('Verification email sent');
         await setDoc(doc(db, 'Users', user.uid), {
           firstName: e.userFirstName,
           lastName: e.userLastName,
@@ -199,6 +197,13 @@ function SignUp() {
               Signup
             </button>
           </div>
+          <button
+            type="button"
+            className="bg-[#2DD3E3] font-medium text-2xl px-14 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
+            onClick={() => navigate('/signupemail')}
+          >
+            Sign Up with E-mail
+          </button>
         </form>
         <div className="flex justify-around my-6">
           <img src={lineImage} alt="A line" />
@@ -206,14 +211,20 @@ function SignUp() {
           <img src={lineImage} alt="A line" />
         </div>
         <div className="flex justify-center my-6 gap-x-20 ">
-          <button type="button" onClick={signInWithFacebook}>
+          <button
+            type="button"
+            onClick={() => signInWithFacebook(() => navigate('/'))}
+          >
             <img
               src={FacebookLogo}
               alt="Facebook logo"
               className="cursor-pointer"
             />
           </button>
-          <button type="button" onClick={signInWithGoogle}>
+          <button
+            type="button"
+            onClick={() => signInWithGoogle(() => navigate('/'))}
+          >
             <img
               src={GoogleLogo}
               alt="Google logo"

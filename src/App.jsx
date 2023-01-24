@@ -31,6 +31,7 @@ import TeamPage from './ComponentFolders/TeamPage/TeamPageMain';
 import ThankYouPage from './ComponentFolders/ThankYouPage/ThankYou';
 import TherapistCreatePage from './ComponentFolders/TherapistCreatePage/TherapistCreatePage';
 import TicketPurchasePage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage';
+import SignUpEmail from './ComponentFolders/SignUpPage/SignUpEmail';
 
 
 function App() {
@@ -73,6 +74,7 @@ function App() {
           <Route exact path="/" element={<HomePageMain />} />
           <Route path="login" element={<Login />} />
           <Route path="signup" element={<SignUp />} />
+          <Route path="signupemail" element={<SignUpEmail/>}/>
           <Route path="about" element={<About />} />
           {/* <Route path="addcard" element={<AddCardPage />} /> */}
           <Route path="blog" element={<BlogPage />} />

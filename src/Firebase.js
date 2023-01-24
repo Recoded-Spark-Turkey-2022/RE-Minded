@@ -6,6 +6,7 @@ import {
   GoogleAuthProvider,
   getAuth,
   signInWithPopup,
+  sendSignInLinkToEmail,
 } from 'firebase/auth';
 import { getStorage } from "firebase/storage";
 
@@ -36,26 +37,41 @@ export const signInWithPopups =  signInWithPopup();
 
 
 
-export const signInWithGoogle = async () => {
+
+export const signInWithGoogle = async (cb) => {
   try {
     const result = await signInWithPopup(auth, googleProvider);
     const { user } = result; // Destructure the user from the result
     localStorage.setItem('userName', user.displayName);
     localStorage.setItem('userEmail', user.email);
+    cb();
     return user;
   } catch (error) {
     return error;
   }
 };
 
-export const signInWithFacebook = async () => {
+export const signInWithFacebook = async (cb) => {
   try {
     const result = await signInWithPopup(auth, facebookProvider);
     const { user } = result; // Destructure the user from the result
     localStorage.setItem('userName', user.displayName);
     localStorage.setItem('userEmail', user.email);
+    cb();
     return user;
   } catch (error) {
     return error;
   }
 };
+
+
+export const signUpWithEmail = async (email) => {
+  try {
+  const result= sendSignInLinkToEmail(auth, email);
+  const { user } = result;
+      localStorage.setItem('emailForSignIn', user.email);
+      return user;
+  } catch(error)  {
+     return error;
+    };
+}

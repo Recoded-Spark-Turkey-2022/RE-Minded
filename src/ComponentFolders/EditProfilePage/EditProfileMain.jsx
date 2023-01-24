@@ -2,14 +2,13 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import {
-  getAuth,
   updateEmail,
   updatePassword,
   deleteUser,
 } from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import {  collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../../Firebase';
+import { db, storage, auth } from '../../Firebase';
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
@@ -22,7 +21,7 @@ function EditProfileMain({ handleSignout }) {
   const [url, setUrl] = useState(null);
 
   const [uploadID, setUploadID] = useState(null);
-
+  const userCollectionRef = collection(db, 'profile');
   const [profileData, setProfileData] = useState({
     fullname: '',
     educationLevel: '',
@@ -55,8 +54,9 @@ function EditProfileMain({ handleSignout }) {
     /* e.preventDefault(); */
 
     if (!currentUser) {
+      // eslint-disable-next-line no-alert
       alert('Please sign in first');
-    }
+    }}
 
     const imageRef = ref(
       storage,
@@ -68,7 +68,6 @@ function EditProfileMain({ handleSignout }) {
     });
 
     // Update user's email
-    const auth = getAuth();
     updateEmail(auth.currentUser, profileData.email)
       .then(() => {
         // Email updated!
@@ -89,9 +88,9 @@ function EditProfileMain({ handleSignout }) {
         return error;
       });
 
-    const addDoc = async () => {
-      try {
-        await setDoc(doc(db, 'Users', currentUser.userId), {
+    const addDocs = async () => {
+     await
+       addDoc(userCollectionRef, currentUser.userId, {
           fullname: profileData.fullname,
           educationLevel: profileData.educationLevel,
           hobby: profileData.hobby,
@@ -105,18 +104,11 @@ function EditProfileMain({ handleSignout }) {
           password: profileData.password,
           passwordConfirm: profileData.passwordConfirm,
         });
-        return true 
-      } catch (error) {
-        return error
-      }
+        navigate('/')
     };
-    addDoc();
-  };
+
 
   const handleDeleteUser = () => {
-    const auth = getAuth();
-    const user = auth.currentUser;
-
     deleteUser(user)
       .then(() => {
         // User deleted.
@@ -132,7 +124,7 @@ function EditProfileMain({ handleSignout }) {
   useEffect(() => {
 
     if (currentUser) {
-      const imageRef = ref(
+       ref(
         storage,
         `userImages/${currentUser.userId}/${currentUser.userId}`
       );
@@ -371,6 +363,7 @@ function EditProfileMain({ handleSignout }) {
             <button
               disabled={!currentUser}
               type="submit"
+              onClick={addDocs}
               className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
             >
               SAVE CHANGES
@@ -400,7 +393,7 @@ function EditProfileMain({ handleSignout }) {
               SIGN OUT
             </button>
           </div>
-          <div className="flex flex-col mt-4 lg:ml-20 ml-[-10em] mt-16">
+          <div className="flex flex-col mt-4 lg:ml-20 ml-[-10em] ">
             <div className="lg:text-5xl text-2xl">
               Payment Methods & Tickets
             </div>
