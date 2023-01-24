@@ -219,8 +219,49 @@
         "h1": "KAYITLI KARTLARINIZ",
         "t1": "Şu anda ödeme yöntemi olarak yalnızca kartları destekliyoruz!",
         "addnew": "YENİ KART EKLE + "
-    }
+    },
 
+    "editprofile": {
+        "top": "Profilinizi tamamlamak için lütfen tüm alanları doğru ve geçerli bilgilerle doldurun.",
+        "h1": "PROFİL BİLGİSİ",
+        "name": "İsim Soyisim",
+        "edu": "Eğitim Düzeyi",
+        "hobi": "Hobiler",
+        "fam": "Aile Üyeleri",
+        "gen": "Cinsiyet", 
+        "birth": "Doğum Tarihi",
+        "mail": "E-mail",
+        "phone": "Telefon Numarası",
+        "id": "Kimlik Yükle",
+        "eduopt": "-- Eğitim Seçiniz --",
+        "opt1": "Örgün eğitim yok",
+        "opt2": "İlk Okul",
+        "opt3": "Lise",
+        "opt4": "GED",
+        "opt5": "Mesleki Yeterlilik",
+        "opt6": "Lisans Mezunu",
+        "opt7": "Yüksek Lisans Mezunu",
+        "opt8": "Doktora veya üstü",
+        "member": "Kişi(ler)",
+        "genopt": "-- Cinsiyet Seçiniz --",
+        "female": "Kadın",
+        "male": "Erkek",
+        "day": "GG",
+        "month": "AA",
+        "year": "YYYY",
+        "h2": "Güvenlik",
+        "password":"Şifre",
+        "confirm": "Şifrenizi Doğrulayın",
+        "button1": "DEĞİŞİKLİKLERİ KAYDET",
+        "button2": "HESABI SİL",
+        "button3": "İPTAL ET",
+        "payment": "Ödeme Yöntemleri ve Biletler",
+        "3": "3 Kart Eklendi",
+        "show": "KARTLARI GÖSTER",
+        "10": "10 Bilet Kaldı",
+        "buy": "BİLET AL"
+
+    }
 
 
 
