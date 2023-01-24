@@ -1,13 +1,14 @@
-
 import { useState } from 'react';
-import {Link} from 'react-router-dom';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import Logo from './Images/Logo.svg';
 import About from './About';
-
+import ProfilePhoto from './Images/ProfilePhoto.svg';
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
-  
+  const signoutButton = useSelector((state) => state.signoutButton);
+
   return (
     <nav className="w-full sticky top-0 z-50 bg-cyan-50 shadow font-poppins">
       <div className="justify-between px-4 mx-auto  md:items-center md:flex md:px-8">
@@ -16,11 +17,10 @@ export default function NavBar() {
             <Link to="/">
               <div className="flex flex-row ">
                 <img src={Logo} alt="Logo" />
-                <a href="Logo">
-                  <h2 className="text-3xl text-bold m-4 ml-3 font-medium">
-                    Healing
-                  </h2>
-                </a>
+
+                <h2 className="text-3xl text-bold m-4 ml-3 font-medium">
+                  Healing
+                </h2>
               </div>
             </Link>
             <div className="md:hidden">
@@ -68,33 +68,45 @@ export default function NavBar() {
           >
             <div className="mt-3 space-y-2 lg:hidden md:hidden ">
               <div className="flex flex-col  items-center  text-xl ">
-                <Link to="/">
-                  <a className=" hover:text-indigo-200 pb-1 " href="Home">
-                    Home
-                  </a>
+                <Link
+                  to="/"
+                  className=" hover:text-indigo-200 pb-1 "
+                  href="Home"
+                >
+                  Home
                 </Link>
-                <Link to="blog">
-                  <a className=" hover:text-indigo-200 p-2" href="Blog">
-                    Blog
-                  </a>
+                <Link
+                  to="blog"
+                  className=" hover:text-indigo-200 p-2"
+                  href="Blog"
+                >
+                  Blog
                 </Link>
-                <Link to="About">
-                  <a className=" hover:text-indigo-200 p-2" href="Home">
-                    About
-                  </a>
+                <li className=" hover:text-indigo-200 cursor-pointer">
+                  <About />
+                </li>
+                <Link
+                  to="contactus"
+                  className=" hover:text-indigo-200 p-2"
+                  href="Blog"
+                >
+                  Contact Us
                 </Link>
-                <Link to="contactus">
-                  <a className=" hover:text-indigo-200 p-2" href="Blog">
-                    Contact Us
-                  </a>
-                </Link>
-                <Link to="login">
-                  <a
-                    href="Log In"
-                    className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
-                  >
-                    Log In
-                  </a>
+                <Link to={signoutButton ? 'editprofile' : 'login'}>
+                  {!signoutButton ? (
+                    <button
+                      type="button"
+                      className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
+                    >
+                      Log In
+                    </button>
+                  ) : (
+                    <img
+                      className="w-11 h-11"
+                      src={ProfilePhoto}
+                      alt="Abstract profile pic"
+                    />
+                  )}
                 </Link>
               </div>
             </div>
@@ -112,23 +124,45 @@ export default function NavBar() {
                 <a href="Blog">Blog</a>
               </li>
             </Link>
-             
-              <li className=" hover:text-indigo-200 cursor-pointer">
-               <About />
-             </li>
-              
+
+            <li className=" hover:text-indigo-200 cursor-pointer">
+              <select className=" p-2.5 bg-cyan-50 cursor-pointer">
+                <option>
+                  <Link to="about">About</Link>
+                </option>
+                <option>
+                  <Link to="team" href="Team">
+                    Team
+                  </Link>
+                </option>
+                <option>
+                  <Link to="careers" href="Carees">
+                    Carees
+                  </Link>
+                </option>
+              </select>
+            </li>
+
             <Link to="contactus">
               <li className=" hover:text-indigo-200">
                 <a href="Contact">Contact US</a>
               </li>
             </Link>
-            <Link to="login">
-              <a
-                href="Log In"
-                className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
-              >
-                Log in
-              </a>
+            <Link to={signoutButton ? 'editprofile' : 'login'}>
+              {!signoutButton ? (
+                <button
+                  type="button"
+                  className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
+                >
+                  Log in
+                </button>
+              ) : (
+                <img
+                  className="w-11 h-11"
+                  src={ProfilePhoto}
+                  alt="Abstract profile pic"
+                />
+              )}
             </Link>
           </ul>
         </div>
