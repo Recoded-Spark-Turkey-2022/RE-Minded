@@ -1,24 +1,103 @@
 import { React, useState, useMemo } from 'react';
+import { useNavigate } from 'react-router';
 import Select from 'react-select';
 import countryList from 'react-select-country-list';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { addDoc, collection} from 'firebase/firestore';
+import { db } from '../../Firebase';
 import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
 
-function AddCard() {
-  const [cardNumber, setCardNumber] = useState('');
-  const [expiryDate, setExpiryDate] = useState('');
-  const [cvv, setCvv] = useState('');
-  const [nameOnCard, setNameOnCard] = useState('');
-  const [zipCode, setZipCode] = useState('');
-  const [city, setCity] = useState('');
-  const [address, setAddress] = useState('');
+const thanksProps =
+  'Your new payment method is under review, you will receive an email soon when your card is confirmed.Otherwise you will get a notification telling you what went wrong and how to add a new card.';
 
+function AddCard() {
+  const navigate = useNavigate();
   const [value, setValue] = useState('');
   const options = useMemo(() => countryList().getData(), []);
+  const userCollectionRef = collection(db, 'credit-cards');
+  const [selected, setSelected] = useState('');
 
-  const changeHandler = () => {
-    setValue(value);
+  function handleButtonClick(e) {
+    if (selected === e.target.value) {
+      setSelected('');
+    } else {
+      setSelected(e.target.value);
+    }
+  }
+
+  const formik = useFormik({
+    initialValues: {
+      cardNumber: '',
+      expirationDate: '',
+      cvv: '',
+      nameOnCard: '',
+      zipCode: '',
+      city: '',
+      address: '',
+      type: 'Visa',
+    },
+    validationSchema: Yup.object({
+      nameOnCard: Yup.string()
+        .matches(/^[a-zA-Z ]+$/, 'Name on card should only contain alphabets')
+        .required('Please do not leave this field empty!'),
+      cardNumber: Yup.string()
+        .matches(/^[0-9]{16}$/, 'Invalid Card Number')
+        .required('Please do not leave this field empty!'),
+      expirationDate: Yup.string()
+        .matches(/^\d{2}\/\d{2}$/, 'Invalid Expiration Date')
+        .required('Please do not leave this field empty!'),
+      cvv: Yup.string()
+        .required('Please do not leave this field empty!')
+        .min(3, 'Invalid CVV'),
+      city: Yup.string()
+        .matches(/^[a-zA-Z ]+$/, 'Invalid City name')
+        .required('Please do not leave this field empty!'),
+      address: Yup.string().required('Please do not leave this field empty!'),
+      zipCode: Yup.string()
+        .matches(/^[0-9]{5}$/, 'Invalid ZipCode')
+        .required('Please do not leave this field empty!'),
+    }),
+  });
+
+  const changeHandler = (country) => {
+    setValue(country);
   };
+
+  const handleFormSubmit = async () => {
+    if (
+      !formik.values.cardNumber ||
+      !formik.values.expirationDate ||
+      !formik.values.cvv ||
+      !formik.values.nameOnCard ||
+      !formik.values.city ||
+      !formik.values.zipCode ||
+      !formik.values.address ||
+      !formik.values.type ||
+      !value
+    ) {
+      // eslint-disable-next-line no-alert
+      alert('Please fill in all fields before submitting!');
+    } else {
+      addDoc(
+        userCollectionRef,
+        {
+          cardNumber: formik.values.cardNumber,
+          expirationDate: formik.values.expirationDate,
+          cvv: formik.values.cvv,
+          nameOnCard: formik.values.nameOnCard,
+          city: formik.values.cvv,
+          zipCode: formik.values.zipCode,
+          address: formik.values.address,
+          type: formik.values.type,
+          contry: value.label,
+        },
+        navigate('/thankyou', { replace: true, state: thanksProps })
+      );
+    }
+    }
+
 
   return (
     <div className="p-20 font-poppins">
@@ -31,7 +110,10 @@ function AddCard() {
       </h2>
       <div className="flex flex-col lg:flex-row lg:space-x-96">
         <div className="text-md md:text-lg lg:text-xl items-center flex  flex-col md:flex-col lg:flex-row lg:space-x-52  ">
-          <form className="w-full  opacity-50 pt-4 ">
+          <form
+            className="w-full  opacity-50 pt-4 "
+            onSubmit={formik.handleSubmit}
+          >
             <label
               htmlFor="card type"
               className="block font-medium text-gray-700 mb-2"
@@ -39,12 +121,26 @@ function AddCard() {
               Supported Card types
             </label>
             <div className="flex  pb-6 text-Buttons">
-              <div className="text-cyan-200 h-12 px-1 py-2  border-2 border-r-0 w-full  text-center rounded-lg rounded-r-none">
+              <button
+                type="button"
+                value="button1"
+                onClick={handleButtonClick}
+                className={`text-cyan-500 h-12 px-1 py-2  border-2  w-full  text-center rounded-lg  ${
+                  selected === 'button1' ? 'bg-slate-200 border-zinc-600' : ' '
+                }`}
+              >
                 Visa
-              </div>
-              <div className=" h-12 px-1 py-2  border-2 w-full  text-center rounded-lg rounded-l-none">
+              </button>
+              <button
+                type="button"
+                value="button2"
+                onClick={handleButtonClick}
+                className={`text-cyan-500 h-12 px-1 py-2  border-2  w-full  text-center rounded-lg  ${
+                  selected === 'button2' ? 'bg-slate-200 border-zinc-600' : ' '
+                }`}
+              >
                 MasterCard
-              </div>
+              </button>
             </div>
 
             <label
@@ -56,9 +152,18 @@ function AddCard() {
             <input
               className="w-full border border-gray-400 p-2 rounded-lg"
               type="text"
-              value={cardNumber}
-              onChange={(e) => setCardNumber(e.target.value)}
+              id="cardNumber"
+              name="cardNumber"
+              placeholder="XXXX XXXX XXXX XXXX"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.cardNumber}
             />
+            {formik.touched.cardNumber && formik.errors.cardNumber ? (
+              <div className="text-sm text-red-500">
+                {formik.errors.cardNumber}
+              </div>
+            ) : null}
             <div className="flex  space-x-7">
               <div>
                 <label
@@ -71,9 +176,18 @@ function AddCard() {
                   className="w-full border border-gray-400 p-2 rounded-lg"
                   type="text"
                   placeholder="MM/YY"
-                  value={expiryDate}
-                  onChange={(e) => setExpiryDate(e.target.value)}
+                  id="expirationDate"
+                  name="expirationDate"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.expirationDate}
                 />
+                {formik.touched.expirationDate &&
+                formik.errors.expirationDate ? (
+                  <div className="text-sm text-red-500">
+                    {formik.errors.expirationDate}
+                  </div>
+                ) : null}
               </div>
               <div>
                 <label
@@ -85,10 +199,18 @@ function AddCard() {
                 <input
                   className="w-full border border-gray-400 p-2 rounded-lg"
                   type="text"
-                  value={cvv}
                   placeholder="***"
-                  onChange={(e) => setCvv(e.target.value)}
+                  id="cvv"
+                  name="cvv"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.cvv}
                 />
+                {formik.touched.cvv && formik.errors.cvv ? (
+                  <div className="text-sm text-red-500">
+                    {formik.errors.cvv}
+                  </div>
+                ) : null}
               </div>
             </div>
             <label
@@ -100,9 +222,17 @@ function AddCard() {
             <input
               className="w-full border border-gray-400 p-2 rounded-lg"
               type="text"
-              value={nameOnCard}
-              onChange={(e) => setNameOnCard(e.target.value)}
+              id="nameOnCard"
+              name="nameOnCard"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.nameOnCard}
             />
+            {formik.touched.nameOnCard && formik.errors.nameOnCard ? (
+              <div className="text-sm text-red-500">
+                {formik.errors.nameOnCard}
+              </div>
+            ) : null}
           </form>
           <form className="w-full   opacity-50">
             <label
@@ -126,9 +256,17 @@ function AddCard() {
             <input
               className="w-full border border-gray-400 p-2 rounded-lg"
               type="text"
-              value={zipCode}
-              onChange={(e) => setZipCode(e.target.value)}
+              id="zipCode"
+              name="zipCode"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.zipCode}
             />
+            {formik.touched.zipCode && formik.errors.zipCode ? (
+              <div className="text-sm text-red-500">
+                {formik.errors.zipCode}
+              </div>
+            ) : null}
             <label
               htmlFor="city"
               className="block font-medium text-gray-700 mb-2 mt-4"
@@ -138,9 +276,15 @@ function AddCard() {
             <input
               className="w-full border border-gray-400 p-2 rounded-lg"
               type="text"
-              value={city}
-              onChange={(e) => setCity(e.target.value)}
+              id="city"
+              name="city"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.city}
             />
+            {formik.touched.city && formik.errors.city ? (
+              <div className="text-sm text-red-500">{formik.errors.city}</div>
+            ) : null}
             <label
               htmlFor="address"
               className="block font-medium text-gray-700 mb-2 mt-4"
@@ -150,9 +294,17 @@ function AddCard() {
             <input
               className="w-full border border-gray-400 p-2 rounded-lg"
               type="text"
-              value={address}
-              onChange={(e) => setAddress(e.target.value)}
+              id="address"
+              name="address"
+              onChange={formik.handleChange}
+              onBlur={formik.handleBlur}
+              value={formik.values.address}
             />
+            {formik.touched.address && formik.errors.address ? (
+              <div className="text-sm text-red-500">
+                {formik.errors.address}
+              </div>
+            ) : null}
           </form>
 
           <div className="pt-12 w-full flex flex-col justify-center">
@@ -164,7 +316,8 @@ function AddCard() {
       <div className="pt-12 lg:pt-0 text-md md:text-lg lg:text-xl flex justify-center lg:justify-start ">
         <button
           type="button"
-          className="rounded-md box-border p-2 transition-all duration-250 bg-Buttons"
+          onClick={handleFormSubmit}
+          className="rounded-md box-border p-2 pl-4 pr-4 transition-all duration-250 bg-Buttons"
         >
           ADD CARD
         </button>

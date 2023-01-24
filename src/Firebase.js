@@ -22,12 +22,14 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const fireStore = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
 export const facebookProvider = new FacebookAuthProvider();
 export const db = getFirestore(app);
+
+
 
 export const signInWithGoogle = async () => {
   try {
@@ -52,3 +54,5 @@ export const signInWithFacebook = async () => {
     return error;
   }
 };
+
+
