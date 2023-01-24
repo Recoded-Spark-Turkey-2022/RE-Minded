@@ -112,7 +112,7 @@ function Footer() {
           </p>
         </div>
 
-        <div className="lg:ml-36 ml-6 md:flex md:ml-0 lg:ml-0">
+        <div className="lg:ml-36 ml-6 md:flex md:ml-0 ">
           <div className="flex flex-row mb-4 w-[300px] h-[50px] box-border rounded-lg border-2 border-[#718096]">
             <form ref={form} className="w-full" onSubmit={formik.handleSubmit}>
               <div>
