@@ -1,46 +1,68 @@
-import React from 'react';
-import {Link} from "react-router-dom"
-import yellowCard from './Images/YellowCard.svg';
-import pinkCard from './Images/PinkCard.svg';
-import blueCard from './Images/BlueCard.svg';
-import leftArrow from './Images/LeftArrow.svg';
-import rightArrow from './Images/RightArrow.svg';
+import { React, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
+// import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
+// import Carousel from 'react-multi-carousel';
+import { getDocs, collection } from 'firebase/firestore';
+import { db } from '../../Firebase';
+import CreditCard from './CreditCard';
 
-function TicketPurchasePage() {
+function savedCardPage() {
+  const [data, setData] = useState([]);
+
+  // const carouselRef = useRef(null);
+
+  // const handleBack = () => {
+  //   carouselRef.current.slickPrev();
+  // };
+
+  // const handleNext = () => {
+  //   carouselRef.current.slickNext();
+  // };
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const collectionRef = collection(db, 'credit-cards');
+      const querySnapshot = await getDocs(collectionRef);
+      const dataInfo = querySnapshot.docs.map((docu) => ({
+        id: docu.id,
+        data: docu.data(),
+      }));
+      setData(dataInfo);
+    };
+    fetchData();
+  }, ['credit-cards']);
+
   return (
-    <div className="flex flex-col font-poppins lg:mt-20 mt-10">
+    <div className="flex flex-col font-poppins lg:mt-20 mt-10 mb-32">
       <div className="lg:text-5xl md:text-3xl text-xl lg:ml-52 ml-10">
         <h1>YOUR SAVED CARDS</h1>
       </div>
       <div className="lg:text-xl md:text-base text-sm text-SubTexts mt-4 lg:ml-52 ml-10 lg:mr-0 mr-16">
         We only support cards as a payment method at the moment!
       </div>
-      <div className="flex lg:flex-row md:flex-row flex-col self-center gap-3 lg:mt-20 mt-8 lg-ml-0 ml-10 lg:mr-0 mr-10">
-        <div className="flex lg:space-y-4 self-center">
-          <img
-            src={leftArrow}
-            alt="leftArrow"
-            className="lg:rotate-0 md:rotate-0 rotate-90"
-          />
-        </div>
-        <div>
-          <img src={pinkCard} alt="pinkCard" />
-        </div>
-        <div>
-          <img src={blueCard} alt="blueCard" />
-        </div>
-        <div>
-          <img src={yellowCard} alt="yellowcard" />
-        </div>
-        <div className="flex space-y-4 self-center">
-          <img
-            src={rightArrow}
-            alt="rightArrow"
-            className="lg:rotate-0 md:rotate-0 rotate-90"
-          />
+      <div className="flex lg:flex-row md:flex-row flex-col self-center  lg:mt-20 mt-8 lg-ml-0  lg:mr-0 mr-10 ">
+        <div id="slider" className="flex flex-col md:flex-row lg:flex-row ">
+          {data.length === 0 ? (
+            <div className="text-center text-sm md:text-2xl lg:text-3xl opacity-50 pt-24">
+              You have no saved cards
+            </div>
+          ) : (
+            data.map((card) => (
+              <CreditCard
+                key={card.data.index}
+                id={card.id}
+                nameOnCard={card.data.nameOnCard}
+                cardNumber={card.data.cardNumber}
+                expirationDate={card.data.expirationDate}
+                deleteCard="Delete Card -"
+                previewButton
+                setData={setData}
+                data={data}
+              />
+            ))
+          )}
         </div>
       </div>
-
       <div className="self-center lg:mt-12 mt-8 lg:mb-20 mb-10 pt-12 ">
         <Link to="/addcard">
           <button
@@ -55,4 +77,4 @@ function TicketPurchasePage() {
   );
 }
 
-export default TicketPurchasePage;
+export default savedCardPage;

@@ -24,7 +24,7 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
-const app = initializeApp(firebaseConfig);
+export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
 export const fireStore = getFirestore(app);
 export const googleProvider = new GoogleAuthProvider();
@@ -33,7 +33,10 @@ export const db = getFirestore(app);
 export const storage = getStorage(app);
 export const signInWithPopups = signInWithPopup();
 
+
 export const signInWithGoogle = async (cb) => {
+
+
   try {
     const result = await signInWithPopup(auth, googleProvider);
     const { user } = result; // Destructure the user from the result
@@ -69,3 +72,5 @@ export const signUpWithEmail = async (email) => {
     return error;
   }
 };
+
+

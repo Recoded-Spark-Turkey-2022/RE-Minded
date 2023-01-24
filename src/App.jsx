@@ -33,6 +33,7 @@ import TherapistCreatePage from './ComponentFolders/TherapistCreatePage/Therapis
 import TicketPurchasePage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage';
 import SignUpEmail from './ComponentFolders/SignUpPage/SignUpEmail';
 
+
 function App() {
   const dispatch = useDispatch();
 
@@ -71,6 +72,7 @@ function App() {
         <Route exact path="/" element={<HomePageMain />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
+
         <Route path="signupemail" element={<SignUpEmail />} />
         <Route path="about" element={<About />} />
         {/* <Route path="addcard" element={<AddCardPage />} /> */}
@@ -89,6 +91,7 @@ function App() {
           path="editprofile"
           element={<EditProfilePage handleSignout={handleSignout} />}
         />
+
         <Route path="requirements" element={<RequirementsPage />} />
         <Route path="savedcards" element={<SavedCardsPage />} />
         <Route path="team" element={<TeamPage />} />
