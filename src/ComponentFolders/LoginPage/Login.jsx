@@ -92,7 +92,10 @@ function Login() {
           <img src={lineImage} alt="A line" />
         </div>
         <div className="flex justify-center my-6 gap-x-20">
-          <button type="button" onClick={signInWithFacebook}>
+          <button
+            type="button"
+            onClick={() => signInWithFacebook(() => navigate('/'))}
+          >
             <img
               src={FacebookLogo}
               alt="Facebook logo"
@@ -100,7 +103,10 @@ function Login() {
             />
           </button>
 
-          <button type="button" onClick={signInWithGoogle}>
+          <button
+            type="button"
+            onClick={() => signInWithGoogle(() => navigate('/'))}
+          >
             <img
               src={GoogleLogo}
               alt="Google logo"

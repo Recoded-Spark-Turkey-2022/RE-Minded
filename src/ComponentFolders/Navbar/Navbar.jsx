@@ -17,10 +17,11 @@ export default function NavBar() {
             <Link to="/">
               <div className="flex flex-row ">
                 <img src={Logo} alt="Logo" />
-
-                <h2 className="text-3xl text-bold m-4 ml-3 font-medium">
-                  Healing
-                </h2>
+                <div href="Logo">
+                  <h2 className="text-3xl text-bold m-4 ml-3 font-medium">
+                    Healing
+                  </h2>
+                </div>
               </div>
             </Link>
             <div className="md:hidden">
@@ -68,29 +69,25 @@ export default function NavBar() {
           >
             <div className="mt-3 space-y-2 lg:hidden md:hidden ">
               <div className="flex flex-col  items-center  text-xl ">
-                <Link
-                  to="/"
-                  className=" hover:text-indigo-200 pb-1 "
-                  href="Home"
-                >
-                  Home
+                <Link to="/">
+                  <div className=" hover:text-indigo-200 pb-1 " href="Home">
+                    Home
+                  </div>
                 </Link>
-                <Link
-                  to="blog"
-                  className=" hover:text-indigo-200 p-2"
-                  href="Blog"
-                >
-                  Blog
+                <Link to="blog">
+                  <div className=" hover:text-indigo-200 p-2" href="Blog">
+                    Blog
+                  </div>
                 </Link>
-                <li className=" hover:text-indigo-200 cursor-pointer">
-                  <About />
-                </li>
-                <Link
-                  to="contactus"
-                  className=" hover:text-indigo-200 p-2"
-                  href="Blog"
-                >
-                  Contact Us
+                <Link to="About">
+                  <div className=" hover:text-indigo-200 p-2" href="Home">
+                    About
+                  </div>
+                </Link>
+                <Link to="contactus">
+                  <div className=" hover:text-indigo-200 p-2" href="contactus">
+                    Contact Us
+                  </div>
                 </Link>
                 <Link to={signoutButton ? 'editprofile' : 'login'}>
                   {!signoutButton ? (
@@ -116,36 +113,22 @@ export default function NavBar() {
           <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
             <Link to="/">
               <li className=" hover:text-indigo-200">
-                <a href="Home">Home</a>
+                <div href="Home">Home</div>
               </li>
             </Link>
             <Link to="blog">
               <li className=" hover:text-indigo-200">
-                <a href="Blog">Blog</a>
+                <div href="Blog">Blog</div>
               </li>
             </Link>
 
             <li className=" hover:text-indigo-200 cursor-pointer">
-              <select className=" p-2.5 bg-cyan-50 cursor-pointer">
-                <option>
-                  <Link to="about">About</Link>
-                </option>
-                <option>
-                  <Link to="team" href="Team">
-                    Team
-                  </Link>
-                </option>
-                <option>
-                  <Link to="careers" href="Carees">
-                    Carees
-                  </Link>
-                </option>
-              </select>
+              <About />
             </li>
 
             <Link to="contactus">
               <li className=" hover:text-indigo-200">
-                <a href="Contact">Contact US</a>
+                <div href="Contact">Contact Us</div>
               </li>
             </Link>
             <Link to={signoutButton ? 'editprofile' : 'login'}>
