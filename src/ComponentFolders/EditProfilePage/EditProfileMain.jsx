@@ -1,15 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
-import {
-  getAuth,
-  updateEmail,
-  updatePassword,
-  deleteUser,
-} from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
+import { updateEmail, updatePassword, deleteUser } from 'firebase/auth';
+import { collection, addDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../../Firebase';
+import { db, storage, auth } from '../../Firebase';
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
@@ -22,7 +17,7 @@ function EditProfileMain({ handleSignout }) {
   const [url, setUrl] = useState(null);
 
   const [uploadID, setUploadID] = useState(null);
- 
+  const userCollectionRef = collection(db, 'profile');
   const [profileData, setProfileData] = useState({
     fullname: '',
     educationLevel: '',
@@ -58,64 +53,56 @@ function EditProfileMain({ handleSignout }) {
       // eslint-disable-next-line no-alert
       alert('Please sign in first');
     }
+  };
 
-    const imageRef = ref(
-      storage,
-      `userImages/${currentUser.userId}/${currentUser.userId}`
-    );
-    uploadBytes(imageRef, uploadID).then(() => {
-      getDownloadURL(imageRef).then((imageUrl) => setUrl(imageUrl));
+  const imageRef = ref(
+    storage,
+    `userImages/${currentUser.userId}/${currentUser.userId}`
+  );
+  uploadBytes(imageRef, uploadID).then(() => {
+    getDownloadURL(imageRef).then((imageUrl) => setUrl(imageUrl));
+  });
+
+  // Update user's email
+  updateEmail(auth.currentUser, profileData.email)
+    .then(() => {
+      // Email updated!
+    })
+    .catch((error) => {
+      // An error occurred
+      return error;
     });
 
-    // Update user's email
-    const auth = getAuth();
-    updateEmail(auth.currentUser, profileData.email)
-      .then(() => {
-        // Email updated!
-      })
-      .catch((error) => {
-        // An error occurred
-        return error;
-      });
+  // Update user's passsword
+  const user = auth.currentUser;
+  updatePassword(user, profileData.password)
+    .then(() => {
+      // Update successful.
+    })
+    .catch((error) => {
+      // An error ocurred
+      return error;
+    });
 
-    // Update user's passsword
-    const user = auth.currentUser;
-    updatePassword(user, profileData.password)
-      .then(() => {
-        // Update successful.
-      })
-      .catch((error) => {
-        // An error ocurred
-        return error;
-      });
-
-    const addDoc = async () => {
-      try {
-        await setDoc(doc(db, 'Users', currentUser.userId), {
-          fullname: profileData.fullname,
-          educationLevel: profileData.educationLevel,
-          hobby: profileData.hobby,
-          familySize: profileData.familySize,
-          gender: profileData.gender,
-          birthmonth: profileData.birthmonth,
-          birthday: profileData.birthday,
-          birthyear: profileData.birthyear,
-          email: profileData.email,
-          phone: profileData.phone,
-          password: profileData.password,
-          passwordConfirm: profileData.passwordConfirm,
-        });
-        return true;
-      } catch (error) {
-        return error;
-      }
-    };
-    addDoc();
+  const addDocs = async () => {
+    await addDoc(userCollectionRef, currentUser.userId, {
+      fullname: profileData.fullname,
+      educationLevel: profileData.educationLevel,
+      hobby: profileData.hobby,
+      familySize: profileData.familySize,
+      gender: profileData.gender,
+      birthmonth: profileData.birthmonth,
+      birthday: profileData.birthday,
+      birthyear: profileData.birthyear,
+      email: profileData.email,
+      phone: profileData.phone,
+      password: profileData.password,
+      passwordConfirm: profileData.passwordConfirm,
+    });
+    navigate('/');
   };
 
   const handleDeleteUser = () => {
-     const auth = getAuth();
-     const user = auth.currentUser;
     deleteUser(user)
       .then(() => {
         // User deleted.
@@ -130,10 +117,7 @@ function EditProfileMain({ handleSignout }) {
 
   useEffect(() => {
     if (currentUser) {
-      const imageRef = ref(
-        storage,
-        `userImages/${currentUser.userId}/${currentUser.userId}`
-      );
+      ref(storage, `userImages/${currentUser.userId}/${currentUser.userId}`);
 
       getDownloadURL(imageRef)
         .then((imageUrl) => setUrl(imageUrl))
@@ -369,6 +353,7 @@ function EditProfileMain({ handleSignout }) {
             <button
               disabled={!currentUser}
               type="submit"
+              onClick={addDocs}
               className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
             >
               SAVE CHANGES
