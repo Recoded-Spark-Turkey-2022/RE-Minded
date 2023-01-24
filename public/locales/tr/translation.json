@@ -195,8 +195,13 @@
         "a2": "Re:Minded Plaza",
         "a3": "Re:Coded 2023",
         "a4": "Türkiye/Dünya"
+    },
 
-
+    "purchase": {
+        "h1": "KART SEÇİN",
+        "t1": "Lütfen bilet satın almak istediğiniz kartı seçiniz",
+        "click": "Bilet Satın Almak İçin Seçilen Kartı Kullanmak İçin Onayla'yı tıklayın.",
+        "confirm": "SATIN ALMAYI ONAYLA"
     }
 
 

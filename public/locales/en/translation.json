@@ -192,5 +192,12 @@
         "a3": "Re:Coded 2023",
         "a4": "Turkey/World"
 
+    },
+
+    "purchase": {
+        "h1": "SELECT CARD",
+        "t1": "Please select the card you want to buy the tickets with",
+        "click": "Click Confirm To Use The Selected Card To Purchase Tickets For",
+        "confirm": "CONFIRM PURCHASE"
     }
 }
