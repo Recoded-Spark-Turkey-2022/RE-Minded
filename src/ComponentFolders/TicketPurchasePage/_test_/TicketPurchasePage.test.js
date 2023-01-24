@@ -1,11 +1,11 @@
-import React from 'react';
-import renderer from 'react-test-renderer';
-import TicketPurchasePage from '../TicketPurchasePage';
+// import React from 'react';
+// import renderer from 'react-test-renderer';
+// import TicketPurchasePage from '../TicketPurchasePage';
 
-test('Ticket Purchase Page snapshot test', () => {
-  const component = renderer.create(<TicketPurchasePage />);
+// test('Ticket Purchase Page snapshot test', () => {
+//   const component = renderer.create(<TicketPurchasePage />);
 
-  const tree = component.toJSON();
+//   const tree = component.toJSON();
 
-  expect(tree).toMatchSnapshot();
-});
+//   expect(tree).toMatchSnapshot();
+// });

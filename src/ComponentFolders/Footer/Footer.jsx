@@ -49,6 +49,7 @@ function Footer() {
     }),
   });
 
+
   function handleFormSubmit() {
     if (!formik.values.email) {
       // eslint-disable-next-line no-alert
@@ -96,6 +97,7 @@ function Footer() {
     fetchData();
   }, [emailArray]);
 
+
   return (
     <footer className="relative bg-Footer  bottom-0 w-full p-4 md:flex md:items-center md:justify-between md:p-6 ">
       <span className=" ml-12 text-sm ">
@@ -113,6 +115,7 @@ function Footer() {
         </div>
 
         <div className="lg:ml-36 ml-6 md:flex md:ml-0 ">
+
           <div className="flex flex-row mb-4 w-[300px] h-[50px] box-border rounded-lg border-2 border-[#718096]">
             <form ref={form} className="w-full" onSubmit={formik.handleSubmit}>
               <div>
@@ -129,6 +132,7 @@ function Footer() {
             </form>
             <button
               onClick={handleFormSubmit}
+
               type="button"
               className="bg-Buttons rounded-r-lg w-[74px] h-[47.5px]"
             >

@@ -26,6 +26,7 @@ function BookingPage5() {
     if (Object.values(checkboxes).some((val) => val === true)) {
       navigate('/booking6');
     } else {
+      // eslint-disable-next-line no-alert
       alert('Please select at least one!');
     }
   }
