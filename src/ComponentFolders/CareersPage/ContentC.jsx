@@ -1,7 +1,10 @@
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import JobCard from './JobCard';
 
+
 const jobs = [
+  
   {
     job: 'Senior Software Developer | Backend | Remote in the USA',
     description:
@@ -47,15 +50,17 @@ const jobs = [
 ];
 
 function ContentC() {
+
+  const { t } = useTranslation();
+
   return (
     <div>
       <div id="openpositions" className="lg:text-5xl md:text-3xl text-2xl leading-6 lg:mt-12 mt-4 lg:pt-12 pt-8 lg:ml-28 ml-10 text-gray-700">
-        <h1 >CURRENT OPEN POSITIONS</h1>
+        <h1>{t('careersc.h1')}</h1>
       </div>
       <div className="lg:text-xl text-lg leading-6 mt-4 lg:ml-28 ml-10 lg:mr-0 mr-10 text-gray-400">
         <h3>
-          Please send us an email with the application title as the subject with
-          an attached CV in PDF format!
+        {t('careersc.t1')}
         </h3>
       </div>
       <div>

@@ -258,5 +258,23 @@
         "10": "10 Tickets Remaining",
         "buy": "BUY TICKETS"
 
+    },
+
+    "careersa":{
+        "h1": "CAREERS AT HEALING",
+        "h2": "Be a part of making people feel better.",
+        "t1": "Our SEO software cuts through mountains of data to surface critical insights. We build and maintain systems that process massive amounts of data (we're talking 36 trillion records per day and multiple petabytes of storage.) We model transparent and empathetic marketing for the world. We educate our community, making every effort to help them improve their skill. And we do it all by fostering a culture that encourages accountability, empathy, and transparency.",
+        "h3": "What role will you play?",
+        "btn1": "SEE OUR OPEN LIST"
+    },
+
+    "careersb": {
+        "h1": "OUR HIRING PHILOSOPHY",
+        "t1": "To build the very best SEO tools, we need a workforce that reflects the diversity of our communities and customers. We want Online Therapy to be a place where everyone feels welcome and engaged, bar none. It is our mission and promise to interview a diverse and representative slate of candidates before making an offer for our open roles."
+    },
+
+    "careersc": {
+        "h1": "CURRENT OPEN POSITIONS",
+        "t1": "Please send us an email with the application title as the subject with an attached CV in PDF format!"
     }
 }

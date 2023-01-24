@@ -261,6 +261,24 @@
         "10": "10 Bilet Kaldı",
         "buy": "BİLET AL"
 
+    },
+
+    "careersa":{
+        "h1": "HEALING'DE AÇIK POZİSYONLAR",
+        "h2": "İnsanları daha iyi hissettirmenin bir parçası olun.",
+        "t1": "SEO yazılımımız, kritik içgörüleri ortaya çıkarmak için veri dağlarını keser. Muazzam miktarda veri işleyen sistemler kuruyor ve sürdürüyoruz (günde 36 trilyon kayıttan ve birden çok petabaytlık depolamadan bahsediyoruz). Dünya için şeffaf ve empatik pazarlama modeli oluşturuyoruz. Becerilerini geliştirmelerine yardımcı olmak için her türlü çabayı göstererek topluluğumuzu eğitiyoruz. Ve tüm bunları hesap verebilirliği, empatiyi ve şeffaflığı teşvik eden bir kültürü teşvik ederek yapıyoruz.",
+        "h3": "Hangi rolü alacaksınız?",
+        "btn1": "AÇIK POZİSYONLARIMIZI GÖRÜN"
+    },
+
+    "careersb": {
+        "h1": "İŞE ALIM FELSEFEMİZ",
+        "t1": "En iyi SEO araçlarını oluşturmak için topluluklarımızın ve müşterilerimizin çeşitliliğini yansıtan bir iş gücüne ihtiyacımız var. Çevrimiçi Terapinin, hiç kimse hariç herkesin hoş karşılandığını ve dahil olduğunu hissettiği bir yer olmasını istiyoruz. Açık pozisyonlarımız için bir teklifte bulunmadan önce çeşitli ve temsili bir aday listesiyle röportaj yapmak bizim görevimiz ve sözümüzdür."
+    },
+
+    "careersc": {
+        "h1": "BAŞVURUYA AÇIK POZİSYONLAR",
+        "t1": "Lütfen bize başvuru başlığını konu olarak PDF formatında ekli bir CV ile birlikte bir e-posta gönderin!"
     }
 
 
