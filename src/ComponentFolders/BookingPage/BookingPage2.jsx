@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Card from './Card';
 // import ChoicesA from './QuestionChoicesA';
 
@@ -22,15 +23,18 @@ function BookingPage2() {
       navigate('/booking3');
     }
   }
+
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col items-center p-12">
       <Card
-        header="LET'S MATCH YOU WITH THE RIGHT THERAPIST"
-        content="Please fill out this short questionnaire to provide some general and anonymous background about you and the issues you'd like to deal with in online therapy. It would help us match you with the most suitable therapist for you. "
+        header={t('booking.header')}
+        content={t('booking.content')}
       />
       <div className="font-poppins shadow-zinc-300 flex flex-col w-full md:max-w-2xl lg:max-w-4xl my-16 mx-auto px-8 py-4 shadow-md">
         <h1 className="text-xl pb-6 md:text-2xl lg:text-3xl lg:flex justify-center mt-4">
-          What is your relationship status?
+        {t('booking2.h1')}
         </h1>
         <form>
           <button
@@ -41,7 +45,7 @@ function BookingPage2() {
               selected === 'button1' ? 'bg-cyan-400' : ' '
             }`}
           >
-            Single
+            {t('booking2.b1')}
           </button>
           <button
             value="button2"
@@ -51,7 +55,7 @@ function BookingPage2() {
               selected === 'button2' ? 'bg-cyan-400' : ' '
             }`}
           >
-            Married
+            {t('booking2.b2')}
           </button>
           <button
             value="button3"
@@ -61,7 +65,7 @@ function BookingPage2() {
               selected === 'button3' ? 'bg-cyan-400' : ' '
             }`}
           >
-            Divorced
+            {t('booking2.b3')}
           </button>
         </form>
         <div className="flex justify-center md:justify-between lg:justify-between ">
@@ -70,7 +74,7 @@ function BookingPage2() {
               type="button"
               className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
             >
-              PREVIOUS
+              {t('booking.previous')}
             </button>
           </Link>
 
@@ -79,7 +83,7 @@ function BookingPage2() {
             onClick={handleNextButtonClick}
             className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
           >
-            NEXT
+            {t('booking.next')}
           </button>
         </div>
       </div>

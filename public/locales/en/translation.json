@@ -276,5 +276,74 @@
     "careersc": {
         "h1": "CURRENT OPEN POSITIONS",
         "t1": "Please send us an email with the application title as the subject with an attached CV in PDF format!"
+    },
+
+    "booking": {
+        "header": "LET'S MATCH YOU WITH THE RIGHT THERAPIST",
+        "content": "Please fill out this short questionnaire to provide some general and anonymous background about you and the issues you'd like to deal with in online therapy. It would help us match you with the most suitable therapist for you.",
+        "next": "NEXT",
+        "previous": "PREVIOUS"
+    },
+
+    "booking1": {
+        "h1": "What type of counseling are you looking for?",
+        "b1": "Individual counseling",
+        "b2": "Teen counseling (for my child)"
+    },
+
+    "booking2": {
+        "h1": "What is your relationship status?",
+        "b1": "Single",
+        "b2": "Married",
+        "b3": "Divorced"
+    },
+
+    "booking3": {
+        "h1": "Have you ever been in therapy before?",
+        "b1": "Yes",
+        "b2": "No"
+    },
+
+    "booking4": {
+        "h1": "Are there any specific qualities that you would like in a counselor?",
+        "b1": "I prefer a male counselor",
+        "b2": "I prefer a female counselor",
+        "b3": "I prefer an older counselor (45+)",
+        "b4": "I prefer a non-religious counselor"
+    },
+
+    "booking5": {
+        "h1": "Are there any issues you would like to focus on?",
+        "b1": "Depression",
+        "b2": "Stress and Anxiety",
+        "b3": "Relationship issues",
+        "b4": "Family conflicts",
+        "b5": "Trauma and abuse",
+        "b6": "Eating disorders"
+    },
+
+    "booking6": {
+        "header": "WHAT BRINGS YOU HERE?",
+        "content": "Please specify (in a few sentences) why you'd like counseling.This will give your counselor a good understanding of where to start."
+    },
+
+    "booking7": {
+        "header": "SUBMIT YOUR APPOINTMENT",
+        "content": "Click Submit if you are sure of all your choices.",
+        "h1": "Submit Appointment?",
+        "h2": "Please Be Aware That This Action Will Cost You A Ticket!",
+        "previous": "PREVIOUS",
+        "submit": "SUBMIT"
+    },
+
+    "booking8": {
+        "header": "YOUR REQUEST HAS BEEN SUBMITTED!",
+        "content": "You will receive an email guiding you to book a date and time soon.",
+        "h1": "Request Submitted",
+        "h2": "You Will Receive A Confirmation Email Soon Please Keep An Eye On Your Mail.",
+        "btn": "BACK TO HOME"
     }
+
+
+    
 }

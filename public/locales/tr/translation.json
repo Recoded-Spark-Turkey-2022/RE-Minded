@@ -279,9 +279,72 @@
     "careersc": {
         "h1": "BAŞVURUYA AÇIK POZİSYONLAR",
         "t1": "Lütfen bize başvuru başlığını konu olarak PDF formatında ekli bir CV ile birlikte bir e-posta gönderin!"
+    },
+
+    "booking": {
+        "header": "SİZİ DOĞRU TERAPİSTLE BULUŞTURALIM",
+        "content": "Kendiniz ve çevrimiçi terapide ilgilenmek istediğiniz konular hakkında bazı genel ve isimsiz bilgiler sağlamak için lütfen bu kısa anketi doldurun. Sizi en uygun terapistle eşleştirmemize yardımcı olun.",
+        "next": "SONRAKİ",
+        "previous": "ÖNCEKİ"
+    },
+
+    "booking1": {
+        "h1": "Ne tür bir danışmanlık arıyorsunuz?",
+        "b1": "Bireysel danışmanlık",
+        "b2": "Gelişim danışmanlığı (çocuğum için)"
+    },
+
+    "booking2": {
+        "h1": "İlişki durumunuz nedir?",
+        "b1": "Bekar",
+        "b2": "Evli",
+        "b3": "Boşanmış"
+    },
+
+    "booking3": {
+        "h1": "Daha önce terapi aldınız mı?",
+        "b1": "Evet",
+        "b2": "Hayır"
+    },
+
+    "booking4": {
+        "h1": "Bir danışmanda olmasını istediğiniz belirli özellikler var mı?",
+        "b1": "Erkek danışman tercih ederim.",
+        "b2": "Kadın danışman tercih ederim.",
+        "b3": "45+ yaş danışman tercih ederim.",
+        "b4": "Din dışı bir danışmanı tercih ederim"
+    },
+
+    "booking5": {
+        "h1": "Odaklanmak istediğiniz herhangi bir konu var mı?",
+        "b1": "Depresyon",
+        "b2": "Stres ve Kaygı",
+        "b3": "İlişkiler",
+        "b4": "Aile Sorunları",
+        "b5": "Travma ve İstismar",
+        "b6": "Yeme Bozukluğu"
+    },
+
+    "booking6": {
+        "header": "SİZİ BURAYA GETİREN NE OLDU?",
+        "content": "Lütfen (birkaç cümleyle) neden danışmanlık almak istediğinizi belirtin. Bu, danışmanınıza nereden başlayacağı konusunda iyi bir fikir verecektir."
+    },
+
+    "booking7": {
+        "header": "RANDEVU TALEBİNİZİ GÖNDERİN",
+        "content": "Tüm seçeneklerinizden eminseniz Gönder'i tıklayın.",
+        "h1": "Talebi Gönder",
+        "h2": "Lütfen Bu Eylemin Size Bir Bilete Mal Olacağını Dikkate Alın!",
+        "previous": "ÖNCEKİ",
+        "submit": "GÖNDER"
+    },
+
+    "booking8": {
+        "header": "TALEBİNİZ GÖNDERİLDİ!",
+        "content": "Yakında bir tarih ve saat ayırtmanız için size rehberlik eden bir e-posta alacaksınız.",
+        "h1": "Talep Gönderildi",
+        "h2": "Yakında Bir Onay E-postası Alacaksınız Lütfen Postanıza Dikkat Edin.",
+        "btn": "ANASAYFAYA DÖN"
     }
 
-
-
-    }
-
+}
