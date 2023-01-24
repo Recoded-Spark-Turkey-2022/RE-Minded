@@ -31,7 +31,7 @@
           "supported": "Desteklenen Kart Türleri",
           "visa": "Visa",
           "mastercard": "MasterCard",
-          "card number": "Kart Numarası",
+          "cardnumber": "Kart Numarası",
           "expiry": "Son. Kul. Tar.",
           "cvv": "CVV Kodu",
           "name": "Kartın Üzerindeki İsim",
@@ -213,6 +213,12 @@
         "f5": "Şifre",
         "f6": "Şifrenizi Doğrulayın",
         "create": "OLUŞTUR"
+    },
+
+    "savedcards": {
+        "h1": "KAYITLI KARTLARINIZ",
+        "t1": "Şu anda ödeme yöntemi olarak yalnızca kartları destekliyoruz!",
+        "addnew": "YENİ KART EKLE + "
     }
 
 

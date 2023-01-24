@@ -210,5 +210,11 @@
         "f5": "Password",
         "f6": "Confirm Password",
         "create": "CREATE"
+    },
+
+    "savedcards": {
+        "h1": "YOUR SAVED CARDS",
+        "t1": "We only support cards as a payment method at the moment!",
+        "addnew": "ADD NEW CARD + "
     }
 }

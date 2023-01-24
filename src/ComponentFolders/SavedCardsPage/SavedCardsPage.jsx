@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from "react-router-dom"
+import { useTranslation } from 'react-i18next';
 import yellowCard from './Images/YellowCard.svg';
 import pinkCard from './Images/PinkCard.svg';
 import blueCard from './Images/BlueCard.svg';
@@ -7,13 +8,16 @@ import leftArrow from './Images/LeftArrow.svg';
 import rightArrow from './Images/RightArrow.svg';
 
 function TicketPurchasePage() {
+  
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col font-poppins lg:mt-20 mt-10">
       <div className="lg:text-5xl md:text-3xl text-xl lg:ml-52 ml-10">
-        <h1>YOUR SAVED CARDS</h1>
+        <h1>{t('savedcards.h1')}</h1>
       </div>
       <div className="lg:text-xl md:text-base text-sm text-SubTexts mt-4 lg:ml-52 ml-10 lg:mr-0 mr-16">
-        We only support cards as a payment method at the moment!
+      {t('savedcards.t1')}
       </div>
       <div className="flex lg:flex-row md:flex-row flex-col self-center gap-3 lg:mt-20 mt-8 lg-ml-0 ml-10 lg:mr-0 mr-10">
         <div className="flex lg:space-y-4 self-center">
@@ -47,7 +51,7 @@ function TicketPurchasePage() {
             type="button"
             className="rounded-md box-border p-2 lg:pl-6 lg:pr-6 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
           >
-            ADD NEW CARD +
+            {t('savedcards.addnew')}
           </button>
         </Link>
       </div>
