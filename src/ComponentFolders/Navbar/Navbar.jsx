@@ -1,12 +1,13 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import Logo from './Images/Logo.svg';
-import About from './About';
 import ProfilePhoto from './Images/ProfilePhoto.svg';
+import About from './About';
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
+
   const signoutButton = useSelector((state) => state.signoutButton);
 
   return (
@@ -17,11 +18,10 @@ export default function NavBar() {
             <Link to="/">
               <div className="flex flex-row ">
                 <img src={Logo} alt="Logo" />
-                <div href="Logo">
-                  <h2 className="text-3xl text-bold m-4 ml-3 font-medium">
-                    Healing
-                  </h2>
-                </div>
+
+                <h2 className="text-3xl text-bold m-4 ml-3 font-medium">
+                  Healing
+                </h2>
               </div>
             </Link>
             <div className="md:hidden">
@@ -69,25 +69,33 @@ export default function NavBar() {
           >
             <div className="mt-3 space-y-2 lg:hidden md:hidden ">
               <div className="flex flex-col  items-center  text-xl ">
-                <Link to="/">
-                  <div className=" hover:text-indigo-200 pb-1 " href="Home">
-                    Home
-                  </div>
+                <Link
+                  to="/"
+                  className=" hover:text-indigo-200 pb-1 "
+                  href="Home"
+                >
+                  Home
                 </Link>
-                <Link to="blog">
-                  <div className=" hover:text-indigo-200 p-2" href="Blog">
-                    Blog
-                  </div>
+                <Link
+                  to="blog"
+                  className=" hover:text-indigo-200 p-2"
+                  href="Blog"
+                >
+                  Blog
                 </Link>
-                <Link to="About">
-                  <div className=" hover:text-indigo-200 p-2" href="Home">
-                    About
-                  </div>
+                <Link
+                  to="about"
+                  className=" hover:text-indigo-200 p-2"
+                  href="Home"
+                >
+                  About
                 </Link>
-                <Link to="contactus">
-                  <div className=" hover:text-indigo-200 p-2" href="contactus">
-                    Contact Us
-                  </div>
+                <Link
+                  to="contactus"
+                  className=" hover:text-indigo-200 p-2"
+                  href="Blog"
+                >
+                  Contact Us
                 </Link>
                 <Link to={signoutButton ? 'editprofile' : 'login'}>
                   {!signoutButton ? (
@@ -113,12 +121,12 @@ export default function NavBar() {
           <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
             <Link to="/">
               <li className=" hover:text-indigo-200">
-                <div href="Home">Home</div>
+                <a href="Home">Home</a>
               </li>
             </Link>
             <Link to="blog">
               <li className=" hover:text-indigo-200">
-                <div href="Blog">Blog</div>
+                <a href="Blog">Blog</a>
               </li>
             </Link>
 
@@ -128,7 +136,7 @@ export default function NavBar() {
 
             <Link to="contactus">
               <li className=" hover:text-indigo-200">
-                <div href="Contact">Contact Us</div>
+                <a href="Contact">Contact US</a>
               </li>
             </Link>
             <Link to={signoutButton ? 'editprofile' : 'login'}>
