@@ -212,7 +212,7 @@ function EditProfileMain() {
               CANCEL
             </button>
           </div>
-          <div className="flex flex-col mt-4 lg:ml-20 ml-[-10em] mt-16">
+          <div className="flex flex-col mt-4 lg:ml-20 ml-[-10em] ">
             <div className="lg:text-5xl text-2xl">
               Payment Methods & Tickets
             </div>
