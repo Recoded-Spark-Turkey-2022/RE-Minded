@@ -10,7 +10,7 @@ import About from './ComponentFolders/AboutPage/About';
 import HomePageMain from './ComponentFolders/HomePage/HomePageMain';
 import Login from './ComponentFolders/LoginPage/Login';
 import SignUp from './ComponentFolders/SignUpPage/SignUp';
-/* import AddCardPage from './ComponentFolders/AddCardPage/AddCardPage'; */
+import AddCardPage from './ComponentFolders/AddCardPage/AddCardPage';
 import BlogPage from './ComponentFolders/BlogPage/BlogPageMain';
 import BookingPage1 from './ComponentFolders/BookingPage/BookingPage1';
 import BookingPage2 from './ComponentFolders/BookingPage/BookingPage2';
@@ -32,7 +32,7 @@ import ThankYouPage from './ComponentFolders/ThankYouPage/ThankYou';
 import TherapistCreatePage from './ComponentFolders/TherapistCreatePage/TherapistCreatePage';
 import TicketPurchasePage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage';
 import SignUpEmail from './ComponentFolders/SignUpPage/SignUpEmail';
-
+import ProfilePage from './ComponentFolders/EditProfilePage/ProfilePage';
 
 function App() {
   const dispatch = useDispatch();
@@ -72,10 +72,10 @@ function App() {
         <Route exact path="/" element={<HomePageMain />} />
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
-
+        <Route path="profilepage" element={<ProfilePage />} />
         <Route path="signupemail" element={<SignUpEmail />} />
         <Route path="about" element={<About />} />
-        {/* <Route path="addcard" element={<AddCardPage />} /> */}
+        <Route path="addcard" element={<AddCardPage />} />
         <Route path="blog" element={<BlogPage />} />
         <Route path="booking1" element={<BookingPage1 />} />
         <Route path="booking2" element={<BookingPage2 />} />
@@ -91,7 +91,6 @@ function App() {
           path="editprofile"
           element={<EditProfilePage handleSignout={handleSignout} />}
         />
-
         <Route path="requirements" element={<RequirementsPage />} />
         <Route path="savedcards" element={<SavedCardsPage />} />
         <Route path="team" element={<TeamPage />} />
