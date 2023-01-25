@@ -49,7 +49,6 @@ function Footer() {
     }),
   });
 
-
   function handleFormSubmit() {
     if (!formik.values.email) {
       // eslint-disable-next-line no-alert
@@ -84,7 +83,6 @@ function Footer() {
     }
   }
 
-
   useEffect(() => {
     const fetchData = async () => {
       const querySnapshot = await getDocs(emailList);
@@ -97,55 +95,57 @@ function Footer() {
     fetchData();
   }, [emailArray]);
 
-
   return (
     <footer className="relative bg-Footer  bottom-0 w-full p-4 md:flex md:items-center md:justify-between md:p-6 ">
-      <span className=" ml-12 text-sm ">
-        <div className="lg:ml-36 ml-6 lg:md-0 flex-col gap-3 w-[500px] h-[78px] mb-4">
-          <h1 className=" text-BlackTexts text-4xl font-medium h-[44px]">
-            Subscribe
-          </h1>
-          <p
-            className="text-SubTexts mb-4 
+      <span className="  text-sm ">
+        <div className='flex items-center flex-col  lg:items-start lg:ml-16'>
+        
+            <h1 className=" text-BlackTexts text-4xl font-medium h-[44px]">
+              Subscribe
+            </h1>
+            <p
+              className=" text-SubTexts mb-4 
             w-auto h-[22px] top-[56px] mt-2
             font-normal md:text-xl sm:text-sm leading-5"
-          >
-            We’ll never spam to you or share your email
-          </p>
-        </div>
-
-        <div className="lg:ml-36 ml-6 md:flex md:ml-0 ">
-
-          <div className="flex flex-row mb-4 w-[300px] h-[50px] box-border rounded-lg border-2 border-[#718096]">
-            <form ref={form} className="w-full" onSubmit={formik.handleSubmit}>
-              <div>
-                <input
-                  name="email"
-                  id="email"
-                  onChange={formik.handleChange}
-                  value={formik.values.email}
-                  className=" w-full h-[46.5px] rounded-l-lg text-SubTexts text-black-800 placeholder:pl-2 placeholder:text-base"
-                  type="text"
-                  placeholder="Enter your e-mail"
-                />
-              </div>
-            </form>
-            <button
-              onClick={handleFormSubmit}
-
-              type="button"
-              className="bg-Buttons rounded-r-lg w-[74px] h-[47.5px]"
             >
-              <img
-                className="w-[24px] h-[24px] top-[18px] left-[310px] items-center mx-auto"
-                src={image4}
-                alt="Arrow"
-              />
-            </button>
+              We’ll never spam to you or share your email
+            </p>
+          
+
+          <div className=" md:flex ">
+            <div className="flex flex-row mb-4 w-[300px] h-[50px] box-border rounded-lg border-2 border-[#718096]">
+              <form
+                ref={form}
+                className="w-full"
+                onSubmit={formik.handleSubmit}
+              >
+                <div>
+                  <input
+                    name="email"
+                    id="email"
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
+                    className=" w-full h-[46.5px] rounded-l-lg text-SubTexts text-black-800 placeholder:pl-2 placeholder:text-base"
+                    type="text"
+                    placeholder="Enter your e-mail"
+                  />
+                </div>
+              </form>
+              <button
+                onClick={handleFormSubmit}
+                type="button"
+                className="bg-Buttons rounded-r-lg w-[74px] h-[47.5px]"
+              >
+                <img
+                  className="w-[24px] h-[24px] top-[18px] left-[310px] items-center mx-auto"
+                  src={image4}
+                  alt="Arrow"
+                />
+              </button>
+            </div>
           </div>
         </div>
       </span>
-
       <div
         className="flex flex-col items-center sm:mr-12
               
