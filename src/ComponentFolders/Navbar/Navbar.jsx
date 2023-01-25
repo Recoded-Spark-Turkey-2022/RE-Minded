@@ -97,7 +97,7 @@ export default function NavBar() {
                 >
                   Contact Us
                 </Link>
-                <Link to={signoutButton ? 'editprofile' : 'login'}>
+                <Link to={signoutButton ? 'profilepage' : 'login'}>
                   {!signoutButton ? (
                     <button
                       type="button"
@@ -139,7 +139,7 @@ export default function NavBar() {
                 <a href="Contact">Contact US</a>
               </li>
             </Link>
-            <Link to={signoutButton ? 'editprofile' : 'login'}>
+            <Link to={signoutButton ? 'profilepage' : 'login'}>
               {!signoutButton ? (
                 <button
                   type="button"
