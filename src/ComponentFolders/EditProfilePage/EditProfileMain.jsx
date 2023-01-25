@@ -109,19 +109,30 @@ function EditProfileMain({ handleSignout }) {
   };
 
   const handleDeleteUser = () => {
-    const auth = getAuth();
-    const user = auth.currentUser;
+    const confirmed =
+      // eslint-disable-next-line no-alert
+      window.confirm('Are you sure you want to deactivate your account?');
+    if (confirmed) {
+      const auth = getAuth();
+      const user = auth.currentUser;
 
-    deleteUser(user)
-      .then(() => {
-        // User deleted.
-      })
-      .catch((error) => {
-        // An error ocurred
-        return error;
-      });
-    handleSignout();
-    navigate('/');
+      deleteUser(user)
+        .then(() => {
+          // User deleted.
+          // eslint-disable-next-line no-alert
+          alert('Your account has been deactivated successfully.');
+        })
+        .catch((error) => {
+          // An error ocurred
+          // eslint-disable-next-line no-alert
+          alert(error);
+        });
+      handleSignout();
+      navigate('/');
+    } else {
+      // eslint-disable-next-line no-alert
+      alert('Deactivation cancelled.');
+    }
   };
   useEffect(() => {
     if (currentUser) {
