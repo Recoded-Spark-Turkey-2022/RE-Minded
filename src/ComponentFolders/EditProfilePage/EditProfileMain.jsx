@@ -1,15 +1,15 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import {
   getAuth,
-  updateEmail,
-  updatePassword,
-  deleteUser,
-} from 'firebase/auth';
-import { doc, setDoc } from 'firebase/firestore';
-import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../../Firebase';
+//   // updateEmail,
+//   // updatePassword,
+//   deleteUser,
+ } from 'firebase/auth';
+ import {  doc, setDoc } from 'firebase/firestore';
+// import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+ import { db } from '../../Firebase';
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
@@ -17,9 +17,6 @@ import passwordIcon from './Images/PasswordIcon.svg';
 function EditProfileMain({ handleSignout }) {
   const navigate = useNavigate();
   const currentUser = useSelector((state) => state.currentUser.user);
-  const [url, setUrl] = useState(null);
-
-  const [uploadID, setUploadID] = useState(null);
 
   const [profileData, setProfileData] = useState({
     fullname: '',
@@ -35,129 +32,38 @@ function EditProfileMain({ handleSignout }) {
     password: '',
     passwordConfirm: '',
   });
-  function handleInputChange(e) {
-    const { value, name, files } = e.target;
-    if (files) {
-      return setUploadID(files[0]);
-    }
-    return setProfileData((prevObj) => {
-      return {
-        ...prevObj,
-        [name]: value,
-      };
-    });
-  }
-  const handleOnSubmit = () => {
-    /* e.preventDefault(); */
 
-    if (!currentUser) {
-      // eslint-disable-next-line no-alert
-      alert('Please sign in first');
-    }
-
-    const imageRef = ref(
-      storage,
-      `userImages/${currentUser.userId}/${currentUser.userId}`
-    );
-    uploadBytes(imageRef, uploadID).then(() => {
-      getDownloadURL(imageRef).then((imageUrl) => setUrl(imageUrl));
-    });
-
-    // Update user's email
-    const auth = getAuth();
-    updateEmail(auth.currentUser, profileData.email)
-      .then(() => {
-        // Email updated!
-      })
-      .catch((error) => {
-        // An error occurred
-        return error;
-      });
-    // Update user's passsword
-    const user = auth.currentUser;
-    updatePassword(user, profileData.password)
-      .then(() => {
-        // Update successful.
-      })
-      .catch((error) => {
-        // An error ocurred
-        return error;
-      });
-
-     
-    };
-
-    const handleFormSubmit = () => {
-       const addDocs = async () => {
-         try {
-           await setDoc(doc(db, 'Users' ,'5Rioxd8SfjXokV7eO59d'), {
-             fullname: profileData.fullname,
-             educationLevel: profileData.educationLevel,
-             hobby: profileData.hobby,
-             familySize: profileData.familySize,
-             gender: profileData.gender,
-             birthmonth: profileData.birthmonth,
-             birthday: profileData.birthday,
-             birthyear: profileData.birthyear,
-             email: profileData.email,
-             phone: profileData.phone,
-             password: profileData.password,
-             passwordConfirm: profileData.passwordConfirm,
-           });
-           return true;
-         } catch (error) {
-           return error;
-         }
-       };
-       addDocs();
-    }
-  
-  const handleDeleteUser = () => {
-    const confirmed =
-      // eslint-disable-next-line no-alert
-      window.confirm('Are you sure you want to deactivate your account?');
-    if (confirmed) {
-      const auth = getAuth();
-      const user = auth.currentUser;
-
-      deleteUser(user)
-        .then(() => {
-          // User deleted.
-          // eslint-disable-next-line no-alert
-          alert('Your account has been deactivated successfully.');
-        })
-        .catch((error) => {
-          // An error ocurred
-          // eslint-disable-next-line no-alert
-          alert(error);
-        });
-      handleSignout();
-      navigate('/');
-    } else {
-      // eslint-disable-next-line no-alert
-      alert('Deactivation cancelled.');
-    }
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setProfileData((prevState) => ({
+      ...prevState,
+      [name]: value,
+    }));
   };
-  useEffect(() => {
-    if (currentUser) {
-      const imageRef = ref(
-        storage,
-        `userImages/${currentUser.userId}/${currentUser.userId}`
-      );
-      getDownloadURL(imageRef)
-        .then((imageUrl) => setUrl(imageUrl))
-        .catch((error) => {
-          if (error.code === 'storage/object-not-found') {
-            setUrl(null);
-          }
-        });
-    }
-  }, [currentUser]);
+
+const handleFormSubmit = async () => {
+  const auth = getAuth();
+  const user = auth.currentUser;
+    await setDoc(doc(db, 'profile-input', user.uid), {
+      fullname: profileData.fullname,
+      educationLevel: profileData.educationLevel,
+      hobby: profileData.hobby,
+      familySize: profileData.familySize,
+      gender: profileData.gender,
+      birthmonth: profileData.birthmonth,
+      birthday: profileData.birthday,
+      birthyear: profileData.birthyear,
+      email: profileData.email,
+      phone: profileData.phone,
+    },
+      navigate('/profilepage')
+    );
+  }
+
+
+
   return (
-    <form
-      onSubmit={handleOnSubmit}
-      className="flex flex-col font-poppins lg:items-center"
-    >
+    <form className="flex flex-col font-poppins lg:items-center">
       <div className="self-center mt-8 lg:text-xl text-sm text-[#FF0000] lg:ml-0 ml-16 lg:mr-0 mr-[-1em]">
         Please fill all the fields with correct and valid details to complete
         your profile.
@@ -165,7 +71,8 @@ function EditProfileMain({ handleSignout }) {
       <div className="flex lg:flex-row flex-col">
         <div className="flex flex-col lg:ml-[-10em] md:ml-[10%] ml-[25%] lg:mr-[0%] md:mr-[30%] mr-[25%]">
           <img
-            src={url === null ? profileIcon : url}
+            // src={url === null ? profileIcon : url}
+            src={profileIcon}
             alt="profile"
             className="self-center ml-28 w-80 h-80 rounded-full"
           />
@@ -377,7 +284,7 @@ function EditProfileMain({ handleSignout }) {
             <button
               disabled={!currentUser}
               type="submit"
-              onClick={handleFormSubmit}
+               onClick={handleFormSubmit}
               className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
             >
               SAVE CHANGES
@@ -386,7 +293,7 @@ function EditProfileMain({ handleSignout }) {
               disabled={!currentUser}
               type="button"
               className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
-              onClick={handleDeleteUser}
+              // onClick={handleDeleteUser}
             >
               DELETE ACCOUNT
             </button>
