@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../../Firebase';
 import CreditCard from '../SavedCardsPage/CreditCard';
@@ -47,6 +47,18 @@ function TicketPurchasePage() {
     ticket = 25;
   } else if (propsData === '70$') {
     ticket = 50;
+  }
+
+  const navigate = useNavigate();
+
+  function checkCardExist(dataExisting){
+    if(dataExisting === 0 ){
+      // eslint-disable-next-line no-alert
+      alert("Please add a card for confirmation")
+    }
+    else{
+      navigate("../thankyou", {state: thanksProps})
+    }
   }
 
   return (
@@ -109,15 +121,29 @@ function TicketPurchasePage() {
         Click confirm to use the selected card to purchase {ticket} tickets for{' '}
         {propsData}
       </div>
-      <div className="self-center lg:mt-12 mt-8 lg:mb-20 mb-10">
-        <Link to="/thankyou" state={thanksProps}>
-          <button
-            type="button"
-            className="rounded-md box-border p-2 lg:pl-6 lg:pr-6 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
-          >
-            CONFIRM PURCHASE
-          </button>
-        </Link>
+      <div className='flex lg:flex-row flex-col lg:gap-10 gap-4 justify-center'>
+        <div className="self-center lg:mt-12 mt-8 lg:mb-20 mb-2">
+          {/* <Link to="/thankyou" state={thanksProps}> */}
+            <button
+            onClick={() => navigate("../savedcards")}
+              type="button"
+              className="rounded-md box-border p-2 lg:pl-16 lg:pr-16 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+            >
+              ADD CARD
+            </button>
+          {/* </Link> */}
+        </div>
+        <div className="self-center lg:mt-12 mt-2 lg:mb-20 mb-10">
+          {/* <Link to="/thankyou" state={thanksProps}> */}
+            <button
+            onClick={() => checkCardExist(data.length)}
+              type="button"
+              className="rounded-md box-border p-2 lg:pl-6 lg:pr-6 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+            >
+              CONFIRM PURCHASE
+            </button>
+          {/* </Link> */}
+        </div>
       </div>
     </div>
   );
