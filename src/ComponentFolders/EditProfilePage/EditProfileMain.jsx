@@ -395,8 +395,10 @@ function EditProfileMain({ handleSignout }) {
               type="button"
               className="rounded-md box-border p-2 lg:pl-16 lg:pr-16  pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
               onClick={() => {
-                if // eslint-disable-next-line no-alert
-                (window.confirm('Are you sure you want to cancel?')) {
+                if (
+                  // eslint-disable-next-line no-alert
+                  window.confirm('Are you sure you want to cancel?')
+                ) {
                   navigate('/profilepage');
                 }
               }}
@@ -407,7 +409,7 @@ function EditProfileMain({ handleSignout }) {
               disabled={!currentUser}
               type="button"
               className="rounded-md box-border p-2 lg:pl-16 lg:pr-16  pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
-              onClick={handleSignout}
+              onClick={() => handleSignout(() => navigate('/'))}
             >
               SIGN OUT
             </button>

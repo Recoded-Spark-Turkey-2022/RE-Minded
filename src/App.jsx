@@ -36,11 +36,12 @@ import ProfilePage from './ComponentFolders/EditProfilePage/ProfilePage';
 function App() {
   const dispatch = useDispatch();
 
-  const handleSignout = () => {
+  const handleSignout = (cb) => {
     const signOutAuth = getAuth();
     signOut(signOutAuth)
       .then(() => {
         // Sign-out successful, then reload the page
+        cb();
         window.location.reload(false);
       })
       .catch((error) => {
