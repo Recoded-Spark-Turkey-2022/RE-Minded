@@ -31,7 +31,6 @@ import TeamPage from './ComponentFolders/TeamPage/TeamPageMain';
 import ThankYouPage from './ComponentFolders/ThankYouPage/ThankYou';
 import TherapistCreatePage from './ComponentFolders/TherapistCreatePage/TherapistCreatePage';
 import TicketPurchasePage from './ComponentFolders/TicketPurchasePage/TicketPurchasePage';
-import SignUpEmail from './ComponentFolders/SignUpPage/SignUpEmail';
 import ProfilePage from './ComponentFolders/EditProfilePage/ProfilePage';
 
 function App() {
@@ -73,7 +72,6 @@ function App() {
         <Route path="login" element={<Login />} />
         <Route path="signup" element={<SignUp />} />
         <Route path="profilepage" element={<ProfilePage />} />
-        <Route path="signupemail" element={<SignUpEmail />} />
         <Route path="about" element={<About />} />
         <Route path="addcard" element={<AddCardPage />} />
         <Route path="blog" element={<BlogPage />} />

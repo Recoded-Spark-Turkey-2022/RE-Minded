@@ -1,7 +1,10 @@
 import React from 'react';
 import { useNavigate } from 'react-router';
 import { useFormik } from 'formik';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { signInWithGoogle, signInWithFacebook, auth, db } from '../../Firebase';
 import Image from './Images/SofaImage.svg';
@@ -29,14 +32,13 @@ function SignUp() {
           monthOfBirth: e.monthOfBirth,
           yearOfBirth: e.yearOfBirth,
         });
+        await sendEmailVerification(auth.currentUser);
         navigate('/');
         return user;
       } catch (error) {
-
         if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
           // eslint-disable-next-line no-alert
           alert('The same email is used, try another one');
-
         }
         return error;
       }
@@ -153,7 +155,7 @@ function SignUp() {
           <div className="flex items-center justify-between">
             <p className="mr-7 ml-7 font-light text-[#9DAFBD]">Birth Date</p>
             <input
-              type="number"
+              type="text"
               placeholder="  DD"
               name="dayOfBirth"
               value={values.dayOfBirth}
@@ -162,7 +164,7 @@ function SignUp() {
               className="px-3 h-14 w-16 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
             <input
-              type="number"
+              type="text"
               placeholder="  MM"
               name="monthOfBirth"
               value={values.monthOfBirth}
@@ -171,15 +173,13 @@ function SignUp() {
               className="lg:appearance-none px-3 h-14 w-16 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
             <input
-              type="number"
+              type="text"
               placeholder="  YYYY"
               name="yearOfBirth"
               value={values.yearOfBirth}
               onChange={handleChange}
               onBlur={handleBlur}
-
               className="outline-none appearance-none px-3 h-14 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300 focus:outline-none focus:placeholder-white"
-
             />
           </div>
           <div className="flex justify-around py-3 gap-8">
@@ -197,13 +197,6 @@ function SignUp() {
               Signup
             </button>
           </div>
-          <button
-            type="button"
-            className="bg-[#2DD3E3] font-medium text-2xl px-14 py-3 rounded-md shadow-[0px_7px_20px_rgba(0,0,0,0.2)]"
-            onClick={() => navigate('/signupemail')}
-          >
-            Sign Up with E-mail
-          </button>
         </form>
         <div className="flex justify-around my-6">
           <img src={lineImage} alt="A line" />

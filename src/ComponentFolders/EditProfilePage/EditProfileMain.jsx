@@ -84,30 +84,34 @@ function EditProfileMain({ handleSignout }) {
         return error;
       });
 
-    const addDoc = async () => {
-      try {
-        await setDoc(doc(db, 'Users', currentUser.userId), {
-          fullname: profileData.fullname,
-          educationLevel: profileData.educationLevel,
-          hobby: profileData.hobby,
-          familySize: profileData.familySize,
-          gender: profileData.gender,
-          birthmonth: profileData.birthmonth,
-          birthday: profileData.birthday,
-          birthyear: profileData.birthyear,
-          email: profileData.email,
-          phone: profileData.phone,
-          password: profileData.password,
-          passwordConfirm: profileData.passwordConfirm,
-        });
-        return true;
-      } catch (error) {
-        return error;
-      }
+     
     };
-    addDoc();
-  };
 
+    const handleFormSubmit = () => {
+       const addDocs = async () => {
+         try {
+           await setDoc(doc(db, 'Users' ,'5Rioxd8SfjXokV7eO59d'), {
+             fullname: profileData.fullname,
+             educationLevel: profileData.educationLevel,
+             hobby: profileData.hobby,
+             familySize: profileData.familySize,
+             gender: profileData.gender,
+             birthmonth: profileData.birthmonth,
+             birthday: profileData.birthday,
+             birthyear: profileData.birthyear,
+             email: profileData.email,
+             phone: profileData.phone,
+             password: profileData.password,
+             passwordConfirm: profileData.passwordConfirm,
+           });
+           return true;
+         } catch (error) {
+           return error;
+         }
+       };
+       addDocs();
+    }
+  
   const handleDeleteUser = () => {
     const confirmed =
       // eslint-disable-next-line no-alert
@@ -373,6 +377,7 @@ function EditProfileMain({ handleSignout }) {
             <button
               disabled={!currentUser}
               type="submit"
+              onClick={handleFormSubmit}
               className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
             >
               SAVE CHANGES
