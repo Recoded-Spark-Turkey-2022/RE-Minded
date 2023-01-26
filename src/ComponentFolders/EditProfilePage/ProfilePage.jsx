@@ -1,8 +1,25 @@
-import React from 'react';
+import { React, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { getDocs, collection } from 'firebase/firestore';
+import { db } from '../../Firebase';
 import profileIcon from './Images/profileIcon.svg';
 
 function ProfilePage() {
+  const [data, setData] = useState([]);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const collectionRef = collection(db, 'profile-input');
+      const querySnapshot = await getDocs(collectionRef);
+      const dataInfo = querySnapshot.docs.map((docu) => ({
+        id: docu.id,
+        data: docu.data(),
+      }));
+      setData(dataInfo);
+    };
+    fetchData();
+  }, ['profile-input']);
+
   return (
     <form className="flex flex-col font-poppins lg:items-center pt-12">
       <div className="flex lg:flex-row flex-col">
@@ -37,57 +54,64 @@ function ProfilePage() {
                 <div className="mt-2">Email</div>
                 <div>Phone Number</div>
               </div>
-              <div className="flex flex-col gap-7 lg:mt-1 mt-3 ml-6 ">
-                <div>
-                  <div className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]">
-                    {' '}
-                    NAME HERE{' '}
+              {data.map((item) => (
+                <div
+                  key={item.id}
+                  className="flex flex-col gap-7 lg:mt-1 mt-3 ml-6 "
+                >
+                  <div>
+                    <div className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]">
+                      {' '}
+                      {item.data.fullname}
+                    </div>
                   </div>
-                </div>
-                <div>
-                  <div className="relative w-full lg:max-w-sm">
-                    <div className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600">
-                      EDUCATION HERE
+                  <div>
+                    <div className="relative w-full lg:max-w-sm">
+                      <div className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600">
+                        {item.data.educationLevel}
+                      </div>
+                    </div>
+                  </div>
+                  <div>
+                    <div className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]">
+                      {' '}
+                      {item.data.hobby}
+                    </div>
+                  </div>
+                  <div className="flex flex-row">
+                    <div className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block w-[4em] p-0.5">
+                      {' '}
+                      {item.data.familySize}
+                    </div>
+                    <div className="self-center ml-4">Member(s)</div>
+                  </div>
+                  <div>
+                    <div className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts">
+                      {item.data.gender}
+                    </div>
+                  </div>
+                  <div className="flex flex-row">
+                    <div className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]">
+                      {' '}
+                      {item.data.birthmonth}
+                      {item.data.birthday}
+                      {item.data.birthyear}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]">
+                      {' '}
+                      {item.data.email}
+                    </div>
+                  </div>
+                  <div>
+                    <div className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]">
+                      {' '}
+                      {item.data.phone}
                     </div>
                   </div>
                 </div>
-                <div>
-                  <div className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]">
-                    {' '}
-                    HOBBIES HERE{' '}
-                  </div>
-                </div>
-                <div className="flex flex-row">
-                  <div className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block w-[4em] p-0.5">
-                    {' '}
-                    ME{' '}
-                  </div>
-                  <div className="self-center ml-4">Member(s)</div>
-                </div>
-                <div>
-                  <div className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts">
-                    GENDER HERE
-                  </div>
-                </div>
-                <div className="flex flex-row">
-                  <div className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]">
-                    {' '}
-                    BIRTHDAY HERE{' '}
-                  </div>
-                </div>
-                <div>
-                  <div className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]">
-                    {' '}
-                    EMAIL HERE{' '}
-                  </div>
-                </div>
-                <div>
-                  <div className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]">
-                    {' '}
-                    PHONE NUMBER HERE{' '}
-                  </div>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 

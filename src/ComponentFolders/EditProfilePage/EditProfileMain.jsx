@@ -3,13 +3,13 @@ import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import {
   getAuth,
-//   // updateEmail,
-//   // updatePassword,
-//   deleteUser,
- } from 'firebase/auth';
- import {  doc, setDoc } from 'firebase/firestore';
+  //   // updateEmail,
+  //   // updatePassword,
+  //   deleteUser,
+} from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
 // import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
- import { db } from '../../Firebase';
+import { db } from '../../Firebase';
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
@@ -41,26 +41,26 @@ function EditProfileMain({ handleSignout }) {
     }));
   };
 
-const handleFormSubmit = async () => {
-  const auth = getAuth();
-  const user = auth.currentUser;
-    await setDoc(doc(db, 'profile-input', user.uid), {
-      fullname: profileData.fullname,
-      educationLevel: profileData.educationLevel,
-      hobby: profileData.hobby,
-      familySize: profileData.familySize,
-      gender: profileData.gender,
-      birthmonth: profileData.birthmonth,
-      birthday: profileData.birthday,
-      birthyear: profileData.birthyear,
-      email: profileData.email,
-      phone: profileData.phone,
-    },
+  const handleFormSubmit = async () => {
+    const auth = getAuth();
+    const user = auth.currentUser;
+    await setDoc(
+      doc(db, 'profile-input', user.uid),
+      {
+        fullname: profileData.fullname,
+        educationLevel: profileData.educationLevel,
+        hobby: profileData.hobby,
+        familySize: profileData.familySize,
+        gender: profileData.gender,
+        birthmonth: profileData.birthmonth,
+        birthday: profileData.birthday,
+        birthyear: profileData.birthyear,
+        email: profileData.email,
+        phone: profileData.phone,
+      },
       navigate('/profilepage')
     );
-  }
-
-
+  };
 
   return (
     <form className="flex flex-col font-poppins lg:items-center">
@@ -284,7 +284,7 @@ const handleFormSubmit = async () => {
             <button
               disabled={!currentUser}
               type="submit"
-               onClick={handleFormSubmit}
+              onClick={handleFormSubmit}
               className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
             >
               SAVE CHANGES
