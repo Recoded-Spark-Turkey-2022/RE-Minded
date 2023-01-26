@@ -5,7 +5,7 @@ import {
   getAuth,
   //   // updateEmail,
   //   // updatePassword,
-  //   deleteUser,
+  deleteUser,
 } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 // import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
@@ -19,6 +19,7 @@ function EditProfileMain({ handleSignout }) {
   const currentUser = useSelector((state) => state.currentUser.user);
 
   const [profileData, setProfileData] = useState({
+    profileName: '',
     fullname: '',
     educationLevel: '',
     hobby: '',
@@ -47,6 +48,7 @@ function EditProfileMain({ handleSignout }) {
     await setDoc(
       doc(db, 'profile-input', user.uid),
       {
+        profileNmae : profileData.profileName,
         fullname: profileData.fullname,
         educationLevel: profileData.educationLevel,
         hobby: profileData.hobby,
@@ -61,6 +63,34 @@ function EditProfileMain({ handleSignout }) {
       navigate('/profilepage')
     );
   };
+
+  const handleDeleteUser = () => {
+    const confirmed =
+      // eslint-disable-next-line no-alert
+      window.confirm('Are you sure you want to deactivate your account?');
+    if (confirmed) {
+      const auth = getAuth();
+      const user = auth.currentUser;
+      deleteUser(user)
+        .then(() => {
+          // User deleted.
+          // eslint-disable-next-line no-alert
+          alert('Your account has been deactivated successfully.');
+        })
+        .catch((error) => {
+          // An error ocurred
+          // eslint-disable-next-line no-alert
+          alert(error);
+        });
+      handleSignout();
+      navigate('/');
+      window.location.reload(false);
+    } else {
+      // eslint-disable-next-line no-alert
+      alert('Deactivation cancelled.');
+    }
+  };
+
 
   return (
     <form className="flex flex-col font-poppins lg:items-center">
@@ -79,9 +109,12 @@ function EditProfileMain({ handleSignout }) {
         </div>
         <div className="flex flex-col lg:ml-16 ml-44">
           <div className=" lg:ml-20 ml-[-15em] lg:self-start lg:mr-44 mt-6 ">
-            <h1 className="lg:text-5xl text-2xl lg:ml-0 ml-20">PROFILE INFO</h1>
+            <h1 className="lg:text-5xl text-2xl lg:ml-0 ml-20 mb-12">
+              PROFILE INFO
+            </h1>
             <div className="flex flex-rows">
               <div className="flex flex-col mt-4 lg:text-xl text-sm gap-9 lg:self-start lg:ml-0 ml-20">
+                <div>Profile Name</div>
                 <div>Full Name</div>
                 <div>Education Level</div>
                 <div>Hobbies</div>
@@ -93,6 +126,16 @@ function EditProfileMain({ handleSignout }) {
                 <div className="mt-2">Upload ID</div>
               </div>
               <div className="flex flex-col gap-7 lg:mt-1 mt-3 ml-6 ">
+                <div>
+                  <input
+                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
+                    id="profileName"
+                    name="profileName"
+                    type="text"
+                    value={profileData.profileName}
+                    onChange={handleInputChange}
+                  />
+                </div>
                 <div>
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
@@ -293,7 +336,7 @@ function EditProfileMain({ handleSignout }) {
               disabled={!currentUser}
               type="button"
               className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
-              // onClick={handleDeleteUser}
+              onClick={handleDeleteUser}
             >
               DELETE ACCOUNT
             </button>
