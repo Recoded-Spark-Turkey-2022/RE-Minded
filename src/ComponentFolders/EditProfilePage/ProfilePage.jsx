@@ -79,7 +79,7 @@ function ProfilePage() {
                     </div>
                   </div>
                   <div className="flex flex-row">
-                    <div className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block w-[4em] p-0.5">
+                    <div className=" bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block w-[4em] p-0.5">
                       {' '}
                       {item.data.familySize}
                     </div>
@@ -93,8 +93,7 @@ function ProfilePage() {
                   <div className="flex flex-row">
                     <div className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]">
                       {' '}
-                      {item.data.birthmonth}
-                      {item.data.birthday}
+                      {item.data.birthday}/{item.data.birthmonth}/
                       {item.data.birthyear}
                     </div>
                   </div>
