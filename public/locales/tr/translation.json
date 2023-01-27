@@ -1,0 +1,350 @@
+{
+    "navbar": {
+        "home": "AnaSayfa",
+        "blog": "Blog",
+        "about": "Hakkımızda",
+        "contact_us": "Bize Ulaşın",
+        "log_in": "Giriş Yap"
+    },
+
+    "about_dropdown": {
+        "about": "Biz",
+        "team": "Ekip",
+        "careers": "Kariyer"
+    },
+    "languages": {
+        "en": "İngilizce",
+        "tr": "Türkçe"
+      },
+    
+      "about": {
+          "help": "Yardım etmek için buradayız!",
+          "text1": "Healing'de, işleri yapmanın daha iyi bir yolu olduğuna inanıyoruz. Müşterilerin satın alınması yerine kazanıldığı daha değerli bir yol. Bu konuda saplantılı bir şekilde tutkuluyuz ve görevimiz, insanların bunu başarmasına yardımcı olmaktır. Arama motoru optimizasyonuna odaklanıyoruz. Harika pazarlamanın en az anlaşılan ve en az şeffaf yönlerinden biridir ve biz bunu bir fırsat olarak görüyoruz. Yazılımımız, eğitimimiz ve topluluğumuz aracılığıyla SEO'yu herkes için basitleştirmekten heyecan duyuyoruz.",
+          "founding": "Kuruluşumuz",
+          "text2": "Healing, 2021'de Ammar Sohail tarafından kuruldu. Çevrimiçi Terapist olarak adlandırıldı ve bir blog ve dünyadaki bazı terapistlerin araştırmalarını ve fikirlerini paylaştığı çevrimiçi bir topluluk olarak başladı. Yeni Başlayanlar İçin Terapi Kılavuzunu ve ilk çalışmamızı başlattık ve bu endüstri uzmanlığı merkezi küçük bir danışmanlık firmasına dönüştü ve bugünün Çevrimiçi Terapistini yaratmamıza yol açtı!"
+          
+      },
+
+      "addcard": {
+          "addcarddetails": "KART BİLGİSİ EKLEYİN",
+          "h2": "Lütfen girdiğiniz tüm bilgilerin kayıt bilgilerinizle aynı olduğundan emin olun.",
+          "supported": "Desteklenen Kart Türleri",
+          "visa": "Visa",
+          "mastercard": "MasterCard",
+          "cardnumber": "Kart Numarası",
+          "expiry": "Son. Kul. Tar.",
+          "cvv": "CVV Kodu",
+          "name": "Kartın Üzerindeki İsim",
+          "country": "Ülke",
+          "zip": "Posta Kodu",
+          "city": "Şehir",
+          "add": "Adres",
+          "button_add": "KARTI EKLE"
+
+    },
+     
+     "blog_main": {
+        "h1": "Ruh Sağlığı ve Teknolojisi",
+        "t1": "Teknoloji ve zihinsel esenlik son derece zıt terimler gibi görünebilir. Ancak, farkındalığa ulaşmanıza ve meditasyon yapmanıza yardımcı olacak mükemmel dijital araçlar var. Stres atmak ve dijital detoksa ulaşmak için akıllı telefon uygulamalarını, sanal gerçeklik çözümlerini ve dijital cihazları bile kullanabilirsiniz, çünkü bir süre sonra her türlü kaygı önleme becerisini kendi başınıza uygulayabileceksiniz. Öyleyse, Tıbbi Fütürist'in size teknolojinin yardımıyla zihinsel ve duygusal sağlığınızı nasıl iyileştirebileceğinizi göstermesine izin verin.",
+        "h2": "Duygusal sağlığımıza dikkat etme ihtiyacı",
+        "t2": "Dalai Lama, Twitter'ında İyi kalmak için fiziksel hijyene dikkat ettiğimiz gibi, bir tür duygusal hijyen de geliştirmemiz gerekiyor diye yazdı. Hazretlerinin beyanı etrafında üç can alıcı nokta vardır. Her şeyden önce, sağlığı iyileştiren, fiziksel olarak aktif yaşam tarzının popülaritesi dünya çapında hızla artıyor. Bununla birlikte, her zaman iyileştirme için yer vardır: Dünya Sağlık Örgütü, küresel olarak yetişkinlerin yüzde 23'ünün ve okula giden ergenlerin yüzde 81'inin yeterince aktif olmadığını söylüyor. Kuruluşa göre, 18-64 yaş arası yetişkinlerin her hafta en az 150 dakika orta yoğunlukta fiziksel aktivite yapması gerekiyor ki bu başarılamaz bir şey değil. Dahası, sayısal ve istatistiksel olarak yönlendirilen 21. yüzyıl zihni, çeşitli spor takip cihazlarından ve giyilebilir cihazlardan büyük bir ilham ve güç alabilir.",
+        "t3": "İkincisi, duygusal hijyen günümüzde gölgede kalmış gibi görünüyor. Her nasılsa, meşguliyet kültürü, yoğun programlarımıza zihinsel sağlık için biraz zaman sıkıştırmamızı engelliyor. Milyonlarca iletişim kanalından üzerimize bilgi yağıyor; sosyal medyada yüzlerce arkadaşla bağlantı kuruyoruz, bir şeyleri kaçırma korkusuyla verilere takıntılıyız ve zaman yönetimi günlerimizi toplantılara ve yapılacaklar listelerine bölüyor.",
+        "t4": "Yürütülmesi gereken baskı ve elde edilmesi gereken stres, her meşgul arının soluduğu havadır. Ancak çalkantılı yaşam tarzının bir bedeli var. Pek çok insanın akıl sağlığı sorunları yaşamasına şaşmamalı. ABD'de bu, her beş yetişkinden biri, 40 milyondan fazla Amerikalı anlamına gelir! Eski kıtada, nüfusun yüzde 27'si zihinsel bozukluklarla mücadele etmek zorunda, bu da mücadele eden 83 milyon Avrupalı anlamına geliyor. Asya'da depresyon yaygınlığı Tayland'da yüzde 20, Tayvan'da yüzde 19,9, Kore'de yüzde 19,4, Malezya'da yüzde 17,5 ve Çin'de yüzde 16,5."
+
+     },
+
+     "recommend": {
+        "h1": "Sizin için öneriler"
+     },
+    
+     "blog_singup": {
+        "h1": "The Healing Blog'a Kaydolun",
+        "t1": "Haberdar olmanıza yardımcı olan haftalık, reklamsız bir Blog.",
+        "button": "E-mail adresinizi girin"
+
+     },
+
+     "home_a": {
+        "h1": "YARDIM ETMEK İÇİN",
+        "h2": "BURADAYIZ",
+        "book": "RANDEVU OLUŞTURUN"
+     },
+
+     "home_b": {
+        "h1": "GÜVENEBİLECEĞİNİZ PROFESYONEL, LİSANSLI VE DENEYİMLİ TERAPİSTLER",
+        "t1": "Depresyon, kaygı, ilişkiler, travma, keder ve daha fazlası dahil olmak üzere çeşitli konularda size yardımcı olabilecek dünyanın en büyük lisanslı, akredite ve deneyimli terapist ağından yararlanın. Terapistlerimizle, ofis içi bir terapistten bekleyeceğiniz aynı profesyonelliği ve kaliteyi elde edersiniz, ancak istediğiniz zaman ve istediğiniz şekilde iletişim kurabilirsiniz."
+        
+
+     },
+
+     "home_c": {
+        "h1": "FARKLI ŞEKİLLERDE İLETİŞİM KURABİLİRİZ",
+        "videocall": "Video Görüşmesi",
+        "content1": "Daha iyi bir deneyim için terapistler görüntülü görüşmeleri önerir, ancak bunun bir seçim olduğunu her zaman unutmayın!",
+        "chat": "Konuşma",
+        "content2": "Biriyle konuşmaya mı ihtiyacınız var? Gelin, terapistinizle sohbet edin!",
+        "voicecall": "Telefon Görüşmesi",
+        "content3": "Bir konuşma başlatmak için hazır hissediyor musun? Terapistinize sesli bir çağrı yapın ve kalbinizi konuşun!"
+
+
+     },
+
+     "home_d": {
+        "recent": "SON BLOG YAZILARI"
+    },
+
+    "home_e": {
+        "h1": "BİLET SATIN ALIN",
+        "h2": "RANDEVU ALMAK İÇİN KULLANILABİLECEK BİLET SATIN ALIN!",
+        "ticket1": "5 BİLET",
+        "button": "SATIN AL",
+        "ticket2": "25 BİLET",
+        "ticket3": "50 BİLET",
+        "question": "TERAPİST MİSİNİZ?",
+        "exp": "Akıl sağlığı platformumuza katılmak ister misiniz? Programınıza ve ne kadar çalışmak istediğinize siz karar verin, müşteri yönlendirmeleri ve fatura ayrıntılarıyla ilgilenin!",
+        "learn_more": "DAHA FAZLA BİLGİ EDİNİN"
+    },
+
+    "footer": {
+        "h1": "Abone ol",
+        "t1": "Size spam göndermeyeceğiz",
+        "button": "   E-mail adresinizi girin",
+        "home": "AnaSayfa",
+        "blog": "Bloglar",
+        "about": "Hakkımızda",
+        "contact": "İletişim"
+ 
+    },
+
+    "team": {
+        "h1": "BİZ HEALING, TANIŞTIĞIMIZA MEMNUN OLDUK!",
+        "meet": "Ekibimizle Tanışın!"
+    },
+
+    "thankyou": {
+        "t1": "TEŞEKKÜRLER!",
+        "backtohome": "ANA SAYFAYA DÖN"
+    },
+
+    "login": {
+        "h1": "GİRİŞ YAP",
+        "email": "   Mail Adresi",
+        "password": "   Şifre",
+        "login": "Giriş Yap",
+        "signup": "Kaydol",
+        "or": "Veya"
+
+    },
+
+    "signup": {
+        "h1": "ŞİMDİ KAYDOLUN",
+        "fname": "   İsim",
+        "lname": "   Soyisim",
+        "email": "   Email",
+        "confirm1": "   Email adresinizi doğrulayın",
+        "password":"   Şifre",
+        "confirm2": "   Şifrenizi doğrulayın",
+        "birth": "Doğum Tarihi",
+        "day": "GG",
+        "month": "AA",
+        "year": "YYYY",
+        "login": "Giriş Yap",
+        "signup": "Kaydol",
+        "or": "Veya"
+    },
+
+    "requirements": {
+        "h1": "NEDEN HEALING İLE ÇALIŞMALISINIZ?",
+        "h2": "GÜVENİLİR GELİR KAYNAĞI",
+        "t1": "Her Gün 10.000'den Fazla Kişi BetterHelp'e Kaydoluyor ve Hayatın Zorluklarına Yardımcı Olacak Bir Danışman Arıyor. BetterHelp, Ana Gelir Kaynağınız veya Mevcut İşinize Ek Olabilir.",
+        "h3": "TERAPİYE ODAKLANIN",
+        "t2": "Müşteri edinme, faturalandırma, destek veya operasyonlardan kaynaklanan maliyetler konusunda endişelenmenize gerek yok. Ücretleri ve evrak işlerini bize bırakın, böylece en iyi yaptığınız şeye odaklanabilirsiniz!",
+        "r1": "GEREKSİNİMLER",
+        "li1": "Devlet Kurulu tarafından lisanslı terapist olmak",
+        "li2": "Yetişkinler, çiftler ve/veya gençler için danışmanlık deneyimi",
+        "li3": "Mükemmel yazma becerileri",
+        "li4": "Sağlam bir internet bağlantısı",
+        "li5": "ABD'de ikamet ediyor olmak",
+        "start": "ŞİMDİ BAŞLAYIN"
+
+    },
+
+    "contact": {
+        "h1": "BİZE TALEBİNİZİ GÖNDERİN!",
+        "t1": "Bir sorunuz, endişeniz, fikriniz, geri bildiriminiz veya sorununuz mu var? Yardıma ihtiyacınız varsa, lütfen aşağıdaki formu doldurun, size yardımcı olmaktan memnuniyet duyarız!",
+        "h2": "Talebinizin türü",
+        "r1": "Hizmet hakkında bir sorum var.",
+        "r2": "Kayıtlı bir müşteriyim ve desteğe ihtiyacım var.",
+        "r3": "Katılmak isteyen bir danışmanım.",
+        "r4": "Kayıtlı bir danışmanım ve desteğe ihtiyacım var.",
+        "r5": "İşle ilgili bir sorum var.",
+        "r6": "Kurumum için Çevrimiçi Healing ile ilgileniyorum.",
+        "r7": "Faturalandırma ile ilgili bir sorum var.",
+        "error1": "Lütfen yukarıdakilerden birini seçin!!!",
+        "error2": "İsim boş bırakılamaz!!!",
+        "error3": "Email adresi boş bırakılamaz!!!",
+        "error4": "Detaylar boş bırakılamaz!!!",
+        "name1": "İsim Soyisim:",
+        "name2": "İsim soyisim yazınız...",
+        "email": "Email adresinizi yazınız...",
+        "details": "Detaylar:",
+        "details2": "Detayları yazınız...",
+        "submit": "GÖNDER",
+        "findus": "Adres:",
+        "a1": "Hello World! Caddesi",
+        "a2": "Re:Minded Plaza",
+        "a3": "Re:Coded 2023",
+        "a4": "Türkiye/Dünya"
+    },
+
+    "purchase": {
+        "h1": "KART SEÇİN",
+        "t1": "Lütfen bilet satın almak istediğiniz kartı seçiniz",
+        "click": "Bilet Satın Almak İçin Seçilen Kartı Kullanmak İçin Onayla'yı tıklayın.",
+        "confirm": "SATIN ALMAYI ONAYLA"
+    },
+    
+    "t-create": {
+        "h1": "HESAP OLUŞTURUN",
+        "f1": "Kullanıcı Adı",
+        "f2": "E-mail",
+        "f3": "Şehir",
+        "f4": "Sicil Numarası",
+        "f5": "Şifre",
+        "f6": "Şifrenizi Doğrulayın",
+        "create": "OLUŞTUR"
+    },
+
+    "savedcards": {
+        "h1": "KAYITLI KARTLARINIZ",
+        "t1": "Şu anda ödeme yöntemi olarak yalnızca kartları destekliyoruz!",
+        "addnew": "YENİ KART EKLE + "
+    },
+
+    "editprofile": {
+        "top": "Profilinizi tamamlamak için lütfen tüm alanları doğru ve geçerli bilgilerle doldurun.",
+        "h1": "PROFİL BİLGİSİ",
+        "name": "İsim Soyisim",
+        "edu": "Eğitim Düzeyi",
+        "hobi": "Hobiler",
+        "fam": "Aile Üyeleri",
+        "gen": "Cinsiyet", 
+        "birth": "Doğum Tarihi",
+        "mail": "E-mail",
+        "phone": "Telefon Numarası",
+        "id": "Kimlik Yükle",
+        "eduopt": "-- Eğitim Seçiniz --",
+        "opt1": "Örgün eğitim yok",
+        "opt2": "İlk Okul",
+        "opt3": "Lise",
+        "opt4": "GED",
+        "opt5": "Mesleki Yeterlilik",
+        "opt6": "Lisans Mezunu",
+        "opt7": "Yüksek Lisans Mezunu",
+        "opt8": "Doktora veya üstü",
+        "member": "Kişi(ler)",
+        "genopt": "-- Cinsiyet Seçiniz --",
+        "female": "Kadın",
+        "male": "Erkek",
+        "day": "GG",
+        "month": "AA",
+        "year": "YYYY",
+        "h2": "Güvenlik",
+        "password":"Şifre",
+        "confirm": "Şifrenizi Doğrulayın",
+        "button1": "DEĞİŞİKLİKLERİ KAYDET",
+        "button2": "HESABI SİL",
+        "button3": "İPTAL ET",
+        "payment": "Ödeme Yöntemleri ve Biletler",
+        "3": "3 Kart Eklendi",
+        "show": "KARTLARI GÖSTER",
+        "10": "10 Bilet Kaldı",
+        "buy": "BİLET AL"
+
+    },
+
+    "careersa":{
+        "h1": "HEALING'DE AÇIK POZİSYONLAR",
+        "h2": "İnsanları daha iyi hissettirmenin bir parçası olun.",
+        "t1": "SEO yazılımımız, kritik içgörüleri ortaya çıkarmak için veri dağlarını keser. Muazzam miktarda veri işleyen sistemler kuruyor ve sürdürüyoruz (günde 36 trilyon kayıttan ve birden çok petabaytlık depolamadan bahsediyoruz). Dünya için şeffaf ve empatik pazarlama modeli oluşturuyoruz. Becerilerini geliştirmelerine yardımcı olmak için her türlü çabayı göstererek topluluğumuzu eğitiyoruz. Ve tüm bunları hesap verebilirliği, empatiyi ve şeffaflığı teşvik eden bir kültürü teşvik ederek yapıyoruz.",
+        "h3": "Hangi rolü alacaksınız?",
+        "btn1": "AÇIK POZİSYONLARIMIZI GÖRÜN"
+    },
+
+    "careersb": {
+        "h1": "İŞE ALIM FELSEFEMİZ",
+        "t1": "En iyi SEO araçlarını oluşturmak için topluluklarımızın ve müşterilerimizin çeşitliliğini yansıtan bir iş gücüne ihtiyacımız var. Çevrimiçi Terapinin, hiç kimse hariç herkesin hoş karşılandığını ve dahil olduğunu hissettiği bir yer olmasını istiyoruz. Açık pozisyonlarımız için bir teklifte bulunmadan önce çeşitli ve temsili bir aday listesiyle röportaj yapmak bizim görevimiz ve sözümüzdür."
+    },
+
+    "careersc": {
+        "h1": "BAŞVURUYA AÇIK POZİSYONLAR",
+        "t1": "Lütfen bize başvuru başlığını konu olarak PDF formatında ekli bir CV ile birlikte bir e-posta gönderin!"
+    },
+
+    "booking": {
+        "header": "SİZİ DOĞRU TERAPİSTLE BULUŞTURALIM",
+        "content": "Kendiniz ve çevrimiçi terapide ilgilenmek istediğiniz konular hakkında bazı genel ve isimsiz bilgiler sağlamak için lütfen bu kısa anketi doldurun. Sizi en uygun terapistle eşleştirmemize yardımcı olun.",
+        "next": "SONRAKİ",
+        "previous": "ÖNCEKİ"
+    },
+
+    "booking1": {
+        "h1": "Ne tür bir danışmanlık arıyorsunuz?",
+        "b1": "Bireysel danışmanlık",
+        "b2": "Gelişim danışmanlığı (çocuğum için)"
+    },
+
+    "booking2": {
+        "h1": "İlişki durumunuz nedir?",
+        "b1": "Bekar",
+        "b2": "Evli",
+        "b3": "Boşanmış"
+    },
+
+    "booking3": {
+        "h1": "Daha önce terapi aldınız mı?",
+        "b1": "Evet",
+        "b2": "Hayır"
+    },
+
+    "booking4": {
+        "h1": "Bir danışmanda olmasını istediğiniz belirli özellikler var mı?",
+        "b1": "Erkek danışman tercih ederim.",
+        "b2": "Kadın danışman tercih ederim.",
+        "b3": "45+ yaş danışman tercih ederim.",
+        "b4": "Din dışı bir danışmanı tercih ederim"
+    },
+
+    "booking5": {
+        "h1": "Odaklanmak istediğiniz herhangi bir konu var mı?",
+        "b1": "Depresyon",
+        "b2": "Stres ve Kaygı",
+        "b3": "İlişkiler",
+        "b4": "Aile Sorunları",
+        "b5": "Travma ve İstismar",
+        "b6": "Yeme Bozukluğu"
+    },
+
+    "booking6": {
+        "header": "SİZİ BURAYA GETİREN NE OLDU?",
+        "content": "Lütfen (birkaç cümleyle) neden danışmanlık almak istediğinizi belirtin. Bu, danışmanınıza nereden başlayacağı konusunda iyi bir fikir verecektir."
+    },
+
+    "booking7": {
+        "header": "RANDEVU TALEBİNİZİ GÖNDERİN",
+        "content": "Tüm seçeneklerinizden eminseniz Gönder'i tıklayın.",
+        "h1": "Talebi Gönder",
+        "h2": "Lütfen Bu Eylemin Size Bir Bilete Mal Olacağını Dikkate Alın!",
+        "previous": "ÖNCEKİ",
+        "submit": "GÖNDER"
+    },
+
+    "booking8": {
+        "header": "TALEBİNİZ GÖNDERİLDİ!",
+        "content": "Yakında bir tarih ve saat ayırtmanız için size rehberlik eden bir e-posta alacaksınız.",
+        "h1": "Talep Gönderildi",
+        "h2": "Yakında Bir Onay E-postası Alacaksınız Lütfen Postanıza Dikkat Edin.",
+        "btn": "ANASAYFAYA DÖN"
+    }
+
+}
