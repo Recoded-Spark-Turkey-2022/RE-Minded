@@ -1,8 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
-// import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-// import Carousel from 'react-multi-carousel';
 import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../../Firebase';
 import CreditCard from './CreditCard';
@@ -10,15 +8,7 @@ import CreditCard from './CreditCard';
 function savedCardPage() {
   const [data, setData] = useState([]);
 
-  // const carouselRef = useRef(null);
 
-  // const handleBack = () => {
-  //   carouselRef.current.slickPrev();
-  // };
-
-  // const handleNext = () => {
-  //   carouselRef.current.slickNext();
-  // };
 
   useEffect(() => {
     const fetchData = async () => {

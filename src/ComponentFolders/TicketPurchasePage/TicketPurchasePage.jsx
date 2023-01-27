@@ -98,8 +98,8 @@ function TicketPurchasePage() {
           )}
         </div>
 
-      {/* <div className="flex lg:flex-row md:flex-row flex-col self-center gap-3 lg:mt-20 mt-8 lg-ml-0 ml-10 lg:mr-0 mr-10">
-        <div className="flex lg:space-y-4 self-center">
+        <div className="flex lg:flex-row md:flex-row flex-col self-center gap-3 lg:mt-20 mt-8 lg-ml-0 ml-10 lg:mr-0 mr-10">
+          {/* <div className="flex lg:space-y-4 self-center">
           <img
             src={leftArrow}
             alt="leftArrow"
@@ -160,38 +160,38 @@ function TicketPurchasePage() {
             alt="rightArrow"
             className="lg:rotate-0 md:rotate-0 rotate-90"
           />
-        </div>
-      </div> */}
+        </div> */}
 
-      <div className="lg:text-2xl md:text-xl text-base lg:mt-20 mt-12 self-center capitalize lg:ml-0 ml-10 lg:mr-0 mr-10">
-        {t('purchase.click')} {ticket} {propsData}
-      </div>
+          <div className="lg:text-2xl md:text-xl text-base lg:mt-20 mt-12 self-center capitalize lg:ml-0 ml-10 lg:mr-0 mr-10">
+            {t('purchase.click')} {ticket} {propsData}
+          </div>
 
-      <div className="flex lg:flex-row flex-col lg:gap-10 gap-4 justify-center">
-        <div className="self-center lg:mt-12 mt-8 lg:mb-20 mb-2">
-          {/* <Link to="/thankyou" state={thanksProps}> */}
-          <button
-            onClick={() => navigate('../savedcards')}
-            type="button"
-            className="rounded-md box-border p-2 lg:pl-16 lg:pr-16 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
-          >
-            ADD CARD
-          </button>
-          {/* </Link> */}
-        </div>
-        <div className="self-center lg:mt-12 mt-2 lg:mb-20 mb-10">
-          {/* <Link to="/thankyou" state={thanksProps}> */}
-          <button
-            onClick={() => checkCardExist(data.length)}
-            type="button"
-            className="rounded-md box-border p-2 lg:pl-6 lg:pr-6 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
-          >
-            {t('purchase.confirm')}
-          </button>
-          {/* </Link> */}
+          <div className="flex lg:flex-row flex-col lg:gap-10 gap-4 justify-center">
+            <div className="self-center lg:mt-12 mt-8 lg:mb-20 mb-2">
+              {/* <Link to="/thankyou" state={thanksProps}> */}
+              <button
+                onClick={() => navigate('../savedcards')}
+                type="button"
+                className="rounded-md box-border p-2 lg:pl-16 lg:pr-16 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+              >
+                ADD CARD
+              </button>
+              {/* </Link> */}
+            </div>
+            <div className="self-center lg:mt-12 mt-2 lg:mb-20 mb-10">
+              {/* <Link to="/thankyou" state={thanksProps}> */}
+              <button
+                onClick={() => checkCardExist(data.length)}
+                type="button"
+                className="rounded-md box-border p-2 lg:pl-6 lg:pr-6 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+              >
+                {t('purchase.confirm')}
+              </button>
+              {/* </Link> */}
+            </div>
+          </div>
         </div>
       </div>
-    </div>
     </div>
   );
 }
