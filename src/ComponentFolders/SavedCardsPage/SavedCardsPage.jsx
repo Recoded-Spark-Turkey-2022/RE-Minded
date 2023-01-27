@@ -1,4 +1,5 @@
 import { React, useEffect, useState } from 'react';
+import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 // import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 // import Carousel from 'react-multi-carousel';
@@ -32,13 +33,15 @@ function savedCardPage() {
     fetchData();
   }, ['credit-cards']);
 
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col font-poppins lg:mt-20 mt-10 mb-32">
       <div className="lg:text-5xl md:text-3xl text-xl lg:ml-52 ml-10">
-        <h1>YOUR SAVED CARDS</h1>
+        <h1>{t('savedcards.h1')}</h1>
       </div>
       <div className="lg:text-xl md:text-base text-sm text-SubTexts mt-4 lg:ml-52 ml-10 lg:mr-0 mr-16">
-        We only support cards as a payment method at the moment!
+      {t('savedcards.t1')}
       </div>
       <div className="flex lg:flex-row md:flex-row flex-col self-center  lg:mt-20 mt-8 lg-ml-0  lg:mr-0 mr-10 ">
         <div id="slider" className="flex flex-col md:flex-row lg:flex-row ">
@@ -69,7 +72,7 @@ function savedCardPage() {
             type="button"
             className="rounded-md box-border p-2 lg:pl-6 lg:pr-6 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
           >
-            ADD NEW CARD +
+            {t('savedcards.addnew')}
           </button>
         </Link>
       </div>

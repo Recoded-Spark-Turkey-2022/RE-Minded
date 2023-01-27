@@ -1,0 +1,349 @@
+{
+    "navbar": {
+        "home": "Home",
+        "blog": "Blog",
+        "about": "About",
+        "contact_us": "Contact Us",
+        "log_in": "Log In"
+    },
+
+    "about_dropdown": {
+        "about": "About",
+        "team": "Team",
+        "careers": "Careers"
+    },
+    "languages": {
+        "en": "English",
+        "tr": "Turkish"
+      },
+    
+    "about": {
+        "help": "We are here to HELP!",
+        "text1": "At Healing, we believe there is a better way to do things. A more valuable way where customers are earned rather than bought. We are obsessively passionate about it, and our mission is to help people achieve it. We focus on search engine optimization. It is one of the least understood and least transparent aspects of great marketing, and we see that as an opportunity. We&apos;re excited to simplify SEO for everyone through our software, education, and community.",
+        "founding": "Our Founding",
+        "text2": "Healing was founded by Ammar Sohail in 2021. It was called Online Therapist, and started as a blog and an online community where some of the world's therapists shared their research and ideas. We launched the Beginner's Guide to Therapy and our first study, and that hub of industry expertise transformed into a small consulting firm and led us to create the Online Therapist of today!"
+    },
+
+    "addcard": {
+        "addcarddetails": "ADD CARD DETAILS",
+        "h2":"Please make sure all of the info you enter are the same as your registration info.",
+        "supported": "Supported Card Types",
+        "visa": "Visa",
+        "mastercard": "MasterCard",
+        "cardnumber": "Card Number",
+        "expiry": "Expiry Date",
+        "cvv": "CVV Code",
+        "name": "Name on Card",
+        "country": "Country",
+        "zip": "ZIP Code",
+        "city": "City",
+        "add": "Address",
+        "button_add": "ADD CARD"
+
+    },
+     
+     "blog_main": {
+        "h1": "Mental Health and Technology",
+        "t1": "Technology and mental well-being might seem like profoundly antagonistic terms. However, there are excellent digital tools to help you reach mindfulness and to practice meditation. You can even use smartphone apps, virtual reality solutions and digital devices as a form of relieving stressing and achieving digital detox as, after a while, you will be able to practice all types of anti-anxiety skills on your own. So, let The Medical Futurist show you how you can enhance your mental and emotional health with the help of technology.",
+        "h2": "The need for taking care of our emotional health",
+        "t2": "“Just as we observe physical hygiene to stay well, we need to cultivate a kind of emotional hygiene too,” wrote the Dalai Lama on his Twitter-feed. There are three crucial points around His Holiness statement. First and foremost, the popularity of health-enhancing, physically active lifestyle is soaring worldwide. Nevertheless, there's always room for improvement: the WHO says that globally, 23 percent of adults and 81 percent of school-going adolescents are not active enough. According to the organization, adults aged 18-64 should do at least 150 minutes of moderately intense physical activity each week, which is not unaccomplishable. Moreover, the numerically and statistically driven 21st-century mind could take a great inspiration and power from the various fitness trackers and wearables.",
+        "t3": "Secondly, emotional hygiene seems to be thrown into the shade nowadays. Somehow, the culture of busyness prevents us from squeezing some time for mental health into our packed schedules. Information is pouring on us from millions of communication channels; we are connecting with hundreds of friends on social media, we are obsessed with data due to the fear of missing out and time management slices up our days into meetings and to-do-lists.",
+        "t4": "The pressure to perform and the stress to achieve is the air every busy-bee is breathing. However, turbulent lifestyle comes with a price. No wonder so many people have mental health issues. In the US, that means one in five adults more than 40 million Americans! On the old continent, 27 percent of the population has to cope with mental disorders, which means 83 million struggling Europeans. In Asia, the prevalence of depression is 20 percent in Thailand, 19.9 percent in Taiwan, 19.4 percent in Korea, 17.5 in Malaysia and 16.5 percent in China."
+
+     },
+
+     "recommend": {
+        "h1": "Recommended For You"
+     },
+    
+     "blog_singup": {
+        "h1": "Sign up for The Healing Blog",
+        "t1": "A weekly, ad-free Blog that helps you stay in the know.",
+        "button": "Enter your e-mail"
+     },
+
+     "home_a": {
+        "h1": "WE ARE HERE TO",
+        "h2": "HELP",
+        "book": "BOOK AN APPOINTMENT"
+     },
+
+     "home_b": {
+        "h1": "PROFESSIONAL, LICENSED, AND VETTED THERAPISTS THAT YOU CAN TRUST",
+        "t1": "Tap into the worlds largest network of licensed, accredited, and experienced therapists who can help you with a range of issues including depression, anxiety, relationships, trauma, grief, and more. with our therapists, you get the same professionalism and quality you would expect from an in-office therapist, but with the ability to communicate whenever and however you want."
+
+     },
+
+     "home_c": {
+        "h1": "WE CAN COMMUNICATE THROUGH",
+        "videocall": "Video Call",
+        "content1": "For better experience therapists recommend video calls, but always remember that its a choice!",
+        "chat": "Chat",
+        "content2": "Need to talk to someone? Come have a chat with your therapist!",
+        "voicecall": "Voice Call",
+        "content3": "Feeling ready to start a conversation? Give your therapist a voice call and talk your heart out!"
+        
+     },
+
+     "home_d": {
+        "recent": "RECENT BLOGS"
+    },
+
+    "home_e": {
+        "h1": "PURCHASE TICKETS",
+        "h2": "PURCHASE TICKETS THAT CAN BE USED TO BOOK APPOINTMENTS!",
+        "ticket1": "5 TICKETS",
+        "button": "PURCHASE",
+        "ticket2": "25 TICKETS",
+        "ticket3": "50 TICKETS",
+        "question": "ARE YOU A COUNSELOR?",
+        "exp": "Interested in joining our mental health platform? You decide your schedule and how much you want to work, well take care of the client referrals and billing details!",
+        "learn_more": "LEARN MORE"
+
+    },
+
+    "footer": {
+        "h1": "Subscribe",
+        "t1": "We will never spam to you or share your email",
+        "button": "   Enter your e-mail",
+        "home": "Home",
+        "blog": "Blogs",
+        "about": "About",
+        "contact": "Contact"
+  
+    },
+
+    "team": {
+        "h1": "WE ARE HEALING, NICE TO MEET YOU!",
+        "meet": "Meet the Team!"
+    },
+
+    "thankyou": {
+        "t1": "THANK YOU!",
+        "backtohome": "BACK TO HOME"
+    },
+
+    "login": {
+        "h1": "LOGIN",
+        "email": "   Your Email",
+        "password": "   Your Password",
+        "login": "Login",
+        "signup": "Signup",
+        "or": "Or"
+    },
+
+    "signup": {
+        "h1": "SIGNUP NOW",
+        "fname": "   First Name",
+        "lname": "   Last Name",
+        "email": "   Your Email",
+        "confirm1": "   Confirm email",
+        "password":"   Password",
+        "confirm2": "Confirm Password",
+        "birth": "Birth Date",
+        "day": "DD",
+        "month": "MM",
+        "year": "YYYY",
+        "login": "Login",
+        "signup": "Signup",
+        "or": "Or"
+    },
+
+    "requirements": {
+        "h1": "WHY WORK WITH HEALING?",
+        "h2": "RELIABLE INCOME",
+        "t1": "Over 10,000 People Sign Up On BetterHelp Every Day Looking For A Counselor To Help With Life's Challenges. BetterHelp Can Be Your Main Source Of Income Or A Supplement To Your Current Work.",
+        "h3": "FOCUS ON COUNSELING",
+        "t2": "No need to worry about costs from acquiring clients, billing, support or operations. Let us handle the fees and paperwork so you can focus on what you do best!",
+        "r1": "REQUIREMENTS",
+        "li1": "Licensed by a State Board to provide counseling",
+        "li2": "Experience in counseling for adults, couples, and/or teens",
+        "li3": "Excellent writing skills",
+        "li4": "Reliable Internet connection",
+        "li5": "Currently residing in the US",
+        "start": "GET STARTED"
+
+    },
+
+    "contact": {
+        "h1": "SEND US YOUR REQUEST!",
+        "t1": "Do you have a question, concern, idea, feedback, or problem? If you need assistance, please fill out the form below and we would be happy to help!",
+        "h2": "Type of contact",
+        "r1": "I have a question about the service.",
+        "r2": "I am a registered client and I need support.",
+        "r3": "I am a counselor interested in joining.",
+        "r4": "I am a registered counselor and I need support.",
+        "r5": "I have a business-related inquiry.",
+        "r6": "I am interested in Healing Online for my organization.",
+        "r7": "I have a billing related question.",
+        "error1": "Please chose one of the above!!!",
+        "error2": "Full Name can not be Empty!!!",
+        "error3": "The Email can not be Empty!!!",
+        "error4": "The Details can not be Empty!!!",
+        "name1": "Full Name:",
+        "name2": "Enter your full name here...",
+        "email": "Enter your email address here...",
+        "details": "Details:",
+        "details2": "Enter your details here...",
+        "submit": "SUBMIT",
+        "findus": "Find Us At:",
+        "a1": "Hello World! Street",
+        "a2": "Re:Minded Plaza",
+        "a3": "Re:Coded 2023",
+        "a4": "Turkey/World"
+
+    },
+
+    "purchase": {
+        "h1": "SELECT CARD",
+        "t1": "Please select the card you want to buy the tickets with",
+        "click": "Click Confirm To Use The Selected Card To Purchase Tickets For",
+        "confirm": "CONFIRM PURCHASE"
+    },
+
+    "t-create": {
+        "h1": "CREATE AN ACCOUNT",
+        "f1": "User Name",
+        "f2": "E-mail",
+        "f3": "City",
+        "f4": "License Number",
+        "f5": "Password",
+        "f6": "Confirm Password",
+        "create": "CREATE"
+    },
+
+    "savedcards": {
+        "h1": "YOUR SAVED CARDS",
+        "t1": "We only support cards as a payment method at the moment!",
+        "addnew": "ADD NEW CARD + "
+    },
+
+    "editprofile": {
+        "top": "Please fill all the fields with correct and valid details to complete your profile.",
+        "h1": "PROFILE INFO",
+        "name": "Full Name",
+        "edu": "Education Level",
+        "hobi": "Hobbies",
+        "fam": "Family Size",
+        "gen": "Gender", 
+        "birth": "Birth Date",
+        "mail": "E-mail",
+        "phone": "Phone Number",
+        "id": "Upload ID",
+        "eduopt": "-- Select Education --",
+        "opt1": "No formal education",
+        "opt2": "Primary education",
+        "opt3": "High school",
+        "opt4": "GED",
+        "opt5": "Vocational qualification",
+        "opt6": "Bachelor's degree",
+        "opt7": "Master's degree",
+        "opt8": "Doctorate or higher",
+        "member": "Member(s)",
+        "genopt": "-- Select Gender --",
+        "female": "Female",
+        "male": "Male",
+        "day": "DD",
+        "month": "MM",
+        "year": "YYYY",
+        "h2": "Security",
+        "password":"Password",
+        "confirm": "Confirm Password",
+        "button1": "SAVE CHANGES",
+        "button2": "DELETE ACCOUNT",
+        "button3": "CANCEL",
+        "payment": "Payment Methods & Tickets",
+        "3": "3 Cards Added",
+        "show": "SHOW CARDS",
+        "10": "10 Tickets Remaining",
+        "buy": "BUY TICKETS"
+
+    },
+
+    "careersa":{
+        "h1": "CAREERS AT HEALING",
+        "h2": "Be a part of making people feel better.",
+        "t1": "Our SEO software cuts through mountains of data to surface critical insights. We build and maintain systems that process massive amounts of data (we're talking 36 trillion records per day and multiple petabytes of storage.) We model transparent and empathetic marketing for the world. We educate our community, making every effort to help them improve their skill. And we do it all by fostering a culture that encourages accountability, empathy, and transparency.",
+        "h3": "What role will you play?",
+        "btn1": "SEE OUR OPEN LIST"
+    },
+
+    "careersb": {
+        "h1": "OUR HIRING PHILOSOPHY",
+        "t1": "To build the very best SEO tools, we need a workforce that reflects the diversity of our communities and customers. We want Online Therapy to be a place where everyone feels welcome and engaged, bar none. It is our mission and promise to interview a diverse and representative slate of candidates before making an offer for our open roles."
+    },
+
+    "careersc": {
+        "h1": "CURRENT OPEN POSITIONS",
+        "t1": "Please send us an email with the application title as the subject with an attached CV in PDF format!"
+    },
+
+    "booking": {
+        "header": "LET'S MATCH YOU WITH THE RIGHT THERAPIST",
+        "content": "Please fill out this short questionnaire to provide some general and anonymous background about you and the issues you'd like to deal with in online therapy. It would help us match you with the most suitable therapist for you.",
+        "next": "NEXT",
+        "previous": "PREVIOUS"
+    },
+
+    "booking1": {
+        "h1": "What type of counseling are you looking for?",
+        "b1": "Individual counseling",
+        "b2": "Teen counseling (for my child)"
+    },
+
+    "booking2": {
+        "h1": "What is your relationship status?",
+        "b1": "Single",
+        "b2": "Married",
+        "b3": "Divorced"
+    },
+
+    "booking3": {
+        "h1": "Have you ever been in therapy before?",
+        "b1": "Yes",
+        "b2": "No"
+    },
+
+    "booking4": {
+        "h1": "Are there any specific qualities that you would like in a counselor?",
+        "b1": "I prefer a male counselor",
+        "b2": "I prefer a female counselor",
+        "b3": "I prefer an older counselor (45+)",
+        "b4": "I prefer a non-religious counselor"
+    },
+
+    "booking5": {
+        "h1": "Are there any issues you would like to focus on?",
+        "b1": "Depression",
+        "b2": "Stress and Anxiety",
+        "b3": "Relationship issues",
+        "b4": "Family conflicts",
+        "b5": "Trauma and abuse",
+        "b6": "Eating disorders"
+    },
+
+    "booking6": {
+        "header": "WHAT BRINGS YOU HERE?",
+        "content": "Please specify (in a few sentences) why you'd like counseling.This will give your counselor a good understanding of where to start."
+    },
+
+    "booking7": {
+        "header": "SUBMIT YOUR APPOINTMENT",
+        "content": "Click Submit if you are sure of all your choices.",
+        "h1": "Submit Appointment?",
+        "h2": "Please Be Aware That This Action Will Cost You A Ticket!",
+        "previous": "PREVIOUS",
+        "submit": "SUBMIT"
+    },
+
+    "booking8": {
+        "header": "YOUR REQUEST HAS BEEN SUBMITTED!",
+        "content": "You will receive an email guiding you to book a date and time soon.",
+        "h1": "Request Submitted",
+        "h2": "You Will Receive A Confirmation Email Soon Please Keep An Eye On Your Mail.",
+        "btn": "BACK TO HOME"
+    }
+
+
+    
+}

@@ -1,5 +1,6 @@
 import { React, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Card1 from './Card';
 
 function BookingPage6() {
@@ -14,17 +15,18 @@ function BookingPage6() {
     if (value.trim().length > 0) {
       navigate('/booking7');
     } else {
-      // eslint-disable-next-line no-alert
       alert('Warning: Textarea should not be left empty!');
     }
   }
+  
+  const { t } = useTranslation();
 
   return (
     <div>
       <div className="flex flex-col items-center p-12">
         <Card1
-          header="WHAT BRINGS YOU HERE?"
-          content="Please specify (in a few sentences) why you'd like counseling.This will give your counselor a good understanding of where to start."
+          header={t('booking6.header')}
+          content={t('booking6.content')}
         />
 
         <textarea
@@ -38,7 +40,7 @@ function BookingPage6() {
             type="button"
             className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
           >
-            PREVIOUS
+            {t('booking.previous')}
           </button>
         </Link>
         <button
@@ -46,7 +48,7 @@ function BookingPage6() {
           onClick={handleClick}
           className="m-6 rounded-md box-border text-xl pr-6 pl-6 pt-2 pb-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 lg:text-2xl"
         >
-          NEXT
+          {t('booking.next')}
         </button>
       </div>
     </div>

@@ -1,15 +1,16 @@
-import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import { useState } from 'react';
+import {Link} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 import Logo from './Images/Logo.svg';
-import ProfilePhoto from './Images/ProfilePhoto.svg';
 import About from './About';
+import MultiLangDropDown from './MultiLanguageButton';
+
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
+  const { t } = useTranslation();
 
-  const signoutButton = useSelector((state) => state.signoutButton);
-
+  
   return (
     <nav className="w-full sticky top-0 z-50 bg-cyan-50 shadow font-poppins">
       <div className="justify-between px-4 mx-auto  md:items-center md:flex md:px-8">
@@ -18,10 +19,11 @@ export default function NavBar() {
             <Link to="/">
               <div className="flex flex-row ">
                 <img src={Logo} alt="Logo" />
-
-                <h2 className="text-3xl text-bold m-4 ml-3 font-medium">
-                  Healing
-                </h2>
+                <a href="Logo">
+                  <h2 className="text-3xl text-bold m-4 ml-3 font-medium">
+                    Healing
+                  </h2>
+                </a>
               </div>
             </Link>
             <div className="md:hidden">
@@ -69,41 +71,34 @@ export default function NavBar() {
           >
             <div className="mt-3 space-y-2 lg:hidden md:hidden ">
               <div className="flex flex-col  items-center  text-xl ">
-                <Link
-                  to="/"
-                  className=" hover:text-indigo-200 pb-1 "
-                  href="Home"
-                >
-                  Home
+                <Link to="/">
+                  <a className=" hover:text-indigo-200 pb-1 " href="Home">
+                    {t('navbar.home')}
+                  </a>
                 </Link>
-                <Link
-                  to="blog"
-                  className=" hover:text-indigo-200 p-2"
-                  href="Blog"
-                >
-                  Blog
+                <Link to="blog">
+                  <a className=" hover:text-indigo-200 p-2" href="Blog">
+                  {t('navbar.blog')}
+                  </a>
                 </Link>
-                <Link
-                  to="about"
-                  className=" hover:text-indigo-200 p-2"
-                  href="Home"
-                >
-                  About
+                <Link to="About">
+                  <a className=" hover:text-indigo-200 p-2" href="Home">
+                  {t('navbar.about')}
+                  </a>
                 </Link>
-                <Link
-                  to="contactus"
-                  className=" hover:text-indigo-200 p-2"
-                  href="Blog"
-                >
-                  Contact Us
+                <Link to="contactus">
+                  <a className=" hover:text-indigo-200 p-2" href="Blog">
+                  {t('navbar.contact_us')}
+                  </a>
                 </Link>
+
                 <Link to={signoutButton ? 'profilepage' : 'login'}>
                   {!signoutButton ? (
                     <button
                       type="button"
                       className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
                     >
-                      Log In
+                          {t('navbar.log_in')}
                     </button>
                   ) : (
                     <img
@@ -112,7 +107,11 @@ export default function NavBar() {
                       alt="Abstract profile pic"
                     />
                   )}
+
                 </Link>
+                <div>
+                  <MultiLangDropDown />
+                </div>
               </div>
             </div>
           </div>
@@ -121,31 +120,32 @@ export default function NavBar() {
           <ul className="items-center justify-center space-y-8 md:flex md:space-x-6 md:space-y-0">
             <Link to="/">
               <li className=" hover:text-indigo-200">
-                <a href="Home">Home</a>
+                <a href="Home">{t('navbar.home')}</a>
               </li>
             </Link>
             <Link to="blog">
               <li className=" hover:text-indigo-200">
-                <a href="Blog">Blog</a>
+                <a href="Blog">{t('navbar.blog')}</a>
               </li>
             </Link>
-
-            <li className=" hover:text-indigo-200 cursor-pointer">
-              <About />
-            </li>
-
+             
+              <li className=" hover:text-indigo-200 cursor-pointer">
+               <About />
+             </li>
+              
             <Link to="contactus">
               <li className=" hover:text-indigo-200">
-                <a href="Contact">Contact US</a>
+                <a href="Contact">{t('navbar.contact_us')}</a>
               </li>
             </Link>
+
             <Link to={signoutButton ? 'profilepage' : 'login'}>
               {!signoutButton ? (
                 <button
                   type="button"
                   className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
                 >
-                  Log in
+                  {t('navbar.log_in')}
                 </button>
               ) : (
                 <img
@@ -154,7 +154,11 @@ export default function NavBar() {
                   alt="Abstract profile pic"
                 />
               )}
+
             </Link>
+            <li>
+            <MultiLangDropDown />
+            </li>
           </ul>
         </div>
       </div>

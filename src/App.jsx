@@ -1,10 +1,11 @@
-import React, { useEffect } from 'react';
-import { useDispatch } from 'react-redux';
+import React, { useEffect} from 'react';
+import { useDispatch} from 'react-redux';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { onAuthStateChanged, signOut, getAuth } from 'firebase/auth';
 import { setCurrentUser } from './features/userInfo/currentUserSlice';
 import { auth } from './Firebase';
 import { setSignoutButton } from './features/signoutButton/signoutButtonSlice';
+import { setLoginState, setLogoutState } from './features/loginStateHolder/loginStateHolderSlice';
 import './App.css';
 import About from './ComponentFolders/AboutPage/About';
 import HomePageMain from './ComponentFolders/HomePage/HomePageMain';
@@ -40,6 +41,8 @@ function App() {
     const signOutAuth = getAuth();
     signOut(signOutAuth)
       .then(() => {
+        // set login status false for conditional rendering
+        dispatch(setLogoutState(false))
         // Sign-out successful, then reload the page
         cb();
         window.location.reload(false);
@@ -53,6 +56,9 @@ function App() {
   useEffect(() => {
     onAuthStateChanged(auth, (currentUser) => {
       if (currentUser) {
+        // set login status true for conditional renderind
+        dispatch(setLoginState(true))
+
         dispatch(setSignoutButton());
         const { uid, email } = currentUser;
         dispatch(

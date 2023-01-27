@@ -1,44 +1,21 @@
-import React, { useRef, useEffect, useState } from 'react';
-import { useFormik } from 'formik';
-import * as Yup from 'yup';
-import { Link, useNavigate } from 'react-router-dom';
-import { addDoc, collection, getDocs } from 'firebase/firestore';
-import emailjs from '@emailjs/browser';
-import { db } from '../../Firebase';
+import React, { useState , useRef }from 'react';
+import {Link, useNavigate} from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import image1 from './Images/FacebookLogo.svg';
 import image2 from './Images/GoogleLogo.svg';
 import image3 from './Images/TwitterLogo.svg';
 import image4 from './Images/SubscribeArrow.svg';
 
-const thanksProps =
-  'Your email has been added to the mailing list successfully!';
+const thanksProps = "Your email has been added to the mailing list successfully!"
 
 function Footer() {
-  const emailList = collection(db, 'newsletter');
-  const form = useRef();
-  const navigate = useNavigate();
-  const [emailArray, setArray] = useState([]);
 
-  const sendEmail = () => {
-    emailjs
-      .sendForm(
-        'service_lu1j8v5',
-        'template_ixxjvzh',
-        form.current,
-        'da5Fk1wXTnepQQjPI'
-      )
-      .then(
-        (result) => {
-          // eslint-disable-next-line no-console
-          console.log(result.text);
-        },
-        (error) => {
-          // eslint-disable-next-line no-console
-          console.log(error.text);
-        }
-      );
-  };
+const ref = useRef(null);
+const [value, setValue] = useState('');
+const navigate = useNavigate();
+const { t } = useTranslation();
+
 
   const formik = useFormik({
     initialValues: { email: '' },
@@ -101,14 +78,14 @@ function Footer() {
         <div className='flex items-center flex-col  lg:items-start lg:ml-16'>
         
             <h1 className=" text-BlackTexts text-4xl font-medium h-[44px]">
-              Subscribe
+             {t('footer.h1')}
             </h1>
             <p
               className=" text-SubTexts mb-4 
             w-auto h-[22px] top-[56px] mt-2
             font-normal md:text-xl sm:text-sm leading-5"
             >
-              We’ll never spam to you or share your email
+              {t('footer.t1')}
             </p>
           
 
@@ -118,6 +95,7 @@ function Footer() {
                 ref={form}
                 className="w-full"
                 onSubmit={formik.handleSubmit}
+                
               >
                 <div>
                   <input
@@ -127,7 +105,7 @@ function Footer() {
                     value={formik.values.email}
                     className=" w-full h-[46.5px] rounded-l-lg text-SubTexts text-black-800 placeholder:pl-2 placeholder:text-base"
                     type="text"
-                    placeholder="Enter your e-mail"
+                    placeholder= {t('footer.button')}
                   />
                 </div>
               </form>
@@ -143,6 +121,7 @@ function Footer() {
                 />
               </button>
             </div>
+
           </div>
         </div>
       </span>
@@ -155,28 +134,28 @@ function Footer() {
           <Link to="/">
             <li>
               <a href="Home" className="mr-4 hover:underline md:mr-6 ">
-                Home
+              {t('footer.home')}
               </a>
             </li>
           </Link>
           <Link to="blog">
             <li>
               <a href="Blogs" className="mr-4 hover:underline md:mr-6">
-                Blogs
+              {t('footer.blog')}
               </a>
             </li>
           </Link>
           <Link to="about">
             <li>
               <a href="About" className="mr-4 hover:underline md:mr-6">
-                About
+              {t('footer.about')}
               </a>
             </li>
           </Link>
           <Link to="contactus">
             <li>
               <a href="Contact" className="mr-4 hover:underline md:mr-6">
-                Contact
+              {t('footer.contact')}
               </a>
             </li>
           </Link>
