@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import {
@@ -8,8 +8,8 @@ import {
   deleteUser,
 } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
-// import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db } from '../../Firebase';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { db, storage } from '../../Firebase';
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
@@ -17,7 +17,8 @@ import passwordIcon from './Images/PasswordIcon.svg';
 function EditProfileMain({ handleSignout }) {
   const navigate = useNavigate();
   const currentUser = useSelector((state) => state.currentUser.user);
-
+  const [url, setUrl] = useState(null);
+  const [uploadID, setUploadID] = useState(null);
   const [profileData, setProfileData] = useState({
     profileName: '',
     fullname: '',
@@ -34,21 +35,33 @@ function EditProfileMain({ handleSignout }) {
     passwordConfirm: '',
   });
 
-  const handleInputChange = (e) => {
-    const { name, value } = e.target;
-    setProfileData((prevState) => ({
-      ...prevState,
-      [name]: value,
-    }));
-  };
-
+  function handleInputChange(e) {
+    const { value, name, files } = e.target;
+    if (files) {
+      return setUploadID(files[0]);
+    }
+    return setProfileData((prevObj) => {
+      return {
+        ...prevObj,
+        [name]: value,
+      };
+    });
+  }
   const handleFormSubmit = async () => {
+    const imageRef = ref(
+      storage,
+      `userImages/${currentUser.userId}/${currentUser.userId}`
+    );
+    uploadBytes(imageRef, uploadID).then(() => {
+      getDownloadURL(imageRef).then((imageUrl) => setUrl(imageUrl));
+    });
+
     const auth = getAuth();
     const user = auth.currentUser;
     await setDoc(
       doc(db, 'profile-input', user.uid),
       {
-        profileNmae : profileData.profileName,
+        profileNmae: profileData.profileName,
         fullname: profileData.fullname,
         educationLevel: profileData.educationLevel,
         hobby: profileData.hobby,
@@ -91,6 +104,21 @@ function EditProfileMain({ handleSignout }) {
     }
   };
 
+  useEffect(() => {
+    if (currentUser) {
+      const imageRef = ref(
+        storage,
+        `userImages/${currentUser.userId}/${currentUser.userId}`
+      );
+      getDownloadURL(imageRef)
+        .then((imageUrl) => setUrl(imageUrl))
+        .catch((error) => {
+          if (error.code === 'storage/object-not-found') {
+            setUrl(null);
+          }
+        });
+    }
+  }, [currentUser]);
 
   return (
     <form className="flex flex-col font-poppins lg:items-center">
@@ -101,8 +129,7 @@ function EditProfileMain({ handleSignout }) {
       <div className="flex lg:flex-row flex-col">
         <div className="flex flex-col lg:ml-[-10em] md:ml-[10%] ml-[25%] lg:mr-[0%] md:mr-[30%] mr-[25%]">
           <img
-            // src={url === null ? profileIcon : url}
-            src={profileIcon}
+            src={url === null ? profileIcon : url}
             alt="profile"
             className="self-center ml-28 w-80 h-80 rounded-full"
           />

@@ -1,11 +1,31 @@
 import { React, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { getDocs, collection } from 'firebase/firestore';
-import { db } from '../../Firebase';
+import { ref, getDownloadURL } from 'firebase/storage';
+import { db, storage } from '../../Firebase';
 import profileIcon from './Images/profileIcon.svg';
 
 function ProfilePage() {
   const [data, setData] = useState([]);
+  const currentUser = useSelector((state) => state.currentUser.user);
+  const [url, setUrl] = useState(null);
+
+  useEffect(() => {
+    if (currentUser) {
+      const imageRef = ref(
+        storage,
+        `userImages/${currentUser.userId}/${currentUser.userId}`
+      );
+      getDownloadURL(imageRef)
+        .then((imageUrl) => setUrl(imageUrl))
+        .catch((error) => {
+          if (error.code === 'storage/object-not-found') {
+            setUrl(null);
+          }
+        });
+    }
+  }, [currentUser]);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -25,7 +45,7 @@ function ProfilePage() {
       <div className="flex lg:flex-row flex-col">
         <div className="flex flex-col items-center lg:ml-[-10em] md:ml-[10%]  lg:mr-[0%] md:mr-[30%] mr-[25%]">
           <img
-            src={profileIcon}
+            src={url === null ? profileIcon : url}
             alt="profile"
             className="self-center ml-28 w-80 h-80 rounded-full"
           />
