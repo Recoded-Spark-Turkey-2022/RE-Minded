@@ -391,14 +391,6 @@ function EditProfileMain({ handleSignout }) {
             >
               {t('editprofile.button3')}
             </button>
-            <button
-              disabled={!currentUser}
-              type="button"
-              className="rounded-md box-border p-2 lg:pl-16 lg:pr-16  pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
-              onClick={() => handleSignout(() => navigate('/'))}
-            >
-              SIGN OUT
-            </button>
           </div>
           <div className="flex flex-col mt-4 lg:ml-20 ml-[-10em] ">
             <div className="lg:text-5xl text-2xl">

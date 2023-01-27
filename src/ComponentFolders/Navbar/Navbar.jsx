@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import Logo from './Images/Logo.svg';
@@ -7,13 +8,12 @@ import About from './About';
 import MultiLangDropDown from './MultiLanguageButton';
 import ProfilePhoto from './Images/ProfilePhoto.svg';
 
-export default function NavBar() {
+export default function NavBar({ handleSignout }) {
   const [navbar, setNavbar] = useState(false);
-   const [showDropdown, setShowDropdown] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const { t } = useTranslation();
   const signoutButton = useSelector((state) => state.signoutButton);
-
-
+  const navigate = useNavigate();
 
   return (
     <nav className="w-full sticky top-0 z-50 bg-cyan-50 shadow font-poppins">
@@ -112,7 +112,12 @@ export default function NavBar() {
                     />
                   )}
                 </Link>
-                <button type="button">Sign Out</button>
+                <button
+                  type="button"
+                  onClick={() => handleSignout(() => navigate('/'))}
+                >
+                  Log Out
+                </button>
                 <div>
                   <MultiLangDropDown />
                 </div>
@@ -157,12 +162,15 @@ export default function NavBar() {
                   />
                 </button>
                 {showDropdown && (
-                  <ul className="absolute right-0 w-48 py-2 mt-2 rounded-md shadow-lg bg-white">
+                  <ul
+                    className="font-poppins absolute right-0  w-48 py-2 mt-1 rounded-md shadow-2xl  bg-white"
+                    style={{ backgroundColor: 'transparent' }}
+                  >
                     <li>
                       <Link
                         to="profilepage"
                         onClick={() => setShowDropdown(false)}
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        className="font-poppins flex justify-center px-4 py-2 text-md text-gray-700 hover:bg-cyan-500"
                       >
                         Profile Page
                       </Link>
@@ -170,9 +178,10 @@ export default function NavBar() {
                     <li>
                       <button
                         type="button"
-                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                        onClick={() => handleSignout(() => navigate('/'))}
+                        className=" font-poppins w-full block px-4 py-2 text-md text-gray-700  hover:bg-cyan-500"
                       >
-                        Sign Out
+                        Log Out
                       </button>
                     </li>
                   </ul>
