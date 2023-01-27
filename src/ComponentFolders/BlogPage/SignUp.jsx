@@ -1,4 +1,5 @@
 import React, { useRef, useState, useEffect } from 'react';
+import { useTranslation } from 'react-i18next';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { useNavigate } from 'react-router-dom';
@@ -86,13 +87,15 @@ function SignUp() {
     fetchData();
   }, [emailArray]);
 
+  const { t } = useTranslation();
+
   return (
     <div className="lg:pl-48 pl-10">
       <h2 className=" mt-10 uppercase lg:text-2xl text-lg">
-        Sign up for The Healing blog
+        {t('blog_singup.h1')}
       </h2>
       <p className=" mt-2 text-start md:text-sm text-xs uppercase">
-        A weekly, ad-free Blog that helps you stay in the know.
+      {t('blog_singup.t1')}
       </p>
       <div className="md:flex">
         <div className=" mt-7 flex justify-start mb-4 w-[300px] h-[50px] box-border rounded-md border-2 border-[#718096]">
@@ -105,7 +108,7 @@ function SignUp() {
                   value={formik.values.email}
                   className=" w-full h-[46.5px] rounded-l-lg text-SubTexts text-black-800 placeholder:pl-2 placeholder:text-base"
                   type="text"
-                  placeholder="Enter your e-mail"
+                  placeholder={t('blog_singup.button')}
                 />
               </div>
             </form>
