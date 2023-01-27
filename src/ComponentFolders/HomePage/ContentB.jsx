@@ -1,10 +1,28 @@
 import React from 'react';
+import { useSelector } from "react-redux";
+import { useNavigate } from 'react-router-dom';
+import Therapists from './Images/ContentBTherapists.svg';
+
+function ContentB() {
+  const loginState = useSelector((state) => state.loginStateHolderSlice);
+  const navigate = useNavigate();
+
+  function clickHolder(state){
+    if(state){
+      navigate("booking1")
+    }else{
+      // eslint-disable-next-line no-alert
+      alert("We need you to login to continue.")
+    }
+  }
+
 import { Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Therapists from './Images/ContentBTherapists.svg';
 
 function ContentB() {
   const { t } = useTranslation();
+
 
   return (
     <div>
@@ -20,14 +38,13 @@ function ContentB() {
         <p className="pl-16 pr-16 lg:text-2xl font-poppins text-sm lg:w-8/12 lg:pb-20 sm:pb-16">
         {t('home_b.t1')}
         </p>
-        <Link to="booking1">
           <button
+           onClick={() => clickHolder(loginState)}
             type="button"
             className="m-12 text-md md:text-lg ml-16 lg:px-6 rounded-md box-border p-2 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500 "
           >
             {t('home_a.book')}
           </button>
-        </Link>
       </div>
     </div>
   );

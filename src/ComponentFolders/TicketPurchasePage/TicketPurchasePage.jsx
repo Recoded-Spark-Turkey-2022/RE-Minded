@@ -1,11 +1,18 @@
-import React, { useState } from 'react';
-import { useLocation, Link } from 'react-router-dom';
+
+import React, { useState, useEffect } from 'react';
+import { useLocation, useNavigate, Link  } from 'react-router-dom';
+import { getDocs, collection } from 'firebase/firestore';
+import { db } from '../../Firebase';
+import CreditCard from '../SavedCardsPage/CreditCard';
+
+
 import { useTranslation } from 'react-i18next';
 import yellowCard from './Images/YellowCard.svg';
 import pinkCard from './Images/PinkCard.svg';
 import blueCard from './Images/BlueCard.svg';
 import leftArrow from './Images/LeftArrow.svg';
 import rightArrow from './Images/RightArrow.svg';
+
 
 let ticket;
 
@@ -40,6 +47,18 @@ function TicketPurchasePage() {
   }
   
   const { t } = useTranslation();
+
+  const navigate = useNavigate();
+
+  function checkCardExist(dataExisting){
+    if(dataExisting === 0 ){
+      // eslint-disable-next-line no-alert
+      alert("Please add a card for confirmation")
+    }
+    else{
+      navigate("../thankyou", {state: thanksProps})
+    }
+  }
 
   return (
     <div className="flex flex-col font-poppins lg:mt-20 mt-10">
@@ -84,14 +103,31 @@ function TicketPurchasePage() {
       {t('purchase.click')} {ticket} {' '}
         {propsData}
       </div>
-      <div className="self-center lg:mt-12 mt-8 lg:mb-20 mb-10">
-        <Link to="/thankyou" state={thanksProps}>
-        <button
-          type="button"
-          className="rounded-md box-border p-2 lg:pl-6 lg:pr-6 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
-        >
-          {t('purchase.confirm')}
-        </button></Link>
+
+      <div className='flex lg:flex-row flex-col lg:gap-10 gap-4 justify-center'>
+        <div className="self-center lg:mt-12 mt-8 lg:mb-20 mb-2">
+          {/* <Link to="/thankyou" state={thanksProps}> */}
+            <button
+            onClick={() => navigate("../savedcards")}
+              type="button"
+              className="rounded-md box-border p-2 lg:pl-16 lg:pr-16 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+            >
+              ADD CARD
+            </button>
+          {/* </Link> */}
+        </div>
+        <div className="self-center lg:mt-12 mt-2 lg:mb-20 mb-10">
+          {/* <Link to="/thankyou" state={thanksProps}> */}
+            <button
+            onClick={() => checkCardExist(data.length)}
+              type="button"
+              className="rounded-md box-border p-2 lg:pl-6 lg:pr-6 lg:text-lg md:text-base text-sm transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+            >
+             {t('purchase.confirm')}
+            </button>
+          {/* </Link> */}
+        </div>
+
       </div>
     </div>
   );
