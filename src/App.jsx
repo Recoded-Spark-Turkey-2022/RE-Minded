@@ -73,7 +73,7 @@ function App() {
 
   return (
     <BrowserRouter>
-      <Navbar />
+      <Navbar handleSignout={handleSignout} />
       <Routes>
         <Route exact path="/" element={<HomePageMain />} />
         <Route path="login" element={<Login />} />

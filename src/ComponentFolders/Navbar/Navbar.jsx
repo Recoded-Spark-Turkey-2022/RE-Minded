@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import Logo from './Images/Logo.svg';
@@ -7,10 +8,13 @@ import About from './About';
 import MultiLangDropDown from './MultiLanguageButton';
 import ProfilePhoto from './Images/ProfilePhoto.svg';
 
-export default function NavBar() {
+export default function NavBar({ handleSignout }) {
   const [navbar, setNavbar] = useState(false);
+  const [showDropdown, setShowDropdown] = useState(false);
   const { t } = useTranslation();
   const signoutButton = useSelector((state) => state.signoutButton);
+  const navigate = useNavigate();
+
   return (
     <nav className="w-full sticky top-0 z-50 bg-cyan-50 shadow font-poppins">
       <div className="justify-between px-4 mx-auto  md:items-center md:flex md:px-8">
@@ -108,6 +112,12 @@ export default function NavBar() {
                     />
                   )}
                 </Link>
+                <button
+                  type="button"
+                  onClick={() => handleSignout(() => navigate('/'))}
+                >
+                  Log Out
+                </button>
                 <div>
                   <MultiLangDropDown />
                 </div>
@@ -138,22 +148,55 @@ export default function NavBar() {
               </li>
             </Link>
 
-            <Link to={signoutButton ? 'profilepage' : 'login'}>
-              {!signoutButton ? (
+            {signoutButton ? (
+              <div className="relative">
+                <button
+                  type="button"
+                  className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
+                  onClick={() => setShowDropdown(!showDropdown)}
+                >
+                  <img
+                    className="w-11 h-11"
+                    src={ProfilePhoto}
+                    alt="Abstract profile pic"
+                  />
+                </button>
+                {showDropdown && (
+                  <ul
+                    className="font-poppins absolute right-0  w-48 py-2 mt-1 rounded-md shadow-2xl  bg-white"
+                    style={{ backgroundColor: 'transparent' }}
+                  >
+                    <li>
+                      <Link
+                        to="profilepage"
+                        onClick={() => setShowDropdown(false)}
+                        className="font-poppins flex justify-center px-4 py-2 text-md text-gray-700 hover:bg-cyan-500"
+                      >
+                        Profile Page
+                      </Link>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        onClick={() => handleSignout(() => navigate('/'))}
+                        className=" font-poppins w-full block px-4 py-2 text-md text-gray-700  hover:bg-cyan-500"
+                      >
+                        Log Out
+                      </button>
+                    </li>
+                  </ul>
+                )}
+              </div>
+            ) : (
+              <Link to="login">
                 <button
                   type="button"
                   className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
                 >
                   {t('navbar.log_in')}
                 </button>
-              ) : (
-                <img
-                  className="w-11 h-11"
-                  src={ProfilePhoto}
-                  alt="Abstract profile pic"
-                />
-              )}
-            </Link>
+              </Link>
+            )}
             <li>
               <MultiLangDropDown />
             </li>
