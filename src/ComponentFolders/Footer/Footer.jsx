@@ -14,60 +14,117 @@ function Footer() {
 const ref = useRef(null);
 const [value, setValue] = useState('');
 const navigate = useNavigate();
-
-function handleChange(event) {
-  setValue(event.target.value);
-  }
-
-function handleClick() {
-  if (value.trim().match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)) {
-    navigate('/thankyou' , { state: thanksProps }) ;}
-    else {
-    alert('Please enter your e-mail for subscription!');
-  }
-  ref.current.value = '';
-}
 const { t } = useTranslation();
+
+
+  const formik = useFormik({
+    initialValues: { email: '' },
+    validationSchema: Yup.object({
+      email: Yup.string()
+        .email('Please enter a valid email')
+        .required('Please enter an email'),
+    }),
+  });
+
+  function handleFormSubmit() {
+    if (!formik.values.email) {
+      // eslint-disable-next-line no-alert
+      alert('Please enter an email');
+    } else if (formik.values.email) {
+      if (
+        formik.values.email
+          .trim()
+          .match(/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i)
+      ) {
+        const newArr = [];
+        emailArray.map((data) => newArr.push(data.data.email));
+        const result = newArr.includes(formik.values.email);
+        // console.log(result)
+        if (result === false) {
+          sendEmail();
+          addDoc(
+            emailList,
+            {
+              email: formik.values.email,
+            },
+            navigate('/thankyou', { state: thanksProps })
+          );
+        } else {
+          // eslint-disable-next-line no-alert
+          alert('this email already exist');
+        }
+      } else {
+        // eslint-disable-next-line no-alert
+        alert('please enter a valid email');
+      }
+    }
+  }
+
+  useEffect(() => {
+    const fetchData = async () => {
+      const querySnapshot = await getDocs(emailList);
+      const dataInfo = querySnapshot.docs.map((docu) => ({
+        id: docu.id,
+        data: docu.data(),
+      }));
+      setArray(dataInfo);
+    };
+    fetchData();
+  }, [emailArray]);
 
   return (
     <footer className="relative bg-Footer  bottom-0 w-full p-4 md:flex md:items-center md:justify-between md:p-6 ">
-      <span className=" ml-12 text-sm ">
-        <div className="lg:ml-36 ml-6 lg:md-0 flex-col gap-3 w-[500px] h-[78px] mb-4">
-          <h1 className=" text-BlackTexts text-4xl font-medium h-[44px]">
-          {t('footer.h1')}
-          </h1>
-          <p
-            className="text-SubTexts mb-4 
+      <span className="  text-sm ">
+        <div className='flex items-center flex-col  lg:items-start lg:ml-16'>
+        
+            <h1 className=" text-BlackTexts text-4xl font-medium h-[44px]">
+             {t('footer.h1')}
+            </h1>
+            <p
+              className=" text-SubTexts mb-4 
             w-auto h-[22px] top-[56px] mt-2
             font-normal md:text-xl sm:text-sm leading-5"
-          >
-            {t('footer.t1')}
-          </p>
-        </div>
+            >
+              {t('footer.t1')}
+            </p>
+          
 
-        <div className="lg:ml-36 ml-6 md:flex md:ml-0 lg:ml-0">
-          <div className="flex flex-wrap mb-4 w-[300px] h-[50px] box-border rounded-md border-2 border-[#718096]">
-            
-            <input
-              ref={ref}
-              onChange={handleChange}
-              className=" w-3/4 h-auto rounded-l-lg text-SubTexts font-normal "
-              type="email"
-              placeholder= {t('footer.button')}/>
+          <div className=" md:flex ">
+            <div className="flex flex-row mb-4 w-[300px] h-[50px] box-border rounded-lg border-2 border-[#718096]">
+              <form
+                ref={form}
+                className="w-full"
+                onSubmit={formik.handleSubmit}
+                
+              >
+                <div>
+                  <input
+                    name="email"
+                    id="email"
+                    onChange={formik.handleChange}
+                    value={formik.values.email}
+                    className=" w-full h-[46.5px] rounded-l-lg text-SubTexts text-black-800 placeholder:pl-2 placeholder:text-base"
+                    type="text"
+                    placeholder= {t('footer.button')}
+                  />
+                </div>
+              </form>
+              <button
+                onClick={handleFormSubmit}
+                type="button"
+                className="bg-Buttons rounded-r-lg w-[74px] h-[47.5px]"
+              >
+                <img
+                  className="w-[24px] h-[24px] top-[18px] left-[310px] items-center mx-auto"
+                  src={image4}
+                  alt="Arrow"
+                />
+              </button>
+            </div>
 
-            <button onClick={handleClick}
-              type="button"
-              className="bg-Buttons rounded-r-lg w-[74px] h-[46px]">
-              <img
-                className="w-[24px] h-[24px] top-[18px] left-[310px] items-center mx-auto"
-                src={image4}
-                alt="Arrow"/>
-            </button>
-      
           </div>
         </div>
       </span>
-
       <div
         className="flex flex-col items-center sm:mr-12
               

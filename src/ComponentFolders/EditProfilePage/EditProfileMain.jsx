@@ -1,17 +1,141 @@
-import React from 'react';
-import {Link} from 'react-router-dom'
+
+import React, { useState, useEffect } from 'react';
+import { useNavigate, Link } from 'react-router';
+import { useSelector } from 'react-redux';
+import {
+  getAuth,
+  //   // updateEmail,
+  //   // updatePassword,
+  deleteUser,
+} from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
+import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
+import { db, storage } from '../../Firebase';
+
+
 import { useTranslation } from 'react-i18next';
 import profilePhoto from './Images/ProfilePhoto.svg';
+
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
 
-function EditProfileMain() {
-  
-  const { t } = useTranslation();
+
+function EditProfileMain({ handleSignout }) {
+ const { t } = useTranslation();
+  const navigate = useNavigate();
+  const currentUser = useSelector((state) => state.currentUser.user);
+  const [url, setUrl] = useState(null);
+  const [uploadID, setUploadID] = useState(null);
+  const [profileData, setProfileData] = useState({
+    profileName: '',
+    fullname: '',
+    educationLevel: '',
+    hobby: '',
+    familySize: '',
+    gender: '',
+    birthmonth: '',
+    birthday: '',
+    birthyear: '',
+    email: '',
+    phone: '',
+    password: '',
+    passwordConfirm: '',
+  });
+
+  function handleInputChange(e) {
+    const { value, name, files } = e.target;
+    if (files) {
+      return setUploadID(files[0]);
+    }
+    return setProfileData((prevObj) => {
+      return {
+        ...prevObj,
+        [name]: value,
+      };
+    });
+  }
+  const handleFormSubmit = async () => {
+    const imageRef = ref(
+      storage,
+      `userImages/${currentUser.userId}/${currentUser.userId}`
+    );
+    uploadBytes(imageRef, uploadID).then(() => {
+      getDownloadURL(imageRef).then((imageUrl) => setUrl(imageUrl));
+    });
+
+    const auth = getAuth();
+    const user = auth.currentUser;
+    await setDoc(
+      doc(db, 'profile-input', user.uid),
+      {
+        profileNmae: profileData.profileName,
+        fullname: profileData.fullname,
+        educationLevel: profileData.educationLevel,
+        hobby: profileData.hobby,
+        familySize: profileData.familySize,
+        gender: profileData.gender,
+        birthmonth: profileData.birthmonth,
+        birthday: profileData.birthday,
+        birthyear: profileData.birthyear,
+        email: profileData.email,
+        phone: profileData.phone,
+      },
+      navigate('/profilepage')
+    );
+  };
+
+  const handleDeleteUser = () => {
+    const confirmed =
+      // eslint-disable-next-line no-alert
+      window.confirm('Are you sure you want to deactivate your account?');
+    if (confirmed) {
+      const auth = getAuth();
+      const user = auth.currentUser;
+      deleteUser(user)
+        .then(() => {
+          // User deleted.
+          // eslint-disable-next-line no-alert
+          alert('Your account has been deactivated successfully.');
+        })
+        .catch((error) => {
+          // An error ocurred
+          // eslint-disable-next-line no-alert
+          alert(error);
+        });
+      handleSignout();
+      navigate('/');
+      window.location.reload(false);
+    } else {
+      // eslint-disable-next-line no-alert
+      alert('Deactivation cancelled.');
+    }
+  };
+
+  useEffect(() => {
+    if (currentUser) {
+      const imageRef = ref(
+        storage,
+        `userImages/${currentUser.userId}/${currentUser.userId}`
+      );
+      getDownloadURL(imageRef)
+        .then((imageUrl) => setUrl(imageUrl))
+        .catch((error) => {
+          if (error.code === 'storage/object-not-found') {
+            setUrl(null);
+          }
+        });
+    }
+  }, [currentUser]);
 
   return (
-    <div className="flex flex-col font-poppins lg:items-center">
+    <form className="flex flex-col font-poppins lg:items-center">
+
+
+  
+
+
+
       <div className="self-center mt-8 lg:text-xl text-sm text-[#FF0000] lg:ml-0 ml-16 lg:mr-0 mr-[-1em]">
       {t('editprofile.top')}
       </div>
@@ -26,6 +150,7 @@ function EditProfileMain() {
         </div>
         <div className="flex flex-col lg:ml-16 ml-44">
           <div className=" lg:ml-20 ml-[-15em] lg:self-start lg:mr-44 mt-6 ">
+
             <h1 className="lg:text-5xl text-2xl lg:ml-0 ml-20">{t('editprofile.h1')}</h1>
             <div className="flex flex-rows">
               <div className="flex flex-col mt-4 lg:text-xl text-sm gap-9 lg:self-start lg:ml-0 ml-20">
@@ -40,6 +165,16 @@ function EditProfileMain() {
                 <div className="mt-2">{t('editprofile.id')}</div>
               </div>
               <div className="flex flex-col gap-7 lg:mt-1 mt-3 ml-6 ">
+                <div>
+                  <input
+                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
+                    id="profileName"
+                    name="profileName"
+                    type="text"
+                    value={profileData.profileName}
+                    onChange={handleInputChange}
+                  />
+                </div>
                 <div>
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
@@ -197,6 +332,17 @@ function EditProfileMain() {
           </div>
           <div className="flex flex-rows lg:gap-8 gap-3 mt-10 lg:ml-20 ml-[-12em] lg:text-base text-sm">
             <button
+
+              disabled={!currentUser}
+              type="submit"
+              onClick={handleFormSubmit}
+              className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+            >
+              SAVE CHANGES
+            </button>
+            <button
+              disabled={!currentUser}
+
               type="button"
               className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
             >
@@ -204,13 +350,26 @@ function EditProfileMain() {
             </button>
             <button
               type="button"
-              className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+
+              className="rounded-md box-border p-2 lg:pl-16 lg:pr-16  pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+              onClick={() => {
+                if (
+                  // eslint-disable-next-line no-alert
+                  window.confirm('Are you sure you want to cancel?')
+                ) {
+                  navigate('/profilepage');
+                }
+              }}
+
             >
               {t('editprofile.button2')}
             </button>
             <button
               type="button"
               className="rounded-md box-border p-2 lg:pl-16 lg:pr-16  pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+
+              onClick={() => handleSignout(() => navigate('/'))}
+
             >
               {t('editprofile.button3')}
             </button>

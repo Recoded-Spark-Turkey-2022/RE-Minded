@@ -2,9 +2,13 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
 import { useFormik } from 'formik';
-import { createUserWithEmailAndPassword } from 'firebase/auth';
-import { doc, setDoc } from "firebase/firestore";
-import { auth, db } from '../../Firebase';
+import {
+  createUserWithEmailAndPassword,
+  sendEmailVerification,
+} from 'firebase/auth';
+import { doc, setDoc } from 'firebase/firestore';
+import { signInWithGoogle, signInWithFacebook, auth, db } from '../../Firebase';
+
 import Image from './Images/SofaImage.svg';
 import lineImage from './Images/line.svg';
 import FacebookLogo from './Images/FacebookLogo.svg';
@@ -31,10 +35,14 @@ function SignUp() {
           monthOfBirth: e.monthOfBirth,
           yearOfBirth: e.yearOfBirth
         });
-        return user
+        await sendEmailVerification(auth.currentUser);
+        navigate('/');
+        return user;
       } catch (error) {
-        if (error.message === "Firebase: Error (auth/email-already-in-use).") {
-          alert("The same email is used, try another one")
+        if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
+          // eslint-disable-next-line no-alert
+          alert('The same email is used, try another one');
+
         }
         return error;
       }
@@ -145,8 +153,10 @@ function SignUp() {
           <div className="flex items-center justify-between">
             <p className="mr-7 ml-7 font-light text-[#9DAFBD]">{t('signup.birth')}</p>
             <input
-              type="number"
-              placeholder={t('signup.day')}
+
+              type="text"
+               placeholder={t('signup.day')}
+
               name="dayOfBirth"
               value={values.dayOfBirth}
               onChange={handleChange}
@@ -154,8 +164,10 @@ function SignUp() {
               className="px-3 h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
             <input
-              type="number"
-              placeholder={t('signup.month')}
+
+              type="text"
+               placeholder={t('signup.month')}
+
               name="monthOfBirth"
               value={values.monthOfBirth}
               onChange={handleChange}
@@ -163,13 +175,15 @@ function SignUp() {
               className="px-3 h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
             <input
-              type="number"
-              placeholder={t('signup.year')}
-              name="yearOfYear"
+
+              type="text"
+             placeholder={t('signup.year')}
+              name="yearOfBirth"
               value={values.yearOfBirth}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="px-3 h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300 focus:outline-none focus:placeholder-white"
+              className="outline-none appearance-none px-3 h-14 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300 focus:outline-none focus:placeholder-white"
+
             />
           </div>
           <div className="flex justify-around py-3 gap-8">

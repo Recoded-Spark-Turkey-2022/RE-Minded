@@ -91,13 +91,23 @@ export default function NavBar() {
                   {t('navbar.contact_us')}
                   </a>
                 </Link>
-                <Link to="login">
-                  <a
-                    href="Log In"
-                    className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
-                  >
-                    {t('navbar.log_in')}
-                  </a>
+
+                <Link to={signoutButton ? 'profilepage' : 'login'}>
+                  {!signoutButton ? (
+                    <button
+                      type="button"
+                      className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
+                    >
+                          {t('navbar.log_in')}
+                    </button>
+                  ) : (
+                    <img
+                      className="w-11 h-11"
+                      src={ProfilePhoto}
+                      alt="Abstract profile pic"
+                    />
+                  )}
+
                 </Link>
                 <div>
                   <MultiLangDropDown />
@@ -128,13 +138,23 @@ export default function NavBar() {
                 <a href="Contact">{t('navbar.contact_us')}</a>
               </li>
             </Link>
-            <Link to="login">
-              <a
-                href="Log In"
-                className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
-              >
-                {t('navbar.log_in')}
-              </a>
+
+            <Link to={signoutButton ? 'profilepage' : 'login'}>
+              {!signoutButton ? (
+                <button
+                  type="button"
+                  className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
+                >
+                  {t('navbar.log_in')}
+                </button>
+              ) : (
+                <img
+                  className="w-11 h-11"
+                  src={ProfilePhoto}
+                  alt="Abstract profile pic"
+                />
+              )}
+
             </Link>
             <li>
             <MultiLangDropDown />

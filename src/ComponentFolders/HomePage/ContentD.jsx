@@ -13,7 +13,7 @@ function ContentD() {
       <h1 className="font-bold lg:text-start p-24 pl-32 font-poppins text-3xl md:text-4xl  ">
         {t('home_d.recent')}
       </h1>
-      <div className="flex flex-col p-0 lg:flex-row md:flex-col items-center justify-around w-full lg:h-1/3 pb-24 ">
+      <div className="flex flex-col p-0 lg:flex-row md:flex-col items-center justify-evenly w-full lg:h-1/3 pb-24 ">
         <img
           className="p-3 cursor-pointer rotate-90 lg:rotate-0 "
           src={LeftArrow}
