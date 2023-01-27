@@ -15,21 +15,28 @@ function SignUp() {
   const emailList = collection(db, 'newsletter');
   const [emailArray, setArray] = useState([]);
 
-   const form  = useRef();
-
+  const form = useRef();
 
   const navigate = useNavigate();
 
   const sendEmail = () => {
-
-    emailjs.sendForm('service_lu1j8v5', 'template_ixxjvzh', form.current, 'da5Fk1wXTnepQQjPI')
-      .then((result) => {
-        // eslint-disable-next-line no-console
+    emailjs
+      .sendForm(
+        'service_lu1j8v5',
+        'template_ixxjvzh',
+        form.current,
+        'da5Fk1wXTnepQQjPI'
+      )
+      .then(
+        (result) => {
+          // eslint-disable-next-line no-console
           console.log(result.text);
-      }, (error) => {
-        // eslint-disable-next-line no-console
+        },
+        (error) => {
+          // eslint-disable-next-line no-console
           console.log(error.text);
-      });
+        }
+      );
   };
 
   const formik = useFormik({
@@ -95,25 +102,25 @@ function SignUp() {
         {t('blog_singup.h1')}
       </h2>
       <p className=" mt-2 text-start md:text-sm text-xs uppercase">
-      {t('blog_singup.t1')}
+        {t('blog_singup.t1')}
       </p>
       <div className="md:flex">
         <div className=" mt-7 flex justify-start mb-4 w-[300px] h-[50px] box-border rounded-md border-2 border-[#718096]">
-        <form ref={form} className="w-full" onSubmit={formik.handleSubmit} >
-              <div>
-                <input
-                name='email'
-                  id="email"
-                  onChange={formik.handleChange}
-                  value={formik.values.email}
-                  className=" w-full h-[46.5px] rounded-l-lg text-SubTexts text-black-800 placeholder:pl-2 placeholder:text-base"
-                  type="text"
-                  placeholder={t('blog_singup.button')}
-                />
-              </div>
-            </form>
+          <form ref={form} className="w-full" onSubmit={formik.handleSubmit}>
+            <div>
+              <input
+                name="email"
+                id="email"
+                onChange={formik.handleChange}
+                value={formik.values.email}
+                className=" w-full h-[46.5px] rounded-l-lg text-SubTexts text-black-800 placeholder:pl-2 placeholder:text-base"
+                type="text"
+                placeholder={t('blog_singup.button')}
+              />
+            </div>
+          </form>
           <button
-          onClick={handleFormSubmit}
+            onClick={handleFormSubmit}
             type="button"
             className="bg-Buttons rounded-r-lg w-1/4 h-auto"
           >

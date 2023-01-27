@@ -18,6 +18,7 @@ function BookingPage2() {
 
   function handleNextButtonClick() {
     if (selected === '') {
+      // eslint-disable-next-line no-alert
       alert('Please select one!');
     } else {
       navigate('/booking3');

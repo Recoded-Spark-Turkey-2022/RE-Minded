@@ -15,6 +15,7 @@ function BookingPage6() {
     if (value.trim().length > 0) {
       navigate('/booking7');
     } else {
+      // eslint-disable-next-line no-alert
       alert('Warning: Textarea should not be left empty!');
     }
   }

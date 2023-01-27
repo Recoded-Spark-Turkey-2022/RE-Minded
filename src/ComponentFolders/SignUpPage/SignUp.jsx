@@ -16,9 +16,10 @@ import GoogleLogo from './Images/GoogleLogo.svg';
 import { basicSchema } from '../../schemas/basicSchema';
 
 function SignUp() {
-
+  
   const navigate = useNavigate();
-
+  const { t } = useTranslation();
+  
   const handleFormSubmit = (e) => {
     const register = async () => {
       try {
@@ -67,10 +68,9 @@ function SignUp() {
       validationSchema: basicSchema,
       onSubmit: handleFormSubmit,
     });
-    const { t } = useTranslation();
 
   return (
-    <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20 mb-32">
+    <div className=" flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20 mb-32">
       <img src={Image} alt="Sign up" />
       <div className="flex flex-col">
         <h2 className='text-5xl font-["Poppins"] font-normal mb-32 max-[767px]:mt-20 md:mt-20 max-[767px]:mb-10 md:mb-10'>
@@ -80,18 +80,6 @@ function SignUp() {
           onSubmit={handleSubmit}
           className="grid grid-rows-3 gap-4 shadow-2xl px-10 py-10 w-[555px] h-[493]"
         >
-          {errors.userEmail && touched.userEmail && (
-            <li className="text-red-500">{errors.userEmail}</li>
-          )}
-          {errors.userConfirmEmail && touched.userConfirmEmail && (
-            <li className="text-red-500">{errors.userConfirmEmail}</li>
-          )}
-          {errors.userPassword && touched.userPassword && (
-            <li className="text-red-500">{errors.userPassword}</li>
-          )}
-          {errors.userCondirmPassword && touched.userCondirmPassword && (
-            <li className="text-red-500">{errors.userCondirmPassword}</li>
-          )}
           <div className="flex gap-x-7">
             <input
               type="text"
@@ -112,78 +100,94 @@ function SignUp() {
               className="px-3 h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
           </div>
-          <input
-            type="email"
-            placeholder={t('signup.email')}
-            name="userEmail"
-            value={values.userEmail}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className="px-3 h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
-          />
-          <input
-            type="email"
-            placeholder={t('signup.confirm1')}
-            name="userConfirmEmail"
-            value={values.userConfirmEmail}
-            onChange={handleChange}
-            onBlur={handleBlur}
-            className="px-3 h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
-          />
+          <div className="flex flex-col ">
+            <input
+              type="email"
+              placeholder={t('signup.email')}
+              name="userEmail"
+              value={values.userEmail}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className="px-3 h-14 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
+            />
+            {errors.userEmail && touched.userEmail && (
+              <li className="text-red-500">{errors.userEmail}</li>
+            )}
+          </div>
+          <div className="flex flex-col ">
+            <input
+              type="email"
+              placeholder={t('signup.confirm1')}
+              name="userConfirmEmail"
+              value={values.userConfirmEmail}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              className="px-3 h-14  broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
+            />
+            {errors.userConfirmEmail && touched.userConfirmEmail && (
+              <li className="text-red-500">{errors.userConfirmEmail}</li>
+            )}
+          </div>
           <div className="flex gap-x-7">
-            <input
-              type="password"
-              placeholder={t('signup.password')}
-              name="userPassword"
-              value={values.userPassword}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className="px-3 h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
-            />
-            <input
-              type="password"
-              placeholder={t('signup.confirm2')}
-              name="userCondirmPassword"
-              value={values.userCondirmPassword}
-              onChange={handleChange}
-              onBlur={handleBlur}
-              className="px-3 h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
-            />
+            <div>
+              <input
+                type="password"
+                placeholder={t('signup.password')}
+                name="userPassword"
+                value={values.userPassword}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className="px-3 h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
+              />
+              {errors.userPassword && touched.userPassword && (
+                <li className="text-red-500 ">{errors.userPassword}</li>
+              )}
+            </div>
+            <div>
+              <input
+                type="password"
+                placeholder={t('signup.confirm2')}
+                name="userCondirmPassword"
+                value={values.userCondirmPassword}
+                onChange={handleChange}
+                onBlur={handleBlur}
+                className="px-3 h-14 w-56 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
+              />
+              {errors.userCondirmPassword && touched.userCondirmPassword && (
+                <li className="text-red-500">{errors.userCondirmPassword}</li>
+              )}
+            </div>
           </div>
           <div className="flex items-center justify-between">
-            <p className="mr-7 ml-7 font-light text-[#9DAFBD]">{t('signup.birth')}</p>
+            <p className="mr-7 ml-7 font-light text-[#9DAFBD]">
+              {t('signup.birth')}
+            </p>
             <input
-
               type="text"
-               placeholder={t('signup.day')}
-
+              placeholder={t('signup.day')}
               name="dayOfBirth"
               value={values.dayOfBirth}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="px-3 h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
+              className="px-3 h-14 w-16 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
             <input
-
               type="text"
-               placeholder={t('signup.month')}
-
+              placeholder={t('signup.month')}
               name="monthOfBirth"
               value={values.monthOfBirth}
               onChange={handleChange}
               onBlur={handleBlur}
-              className="px-3 h-14 w-12 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
+              className="lg:appearance-none px-3 h-14 w-16 broder-solid border-2 border-[#D1DBE3] rounded-md placeholder-gray-300 focus:outline-none focus:placeholder-white"
             />
             <input
-
               type="text"
-             placeholder={t('signup.year')}
+              placeholder={t('signup.year')}
               name="yearOfBirth"
               value={values.yearOfBirth}
               onChange={handleChange}
               onBlur={handleBlur}
               className="outline-none appearance-none px-3 h-14 broder-solid border-2 border-[#D1DBE3] rounded-md w-36 placeholder-gray-300 focus:outline-none focus:placeholder-white"
-
             />
           </div>
           <div className="flex justify-around py-3 gap-8">
@@ -207,13 +211,27 @@ function SignUp() {
           <p>{t('signup.or')}</p>
           <img src={lineImage} alt="A line" />
         </div>
-        <div className="flex justify-center my-6 gap-x-20">
-          <img
-            src={FacebookLogo}
-            alt="Facebook logo"
-            className="cursor-pointer"
-          />
-          <img src={GoogleLogo} alt="Google logo" className="cursor-pointer" />
+        <div className="flex justify-center my-6 gap-x-20 ">
+          <button
+            type="button"
+            onClick={() => signInWithFacebook(() => navigate('/'))}
+          >
+            <img
+              src={FacebookLogo}
+              alt="Facebook logo"
+              className="cursor-pointer"
+            />
+          </button>
+          <button
+            type="button"
+            onClick={() => signInWithGoogle(() => navigate('/'))}
+          >
+            <img
+              src={GoogleLogo}
+              alt="Google logo"
+              className="cursor-pointer"
+            />
+          </button>
         </div>
       </div>
     </div>

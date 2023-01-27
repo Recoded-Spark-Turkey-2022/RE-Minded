@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
 import { useNavigate } from 'react-router';
-import { useSelector } from 'react-redux';
 import { signInWithEmailAndPassword } from 'firebase/auth';
 import Image from './Images/LoginSofa.svg';
 import lineImage from './Images/line.svg';
@@ -9,31 +8,31 @@ import FacebookLogo from './Images/FacebookLogo.svg';
 import GoogleLogo from './Images/GoogleLogo.svg';
 import { signInWithGoogle, signInWithFacebook, auth } from '../../Firebase';
 
+
 function Login() {
   const navigate = useNavigate();
-  const currentUser = useSelector((state) => state.currentUser);
+  const { t } = useTranslation();
   const [loginData, setLoginData] = useState({
     userEmail: '',
     userPassword: '',
   });
-
-  const login = async () => {
-    try {
-      const user = await signInWithEmailAndPassword(
-        auth,
-        loginData.userEmail,
-        loginData.userPassword
+  const login = (e) => {
+    e.preventDefault();
+    signInWithEmailAndPassword(
+      auth,
+      loginData.userEmail,
+      loginData.userPassword
+    )
+      .then((user) => {
+        if (user) {
+          navigate('/');
+        }
+      })
+      .catch(() =>
+        // eslint-disable-next-line no-alert
+        alert('Try another email and password')
       );
-      return user;
-    } catch (error) {
-      return error;
-    } finally {
-      if (currentUser) {
-        navigate('/');
-      }
-    }
   };
-
   function handleOnClick(e) {
     const { value, name } = e.target;
     return setLoginData((prevObj) => {
@@ -43,8 +42,6 @@ function Login() {
       };
     });
   }
-  const { t } = useTranslation();
-
   return (
     <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20">
       <div>
@@ -57,18 +54,18 @@ function Login() {
         >
           <input
             type="text"
-            placeholder=   {t('login.email')}
+            placeholder={t('login.email')}
             name="userEmail"
             onChange={(e) => handleOnClick(e)}
-            className="h-20 broder-solid border-2 border-[#D1DBE3] rounded-md focus:outline-none focus:placeholder-white"
+            className="h-20 px-3 broder-solid border-2 border-[#D1DBE3] rounded-md focus:outline-none focus:placeholder-white"
             value={loginData.userEmail}
           />
           <input
             type="password"
-            placeholder=   {t('login.password')}
+            placeholder={t('login.password')}
             name="userPassword"
             onChange={(e) => handleOnClick(e)}
-            className="h-20 broder-solid border-2 border-[#D1DBE3] rounded-md focus:outline-none focus:placeholder-white"
+            className="h-20 px-3 broder-solid border-2 border-[#D1DBE3] rounded-md focus:outline-none focus:placeholder-white"
             value={loginData.userPassword}
           />
           <div className="flex justify-around py-3 gap-8">
@@ -93,7 +90,10 @@ function Login() {
           <img src={lineImage} alt="A line" />
         </div>
         <div className="flex justify-center my-6 gap-x-20">
-          <button type="button" onClick={signInWithFacebook}>
+          <button
+            type="button"
+            onClick={() => signInWithFacebook(() => navigate('/'))}
+          >
             <img
               src={FacebookLogo}
               alt="Facebook logo"
@@ -101,7 +101,10 @@ function Login() {
             />
           </button>
 
-          <button type="button" onClick={signInWithGoogle}>
+          <button
+            type="button"
+            onClick={() => signInWithGoogle(() => navigate('/'))}
+          >
             <img
               src={GoogleLogo}
               alt="Google logo"
@@ -110,10 +113,8 @@ function Login() {
           </button>
         </div>
       </div>
-
       <img src={Image} alt="Login" className="max-[767px]:mt-20 md:mt-20" />
     </div>
   );
 }
-
 export default Login;

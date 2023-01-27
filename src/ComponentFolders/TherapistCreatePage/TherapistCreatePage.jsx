@@ -29,7 +29,7 @@ function TherapistCreatePage() {
   const { register, handleSubmit, formState } = useForm(formOptions);
   const { errors } = formState;
   function onSubmit(data) {
-    console.log(JSON.stringify(data, null, 4));
+    (JSON.stringify(data, null, 4));
     navigate('/thankyou', { replace: true, state: thanksProps });
     return false;
   }

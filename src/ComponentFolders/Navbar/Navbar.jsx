@@ -1,16 +1,16 @@
-import { useState } from 'react';
-import {Link} from 'react-router-dom';
+import React, { useState } from 'react';
+import { Link } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
 import Logo from './Images/Logo.svg';
 import About from './About';
 import MultiLangDropDown from './MultiLanguageButton';
-
+import ProfilePhoto from './Images/ProfilePhoto.svg';
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
   const { t } = useTranslation();
-
-  
+  const signoutButton = useSelector((state) => state.signoutButton);
   return (
     <nav className="w-full sticky top-0 z-50 bg-cyan-50 shadow font-poppins">
       <div className="justify-between px-4 mx-auto  md:items-center md:flex md:px-8">
@@ -78,17 +78,17 @@ export default function NavBar() {
                 </Link>
                 <Link to="blog">
                   <a className=" hover:text-indigo-200 p-2" href="Blog">
-                  {t('navbar.blog')}
+                    {t('navbar.blog')}
                   </a>
                 </Link>
                 <Link to="About">
                   <a className=" hover:text-indigo-200 p-2" href="Home">
-                  {t('navbar.about')}
+                    {t('navbar.about')}
                   </a>
                 </Link>
                 <Link to="contactus">
                   <a className=" hover:text-indigo-200 p-2" href="Blog">
-                  {t('navbar.contact_us')}
+                    {t('navbar.contact_us')}
                   </a>
                 </Link>
 
@@ -98,7 +98,7 @@ export default function NavBar() {
                       type="button"
                       className="flex justify-center px-4 py-2 text-center rounded-md shadowtransition-all duration-250 bg-cyan-400 hover:bg-cyan-500 text-xl"
                     >
-                          {t('navbar.log_in')}
+                      {t('navbar.log_in')}
                     </button>
                   ) : (
                     <img
@@ -107,7 +107,6 @@ export default function NavBar() {
                       alt="Abstract profile pic"
                     />
                   )}
-
                 </Link>
                 <div>
                   <MultiLangDropDown />
@@ -128,11 +127,11 @@ export default function NavBar() {
                 <a href="Blog">{t('navbar.blog')}</a>
               </li>
             </Link>
-             
-              <li className=" hover:text-indigo-200 cursor-pointer">
-               <About />
-             </li>
-              
+
+            <li className=" hover:text-indigo-200 cursor-pointer">
+              <About />
+            </li>
+
             <Link to="contactus">
               <li className=" hover:text-indigo-200">
                 <a href="Contact">{t('navbar.contact_us')}</a>
@@ -154,10 +153,9 @@ export default function NavBar() {
                   alt="Abstract profile pic"
                 />
               )}
-
             </Link>
             <li>
-            <MultiLangDropDown />
+              <MultiLangDropDown />
             </li>
           </ul>
         </div>

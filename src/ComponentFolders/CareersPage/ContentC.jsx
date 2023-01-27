@@ -64,7 +64,7 @@ function ContentC() {
         </h3>
       </div>
       <div>
-        <div className="overflow-y-scroll overflow-y-auto mb-12 lg:ml-24 ml-10 mt-6 lg:mr-20 mr-10 h-[30em] ">
+        <div className=" overflow-y-auto mb-12 lg:ml-24 ml-10 mt-6 lg:mr-20 mr-10 h-[30em] ">
           {jobs.map((job) => {
             return (
               <JobCard

@@ -1,21 +1,47 @@
-import React, { useState , useRef }from 'react';
-import {Link, useNavigate} from 'react-router-dom';
+import React, { useRef, useEffect, useState } from 'react';
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
+import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
+import { addDoc, collection, getDocs } from 'firebase/firestore';
+import emailjs from '@emailjs/browser';
+import { db } from '../../Firebase';
 
 import image1 from './Images/FacebookLogo.svg';
 import image2 from './Images/GoogleLogo.svg';
 import image3 from './Images/TwitterLogo.svg';
 import image4 from './Images/SubscribeArrow.svg';
 
-const thanksProps = "Your email has been added to the mailing list successfully!"
+const thanksProps =
+  'Your email has been added to the mailing list successfully!';
 
 function Footer() {
+  const emailList = collection(db, 'newsletter');
+  const form = useRef();
+  const navigate = useNavigate();
+  const [emailArray, setArray] = useState([]);
+  const { t } = useTranslation();
+ 
 
-const ref = useRef(null);
-const [value, setValue] = useState('');
-const navigate = useNavigate();
-const { t } = useTranslation();
-
+  const sendEmail = () => {
+    emailjs
+      .sendForm(
+        'service_lu1j8v5',
+        'template_ixxjvzh',
+        form.current,
+        'da5Fk1wXTnepQQjPI'
+      )
+      .then(
+        (result) => {
+          // eslint-disable-next-line no-console
+          console.log(result.text);
+        },
+        (error) => {
+          // eslint-disable-next-line no-console
+          console.log(error.text);
+        }
+      );
+  };
 
   const formik = useFormik({
     initialValues: { email: '' },
@@ -75,19 +101,17 @@ const { t } = useTranslation();
   return (
     <footer className="relative bg-Footer  bottom-0 w-full p-4 md:flex md:items-center md:justify-between md:p-6 ">
       <span className="  text-sm ">
-        <div className='flex items-center flex-col  lg:items-start lg:ml-16'>
-        
-            <h1 className=" text-BlackTexts text-4xl font-medium h-[44px]">
-             {t('footer.h1')}
-            </h1>
-            <p
-              className=" text-SubTexts mb-4 
+        <div className="flex items-center flex-col  lg:items-start lg:ml-16">
+          <h1 className=" text-BlackTexts text-4xl font-medium h-[44px]">
+            {t('footer.h1')}
+          </h1>
+          <p
+            className=" text-SubTexts mb-4 
             w-auto h-[22px] top-[56px] mt-2
             font-normal md:text-xl sm:text-sm leading-5"
-            >
-              {t('footer.t1')}
-            </p>
-          
+          >
+            {t('footer.t1')}
+          </p>
 
           <div className=" md:flex ">
             <div className="flex flex-row mb-4 w-[300px] h-[50px] box-border rounded-lg border-2 border-[#718096]">
@@ -95,7 +119,6 @@ const { t } = useTranslation();
                 ref={form}
                 className="w-full"
                 onSubmit={formik.handleSubmit}
-                
               >
                 <div>
                   <input
@@ -105,7 +128,7 @@ const { t } = useTranslation();
                     value={formik.values.email}
                     className=" w-full h-[46.5px] rounded-l-lg text-SubTexts text-black-800 placeholder:pl-2 placeholder:text-base"
                     type="text"
-                    placeholder= {t('footer.button')}
+                    placeholder={t('footer.button')}
                   />
                 </div>
               </form>
@@ -121,7 +144,6 @@ const { t } = useTranslation();
                 />
               </button>
             </div>
-
           </div>
         </div>
       </span>
@@ -134,28 +156,28 @@ const { t } = useTranslation();
           <Link to="/">
             <li>
               <a href="Home" className="mr-4 hover:underline md:mr-6 ">
-              {t('footer.home')}
+                {t('footer.home')}
               </a>
             </li>
           </Link>
           <Link to="blog">
             <li>
               <a href="Blogs" className="mr-4 hover:underline md:mr-6">
-              {t('footer.blog')}
+                {t('footer.blog')}
               </a>
             </li>
           </Link>
           <Link to="about">
             <li>
               <a href="About" className="mr-4 hover:underline md:mr-6">
-              {t('footer.about')}
+                {t('footer.about')}
               </a>
             </li>
           </Link>
           <Link to="contactus">
             <li>
               <a href="Contact" className="mr-4 hover:underline md:mr-6">
-              {t('footer.contact')}
+                {t('footer.contact')}
               </a>
             </li>
           </Link>

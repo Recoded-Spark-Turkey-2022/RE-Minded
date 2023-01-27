@@ -18,23 +18,21 @@ function BookingPage1() {
 
   function handleNextButtonClick() {
     if (selected === '') {
+      // eslint-disable-next-line no-alert
       alert('Please select one!');
     } else {
       navigate('/booking2');
     }
   }
-  
+
   const { t } = useTranslation();
 
   return (
     <div className="flex flex-col items-center p-12">
-      <Card
-        header={t('booking.header')}
-        content={t('booking.content')}
-      />
+      <Card header={t('booking.header')} content={t('booking.content')} />
       <div className="font-poppins shadow-zinc-300 flex flex-col w-full md:max-w-2xl lg:max-w-4xl my-16 mx-auto px-8 py-4 shadow-md">
         <h1 className="text-xl pb-6 md:text-2xl lg:text-3xl lg:flex justify-center mt-4">
-        {t('booking1.h1')}
+          {t('booking1.h1')}
         </h1>
         <form>
           <button

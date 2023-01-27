@@ -25,10 +25,10 @@ function AddCard() {
   return (
     <div className="p-20 font-poppins">
       <h1 className="text-3xl pb-5 md:text-4xl lg:text-5xl">
-      {t('addcard.addcarddetails')}
+        {t('addcard.addcarddetails')}
       </h1>
       <h2 className="pb-8 lg:pb-0 text-lg md:text-xl lg:text-2xl opacity-50">
-      {t('addcard.h2')}
+        {t('addcard.h2')}
       </h2>
       <div className="flex flex-col lg:flex-row lg:space-x-96">
         <div className="text-md md:text-lg lg:text-xl items-center flex  flex-col md:flex-col lg:flex-row lg:space-x-52  ">
@@ -41,10 +41,10 @@ function AddCard() {
             </label>
             <div className="flex  pb-6 text-Buttons">
               <div className="text-cyan-200 h-12 px-1 py-2  border-2 border-r-0 w-full  text-center rounded-lg rounded-r-none">
-              {t('addcard.visa')}
+                {t('addcard.visa')}
               </div>
               <div className=" h-12 px-1 py-2  border-2 w-full  text-center rounded-lg rounded-l-none">
-              {t('addcard.mastercard')}
+                {t('addcard.mastercard')}
               </div>
             </div>
 

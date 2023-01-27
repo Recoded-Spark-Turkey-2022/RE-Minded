@@ -1,6 +1,5 @@
-
 import React, { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router';
+import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import {
   getAuth,
@@ -10,19 +9,14 @@ import {
 } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../../Firebase';
-
-
 import { useTranslation } from 'react-i18next';
-import profilePhoto from './Images/ProfilePhoto.svg';
-
+import { db, storage } from '../../Firebase';
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
 
-
 function EditProfileMain({ handleSignout }) {
- const { t } = useTranslation();
+  const { t } = useTranslation();
   const navigate = useNavigate();
   const currentUser = useSelector((state) => state.currentUser.user);
   const [url, setUrl] = useState(null);
@@ -130,30 +124,25 @@ function EditProfileMain({ handleSignout }) {
 
   return (
     <form className="flex flex-col font-poppins lg:items-center">
-
-
-  
-
-
-
       <div className="self-center mt-8 lg:text-xl text-sm text-[#FF0000] lg:ml-0 ml-16 lg:mr-0 mr-[-1em]">
-      {t('editprofile.top')}
+        {t('editprofile.top')}
       </div>
       <div className="flex lg:flex-row flex-col">
         <div className="flex flex-col lg:ml-[-10em] md:ml-[10%] ml-[25%] lg:mr-[0%] md:mr-[30%] mr-[25%]">
-          <img src={profilePhoto} alt="profile" className="self-center ml-28" />
           <img
-            src={profileIcon}
-            alt="profileIcon"
-            className="lg:w-16 w-14 ml-32 self-center lg:mt-[-4em] mt-[-3em]"
+            src={url === null ? profileIcon : url}
+            alt="profile"
+            className="self-center ml-28 w-80 h-80 rounded-full"
           />
         </div>
         <div className="flex flex-col lg:ml-16 ml-44">
           <div className=" lg:ml-20 ml-[-15em] lg:self-start lg:mr-44 mt-6 ">
-
-            <h1 className="lg:text-5xl text-2xl lg:ml-0 ml-20">{t('editprofile.h1')}</h1>
+            <h1 className="lg:text-5xl text-2xl lg:ml-0 ml-20 mb-12">
+              {t('editprofile.h1')}
+            </h1>
             <div className="flex flex-rows">
               <div className="flex flex-col mt-4 lg:text-xl text-sm gap-9 lg:self-start lg:ml-0 ml-20">
+                <div>Profile Name</div>
                 <div>{t('editprofile.name')}</div>
                 <div>{t('editprofile.edu')}</div>
                 <div>{t('editprofile.hobi')}</div>
@@ -181,33 +170,42 @@ function EditProfileMain({ handleSignout }) {
                     id="fullname"
                     name="fullname"
                     type="text"
+                    value={profileData.fullname}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div>
                   <div className="relative w-full lg:max-w-sm">
-                    <select className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600">
+                    <select
+                      value={profileData.educationLevel}
+                      name="educationLevel"
+                      onChange={handleInputChange}
+                      className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-md shadow-sm outline-none appearance-none focus:border-indigo-600"
+                    >
                       <option value="" selected="selected" disabled="disabled">
-                      {t('editprofile.eduopt')}
+                        {t('editprofile.eduopt')}
                       </option>
                       <option value="No formal education">
-                      {t('editprofile.opt1')}
+                        {t('editprofile.opt1')}
                       </option>
                       <option value="Primary education">
-                      {t('editprofile.opt2')}
+                        {t('editprofile.opt2')}
                       </option>
-                      <option value="Secondary education">{t('editprofile.opt3')}</option>
+                      <option value="Secondary education">
+                        {t('editprofile.opt3')}
+                      </option>
                       <option value="GED">{t('editprofile.opt4')}</option>
                       <option value="Vocational qualification">
-                      {t('editprofile.opt5')}
+                        {t('editprofile.opt5')}
                       </option>
                       <option value="Bachelor's degree">
-                      {t('editprofile.opt6')}
+                        {t('editprofile.opt6')}
                       </option>
                       <option value="Master's degree">
-                      {t('editprofile.opt7')}
+                        {t('editprofile.opt7')}
                       </option>
                       <option value="Doctorate or higher">
-                      {t('editprofile.opt8')}
+                        {t('editprofile.opt8')}
                       </option>
                     </select>
                   </div>
@@ -218,21 +216,32 @@ function EditProfileMain({ handleSignout }) {
                     id="hobby"
                     name="hobby"
                     type="text"
+                    value={profileData.hobby}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="flex flex-row">
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block w-[4em] p-0.5"
                     id="familysize"
-                    name="familysize"
+                    name="familySize"
                     type="text"
+                    value={profileData.familySize}
+                    onChange={handleInputChange}
                   />
-                  <div className="self-center ml-4">{t('editprofile.member')}</div>
+                  <div className="self-center ml-4">
+                    {t('editprofile.member')}
+                  </div>
                 </div>
                 <div>
-                  <select className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts">
+                  <select
+                    value={profileData.gender}
+                    name="gender"
+                    onChange={handleInputChange}
+                    className="lg:w-[25em] w-[16em] p-2 ml-6 text-gray-500 bg-white border border-SubTexts rounded-lg shadow-sm outline-none appearance-none focus:border-SubTexts"
+                  >
                     <option value="" selected="selected" disabled="disabled">
-                    {t('editprofile.genopt')}
+                      {t('editprofile.genopt')}
                     </option>
                     <option value="female">{t('editprofile.female')}</option>
                     <option value="male">{t('editprofile.male')}</option>
@@ -245,6 +254,8 @@ function EditProfileMain({ handleSignout }) {
                     name="birthmonth"
                     type="text"
                     placeholder={t('editprofile.month')}
+                    value={profileData.birthmonth}
+                    onChange={handleInputChange}
                   />
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-2 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[5em] w-[3em]"
@@ -252,6 +263,8 @@ function EditProfileMain({ handleSignout }) {
                     name="birthday"
                     type="text"
                     placeholder={t('editprofile.day')}
+                    value={profileData.birthday}
+                    onChange={handleInputChange}
                   />
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-4 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[17em] w-[8.5em]"
@@ -259,6 +272,8 @@ function EditProfileMain({ handleSignout }) {
                     name="birthyear"
                     type="text"
                     placeholder={t('editprofile.year')}
+                    value={profileData.birthyear}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div>
@@ -267,6 +282,8 @@ function EditProfileMain({ handleSignout }) {
                     id="email"
                     name="email"
                     type="email"
+                    value={profileData.email}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div>
@@ -275,6 +292,8 @@ function EditProfileMain({ handleSignout }) {
                     id="phone"
                     name="phone"
                     type="text"
+                    value={profileData.phone}
+                    onChange={handleInputChange}
                   />
                 </div>
                 <div className="flex flex-row">
@@ -282,7 +301,9 @@ function EditProfileMain({ handleSignout }) {
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
                     id="uploadID"
                     name="uploadID"
-                    type="text"
+                    type="file"
+                    accept=".png, .jpg, .jpeg"
+                    onChange={handleInputChange}
                   />
                   <img
                     src={plusIcon}
@@ -294,11 +315,15 @@ function EditProfileMain({ handleSignout }) {
             </div>
           </div>
           <div className="lg:ml-20 ml-[-10em]">
-            <div className="lg:text-5xl text-2xl mt-12">{t('editprofile.h2')}</div>
+            <div className="lg:text-5xl text-2xl mt-12">
+              {t('editprofile.h2')}
+            </div>
             <div className="flex flex-rows mt-6">
               <div className="flex flex-col mt-4 lg:text-xl text-base gap-9 self-start">
                 <div>{t('editprofile.password')}</div>
-                <div className="lg:mt-0 mt-[-1em]">{t('editprofile.confirm')}</div>
+                <div className="lg:mt-0 mt-[-1em]">
+                  {t('editprofile.confirm')}
+                </div>
               </div>
               <div className="flex flex-col gap-7 mt-1 lg:ml-0 ml-4">
                 <div className="flex flex-row">
@@ -306,7 +331,9 @@ function EditProfileMain({ handleSignout }) {
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28em] w-[17.5em]"
                     id="password"
                     name="password"
-                    type="text"
+                    type="password"
+                    value={profileData.password}
+                    onChange={handleInputChange}
                   />
                   <img
                     src={passwordIcon}
@@ -318,8 +345,10 @@ function EditProfileMain({ handleSignout }) {
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block  lg:p-2 p-1 lg:w-[28em] w-[17.5em]"
                     id="confirmpassword"
-                    name="confirmpassword"
-                    type="text"
+                    name="confirmPassword"
+                    type="password"
+                    value={profileData.confirmPassword}
+                    onChange={handleInputChange}
                   />
                   <img
                     src={passwordIcon}
@@ -332,25 +361,24 @@ function EditProfileMain({ handleSignout }) {
           </div>
           <div className="flex flex-rows lg:gap-8 gap-3 mt-10 lg:ml-20 ml-[-12em] lg:text-base text-sm">
             <button
-
               disabled={!currentUser}
               type="submit"
               onClick={handleFormSubmit}
               className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
             >
-              SAVE CHANGES
-            </button>
-            <button
-              disabled={!currentUser}
-
-              type="button"
-              className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
-            >
               {t('editprofile.button1')}
             </button>
             <button
+              disabled={!currentUser}
               type="button"
-
+              className="rounded-md box-border p-2 pl-6 pr-6 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+              onClick={handleDeleteUser}
+            >
+              {t('editprofile.button2')}
+            </button>
+            <button
+              disabled={!currentUser}
+              type="button"
               className="rounded-md box-border p-2 lg:pl-16 lg:pr-16  pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
               onClick={() => {
                 if (
@@ -360,39 +388,37 @@ function EditProfileMain({ handleSignout }) {
                   navigate('/profilepage');
                 }
               }}
-
-            >
-              {t('editprofile.button2')}
-            </button>
-            <button
-              type="button"
-              className="rounded-md box-border p-2 lg:pl-16 lg:pr-16  pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
-
-              onClick={() => handleSignout(() => navigate('/'))}
-
             >
               {t('editprofile.button3')}
             </button>
+            <button
+              disabled={!currentUser}
+              type="button"
+              className="rounded-md box-border p-2 lg:pl-16 lg:pr-16  pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+              onClick={() => handleSignout(() => navigate('/'))}
+            >
+              SIGN OUT
+            </button>
           </div>
-          <div className="flex flex-col mt-4 lg:ml-20 ml-[-10em] mt-16">
+          <div className="flex flex-col mt-4 lg:ml-20 ml-[-10em] ">
             <div className="lg:text-5xl text-2xl">
-            {t('editprofile.payment')}
+              {t('editprofile.payment')}
             </div>
             <div className="flex flex-rows gap-10 mt-8 mb-16">
               <div className="flex flex-col ">
-                <div className="lg:text-lg text-sm mb-2">{t('editprofile.3')}</div>
-                <Link to="/savedcards">
-                  <button
-                    type="button"
-                    className="rounded-md lg:text-base text-sm box-border p-2 pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
-                  >
-                    {t('editprofile.show')}
-                  </button>
-                </Link>
+                <div className="lg:text-lg text-sm mb-2">
+                  {t('editprofile.3')}
+                </div>
+                <button
+                  type="button"
+                  className="rounded-md lg:text-base text-sm box-border p-2 pl-8 pr-8 transition-all duration-250 bg-Buttons hover:bg-cyan-500 "
+                >
+                  {t('editprofile.show')}
+                </button>
               </div>
               <div className="flex flex-col">
                 <div className="lg:text-lg text-sm mb-2 ">
-                {t('editprofile.10')}
+                  {t('editprofile.10')}
                 </div>
                 <button
                   type="button"
@@ -405,8 +431,7 @@ function EditProfileMain({ handleSignout }) {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 }
-
 export default EditProfileMain;
