@@ -14,7 +14,7 @@ const thanksProps =
 function SignUp() {
   const emailList = collection(db, 'newsletter');
   const [emailArray, setArray] = useState([]);
-
+  const { t } = useTranslation();
   const form = useRef();
 
   const navigate = useNavigate();
@@ -94,8 +94,6 @@ function SignUp() {
     fetchData();
   }, [emailArray]);
 
-  const { t } = useTranslation();
-
   return (
     <div className="lg:pl-48 pl-10">
       <h2 className=" mt-10 uppercase lg:text-2xl text-lg">
@@ -135,5 +133,4 @@ function SignUp() {
     </div>
   );
 }
-
 export default SignUp;
