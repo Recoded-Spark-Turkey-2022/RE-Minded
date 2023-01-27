@@ -5,21 +5,30 @@ import Image2 from './Images/BottomImage2.svg';
 
 function RecommendedforYou() {
   const { t } = useTranslation();
-
   return (
     <div>
-      <div className="lg:ml-48 ml-10 mt-20">
-        <h2 className="font-poppins uppercase md:text-2xl text-xl">
-          {' '}
-          {t('recommend.h1')}{' '}
+      <div className=" mt-20">
+        <h2 className="font-poppins uppercase lg:ml-48 ml-10 md:text-2xl text-xl">
+          {t('recommend.h1')}
         </h2>
-        <div className=" flex flex-col md:flex-col lg:flex-row mt-6 mb-20">
-          <img src={Image1} alt="Heal" className=" mr-10 w-96" />
-          <img src={Image2} alt="Need" className=" h-64 w-96" />
+        <div className=" flex flex-col lg:flex-row mt-6 mb-20 justify-center gap-10 ml-0 lg:ml-[-10em]">
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.verywellmind.com/10-ways-to-heal-from-trauma-5206940"
+          >
+            <img src={Image1} alt="Heal" className="self-start lg:ml-0 ml-10" />
+          </a>
+          <a
+            target="_blank"
+            rel="noreferrer"
+            href="https://www.healthline.com/health/anxiety"
+          >
+            <img src={Image2} alt="Need" className="self-start lg:ml-0 ml-10" />
+          </a>
         </div>
       </div>
     </div>
   );
 }
-
 export default RecommendedforYou;
