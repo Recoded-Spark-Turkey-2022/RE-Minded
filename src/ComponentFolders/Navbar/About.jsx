@@ -16,13 +16,13 @@ const About = () => {
                 </div>
                 <div className="dropdown-content">
                     <Link to="/About">
-                        <a href="About">{t('about_dropdown.about')}</a>
+                        <div href="About">{t('about_dropdown.about')}</div>
                     </Link>
                     <Link to="/Team">
-                        <a href="Team">{t('about_dropdown.team')}</a>
+                        <div href="Team">{t('about_dropdown.team')}</div>
                     </Link>
                     <Link to="/careers">
-                        <a href="careers">{t('about_dropdown.careers')}</a>
+                        <div href="careers">{t('about_dropdown.careers')}</div>
                     </Link>
                 </div>
             </div>
