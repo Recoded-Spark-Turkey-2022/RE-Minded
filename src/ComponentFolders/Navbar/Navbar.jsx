@@ -9,8 +9,12 @@ import ProfilePhoto from './Images/ProfilePhoto.svg';
 
 export default function NavBar() {
   const [navbar, setNavbar] = useState(false);
+   const [showDropdown, setShowDropdown] = useState(false);
   const { t } = useTranslation();
   const signoutButton = useSelector((state) => state.signoutButton);
+
+
+
   return (
     <nav className="w-full sticky top-0 z-50 bg-cyan-50 shadow font-poppins">
       <div className="justify-between px-4 mx-auto  md:items-center md:flex md:px-8">
@@ -108,6 +112,7 @@ export default function NavBar() {
                     />
                   )}
                 </Link>
+                <button type="button">Sign Out</button>
                 <div>
                   <MultiLangDropDown />
                 </div>
@@ -138,22 +143,51 @@ export default function NavBar() {
               </li>
             </Link>
 
-            <Link to={signoutButton ? 'profilepage' : 'login'}>
-              {!signoutButton ? (
+            {signoutButton ? (
+              <div className="relative">
+                <button
+                  type="button"
+                  className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
+                  onClick={() => setShowDropdown(!showDropdown)}
+                >
+                  <img
+                    className="w-11 h-11"
+                    src={ProfilePhoto}
+                    alt="Abstract profile pic"
+                  />
+                </button>
+                {showDropdown && (
+                  <ul className="absolute right-0 w-48 py-2 mt-2 rounded-md shadow-lg bg-white">
+                    <li>
+                      <Link
+                        to="profilepage"
+                        onClick={() => setShowDropdown(false)}
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Profile Page
+                      </Link>
+                    </li>
+                    <li>
+                      <button
+                        type="button"
+                        className="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100"
+                      >
+                        Sign Out
+                      </button>
+                    </li>
+                  </ul>
+                )}
+              </div>
+            ) : (
+              <Link to="login">
                 <button
                   type="button"
                   className="px-4 py-2 rounded-md shadow transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
                 >
                   {t('navbar.log_in')}
                 </button>
-              ) : (
-                <img
-                  className="w-11 h-11"
-                  src={ProfilePhoto}
-                  alt="Abstract profile pic"
-                />
-              )}
-            </Link>
+              </Link>
+            )}
             <li>
               <MultiLangDropDown />
             </li>
