@@ -1,11 +1,13 @@
 import { React, useState, useMemo } from 'react';
 import { useNavigate } from 'react-router';
 import Select from 'react-select';
+import { useSelector } from 'react-redux';
+import { getAuth } from 'firebase/auth';
 import { useTranslation } from 'react-i18next';
 import countryList from 'react-select-country-list';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { addDoc, collection } from 'firebase/firestore';
+import { doc, setDoc } from 'firebase/firestore';
 import { db } from '../../Firebase';
 import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
@@ -17,9 +19,12 @@ function AddCard() {
   const navigate = useNavigate();
   const [value, setValue] = useState('');
   const options = useMemo(() => countryList().getData(), []);
-  const userCollectionRef = collection(db, 'credit-cards');
+  // const userCollectionRef = collection(db, 'credit-cards');
   const [selected, setSelected] = useState('');
-   const { t } = useTranslation();
+  const { t } = useTranslation();
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const currentUser = useSelector((state) => state.currentUser.user);
 
   function handleButtonClick(e) {
     if (selected === e.target.value) {
@@ -82,8 +87,8 @@ function AddCard() {
       // eslint-disable-next-line no-alert
       alert('Please fill in all fields before submitting!');
     } else {
-      addDoc(
-        userCollectionRef,
+      setDoc(
+        doc(db, 'credit-cards', user.uid),
         {
           cardNumber: formik.values.cardNumber,
           expirationDate: formik.values.expirationDate,
@@ -315,6 +320,7 @@ function AddCard() {
       </div>
       <div className="pt-12 lg:pt-0 text-md md:text-lg lg:text-xl flex justify-center lg:justify-start ">
         <button
+          disabled={!currentUser}
           type="button"
           onClick={handleFormSubmit}
           className="rounded-md box-border p-2 pl-4 pr-4 transition-all duration-250 bg-Buttons"

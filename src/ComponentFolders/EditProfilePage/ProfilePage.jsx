@@ -27,18 +27,18 @@ function ProfilePage() {
     }
   }, [currentUser]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const collectionRef = collection(db, 'profile-input');
-      const querySnapshot = await getDocs(collectionRef);
-      const dataInfo = querySnapshot.docs.map((docu) => ({
-        id: docu.id,
-        data: docu.data(),
-      }));
-      setData(dataInfo);
-    };
-    fetchData();
-  }, ['profile-input']);
+useEffect(() => {
+  const fetchData = async () => {
+    const collectionRef = collection(db, 'Profile-input');
+    const querySnapshot = await getDocs(collectionRef);
+    const dataInfo = querySnapshot.docs.map((docu) => ({
+      id: docu.id,
+      data: docu.data(),
+    }));
+    setData(dataInfo);
+  };
+  fetchData();
+}, ['Profile-input']);
 
   return (
     <form className="flex flex-col font-poppins lg:items-center pt-12">
@@ -61,7 +61,7 @@ function ProfilePage() {
         <div className="flex flex-col lg:ml-16 ml-44">
           <div className=" lg:ml-20 ml-[-15em] lg:self-start lg:mr-44 mt-6 ">
             <h1 className="lg:text-5xl text-2xl lg:ml-0 ml-20 pb-12">
-              NAME HERE
+             PROFILE
             </h1>
             <div className="flex flex-rows">
               <div className="flex flex-col mt-4 lg:text-xl text-sm gap-9 lg:self-start lg:ml-0 ml-20">
