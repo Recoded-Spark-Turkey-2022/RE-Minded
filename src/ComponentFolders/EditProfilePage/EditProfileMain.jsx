@@ -22,7 +22,6 @@ function EditProfileMain({ handleSignout }) {
   const [url, setUrl] = useState(null);
   const [uploadID, setUploadID] = useState(null);
   const [profileData, setProfileData] = useState({
-    profileName: '',
     fullname: '',
     educationLevel: '',
     hobby: '',
@@ -63,7 +62,6 @@ function EditProfileMain({ handleSignout }) {
     await setDoc(
       doc(db, 'Profile-input', user.uid),
       {
-        profileNmae: profileData.profileName,
         fullname: profileData.fullname,
         educationLevel: profileData.educationLevel,
         hobby: profileData.hobby,
@@ -142,7 +140,6 @@ function EditProfileMain({ handleSignout }) {
             </h1>
             <div className="flex flex-rows">
               <div className="flex flex-col mt-4 lg:text-xl text-sm gap-9 lg:self-start lg:ml-0 ml-20">
-                <div>Profile Name</div>
                 <div>{t('editprofile.name')}</div>
                 <div>{t('editprofile.edu')}</div>
                 <div>{t('editprofile.hobi')}</div>
@@ -154,16 +151,6 @@ function EditProfileMain({ handleSignout }) {
                 <div className="mt-2">{t('editprofile.id')}</div>
               </div>
               <div className="flex flex-col gap-7 lg:mt-1 mt-3 ml-6 ">
-                <div>
-                  <input
-                    className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
-                    id="profileName"
-                    name="profileName"
-                    type="text"
-                    value={profileData.profileName}
-                    onChange={handleInputChange}
-                  />
-                </div>
                 <div>
                   <input
                     className="bg-gray-50 border border-SubTexts text-gray-900 sm:text-sm rounded-lg ml-6 focus:ring-primary-600 focus:border-primary-600 block lg:p-2 p-1 lg:w-[28.5em] w-[16em]"
