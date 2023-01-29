@@ -14,16 +14,14 @@ import { getStorage } from 'firebase/storage';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyCRRQfyq926m7lyzLmizQTEAESABecwd7U',
-  authDomain: 're-minded.firebaseapp.com',
-  databaseURL:
-    'https://re-minded-default-rtdb.europe-west1.firebasedatabase.app',
-  projectId: 're-minded',
-  storageBucket: 're-minded.appspot.com',
-  messagingSenderId: '633791612145',
-  appId: '1:633791612145:web:19ea39d978909ac76a9550',
+  apiKey: 'AIzaSyATJQ_oTpo0YZywObcjt8ZKNxVISU9Jwbo',
+  authDomain: 'trying1000-bbca3.firebaseapp.com',
+  projectId: 'trying1000-bbca3',
+  storageBucket: 'trying1000-bbca3.appspot.com',
+  messagingSenderId: '264428120995',
+  appId: '1:264428120995:web:e9d3b9b4d115a30cd38816',
+  measurementId: 'G-QNS5N2HGKG',
 };
-
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
