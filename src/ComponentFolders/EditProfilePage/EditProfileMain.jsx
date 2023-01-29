@@ -61,7 +61,7 @@ function EditProfileMain({ handleSignout }) {
     const auth = getAuth();
     const user = auth.currentUser;
     await setDoc(
-      doc(db, 'profile-input', user.uid),
+      doc(db, 'Profile-input', user.uid),
       {
         profileNmae: profileData.profileName,
         fullname: profileData.fullname,
