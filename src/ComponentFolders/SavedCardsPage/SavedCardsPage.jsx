@@ -8,8 +8,6 @@ import CreditCard from './CreditCard';
 function savedCardPage() {
   const [data, setData] = useState([]);
 
-
-
   useEffect(() => {
     const fetchData = async () => {
       const collectionRef = collection(db, 'credit-cards');
@@ -31,7 +29,7 @@ function savedCardPage() {
         <h1>{t('savedcards.h1')}</h1>
       </div>
       <div className="lg:text-xl md:text-base text-sm text-SubTexts mt-4 lg:ml-52 ml-10 lg:mr-0 mr-16">
-      {t('savedcards.t1')}
+        {t('savedcards.t1')}
       </div>
       <div className="flex lg:flex-row md:flex-row flex-col self-center  lg:mt-20 mt-8 lg-ml-0  lg:mr-0 mr-10 ">
         <div id="slider" className="flex flex-col md:flex-row lg:flex-row ">
