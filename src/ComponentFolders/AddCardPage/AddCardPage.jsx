@@ -7,7 +7,7 @@ import { useTranslation } from 'react-i18next';
 import countryList from 'react-select-country-list';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
-import { doc, setDoc } from 'firebase/firestore';
+import { doc, setDoc, collection } from 'firebase/firestore';
 import { db } from '../../Firebase';
 import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
@@ -19,12 +19,12 @@ function AddCard() {
   const navigate = useNavigate();
   const [value, setValue] = useState('');
   const options = useMemo(() => countryList().getData(), []);
-  // const userCollectionRef = collection(db, 'credit-cards');
   const [selected, setSelected] = useState('');
   const { t } = useTranslation();
   const auth = getAuth();
   const user = auth.currentUser;
   const currentUser = useSelector((state) => state.currentUser.user);
+  const userCollectionRef = collection(db, 'Users', user.uid , 'credit-cards');
 
   function handleButtonClick(e) {
     if (selected === e.target.value) {
@@ -87,8 +87,8 @@ function AddCard() {
       // eslint-disable-next-line no-alert
       alert('Please fill in all fields before submitting!');
     } else {
-      setDoc(
-        doc(db, 'credit-cards', user.uid),
+    setDoc(
+        doc(userCollectionRef),
         {
           cardNumber: formik.values.cardNumber,
           expirationDate: formik.values.expirationDate,
