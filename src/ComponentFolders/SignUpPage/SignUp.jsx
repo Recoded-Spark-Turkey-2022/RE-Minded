@@ -16,14 +16,13 @@ import GoogleLogo from './Images/GoogleLogo.svg';
 import { basicSchema } from '../../schemas/basicSchema';
 
 function SignUp() {
-  
   const navigate = useNavigate();
   const { t } = useTranslation();
-  
+
   const handleFormSubmit = (e) => {
     const register = async () => {
       try {
-        const {user} = await createUserWithEmailAndPassword(
+        const { user } = await createUserWithEmailAndPassword(
           auth,
           e.userEmail,
           e.userPassword
@@ -34,7 +33,7 @@ function SignUp() {
           email: e.userEmail,
           dayOfBirth: e.dayOfBirth,
           monthOfBirth: e.monthOfBirth,
-          yearOfBirth: e.yearOfBirth
+          yearOfBirth: e.yearOfBirth,
         });
         await sendEmailVerification(auth.currentUser);
         navigate('/');
@@ -43,13 +42,12 @@ function SignUp() {
         if (error.message === 'Firebase: Error (auth/email-already-in-use).') {
           // eslint-disable-next-line no-alert
           alert('The same email is used, try another one');
-
         }
         return error;
       }
     };
     register();
-    navigate("/")
+    navigate('/');
   };
 
   const { values, errors, touched, handleChange, handleBlur, handleSubmit } =

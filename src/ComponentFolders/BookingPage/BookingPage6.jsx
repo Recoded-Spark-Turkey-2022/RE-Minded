@@ -6,6 +6,7 @@ import Card1 from './Card';
 function BookingPage6() {
   const [value, setValue] = useState('');
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   function handleTextareaChange(event) {
     setValue(event.target.value);
@@ -19,16 +20,11 @@ function BookingPage6() {
       alert('Warning: Textarea should not be left empty!');
     }
   }
-  
-  const { t } = useTranslation();
 
   return (
     <div>
       <div className="flex flex-col items-center p-12">
-        <Card1
-          header={t('booking6.header')}
-          content={t('booking6.content')}
-        />
+        <Card1 header={t('booking6.header')} content={t('booking6.content')} />
 
         <textarea
           onChange={handleTextareaChange}

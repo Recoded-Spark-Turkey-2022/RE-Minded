@@ -24,7 +24,7 @@ function AddCard() {
   const auth = getAuth();
   const user = auth.currentUser;
   const currentUser = useSelector((state) => state.currentUser.user);
-  const userCollectionRef = collection(db, 'Users', user.uid , 'credit-cards');
+  const userCollectionRef = collection(db, 'Users', user.uid, 'credit-cards');
 
   function handleButtonClick(e) {
     if (selected === e.target.value) {
@@ -87,7 +87,7 @@ function AddCard() {
       // eslint-disable-next-line no-alert
       alert('Please fill in all fields before submitting!');
     } else {
-    setDoc(
+      setDoc(
         doc(userCollectionRef),
         {
           cardNumber: formik.values.cardNumber,

@@ -28,13 +28,13 @@ function TherapistCreatePage() {
   const formOptions = { resolver: yupResolver(yupValidation) };
   const { register, handleSubmit, formState } = useForm(formOptions);
   const { errors } = formState;
+  const { t } = useTranslation();
+
   function onSubmit(data) {
-    (JSON.stringify(data, null, 4));
+    JSON.stringify(data, null, 4);
     navigate('/thankyou', { replace: true, state: thanksProps });
     return false;
   }
-
-  const { t } = useTranslation();
 
   return (
     <div className=" font-poppins flex flex-col justify-center content-center lg:ml-56 lg:mr-64 ml-10 mr-10 sm:ml-16 sm:mr-16 md:ml-32 md:mr-32 lg:mt-10 mt-20">

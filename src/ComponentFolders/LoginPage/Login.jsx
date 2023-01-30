@@ -8,7 +8,6 @@ import FacebookLogo from './Images/FacebookLogo.svg';
 import GoogleLogo from './Images/GoogleLogo.svg';
 import { signInWithGoogle, signInWithFacebook, auth } from '../../Firebase';
 
-
 function Login() {
   const navigate = useNavigate();
   const { t } = useTranslation();

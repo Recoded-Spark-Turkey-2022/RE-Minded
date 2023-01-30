@@ -32,7 +32,7 @@ function ProfilePage() {
 
   useEffect(() => {
     const fetchData = async () => {
-      const collectionRef = collection(db, 'Users', user.uid ,'Profile-input');
+      const collectionRef = collection(db, 'Users', user.uid, 'Profile-input');
       const querySnapshot = await getDocs(collectionRef);
       const dataInfo = querySnapshot.docs.map((docu) => ({
         id: docu.id,

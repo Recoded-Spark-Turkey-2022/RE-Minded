@@ -7,6 +7,7 @@ import Card from './Card';
 function BookingPage3() {
   const [selected, setSelected] = useState('');
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   function handleButtonClick(e) {
     if (selected === e.target.value) {
@@ -25,17 +26,12 @@ function BookingPage3() {
     }
   }
 
-  const { t } = useTranslation();
-
   return (
     <div className="flex flex-col items-center p-12">
-      <Card
-        header={t('booking.header')}
-        content={t('booking.content')}
-      />
+      <Card header={t('booking.header')} content={t('booking.content')} />
       <div className="font-poppins shadow-zinc-300 flex flex-col w-full md:max-w-2xl lg:max-w-4xl my-16 mx-auto px-8 py-4 shadow-md">
         <h1 className="text-xl pb-6 md:text-2xl lg:text-3xl lg:flex justify-center mt-4">
-        {t('booking3.h1')}
+          {t('booking3.h1')}
         </h1>
         <form>
           <button

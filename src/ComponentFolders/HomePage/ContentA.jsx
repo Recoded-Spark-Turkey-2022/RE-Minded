@@ -8,6 +8,7 @@ import Sofa from './Images/ContentAsofa.svg';
 function ContentA() {
   const loginState = useSelector((state) => state.loginStateHolderSlice);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   function clickHolder(state) {
     if (state) {
@@ -17,8 +18,6 @@ function ContentA() {
       alert('We need you to login to continue.');
     }
   }
-
-  const { t } = useTranslation();
 
   return (
     <div

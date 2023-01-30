@@ -30,10 +30,10 @@ const ContactPageMain = () => {
       details.length > 0 ||
       radio.length > 0
     ) {
-     navigate('/thankyou', { replace: true, state: thanksProps });
+      navigate('/thankyou', { replace: true, state: thanksProps });
     }
   };
-    const { t } = useTranslation();
+  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col w-screen pb-24 font-poppins">
@@ -41,16 +41,14 @@ const ContactPageMain = () => {
         <div className="lg:text-5xl md:text-3xl text-2xl leading-6 lg:mt-20 mt-14">
           <h1>{t('contact.h1')}</h1>
           <div className="w-full lg:text-2xl text-lg leading-8 mt-4 lg:ml-0 lg:mr-0 text-SubTexts">
-            <h3>
-            {t('contact.t1')}
-            </h3>
+            <h3>{t('contact.t1')}</h3>
           </div>
         </div>
       </div>
       <div className="flex lg:flex-row flex-col lg:ml-28 ">
         <div className="basis-1/2 mt-4">
           <h3 className="lg:text-xl text-lg lg:mt-10 mt-8 lg:ml-0 ml-4 lg:mr-0 font-semibold">
-          {t('contact.h2')}
+            {t('contact.h2')}
           </h3>
           <ul className="text-sm font-medium mt-4 lg:text-xl lg:mt-5 lg:ml-2 ml-4 lg:mr-0">
             <li className="w-full">
@@ -65,9 +63,7 @@ const ContactPageMain = () => {
                   name="list-radio"
                   className="w-4 h-4"
                 />
-                <span className="ml-2">
-                {t('contact.r1')}
-                </span>
+                <span className="ml-2">{t('contact.r1')}</span>
               </label>
             </li>
             <li className="w-full">
@@ -82,9 +78,7 @@ const ContactPageMain = () => {
                   name="list-radio"
                   className="w-4 h-4"
                 />
-                <span className="ml-2">
-                {t('contact.r2')}
-                </span>
+                <span className="ml-2">{t('contact.r2')}</span>
               </label>
             </li>
             <li className="w-full">
@@ -99,9 +93,7 @@ const ContactPageMain = () => {
                   name="list-radio"
                   className="w-4 h-4"
                 />
-                <span className="ml-2">
-                {t('contact.r3')}
-                </span>
+                <span className="ml-2">{t('contact.r3')}</span>
               </label>
             </li>
             <li className="w-full">
@@ -116,9 +108,7 @@ const ContactPageMain = () => {
                   name="list-radio"
                   className="w-4 h-4"
                 />
-                <span className="ml-2">
-                {t('contact.r4')}
-                </span>
+                <span className="ml-2">{t('contact.r4')}</span>
               </label>
             </li>
             <li className="w-full">
@@ -148,9 +138,7 @@ const ContactPageMain = () => {
                   name="list-radio"
                   className="w-4 h-4"
                 />
-                <span className="ml-2">
-                {t('contact.r6')}
-                </span>
+                <span className="ml-2">{t('contact.r6')}</span>
               </label>
             </li>
             <li className="w-full">
@@ -310,7 +298,9 @@ const ContactPageMain = () => {
                         border-[#0000001F]
                         drop-shadow-lg"
               >
-                <h3 className="font-medium text-lg mb-3">{t('contact.findus')}</h3>
+                <h3 className="font-medium text-lg mb-3">
+                  {t('contact.findus')}
+                </h3>
                 <p className="text-[#0000008A] font-medium text-lg">
                   {' '}
                   {t('contact.a1')}{' '}

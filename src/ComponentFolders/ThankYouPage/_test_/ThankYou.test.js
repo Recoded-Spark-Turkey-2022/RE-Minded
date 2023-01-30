@@ -2,7 +2,6 @@
 // import renderer from "react-test-renderer"
 // import ThankYou from "../ThankYou";
 
-
 // test('Thank You Page snapshot test', () => {
 
 //     const component = renderer.create(<ThankYou />)

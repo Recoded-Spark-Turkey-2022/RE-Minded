@@ -2,7 +2,6 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 
 function ContentB() {
-
   const { t } = useTranslation();
 
   return (
@@ -11,7 +10,7 @@ function ContentB() {
         <h1>{t('careersb.h1')}</h1>
       </div>
       <div className="lg:text-lg text-base leading-6 mt-6 lg:ml-28 ml-10 lg:mr-52 md:mr-20 mr-10 mb-8">
-      {t('careersb.t1')}
+        {t('careersb.t1')}
       </div>
     </div>
   );

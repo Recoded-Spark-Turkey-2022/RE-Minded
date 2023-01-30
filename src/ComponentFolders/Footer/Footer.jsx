@@ -21,7 +21,6 @@ function Footer() {
   const navigate = useNavigate();
   const [emailArray, setArray] = useState([]);
   const { t } = useTranslation();
- 
 
   const sendEmail = () => {
     emailjs

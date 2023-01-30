@@ -1,7 +1,6 @@
 import React from 'react';
-import { useSelector } from "react-redux";
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
-
 
 function Card({
   image,
@@ -18,12 +17,12 @@ function Card({
   const loginState = useSelector((state) => state.loginStateHolderSlice);
   const navigate = useNavigate();
 
-  function clickHolder(state, passedPrice){
-    if(state){
-      navigate("ticketpurchase", {state: passedPrice})
-    }else{
+  function clickHolder(state, passedPrice) {
+    if (state) {
+      navigate('ticketpurchase', { state: passedPrice });
+    } else {
       // eslint-disable-next-line no-alert
-      alert("We need you to login to continue.")
+      alert('We need you to login to continue.');
     }
   }
 
@@ -43,13 +42,13 @@ function Card({
         {price}
       </h2>
       {buttonPreview && (
-          <button
+        <button
           onClick={() => clickHolder(loginState, price)}
-            type="button"
-            className="font-poppins rounded-md box-border p-2 mb-4 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
-          >
-            {button}
-          </button>
+          type="button"
+          className="font-poppins rounded-md box-border p-2 mb-4 transition-all duration-250 bg-cyan-400 hover:bg-cyan-500"
+        >
+          {button}
+        </button>
       )}
     </div>
   );

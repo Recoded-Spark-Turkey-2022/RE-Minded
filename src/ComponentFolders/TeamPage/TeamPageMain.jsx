@@ -20,7 +20,6 @@ const jobs = ['Lead Engineer', 'Frontend Developer'];
 const photos = [menar, sohail, seyma, selvi, ammar];
 
 function TeamPageMain() {
-
   const { t } = useTranslation();
 
   return (

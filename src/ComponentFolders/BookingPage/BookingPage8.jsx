@@ -4,21 +4,17 @@ import { useTranslation } from 'react-i18next';
 import Card from './Card';
 
 function BookingPage8() {
-
   const { t } = useTranslation();
 
   return (
     <div className="flex flex-col  p-24">
-      <Card
-        header={t('booking8.header')}
-        content={t('booking8.content')}
-      />
+      <Card header={t('booking8.header')} content={t('booking8.content')} />
       <div className="font-poppins shadow-zinc-300 flex flex-col items-center my-16 mx-auto px-16 py-24 shadow-md">
         <h1 className="text-xl pb-12 md:text-2xl lg:text-3xl lg:flex justify-center">
-        {t('booking8.h1')}
+          {t('booking8.h1')}
         </h1>
         <h2 className="text-md pb-10 md:text-lg lg:text-xl lg:flex justify-center">
-        {t('booking8.h2')}
+          {t('booking8.h2')}
         </h2>
         <div className="flex justify-center">
           <Link to="/">

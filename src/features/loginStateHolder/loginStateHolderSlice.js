@@ -17,6 +17,6 @@ export const loginStateHolderSlice = createSlice({
   },
 });
 
-export const { setLoginState,setLogoutState } = loginStateHolderSlice.actions;
+export const { setLoginState, setLogoutState } = loginStateHolderSlice.actions;
 
 export default loginStateHolderSlice.reducer;

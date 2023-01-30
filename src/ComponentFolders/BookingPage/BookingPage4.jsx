@@ -5,6 +5,7 @@ import Card1 from './Card';
 // import ChoicesB from './QuestionChoicesB';
 
 function BookingPage4() {
+  const { t } = useTranslation();
   const [checkboxes, setCheckboxes] = useState({
     option1: false,
     option2: false,
@@ -29,18 +30,13 @@ function BookingPage4() {
       alert('Please select at least one!');
     }
   }
-  
-  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col items-center p-12">
-      <Card1
-        header={t('booking.header')}
-        content={t('booking.content')}
-      />
+      <Card1 header={t('booking.header')} content={t('booking.content')} />
       <div className="font-poppins shadow-zinc-300 flex flex-col w-full md:max-w-2xl lg:max-w-4xl my-16 mx-auto px-8 py-4 shadow-md">
         <h1 className="text-xl pb-6 md:text-2xl lg:text-3xl lg:flex justify-center mt-4">
-        {t('booking4.h1')}
+          {t('booking4.h1')}
         </h1>
         <form className="flex flex-col pl-6 text-md md:text-lg  lg:text-xl">
           <label htmlFor="one">

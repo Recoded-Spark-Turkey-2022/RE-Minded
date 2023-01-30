@@ -5,7 +5,6 @@ import { useTranslation } from 'react-i18next';
 const ThankYou = () => {
   const location = useLocation();
   const propsData = location.state;
-
   const { t } = useTranslation();
 
   return (
@@ -16,7 +15,7 @@ const ThankYou = () => {
         {propsData}
       </div>
 
-      <div className='mt-20 mb-40'>
+      <div className="mt-20 mb-40">
         <Link to="/">
           <button
             type="button"

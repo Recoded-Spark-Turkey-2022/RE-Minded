@@ -4,7 +4,6 @@ import { Link } from 'react-router-dom';
 import requirementPageImg from './Images/LaptopImage.svg';
 
 function Requirements() {
-
   const { t } = useTranslation();
 
   return (
@@ -15,34 +14,34 @@ function Requirements() {
         </div>
         <div>
           <h3 className="lg:text-xl text-lg lg:mt-10 mt-8 font-semibold">
-          {t('requirements.h2')}
+            {t('requirements.h2')}
           </h3>
           <div className="capitalize lg:text-lg text-base lg:mt-4 mt-2 text-gray-600">
-          {t('requirements.t1')}
+            {t('requirements.t1')}
           </div>
         </div>
 
         <div>
           <h3 className="lg:text-xl text-lg lg:mt-10 mt-8 font-semibold">
-          {t('requirements.h3')}
+            {t('requirements.h3')}
           </h3>
           <div className="capitalize lg:text-lg text-base lg:mt-4 mt-2 text-gray-600">
-          {t('requirements.t2')}
+            {t('requirements.t2')}
           </div>
         </div>
 
         <div>
           <h3 className="lg:text-xl text-lg lg:mt-10 mt-8 font-semibold">
-          {t('requirements.h3')}
+            {t('requirements.h3')}
           </h3>
           <div className="capitalize lg:text-lg text-base lg:mt-4 mt-2 text-gray-600">
-          {t('requirements.t2')}
+            {t('requirements.t2')}
           </div>
         </div>
 
         <div>
           <h1 className="lg:text-3xl text-2xl lg:mt-20 mt-16 font-semibold">
-          {t('requirements.r1')}
+            {t('requirements.r1')}
           </h1>
           <div className="capitalize lg:text-lg text-base mt-4 text-gray-600 ml-6">
             <ul className="list-disc marker:text-black lg:eading-9 leading-6">

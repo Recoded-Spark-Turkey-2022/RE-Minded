@@ -7,6 +7,7 @@ import Card from './Card';
 function BookingPage1() {
   const [selected, setSelected] = useState('');
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   function handleButtonClick(e) {
     if (selected === e.target.value) {
@@ -24,8 +25,6 @@ function BookingPage1() {
       navigate('/booking2');
     }
   }
-
-  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col items-center p-12">
