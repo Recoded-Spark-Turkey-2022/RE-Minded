@@ -1,5 +1,6 @@
 import { React, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
+import { getAuth } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 import { getDocs, collection } from 'firebase/firestore';
 import { db } from '../../Firebase';
@@ -7,11 +8,19 @@ import CreditCard from './CreditCard';
 
 function savedCardPage() {
   const [data, setData] = useState([]);
+  const auth = getAuth();
+  const user = auth.currentUser;
+  const { t } = useTranslation();
 
   useEffect(() => {
     const fetchData = async () => {
-      const collectionRef = collection(db, 'credit-cards');
-      const querySnapshot = await getDocs(collectionRef);
+      const userCollectionRef = collection(
+        db,
+        'Users',
+        user.uid,
+        'credit-cards'
+      );
+      const querySnapshot = await getDocs(userCollectionRef);
       const dataInfo = querySnapshot.docs.map((docu) => ({
         id: docu.id,
         data: docu.data(),
@@ -20,8 +29,6 @@ function savedCardPage() {
     };
     fetchData();
   }, ['credit-cards']);
-
-  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col font-poppins lg:mt-20 mt-10 mb-32">

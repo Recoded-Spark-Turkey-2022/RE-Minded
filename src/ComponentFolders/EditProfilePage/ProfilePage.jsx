@@ -1,7 +1,8 @@
 import { React, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getDocs, collection } from 'firebase/firestore';
+import { getAuth } from 'firebase/auth';
+import { getDocs, doc } from 'firebase/firestore';
 import { ref, getDownloadURL } from 'firebase/storage';
 import { db, storage } from '../../Firebase';
 import profileIcon from './Images/profileIcon.svg';
@@ -10,6 +11,8 @@ function ProfilePage() {
   const [data, setData] = useState([]);
   const currentUser = useSelector((state) => state.currentUser.user);
   const [url, setUrl] = useState(null);
+  const auth = getAuth();
+  const user = auth.currentUser;
 
   useEffect(() => {
     if (currentUser) {
@@ -27,18 +30,24 @@ function ProfilePage() {
     }
   }, [currentUser]);
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const collectionRef = collection(db, 'Profile-input');
-      const querySnapshot = await getDocs(collectionRef);
-      const dataInfo = querySnapshot.docs.map((docu) => ({
-        id: docu.id,
-        data: docu.data(),
-      }));
-      setData(dataInfo);
-    };
-    fetchData();
-  }, ['Profile-input']);
+   useEffect(() => {
+     const fetchData = async () => {
+       const userCollectionRef = doc(
+         db,
+         'Users',
+         user.uid,
+         'Profile-input',
+         user.uid
+       );
+       const querySnapshot = await getDocs(userCollectionRef);
+       const dataInfo = querySnapshot.docs.map((docu) => ({
+         id: docu.id,
+         data: docu.data(),
+       }));
+       setData(dataInfo);
+     };
+     fetchData();
+   }, ['Profile-input']);
 
   return (
     <form className="flex flex-col font-poppins lg:items-center pt-12">
