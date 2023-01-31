@@ -11,9 +11,6 @@ const thanksProps =
   'You purchase has been submitted, you should receive an email with the receipt soon.';
 
 function TicketPurchasePage() {
-  // const [pinkCardBtn, setPink] = useState(false);
-  // const [blueCardBtn, setBlue] = useState(false);
-  // const [yellowCardBtn, setYellow] = useState(false);
   const [data, setData] = useState([]);
   const { t } = useTranslation();
 

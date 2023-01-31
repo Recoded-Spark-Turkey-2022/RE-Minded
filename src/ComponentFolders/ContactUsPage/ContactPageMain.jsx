@@ -13,6 +13,7 @@ const ContactPageMain = () => {
   const [radio, setRadio] = useState('');
   const [error, setError] = useState(false);
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const handelSubmit = (e) => {
     e.preventDefault();
@@ -33,7 +34,6 @@ const ContactPageMain = () => {
       navigate('/thankyou', { replace: true, state: thanksProps });
     }
   };
-  const { t } = useTranslation();
 
   return (
     <div className="flex flex-col w-screen pb-24 font-poppins">

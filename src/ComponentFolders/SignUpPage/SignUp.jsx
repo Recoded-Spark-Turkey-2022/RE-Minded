@@ -8,7 +8,6 @@ import {
 } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { signInWithGoogle, signInWithFacebook, auth, db } from '../../Firebase';
-
 import Image from './Images/SofaImage.svg';
 import lineImage from './Images/line.svg';
 import FacebookLogo from './Images/FacebookLogo.svg';

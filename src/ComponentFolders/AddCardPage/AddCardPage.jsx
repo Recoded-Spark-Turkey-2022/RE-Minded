@@ -2,13 +2,12 @@ import { React, useState, useMemo } from 'react';
 import { useNavigate } from 'react-router';
 import Select from 'react-select';
 import { useSelector } from 'react-redux';
-import { getAuth } from 'firebase/auth';
 import { useTranslation } from 'react-i18next';
 import countryList from 'react-select-country-list';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { doc, setDoc, collection } from 'firebase/firestore';
-import { db } from '../../Firebase';
+import { db, auth } from '../../Firebase';
 import Card1 from './Images/TopCard.svg';
 import Card2 from './Images/BottomCard.svg';
 
@@ -21,7 +20,6 @@ function AddCard() {
   const options = useMemo(() => countryList().getData(), []);
   const [selected, setSelected] = useState('');
   const { t } = useTranslation();
-  const auth = getAuth();
   const user = auth.currentUser;
   const currentUser = useSelector((state) => state.currentUser.user);
   const userCollectionRef = collection(db, 'Users', user.uid, 'credit-cards');

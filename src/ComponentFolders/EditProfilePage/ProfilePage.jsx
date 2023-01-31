@@ -1,17 +1,15 @@
 import { React, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
-import { getAuth } from 'firebase/auth';
 import { getDocs, collection } from 'firebase/firestore';
 import { ref, getDownloadURL } from 'firebase/storage';
-import { db, storage } from '../../Firebase';
+import { db, storage, auth } from '../../Firebase';
 import profileIcon from './Images/profileIcon.svg';
 
 function ProfilePage() {
   const [data, setData] = useState([]);
   const currentUser = useSelector((state) => state.currentUser.user);
   const [url, setUrl] = useState(null);
-  const auth = getAuth();
   const user = auth.currentUser;
 
   useEffect(() => {

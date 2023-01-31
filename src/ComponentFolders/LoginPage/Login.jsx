@@ -15,6 +15,7 @@ function Login() {
     userEmail: '',
     userPassword: '',
   });
+
   const login = (e) => {
     e.preventDefault();
     signInWithEmailAndPassword(
@@ -32,6 +33,7 @@ function Login() {
         alert('Try another email and password')
       );
   };
+
   function handleOnClick(e) {
     const { value, name } = e.target;
     return setLoginData((prevObj) => {
@@ -41,6 +43,7 @@ function Login() {
       };
     });
   }
+
   return (
     <div className="h-screen flex justify-center content-center md:flex-wrap max-[767px]:flex-wrap gap-x-20">
       <div>
