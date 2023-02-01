@@ -16,7 +16,6 @@ function SignUp() {
   const [emailArray, setArray] = useState([]);
   const { t } = useTranslation();
   const form = useRef();
-
   const navigate = useNavigate();
 
   const sendEmail = () => {
@@ -61,7 +60,6 @@ function SignUp() {
         const newArr = [];
         emailArray.map((data) => newArr.push(data.data.email));
         const result = newArr.includes(formik.values.email);
-        // console.log(result)
         if (result === false) {
           sendEmail();
           addDoc(

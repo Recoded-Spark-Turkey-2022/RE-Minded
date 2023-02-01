@@ -8,7 +8,6 @@ import {
 } from 'firebase/auth';
 import { doc, setDoc } from 'firebase/firestore';
 import { signInWithGoogle, signInWithFacebook, auth, db } from '../../Firebase';
-
 import Image from './Images/SofaImage.svg';
 import lineImage from './Images/line.svg';
 import FacebookLogo from './Images/FacebookLogo.svg';
@@ -16,6 +15,7 @@ import GoogleLogo from './Images/GoogleLogo.svg';
 import { basicSchema } from '../../schemas/basicSchema';
 
 function SignUp() {
+  window.scrollTo(0, 0);
   const navigate = useNavigate();
   const { t } = useTranslation();
 

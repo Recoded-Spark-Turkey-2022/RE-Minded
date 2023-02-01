@@ -2,9 +2,9 @@ import { React, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Card from './Card';
-// import ChoicesA from './QuestionChoicesA';
 
 function BookingPage3() {
+  window.scrollTo(0, 0);
   const [selected, setSelected] = useState('');
   const navigate = useNavigate();
   const { t } = useTranslation();

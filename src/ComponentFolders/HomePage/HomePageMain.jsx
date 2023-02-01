@@ -6,6 +6,7 @@ import ContentD from './ContentD';
 import ContentE from './ContentE';
 
 function HomePageMain() {
+  window.scrollTo(0, 0);
   return (
     <>
       <ContentA />

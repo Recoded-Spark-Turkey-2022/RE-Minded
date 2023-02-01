@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import { useNavigate } from 'react-router';
 import { useSelector } from 'react-redux';
 import {
-  getAuth,
   //   // updateEmail,
   //   // updatePassword,
   deleteUser,
@@ -10,14 +9,16 @@ import {
 import { doc, setDoc } from 'firebase/firestore';
 import { ref, uploadBytes, getDownloadURL } from 'firebase/storage';
 import { useTranslation } from 'react-i18next';
-import { db, storage } from '../../Firebase';
+import { db, storage, auth } from '../../Firebase';
 import profileIcon from './Images/profileIcon.svg';
 import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
 
 function EditProfileMain({ handleSignout }) {
+  window.scrollTo(0, 0);
   const { t } = useTranslation();
   const navigate = useNavigate();
+  const user = auth.currentUser;
   const currentUser = useSelector((state) => state.currentUser.user);
   const [url, setUrl] = useState(null);
   const [uploadID, setUploadID] = useState(null);
@@ -57,8 +58,6 @@ function EditProfileMain({ handleSignout }) {
       getDownloadURL(imageRef).then((imageUrl) => setUrl(imageUrl));
     });
 
-    const auth = getAuth();
-    const user = auth.currentUser;
     await setDoc(
       doc(db, 'Users', user.uid, 'Profile-input', user.uid),
       {
@@ -82,8 +81,6 @@ function EditProfileMain({ handleSignout }) {
       // eslint-disable-next-line no-alert
       window.confirm('Are you sure you want to deactivate your account?');
     if (confirmed) {
-      const auth = getAuth();
-      const user = auth.currentUser;
       deleteUser(user)
         .then(() => {
           // User deleted.

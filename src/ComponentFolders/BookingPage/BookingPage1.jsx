@@ -5,6 +5,7 @@ import Card from './Card';
 // import ChoicesA from './QuestionChoicesA';
 
 function BookingPage1() {
+  window.scrollTo(0, 0);
   const [selected, setSelected] = useState('');
   const navigate = useNavigate();
   const { t } = useTranslation();

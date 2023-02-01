@@ -1,14 +1,13 @@
 import { React, useEffect, useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import { getAuth } from 'firebase/auth';
 import { Link } from 'react-router-dom';
 import { getDocs, collection } from 'firebase/firestore';
-import { db } from '../../Firebase';
+import { db, auth } from '../../Firebase';
 import CreditCard from './CreditCard';
 
 function savedCardPage() {
+  window.scrollTo(0, 0);
   const [data, setData] = useState([]);
-  const auth = getAuth();
   const user = auth.currentUser;
   const { t } = useTranslation();
 

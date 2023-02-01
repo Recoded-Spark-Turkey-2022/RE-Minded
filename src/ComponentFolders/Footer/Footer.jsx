@@ -6,7 +6,6 @@ import { useTranslation } from 'react-i18next';
 import { addDoc, collection, getDocs } from 'firebase/firestore';
 import emailjs from '@emailjs/browser';
 import { db } from '../../Firebase';
-
 import image1 from './Images/FacebookLogo.svg';
 import image2 from './Images/GoogleLogo.svg';
 import image3 from './Images/TwitterLogo.svg';

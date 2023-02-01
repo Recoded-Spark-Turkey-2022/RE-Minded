@@ -2,9 +2,9 @@ import { React, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import Card1 from './Card';
-// import ChoicesB from './QuestionChoicesB';
 
 function BookingPage4() {
+  window.scrollTo(0, 0);
   const { t } = useTranslation();
   const [checkboxes, setCheckboxes] = useState({
     option1: false,
