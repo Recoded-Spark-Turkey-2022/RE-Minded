@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { useLocation, Link } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 import { getDocs, collection } from 'firebase/firestore';
-import { db } from '../../Firebase';
+import { db,auth } from '../../Firebase';
 import CreditCard from '../SavedCardsPage/CreditCard';
 
 let ticket;
@@ -14,17 +14,26 @@ function TicketPurchasePage() {
   window.scrollTo(0, 0);
   const [data, setData] = useState([]);
   const { t } = useTranslation();
+  const user = auth.currentUser;
 
   useEffect(() => {
     const fetchData = async () => {
-      const collectionRef = collection(db, 'credit-cards');
-      const querySnapshot = await getDocs(collectionRef);
-      const dataInfo = querySnapshot.docs.map((doc) => doc.data());
+      const userCollectionRef = collection(
+        db,
+        'Users',
+        user.uid,
+        'credit-cards'
+      );
+      const querySnapshot = await getDocs(userCollectionRef);
+      const dataInfo = querySnapshot.docs.map((docu) => ({
+        id: docu.id,
+        data: docu.data(),
+      }));
       setData(dataInfo);
     };
-
     fetchData();
-  }, []);
+  }, ['credit-cards']);
+
 
   // function handleClick(e) {
   //   if(e ==="pink") {setPink(!pinkCardBtn); setBlue(false); setYellow(false)}
@@ -56,22 +65,28 @@ function TicketPurchasePage() {
         {t('purchase.t1')}
       </div>
       <div className="flex lg:flex-row md:flex-row flex-col self-center gap-3 lg:mt-20 mt-8 lg-ml-0 ml-10 lg:mr-0 mr-10">
-        <div id="slider" className="flex flex-col md:flex-row lg:flex-row ">
-          {data.length === 0 ? (
-            <div className="text-center text-sm md:text-2xl lg:text-3xl opacity-50 pt-24">
-              You have no saved cards
-            </div>
-          ) : (
-            data.map((card) => (
-              <CreditCard
-                nameOnCard={card.nameOnCard}
-                cardNumber={card.cardNumber}
-                expirationDate={card.expirationDate}
-                deleteCard="-"
-                previewButton
-              />
-            ))
-          )}
+        <div className="flex lg:flex-row md:flex-row flex-col self-center  lg:mt-20 mt-8 lg-ml-0  lg:mr-0 mr-10 ">
+          <div id="slider" className="flex flex-col md:flex-row lg:flex-row ">
+            {data.length === 0 ? (
+              <div className="text-center text-sm md:text-2xl lg:text-3xl opacity-50 pt-24">
+                You have no saved cards
+              </div>
+            ) : (
+              data.map((card) => (
+                <CreditCard
+                  key={card.data.index}
+                  id={card.id}
+                  nameOnCard={card.data.nameOnCard}
+                  cardNumber={card.data.cardNumber}
+                  expirationDate={card.data.expirationDate}
+                  deleteCard="-"
+                  previewButton
+                  setData={setData}
+                  data={data}
+                />
+              ))
+            )}
+          </div>
         </div>
         {/* <div className="flex lg:space-y-4 self-center">
           <img
