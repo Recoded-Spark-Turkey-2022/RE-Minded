@@ -17,7 +17,7 @@ function About() {
           {t('about.text1')}
         </div>
       </div>
-      <div className="flex items-center flex-grow flex-col lg:flex-row bg-cyan-50 w-full ">
+      <div className="flex items-center flex-grow flex-col lg:flex-row pb-16 bg-cyan-50 w-full ">
         <div className="self-center lg:ml-[10%] lg:mt-[0%] mt-[2%] pt-8 pb-8">
           <img
             src={aboutImg}
