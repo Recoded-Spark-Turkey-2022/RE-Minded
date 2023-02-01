@@ -3,6 +3,7 @@ import { Link, useLocation } from 'react-router-dom';
 import { useTranslation } from 'react-i18next';
 
 const ThankYou = () => {
+  window.scrollTo(0, 0);
   const location = useLocation();
   const propsData = location.state;
   const { t } = useTranslation();

@@ -6,6 +6,7 @@ import { db, auth } from '../../Firebase';
 import CreditCard from './CreditCard';
 
 function savedCardPage() {
+  window.scrollTo(0, 0);
   const [data, setData] = useState([]);
   const user = auth.currentUser;
   const { t } = useTranslation();

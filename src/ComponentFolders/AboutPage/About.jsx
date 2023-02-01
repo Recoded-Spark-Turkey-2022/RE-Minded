@@ -3,6 +3,7 @@ import { useTranslation } from 'react-i18next';
 import aboutImg from './Images/man.jpg';
 
 function About() {
+  window.scrollTo(0, 0);
   const { t } = useTranslation();
 
   return (

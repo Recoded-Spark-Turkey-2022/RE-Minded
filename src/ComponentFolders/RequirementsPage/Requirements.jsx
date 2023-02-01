@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 import requirementPageImg from './Images/LaptopImage.svg';
 
 function Requirements() {
+  window.scrollTo(0, 0);
   const { t } = useTranslation();
 
   return (

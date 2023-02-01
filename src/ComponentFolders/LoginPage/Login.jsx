@@ -9,6 +9,7 @@ import GoogleLogo from './Images/GoogleLogo.svg';
 import { signInWithGoogle, signInWithFacebook, auth } from '../../Firebase';
 
 function Login() {
+  window.scrollTo(0, 0);
   const navigate = useNavigate();
   const { t } = useTranslation();
   const [loginData, setLoginData] = useState({

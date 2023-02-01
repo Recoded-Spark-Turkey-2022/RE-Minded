@@ -4,6 +4,7 @@ import ContentB from './ContentB';
 import ContentC from './ContentC';
 
 function CareersPageMain() {
+  window.scrollTo(0, 0);
   return (
     <div className="  w-screen">
       <div className="flex flex-col font-poppins w-screen ">

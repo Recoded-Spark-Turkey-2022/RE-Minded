@@ -15,6 +15,7 @@ const thanksProps =
   'Your new payment method is under review, you will receive an email soon when your card is confirmed.Otherwise you will get a notification telling you what went wrong and how to add a new card.';
 
 function AddCard() {
+  window.scrollTo(0, 0);
   const navigate = useNavigate();
   const [value, setValue] = useState('');
   const options = useMemo(() => countryList().getData(), []);

@@ -15,6 +15,7 @@ import GoogleLogo from './Images/GoogleLogo.svg';
 import { basicSchema } from '../../schemas/basicSchema';
 
 function SignUp() {
+  window.scrollTo(0, 0);
   const navigate = useNavigate();
   const { t } = useTranslation();
 

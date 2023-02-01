@@ -7,6 +7,7 @@ const thanksProps =
   'Your request has been sent, a member of the support team will get in contact with you through the email you provided as soon as possible.';
 
 const ContactPageMain = () => {
+  window.scrollTo(0, 0);
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [details, setDetails] = useState('');

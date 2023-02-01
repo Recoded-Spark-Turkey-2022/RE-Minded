@@ -7,6 +7,7 @@ import { db, storage, auth } from '../../Firebase';
 import profileIcon from './Images/profileIcon.svg';
 
 function ProfilePage() {
+  window.scrollTo(0, 0);
   const [data, setData] = useState([]);
   const currentUser = useSelector((state) => state.currentUser.user);
   const [url, setUrl] = useState(null);

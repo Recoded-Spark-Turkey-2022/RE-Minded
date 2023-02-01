@@ -9,6 +9,7 @@ const thanksProps =
   'Thank you for your interest in working with Healing, we have recieved your application.You will receive an email guiding you for the next steps soon after your information is reviewed .';
 
 function TherapistCreatePage() {
+  window.scrollTo(0, 0);
   const navigate = useNavigate();
 
   const yupValidation = Yup.object().shape({

@@ -15,6 +15,7 @@ import plusIcon from './Images/PlusIcon.svg';
 import passwordIcon from './Images/PasswordIcon.svg';
 
 function EditProfileMain({ handleSignout }) {
+  window.scrollTo(0, 0);
   const { t } = useTranslation();
   const navigate = useNavigate();
   const user = auth.currentUser;

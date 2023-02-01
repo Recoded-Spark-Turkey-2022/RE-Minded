@@ -4,6 +4,7 @@ import { useTranslation } from 'react-i18next';
 import Card1 from './Card';
 
 function BookingPage6() {
+  window.scrollTo(0, 0);
   const [value, setValue] = useState('');
   const navigate = useNavigate();
   const { t } = useTranslation();
