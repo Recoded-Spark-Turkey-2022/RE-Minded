@@ -14,14 +14,15 @@ import { getStorage } from 'firebase/storage';
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: 'AIzaSyBpt6i88789JQrTBMidbzngKMoycRQ5Ddo',
-  authDomain: 'tryingagain-9dcd3.firebaseapp.com',
-  projectId: 'tryingagain-9dcd3',
-  storageBucket: 'tryingagain-9dcd3.appspot.com',
-  messagingSenderId: '396924148778',
-  appId: '1:396924148778:web:63441b3fee19508bf8f753',
-  measurementId: 'G-D8H1FZJ9RZ',
+  apiKey: 'AIzaSyAI7YwvRhhF8t7BFEHSG9bOtm7a9F3ifLc',
+  authDomain: 're-minded-fac50.firebaseapp.com',
+  projectId: 're-minded-fac50',
+  storageBucket: 're-minded-fac50.appspot.com',
+  messagingSenderId: '241987380600',
+  appId: '1:241987380600:web:f37e04f7ce7a8482e5548d',
+  measurementId: 'G-XEH56M2D5Y',
 };
+
 // Initialize Firebase
 export const app = initializeApp(firebaseConfig);
 export const auth = getAuth();
